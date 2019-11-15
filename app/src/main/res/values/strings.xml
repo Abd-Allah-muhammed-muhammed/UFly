@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">UFly</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+
+    <string name="world_travel">World Travel</string>
+    <string name="world_travel_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again">Play Again</string>
+    <string name="safety">we want you to be sure that   </string>
+    <string name="login_into_n_your_account">Login into\nyour account</string>
+    <string name="your_phone">Your Phone</string>
+    <string name="your_password">Your Password</string>
+    <string name="forget_password">Forget Password ?</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="creat_acc">Create your \n account</string>
+
+</resources>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="299" height="299" viewBox="0 0 299 299">
+  <defs>
+    <filter id="Ellipse_13" x="0" y="0" width="299" height="299" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#fbc83c"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="logo" transform="translate(-22 -107)">
+    <g transform="matrix(1, 0, 0, 1, 22, 107)" filter="url(#Ellipse_13)">
+      <circle id="Ellipse_13-2" data-name="Ellipse 13" cx="140.5" cy="140.5" r="140.5" transform="translate(6 3)" fill="#1d3c45"/>
+    </g>
+    <g id="logo-2" data-name="logo" transform="translate(113.306 144.57)">
+      <path id="Path_1" data-name="Path 1" d="M72.032,84.692c-7.307,14.526-5.978,72.632,0,103.579S91.446,211.12,91.446,211.12s28.079-13.376,41.7-11.481,6.975,12.316,17.27,16.421,19.315-14.791,19.315-14.791,1.182-1.213,14.2-33.932c27.628-70.418,3.819-17.992,8.442-25.905,26.57-45.474-22.64-55.824-28.67-39.056s5.388,16,3.727,39.056S165.69,170.9,150.412,176.9s-42.179,5.368-54.468-6.316,24.577-75.79,18.6-97.264S79.338,70.165,72.032,84.692Z" transform="translate(-67.038 -63.497)" fill="#fbc83c"/>
+      <text id="fly" transform="translate(16.694 194.43)" fill="#e8e8ea" font-size="65" font-family="SegoeScript, Segoe Script"><tspan x="0" y="0">fly</tspan></text>
+    </g>
+  </g>
+</svg>
