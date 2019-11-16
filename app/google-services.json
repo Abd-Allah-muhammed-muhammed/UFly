@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "895282949684",
+    "firebase_url": "https://ufly-13264.firebaseio.com",
+    "project_id": "ufly-13264",
+    "storage_bucket": "ufly-13264.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895282949684:android:bae49a4758e7ff7690a461",
+        "android_client_info": {
+          "package_name": "com.abdallah.ufly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895282949684-u7b87f86f0n05q899pvaadsvtvp7un1t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abdallah.ufly",
+            "certificate_hash": "631fd242a2749cb5e3cbad1828e3d8d9c8eb657d"
+          }
+        },
+        {
+          "client_id": "895282949684-skh6goq86hm356r0jiof7l7d9mq6g7sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr5_T0SysF9PrPA6JYqU_irgImibKz3Cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895282949684-skh6goq86hm356r0jiof7l7d9mq6g7sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

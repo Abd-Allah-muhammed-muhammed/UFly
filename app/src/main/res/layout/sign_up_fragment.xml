@@ -6,9 +6,6 @@
 
     <data>
 
-        <variable
-            name="sign_up"
-            type="com.abdallah.ufly.registration.sign_up.SignUpViewModel" />
 
     </data>
 
@@ -38,6 +35,193 @@
             android:text="@string/creat_acc"
             android:textColor="@color/white"
             android:textSize="21sp" />
+
+
+
+        <EditText
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/_18"
+            android:textColorHint="@color/white"
+            android:hint="Your Full Name"
+            android:id="@+id/et_name"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_marginTop="@dimen/_24"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_name"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/logo_dark_small"
+            android:layout_height="@dimen/_40"/>
+
+        <TextView
+            android:id="@+id/view_name"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+
+
+        <EditText
+            android:inputType="textPostalAddress"
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/_18"
+            android:textColorHint="@color/white"
+            android:hint="@string/your_address"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/et_address"
+            android:layout_marginTop="@dimen/_24"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_mail"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/et_name"
+            android:layout_height="@dimen/_40"/>
+
+        <TextView
+            android:id="@+id/view_address"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+
+
+
+
+
+        <EditText
+            android:inputType="phone"
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/_18"
+            android:textColorHint="@color/white"
+            android:hint="@string/your_phone"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/et_phone"
+            android:layout_marginTop="@dimen/_24"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_phone"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/et_address"
+            android:layout_height="@dimen/_40"/>
+
+        <TextView
+            android:id="@+id/view_phone"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/et_mail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40"
+            android:layout_below="@+id/et_phone"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_mail"
+            android:drawablePadding="@dimen/_18"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="@string/your_mail"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <TextView
+            android:id="@+id/view_mail"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_mail"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+
+
+        <EditText
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/_18"
+            android:textColorHint="@color/white"
+            android:hint="@string/your_password"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/et_password"
+            android:layout_marginTop="@dimen/_24"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_password"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/et_mail"
+            android:layout_height="@dimen/_40"/>
+
+        <TextView
+            android:id="@+id/view_password"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+
+        <EditText
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:drawablePadding="@dimen/_18"
+            android:textColorHint="@color/white"
+            android:hint="@string/re_your_password"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/et_re_password"
+            android:layout_marginTop="@dimen/_24"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_password"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/et_password"
+            android:layout_height="@dimen/_40"/>
+
+        <TextView
+            android:id="@+id/view_re_password"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_below="@+id/et_re_password"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            />
+
+        <Button
+            android:id="@+id/btn_sign_up_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70"
+            android:layout_below="@+id/view_re_password"
+            android:layout_marginStart="@dimen/_30"
+            android:layout_marginTop="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:background="@drawable/custom_button_drawable"
+            android:text="@string/sign_up"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/_24_sp" />
 
     </RelativeLayout>
 

@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 
+
 public class SignUpFragment extends Fragment {
+
 
     private SignUpViewModel mViewModel;
 
@@ -33,6 +35,8 @@ public class SignUpFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
+
+
     }
 
 }

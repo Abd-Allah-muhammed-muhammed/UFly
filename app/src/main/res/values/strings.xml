@@ -12,10 +12,13 @@
     <string name="safety">we want you to be sure that   </string>
     <string name="login_into_n_your_account">Login into\nyour account</string>
     <string name="your_phone">Your Phone</string>
-    <string name="your_password">Your Password</string>
     <string name="forget_password">Forget Password ?</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="creat_acc">Create your \n account</string>
+    <string name="your_password">Your Password</string>
+    <string name="re_your_password">Re Your Password</string>
+    <string name="your_mail">Your Mail</string>
+    <string name="your_address">Your Address</string>
 
 </resources>
