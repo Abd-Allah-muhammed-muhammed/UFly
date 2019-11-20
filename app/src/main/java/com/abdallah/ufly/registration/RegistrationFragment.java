@@ -40,7 +40,6 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        fullScreen(getActivity());
         binding = DataBindingUtil.inflate(inflater, R.layout.registration_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(RegistrationViewModel.class);
