@@ -1,4 +1,4 @@
-package com.abdallah.ufly.registration;
+package com.abdallah.ufly.ui.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 

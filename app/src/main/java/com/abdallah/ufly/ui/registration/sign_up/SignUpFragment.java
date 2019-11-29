@@ -1,7 +1,6 @@
-package com.abdallah.ufly.registration.sign_up;
+package com.abdallah.ufly.ui.registration.sign_up;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -17,14 +16,12 @@ import android.view.ViewGroup;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.SignUpFragmentBinding;
 import com.abdallah.ufly.model.SignUp;
-import com.abdallah.ufly.registration.RegistrationViewModel;
 
 
 public class SignUpFragment extends Fragment {
 
 
     private SignUpViewModel mViewModel;
-    private SignUp signUp;
     SignUpFragmentBinding binding;
 
     public static SignUpFragment newInstance() {

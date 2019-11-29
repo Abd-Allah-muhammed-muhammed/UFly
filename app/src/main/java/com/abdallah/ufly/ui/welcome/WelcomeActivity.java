@@ -1,10 +1,10 @@
-package com.abdallah.ufly.welcome;
+package com.abdallah.ufly.ui.welcome;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
-import android.view.View;
+
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.WelcomeActivityBinding;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;

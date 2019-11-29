@@ -1,4 +1,4 @@
-package com.abdallah.ufly.welcome;
+package com.abdallah.ufly.ui.welcome;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.MyViewPagerAdapter;
-import com.abdallah.ufly.registration.RegistrationActivity;
+import com.abdallah.ufly.ui.registration.RegistrationActivity;
 
 public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChangeListener {
     Activity activity ;

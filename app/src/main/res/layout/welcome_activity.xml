@@ -9,7 +9,7 @@
 
         <variable
             name="welcome"
-            type="com.abdallah.ufly.welcome.WelcomeViewModel" />
+            type="com.abdallah.ufly.ui.welcome.WelcomeViewModel" />
 
     </data>
 

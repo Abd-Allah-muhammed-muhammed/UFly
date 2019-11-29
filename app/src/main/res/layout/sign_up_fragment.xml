@@ -8,7 +8,7 @@
 
         <variable
             name="sign"
-            type="com.abdallah.ufly.registration.sign_up.SignUpViewModel" />
+            type="com.abdallah.ufly.ui.registration.sign_up.SignUpViewModel" />
 
     </data>
 
@@ -42,7 +42,7 @@
 
 
         <EditText
-            android:text="@{sign.fullName}"
+            android:onTextChanged="@{sign.setFullName}"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
@@ -71,6 +71,7 @@
 
 
         <EditText
+            android:onTextChanged="@{sign.setAddress}"
             android:inputType="textPostalAddress"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -103,6 +104,7 @@
 
 
         <EditText
+            android:onTextChanged="@{sign.setPhone}"
             android:inputType="phone"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -131,6 +133,7 @@
 
 
         <EditText
+            android:onTextChanged="@{sign.setEmail}"
             android:inputType="textEmailAddress"
             android:id="@+id/et_mail"
             android:layout_width="match_parent"
@@ -161,6 +164,7 @@
 
 
         <EditText
+            android:onTextChanged="@{sign.setPassword}"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -189,11 +193,12 @@
 
 
         <EditText
+
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
-
+            android:onTextChanged="@{sign.setRePassword}"
             android:hint="@string/re_your_password"
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_re_password"
@@ -217,7 +222,7 @@
             />
 
         <Button
-            android:onClick="@{() -> sign.onClick()}"
+            android:onClick="@{(view) -> sign.onClick(view)}"
             android:id="@+id/btn_sign_up_2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_70"

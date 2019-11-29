@@ -1,4 +1,4 @@
-package com.abdallah.ufly.registration;
+package com.abdallah.ufly.ui.registration;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
@@ -14,16 +14,12 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
-import com.abdallah.ufly.model.Registration;
+import com.abdallah.ufly.model.Login;
 
 import java.util.Objects;
-
-import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
-import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 
 public class RegistrationFragment extends Fragment {
@@ -46,24 +42,24 @@ public class RegistrationFragment extends Fragment {
 
         binding.setRegistraion(mViewModel);
 
-        mViewModel.getUser().observe(this, new Observer<Registration>() {
+        mViewModel.getUser().observe(this, new Observer<Login>() {
             @Override
-            public void onChanged(Registration registration) {
+            public void onChanged(Login login) {
 
 
-                if (TextUtils.isEmpty(Objects.requireNonNull(registration).getPhone())) {
+                if (TextUtils.isEmpty(Objects.requireNonNull(login).getPhone())) {
                     binding.etPhone.setError("Enter a Phone Number");
                     binding.etPhone.requestFocus();
                 }
-                else if (!registration.isPHhoneValid()) {
+                else if (!login.isPHhoneValid()) {
                     binding.etPhone.setError("Enter a Valid Phone Number");
                     binding.etPhone.requestFocus();
                 }
-                else if (TextUtils.isEmpty(Objects.requireNonNull(registration).getPassword())) {
+                else if (TextUtils.isEmpty(Objects.requireNonNull(login).getPassword())) {
                     binding.etPassword.setError("Enter a Password");
                     binding.etPassword.requestFocus();
                 }
-                else if (!registration.isPasswordLengthGreaterThan5()) {
+                else if (!login.isPasswordLengthGreaterThan5()) {
                     binding.etPassword.setError("Enter at least 6 Digit password");
                     binding.etPassword.requestFocus();
                 }

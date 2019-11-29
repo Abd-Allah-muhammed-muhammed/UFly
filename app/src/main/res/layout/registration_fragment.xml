@@ -8,7 +8,7 @@
 
         <variable
             name="registraion"
-            type="com.abdallah.ufly.registration.RegistrationViewModel" />
+            type="com.abdallah.ufly.ui.registration.RegistrationViewModel" />
 
     </data>
 

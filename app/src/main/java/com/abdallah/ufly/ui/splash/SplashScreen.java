@@ -1,24 +1,11 @@
-package com.abdallah.ufly.splash;
+package com.abdallah.ufly.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import com.abdallah.ufly.R;
-import com.abdallah.ufly.welcome.WelcomeActivity;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import com.abdallah.ufly.ui.welcome.WelcomeActivity;
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 

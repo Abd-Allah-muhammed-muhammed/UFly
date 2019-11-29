@@ -3,8 +3,8 @@ package com.abdallah.ufly.model;
 
 import android.util.Patterns;
 
-public class Registration {
-    public Registration(String phone, String password) {
+public class Login {
+    public Login(String phone, String password) {
         this.phone = phone;
         this.password = password;
     }
