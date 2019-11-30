@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -109,7 +108,7 @@ public class SignUpViewModel extends ViewModel {
                 Toast.makeText(view.getContext(), "message is :"+message, Toast.LENGTH_SHORT).show();
 
 
-                if (response.body().getStuts()==0){
+                if (response.body().getStatus()==0){
 
                     Intent intent = new Intent(view.getContext(), SplashScreen.class);
 

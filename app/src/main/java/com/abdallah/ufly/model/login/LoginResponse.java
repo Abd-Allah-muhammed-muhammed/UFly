@@ -1,10 +1,10 @@
 
-package com.abdallah.ufly.model.registration;
+package com.abdallah.ufly.model.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RegistarResponse {
+public class LoginResponse {
 
     @SerializedName("status")
     @Expose
@@ -17,7 +17,7 @@ public class RegistarResponse {
     private String message;
     @SerializedName("data")
     @Expose
-    private DataResponse data;
+    private Data data;
 
     public Integer getStatus() {
         return status;
@@ -43,11 +43,11 @@ public class RegistarResponse {
         this.message = message;
     }
 
-    public DataResponse getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(DataResponse data) {
+    public void setData(Data data) {
         this.data = data;
     }
 
