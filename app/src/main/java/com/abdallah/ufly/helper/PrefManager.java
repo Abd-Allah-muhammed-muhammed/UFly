@@ -12,9 +12,9 @@ public class PrefManager {
         int PRIVATE_MODE = 0;
 
         // Shared preferences file name
-        private static final String PREF_NAME = "androidhive-welcome";
-
+        private static final String PREF_NAME = "ufly_abdalah";
         private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+        private static final String TOKEN = "token";
 
         public PrefManager(Context context) {
             this._context = context;
@@ -31,4 +31,17 @@ public class PrefManager {
             return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
         }
 
+
+        public void saveToken(String token){
+           editor.putString(TOKEN,token) ;
+           editor.commit();
+        }
+
+
+
+        public String getToken(){
+
+            return pref.getString(TOKEN,"");
+
+        }
     }

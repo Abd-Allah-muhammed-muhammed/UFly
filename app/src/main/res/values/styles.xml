@@ -12,6 +12,9 @@
 
         <item name="android:windowActivityTransitions">true</item>
 
+
+
+
     </style>
 
 
@@ -22,38 +25,55 @@
     </style>
 
 
-
     <style name="error">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#FFC107</item>
-<!--        <item name="stFont">@font/retrofont</item>-->
+        <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
         <item name="stColorBackground">#13272D</item>
-<!--        <item name="stSolidBackground">true</item>-->
-<!--        <item name="stStrokeWidth">3dp</item>-->
-<!--        <item name="stStrokeColor">#13272D</item>-->
+        <!--        <item name="stSolidBackground">true</item>-->
+        <!--        <item name="stStrokeWidth">3dp</item>-->
+        <!--        <item name="stStrokeColor">#13272D</item>-->
         <item name="stIconStart">@drawable/ic_error</item>
-<!--        <item name="stIconEnd">@drawable/ic_error</item>-->
-        <item name="stLength">LONG</item> LONG or SHORT
-        <item name="stGravity">top</item> top or center
+        <!--        <item name="stIconEnd">@drawable/ic_error</item>-->
+        <item name="stLength">LONG</item>
+        LONG or SHORT
+        <item name="stGravity">top</item>
+        top or center
         <item name="stRadius">10dp</item>
     </style>
 
 
     <style name="success">
-    <item name="stTextBold">true</item>
-    <item name="stTextColor">#FFC107</item>
-    <!--        <item name="stFont">@font/retrofont</item>-->
-    <item name="stTextSize">14sp</item>
-    <item name="stColorBackground">#13272D</item>
-<!--    <item name="stSolidBackground">true</item>-->
-    <item name="stStrokeWidth">3dp</item>
-<!--    <item name="stStrokeColor">#FFFFFF</item>-->
-    <item name="stIconStart">@drawable/ic_done</item>
-    <!--        <item name="stIconEnd">@drawable/ic_error</item>-->
-    <item name="stLength">LONG</item> LONG or SHORT
-    <item name="stGravity">top</item> top or center
-    <item name="stRadius">10dp</item>
-</style>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#FFC107</item>
+        <!--        <item name="stFont">@font/retrofont</item>-->
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#13272D</item>
+        <!--    <item name="stSolidBackground">true</item>-->
+        <item name="stStrokeWidth">3dp</item>
+        <!--    <item name="stStrokeColor">#FFFFFF</item>-->
+        <item name="stIconStart">@drawable/ic_done</item>
+        <!--        <item name="stIconEnd">@drawable/ic_error</item>-->
+        <item name="stLength">LONG</item>
+        LONG or SHORT
+        <item name="stGravity">top</item>
+        top or center
+        <item name="stRadius">10dp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 
 </resources>

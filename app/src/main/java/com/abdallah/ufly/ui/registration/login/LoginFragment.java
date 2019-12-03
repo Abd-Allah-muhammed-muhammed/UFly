@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.registration.login;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,9 @@ import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.login.LoginResponse;
+import com.abdallah.ufly.ui.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 
@@ -25,6 +28,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
     private LoginViewModel mViewModel;
     RegistrationFragmentBinding binding ;
 
+    PrefManager prefManager ;
     public static LoginFragment newInstance() {
         return new LoginFragment();
     }
@@ -40,6 +44,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
         binding.setRegistraion(mViewModel);
 
+        prefManager = new PrefManager(getContext());
 
         View view = binding.getRoot();
 
@@ -67,7 +72,10 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
     public void response(LoginResponse response) {
 
         if (response.getStatus()==0){
+
+            prefManager.saveToken(response.getData().getUuid());
             StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
+            startActivity(new Intent(getContext(), HomeActivity.class));
         }else {
 
 
