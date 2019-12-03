@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
 import com.abdallah.ufly.model.login.LoginResponse;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 
 public class LoginFragment extends Fragment implements LoginResultCallbacks{
@@ -50,19 +51,30 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
     @Override
     public void onError(String msg) {
-        Toast.makeText(getContext(), ""+msg, Toast.LENGTH_SHORT).show();
+        StyleableToast.makeText(getContext(), msg, Toast.LENGTH_LONG, R.style.error).show();
+
+
 
     }
 
     @Override
     public void status(Integer status) {
-        Toast.makeText(getContext(), "status is :"+status, Toast.LENGTH_SHORT).show();
+
 
     }
 
     @Override
     public void response(LoginResponse response) {
-        Toast.makeText(getContext(), ""+response.getMessage(), Toast.LENGTH_SHORT).show();
+
+        if (response.getStatus()==0){
+            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
+        }else {
+
+
+            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+        }
+
+
 
     }
 }

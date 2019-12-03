@@ -37,7 +37,6 @@ public class LoginRepository {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                callbacks.onError(t.getMessage());
 
             }
         });

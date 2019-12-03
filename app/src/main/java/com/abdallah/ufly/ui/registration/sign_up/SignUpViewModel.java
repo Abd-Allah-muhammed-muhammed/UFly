@@ -2,22 +2,29 @@ package com.abdallah.ufly.ui.registration.sign_up;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.abdallah.ufly.R;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
 import com.abdallah.ufly.ui.splash.SplashScreen;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignUpViewModel extends ViewModel {
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
     Api api;
     public MutableLiveData<String> fullName = new MutableLiveData<>();
     public MutableLiveData<String> address = new MutableLiveData<>();
@@ -33,27 +40,26 @@ public class SignUpViewModel extends ViewModel {
         if (fullName.getValue() != null && address.getValue() != null && email.getValue()
                 != null && phone.getValue() != null && password.getValue() != null) {
 
-            if (password.getValue().equals(rePassword.getValue())){
+            if (!password.getValue().equals(rePassword.getValue())){
 
-                callSignUp(view,fullName.getValue(), address.getValue(), email.getValue(), phone.getValue(), password.getValue());
+
+                StyleableToast.makeText(view.getContext(), "your password not matching", Toast.LENGTH_LONG, R.style.error).show();
+
+
+            }else if(!email.getValue().matches(emailPattern)){
+
+                StyleableToast.makeText(view.getContext(), "Please enter correct email", Toast.LENGTH_LONG, R.style.error).show();
+
 
             }else {
+                callSignUp(view,fullName.getValue(),address.getValue(),email.getValue(),phone.getValue(),password.getValue());
 
-
-                Toast.makeText(view.getContext(), "your password not matching", Toast.LENGTH_LONG).show();
             }
-
-//            if (data.getValue() != null) {
-////                RegistarResponse value = data.getValue();
-////
-////                Toast.makeText(view.getContext(), "status is : " + value.getMessage(), Toast.LENGTH_SHORT).show();
-////            }
-////        } else
-////            Toast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_SHORT).show();
 
         }else {
 
-            Toast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG).show();
+
+            StyleableToast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG, R.style.error).show();
         }
 
 
@@ -105,14 +111,19 @@ public class SignUpViewModel extends ViewModel {
 
                 String message = response.body().getMessage();
 
-                Toast.makeText(view.getContext(), "message is :"+message, Toast.LENGTH_SHORT).show();
 
 
                 if (response.body().getStatus()==0){
+                    StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
 
                     Intent intent = new Intent(view.getContext(), SplashScreen.class);
 
                     view.getContext().startActivity(intent);
+
+
+                }else {
+
+                    StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.error).show();
 
                 }
 

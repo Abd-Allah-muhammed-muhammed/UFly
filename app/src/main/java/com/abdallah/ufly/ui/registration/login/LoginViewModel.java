@@ -21,6 +21,7 @@ public class LoginViewModel extends ViewModel {
     Login user;
     LoginResultCallbacks loginResultCallbacks;
     LoginRepository loginRepository;
+    private String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     public LoginViewModel(LoginResultCallbacks loginResultCallbacks) {
         this.loginResultCallbacks = loginResultCallbacks;
@@ -50,8 +51,13 @@ public class LoginViewModel extends ViewModel {
     public void login(View view){
 
 
-        if (TextUtils.isEmpty(user.getEmail())){
+        if (TextUtils.isEmpty(user.getEmail())) {
             loginResultCallbacks.onError("Pleas Enter Your Email");
+
+        }else if (!user.getEmail().matches(emailPattern)){
+
+            loginResultCallbacks.onError("Pleas Enter Correct Mail");
+
 
         }else if (TextUtils.isEmpty(user.getPassword())){
             loginResultCallbacks.onError("Pleas Enter Your Password");

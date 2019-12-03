@@ -48,6 +48,7 @@
             android:textColorHint="@color/dot_dark_screen1"
             android:hint="@string/your_full_name"
             android:id="@+id/et_name"
+            android:inputType="textPersonName"
             android:fontFamily="sans-serif-condensed-medium"
             android:layout_marginTop="@dimen/_24"
             android:layout_marginEnd="@dimen/_18"
