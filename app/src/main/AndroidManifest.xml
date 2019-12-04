@@ -18,6 +18,12 @@
             android:name=".ui.home.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+        <activity android:name=".ui.registration.RegistrationActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,15 +31,15 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ui.registration.RegistrationActivity">
-
-        </activity>
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.splash.SplashScreen"
-            android:theme="@style/SplashScreen"></activity>
+            android:theme="@style/SplashScreen">
+
+
+        </activity>
     </application>
 
 </manifest>

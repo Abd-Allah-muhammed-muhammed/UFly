@@ -17,6 +17,9 @@ import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class LoginViewModel extends ViewModel {
 
+    public MutableLiveData<Integer> progress = new MutableLiveData<>();
+
+    public MutableLiveData<String> loginText = new MutableLiveData<>();
 
     Login user;
     LoginResultCallbacks loginResultCallbacks;
@@ -27,6 +30,8 @@ public class LoginViewModel extends ViewModel {
         this.loginResultCallbacks = loginResultCallbacks;
         user = new Login();
         loginRepository = new LoginRepository();
+        progress.setValue(8);
+        loginText.setValue("LOGIN");
     }
 
     private MutableLiveData<Login> userMutableLiveData;
@@ -51,6 +56,9 @@ public class LoginViewModel extends ViewModel {
     public void login(View view){
 
 
+
+
+
         if (TextUtils.isEmpty(user.getEmail())) {
             loginResultCallbacks.onError("Pleas Enter Your Email");
 
@@ -64,7 +72,8 @@ public class LoginViewModel extends ViewModel {
 
         }else {
 
-                loginRepository.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks);
+
+                loginRepository.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText);
 
 
         }

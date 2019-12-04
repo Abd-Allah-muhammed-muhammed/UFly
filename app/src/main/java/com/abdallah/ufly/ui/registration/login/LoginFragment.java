@@ -20,6 +20,7 @@ import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.ui.home.HomeActivity;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 
@@ -46,6 +47,8 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
         prefManager = new PrefManager(getContext());
 
+
+
         View view = binding.getRoot();
 
         return view;
@@ -70,6 +73,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
     @Override
     public void response(LoginResponse response) {
+
 
         if (response.getStatus()==0){
 
