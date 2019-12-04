@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.registration.sign_up;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -22,7 +23,8 @@ public class SignUpFragment extends Fragment {
 
 
     private SignUpViewModel mViewModel;
-    SignUpFragmentBinding binding;
+   private SignUpFragmentBinding binding;
+   private MutableLiveData<Integer> progress = new MutableLiveData<>();
 
     public static SignUpFragment newInstance() {
         return new SignUpFragment();
@@ -38,6 +40,9 @@ public class SignUpFragment extends Fragment {
 
         binding.setSign(mViewModel);
 
+        progress.setValue(8);
+        mViewModel.setProgress(progress);
+        mViewModel.signText.setValue("SIGN UP");
 
 
 

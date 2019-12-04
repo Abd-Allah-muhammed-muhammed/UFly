@@ -15,6 +15,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
+import com.abdallah.ufly.ui.home.HomeActivity;
 import com.abdallah.ufly.ui.splash.SplashScreen;
 import com.muddzdev.styleabletoast.StyleableToast;
 
@@ -23,15 +24,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignUpViewModel extends ViewModel {
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-    Api api;
+   private Api api;
     public MutableLiveData<String> fullName = new MutableLiveData<>();
     public MutableLiveData<String> address = new MutableLiveData<>();
     public MutableLiveData<String> phone = new MutableLiveData<>();
     public MutableLiveData<String> email = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
     public MutableLiveData<String> rePassword = new MutableLiveData<>();
+    public MutableLiveData<Integer> progress = new MutableLiveData<>();
+    public MutableLiveData<String> signText = new MutableLiveData<>();
+
+
 
 
     public void onClick(View view) {
@@ -58,11 +63,14 @@ public class SignUpViewModel extends ViewModel {
 
         }else {
 
-
             StyleableToast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG, R.style.error).show();
         }
 
 
+    }
+
+    public void setProgress(MutableLiveData<Integer> progress) {
+        this.progress = progress;
     }
 
     public void setFullName(CharSequence s, int start, int before, int count) {
@@ -101,6 +109,8 @@ public class SignUpViewModel extends ViewModel {
     public void callSignUp(final View  view, String fullName, String addressValue, String emailValue, String phoneValue, String passwordValue) {
         api = ApiClient.getClient().create(Api.class);
 
+        progress.setValue(0);
+        signText.setValue("");
         Call<RegistarResponse> call = api.singUp(emailValue, fullName,
                 passwordValue, addressValue, phoneValue);
 
@@ -110,13 +120,14 @@ public class SignUpViewModel extends ViewModel {
 
 
                 String message = response.body().getMessage();
-
+                progress.setValue(8);
+                signText.setValue("SIGN UP");
 
 
                 if (response.body().getStatus()==0){
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
 
-                    Intent intent = new Intent(view.getContext(), SplashScreen.class);
+                    Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);
 
@@ -131,8 +142,8 @@ public class SignUpViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<RegistarResponse> call, Throwable t) {
-
-
+                progress.setValue(8);
+                signText.setValue("SIGN UP");
             }
 
         });

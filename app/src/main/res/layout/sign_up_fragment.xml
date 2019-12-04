@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
     <data>
 
@@ -20,6 +19,7 @@
 
 
         <ImageView
+            android:contentDescription="@string/logo"
             android:id="@+id/logo_dark_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -222,7 +222,24 @@
             android:layout_height="2dp"
             />
 
+
+        <ProgressBar
+            android:visibility="@{sign.progress}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/btn_login"
+            android:layout_alignTop="@+id/btn_login"
+            android:layout_alignEnd="@+id/btn_login"
+            android:layout_alignBottom="@+id/btn_sign_up_2"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="10dp" />
+
         <Button
+            android:text="@{sign.signText}"
+
             android:onClick="@{(view) -> sign.onClick(view)}"
             android:id="@+id/btn_sign_up_2"
             android:layout_width="match_parent"
@@ -232,7 +249,6 @@
             android:layout_marginTop="@dimen/_18"
             android:layout_marginEnd="@dimen/_30"
             android:background="@drawable/custom_button_drawable"
-            android:text="@string/sign_up"
             android:textColor="@color/dark"
             android:textSize="@dimen/_24_sp" />
 
