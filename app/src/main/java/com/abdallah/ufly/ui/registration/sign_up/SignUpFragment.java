@@ -18,6 +18,8 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.SignUpFragmentBinding;
 import com.abdallah.ufly.model.SignUp;
 
+import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
+
 
 public class SignUpFragment extends Fragment {
 
@@ -33,7 +35,7 @@ public class SignUpFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        fullScreen(getActivity());
          binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);

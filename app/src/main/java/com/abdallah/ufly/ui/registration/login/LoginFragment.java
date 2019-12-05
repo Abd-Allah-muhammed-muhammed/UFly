@@ -23,6 +23,8 @@ import com.abdallah.ufly.ui.home.HomeActivity;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
+
 
 public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
@@ -39,6 +41,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
+        fullScreen(getActivity());
         binding = DataBindingUtil.inflate(inflater, R.layout.registration_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this,new LoginViewModelFactory(this)).get(LoginViewModel.class);

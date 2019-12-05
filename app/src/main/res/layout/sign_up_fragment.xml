@@ -42,7 +42,7 @@
 
 
         <EditText
-            android:onTextChanged="@{sign.setFullName}"
+            android:onTextChanged="@{sign::setFullName}"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
@@ -72,7 +72,7 @@
 
 
         <EditText
-            android:onTextChanged="@{sign.setAddress}"
+            android:onTextChanged="@{sign::setAddress}"
             android:inputType="textPostalAddress"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -105,7 +105,7 @@
 
 
         <EditText
-            android:onTextChanged="@{sign.setPhone}"
+            android:onTextChanged="@{sign::setPhone}"
             android:inputType="phone"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -134,7 +134,7 @@
 
 
         <EditText
-            android:onTextChanged="@{sign.setEmail}"
+            android:onTextChanged="@{sign::setEmail}"
             android:inputType="textEmailAddress"
             android:id="@+id/et_mail"
             android:layout_width="match_parent"
@@ -165,7 +165,7 @@
 
 
         <EditText
-            android:onTextChanged="@{sign.setPassword}"
+            android:onTextChanged="@{sign::setPassword}"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
@@ -199,7 +199,7 @@
             android:textColor="@color/white"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
-            android:onTextChanged="@{sign.setRePassword}"
+            android:onTextChanged="@{sign::setRePassword}"
             android:hint="@string/re_your_password"
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_re_password"
@@ -224,6 +224,9 @@
 
 
         <ProgressBar
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/colorPrimaryDark"
             android:visibility="@{sign.progress}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

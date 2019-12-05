@@ -36,5 +36,14 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="logo">logo</string>
+    <string name="departure">DEPARTURE</string>
+    <string name="ciro">CAIRO</string>
+    <string name="arrival">ARRIVAL</string>
+    <string name="alex">ALEXANDRIA</string>
+    <string name="date">DATE</string>
+    <string name="date_ex">Sonday 1/1/2020</string>
+    <string name="to_date">DATE</string>
+    <string name="passengers">PASSENGERS</string>
+    <string name="description">description</string>
 
 </resources>

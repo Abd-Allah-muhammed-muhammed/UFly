@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -127,6 +128,9 @@ public class SignUpViewModel extends ViewModel {
                 if (response.body().getStatus()==0){
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
 
+                    String uuid = response.body().getData().getUuid();
+                    PrefManager prefManager = new PrefManager(view.getContext());
+                    prefManager.saveToken(uuid);
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);
