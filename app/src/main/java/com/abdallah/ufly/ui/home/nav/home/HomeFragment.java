@@ -8,30 +8,56 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.adpter.TripInfoAdapter;
+import com.abdallah.ufly.databinding.FragmentHomeBinding;
+import com.abdallah.ufly.model.TripInfo;
+import com.abdallah.ufly.ui.registration.sign_up.SignUpViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    FragmentHomeBinding binding ;
+    TripInfo tripInfo ;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        fullScreen(getActivity());
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        binding.setLifecycleOwner(this);
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
 
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        final TripInfoAdapter tripInfoAdapter = new TripInfoAdapter();
+        binding.revTripInfo.setAdapter(tripInfoAdapter);
+        binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.revTripInfo.setHasFixedSize(true);
+        homeViewModel.getdata().observe(this, new Observer<List<TripInfo>>() {
             @Override
-            public void onChanged(@Nullable String s) {
+            public void onChanged(List<TripInfo> tripInfoList) {
+
+
+                tripInfoAdapter.setTripInfoList((ArrayList<TripInfo>) tripInfoList);
 
             }
         });
-        return root;
+
+
+
+
+
+        return binding.getRoot();
     }
 }

@@ -7,9 +7,12 @@
                 android:angle="180"
                 android:centerY="50%"
                 android:endColor="@color/dark"
-                android:startColor="@color/colorPrimary"
+                android:startColor="@color/dark"
                 ></gradient>
 
+
+<!--            <stroke android:color="@color/dark"-->
+<!--                android:width="2dp"/>-->
             <corners android:radius="190dp" />
         </shape>
     </item>
