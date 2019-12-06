@@ -11,9 +11,58 @@
         tools:showIn="@layout/activity_home">
 
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/layout_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50"
+            >
+            <AutoCompleteTextView
+                android:textSize="@dimen/_14s"
+                android:drawablePadding="@dimen/_8"
+                android:layout_marginEnd="@dimen/_40"
+                android:layout_marginStart="@dimen/_40"
+                android:background="@drawable/shape_filter"
+                android:id="@+id/ed_filter_from"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_8"
+
+
+                android:paddingStart="@dimen/_8"
+                android:hint="@string/from"
+                android:drawableStart="@drawable/ic_expand_more"
+                android:inputType="textCapSentences"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
+                />
+            <AutoCompleteTextView
+                android:textSize="@dimen/_14s"
+                android:drawablePadding="@dimen/_8"
+                android:paddingStart="@dimen/_8"
+                android:drawableStart="@drawable/ic_expand_more"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/_40"
+                android:layout_marginStart="@dimen/_40"
+                android:layout_marginTop="@dimen/_8"
+                android:background="@drawable/shape_filter"
+                android:id="@+id/ed_filter_to"
+                android:layout_width="0dp"
+                android:hint="@string/to"
+                android:layout_height="match_parent"
+                android:inputType="textCapSentences"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
+                />
+
+
+        </LinearLayout>
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/layout_filter"
+            tools:listitem="@layout/item_trips"
             android:id="@+id/rev_trip_info"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

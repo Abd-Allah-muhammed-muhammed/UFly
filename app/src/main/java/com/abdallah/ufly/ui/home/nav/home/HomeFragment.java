@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -54,6 +55,29 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
+        final List<String> list_country = new ArrayList<>();
+        list_country.add("Ciro");
+        list_country.add("Alexandria");
+        list_country.add("mansoura");
+        final AutoCompleteAdapter adapter = new AutoCompleteAdapter(getContext(), R.layout.drop_dowen, android.R.id.text1,list_country );
+
+
+        binding.edFilterFrom.setAdapter(adapter);
+        binding.edFilterFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+
+            String  nameCountry = list_country.get(adapter.getPosition(adapter.getItem(position)));
+//                idCountry = listID.get(adapter2.getPosition(adapter2.getItem(position)));
+
+
+            }
+
+
+        });
 
 
 

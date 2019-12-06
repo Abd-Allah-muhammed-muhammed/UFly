@@ -45,5 +45,7 @@
     <string name="to_date">DATE</string>
     <string name="passengers">PASSENGERS</string>
     <string name="description">description</string>
+    <string name="to">TO</string>
+    <string name="from">FROM</string>
 
 </resources>
