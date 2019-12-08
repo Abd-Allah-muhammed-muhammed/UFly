@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemTripsBinding;
 import com.abdallah.ufly.model.TripInfo;
+import com.abdallah.ufly.model.trips.TripsResponse;
 
 import java.util.ArrayList;
 
 public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripInfoViewHolder> {
 
-    private ArrayList<TripInfo> tripInfoArrayList;
+    private ArrayList<TripsResponse> tripInfoArrayList;
 
 
     @NonNull
@@ -31,13 +32,13 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
     @Override
     public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
 
-        TripInfo tripInfo = tripInfoArrayList.get(position);
+        TripsResponse tripInfo = tripInfoArrayList.get(position);
         holder.itemTripsBinding.setTripinfo(tripInfo);
 
     }
 
 
-    public void setTripInfoList(ArrayList<TripInfo> employees) {
+    public void setTripInfoList(ArrayList<TripsResponse> employees) {
         this.tripInfoArrayList = employees;
         notifyDataSetChanged();
     }

@@ -41,4 +41,5 @@
     <dimen name="_16">16dp</dimen>
     <dimen name="_46">46dp</dimen>
     <dimen name="_230">230dp</dimen>
+    <dimen name="_240">240dp</dimen>
 </resources>

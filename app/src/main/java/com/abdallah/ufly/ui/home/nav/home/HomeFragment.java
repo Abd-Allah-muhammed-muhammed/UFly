@@ -19,6 +19,8 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
 import com.abdallah.ufly.model.TripInfo;
+import com.abdallah.ufly.model.trips.TripsResponse;
+import com.abdallah.ufly.repository.TripsRepository;
 import com.abdallah.ufly.ui.registration.sign_up.SignUpViewModel;
 
 import java.util.ArrayList;
@@ -45,12 +47,13 @@ public class HomeFragment extends Fragment {
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.revTripInfo.setHasFixedSize(true);
-        homeViewModel.getdata().observe(this, new Observer<List<TripInfo>>() {
+        homeViewModel.getdata().observe(this, new Observer<List<TripsResponse>>() {
             @Override
-            public void onChanged(List<TripInfo> tripInfoList) {
+            public void onChanged(List<TripsResponse> tripInfoList) {
 
 
-                tripInfoAdapter.setTripInfoList((ArrayList<TripInfo>) tripInfoList);
+                tripInfoAdapter.setTripInfoList((ArrayList<TripsResponse>) tripInfoList);
+                tripInfoAdapter.notifyDataSetChanged();
 
             }
         });

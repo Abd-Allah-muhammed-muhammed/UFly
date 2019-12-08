@@ -1,12 +1,18 @@
 package com.abdallah.ufly.retrofit;
 
-import com.abdallah.ufly.model.SignUp;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
+import com.abdallah.ufly.model.trips.TripsResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Api {
@@ -22,5 +28,9 @@ public interface Api {
     @POST("login.php")
     Call<LoginResponse> login(@Field("email")String email,
                               @Field("password")String password);
+
+
+    @GET("trips.php")
+    Call<List<TripsResponse>>getAllTrips();
 
 }
