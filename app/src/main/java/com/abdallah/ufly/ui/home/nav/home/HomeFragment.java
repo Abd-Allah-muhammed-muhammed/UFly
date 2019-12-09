@@ -61,20 +61,18 @@ public class HomeFragment extends Fragment {
 
 
         final List<String> list_country = new ArrayList<>();
-        list_country.add("Ciro");
+        list_country.add("Cairo");
         list_country.add("Alexandria");
-        list_country.add("mansoura");
+        list_country.add("El mansoura");
+        list_country.add("El mahala");
+        list_country.add("Aga");
         final AutoCompleteAdapter adapter = new AutoCompleteAdapter(getContext(), R.layout.drop_dowen, android.R.id.text1,list_country );
 
 
-        binding.edFilterFrom.setAdapter(adapter);
-        binding.edFilterFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.aoutoTvFrom.setAdapter(adapter);
+        binding.aoutoTvFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-
-            String  nameCountry = list_country.get(adapter.getPosition(adapter.getItem(position)));
-//                idCountry = listID.get(adapter2.getPosition(adapter2.getItem(position)));
 
 
             }

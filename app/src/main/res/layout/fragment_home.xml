@@ -11,54 +11,102 @@
         tools:showIn="@layout/activity_home">
 
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:id="@+id/layout_filter"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50"
-            >
-            <AutoCompleteTextView
-                android:textSize="@dimen/_14s"
-                android:drawablePadding="@dimen/_8"
-                android:layout_marginEnd="@dimen/_40"
-                android:layout_marginStart="@dimen/_40"
-                android:background="@drawable/shape_filter"
-                android:id="@+id/ed_filter_from"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/_8"
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/layout_filter">
+
+           <ImageView
+               android:id="@+id/img_move"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_move"/>
 
 
-                android:paddingStart="@dimen/_8"
-                android:hint="@string/from"
-                android:drawableStart="@drawable/ic_expand_more"
-                android:inputType="textCapSentences"
-                android:textColor="@color/dark"
-                android:textColorHint="@color/dark"
-                />
-            <AutoCompleteTextView
-                android:textSize="@dimen/_14s"
-                android:drawablePadding="@dimen/_8"
-                android:paddingStart="@dimen/_8"
-                android:drawableStart="@drawable/ic_expand_more"
-                android:layout_weight="1"
-                android:layout_marginEnd="@dimen/_40"
-                android:layout_marginStart="@dimen/_40"
-                android:layout_marginTop="@dimen/_8"
-                android:background="@drawable/shape_filter"
-                android:id="@+id/ed_filter_to"
-                android:layout_width="0dp"
-                android:hint="@string/to"
-                android:layout_height="match_parent"
-                android:inputType="textCapSentences"
-                android:textColor="@color/dark"
-                android:textColorHint="@color/dark"
-                />
 
+           <LinearLayout
+               android:layout_below="@+id/img_move"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
 
-        </LinearLayout>
+               <LinearLayout
+                   android:id="@+id/layout_from"
+                   android:orientation="vertical"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1">
 
+                   <TextView
+                       android:textSize="@dimen/_18s"
+                       android:gravity="center"
+                       android:textColor="@color/yalow"
+                       android:paddingStart="@dimen/_14"
+                       android:text="@string/from"
+                       android:paddingEnd="@dimen/_14s"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+
+                   <AutoCompleteTextView
+                       android:drawableStart="@drawable/ic_spinner"
+
+                       android:id="@+id/aouto_tv_from"
+                       android:paddingEnd="@dimen/_14s"
+                       android:paddingStart="@dimen/_14"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@android:color/transparent"
+                       android:hint="..."
+                       android:textColor="@color/white"
+                       android:textColorHint="@color/trans3"
+                       android:textSize="@dimen/_14s"
+                       android:gravity="center"/>
+
+               </LinearLayout>
+
+               <ImageView
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/ic_bus"/>
+
+               <LinearLayout
+                   android:id="@+id/layout_to"
+
+                   android:orientation="vertical"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1">
+
+                   <TextView
+                       android:textSize="@dimen/_18s"
+                       android:gravity="center"
+                       android:textColor="@color/yalow"
+                       android:paddingStart="@dimen/_14"
+                       android:text="@string/to"
+                       android:paddingEnd="@dimen/_14s"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+
+                   <AutoCompleteTextView
+                       android:drawableEnd="@drawable/ic_spinner"
+
+                       android:id="@+id/aouto_tv_to"
+                       android:paddingEnd="@dimen/_14s"
+                       android:paddingStart="@dimen/_14"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@android:color/transparent"
+                       android:hint="..."
+                       android:textColor="@color/white"
+                       android:textColorHint="@color/trans3"
+                       android:textSize="@dimen/_14s"
+                       android:gravity="center"/>
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@+id/layout_filter"

@@ -47,5 +47,7 @@
     <string name="description">description</string>
     <string name="to">TO</string>
     <string name="from">FROM</string>
+    <string name="until">Until</string>
+    <string name="mansoura">MANSOURA</string>
 
 </resources>

@@ -42,4 +42,8 @@
     <dimen name="_46">46dp</dimen>
     <dimen name="_230">230dp</dimen>
     <dimen name="_240">240dp</dimen>
+    <dimen name="_6">6dp</dimen>
+    <dimen name="_32">32dp</dimen>
+    <dimen name="_28">28dp</dimen>
+    <dimen name="_32s">32sp</dimen>
 </resources>
