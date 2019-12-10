@@ -9,6 +9,7 @@ import com.abdallah.ufly.model.trips.TripsResponse;
 
 import java.util.List;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -31,6 +32,6 @@ public interface Api {
 
 
     @GET("trips.php")
-    Call<List<TripsResponse>>getAllTrips();
+    Single<List<TripsResponse>> getAllTrips();
 
 }
