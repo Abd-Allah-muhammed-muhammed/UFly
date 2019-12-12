@@ -11,7 +11,23 @@
         tools:showIn="@layout/activity_home">
 
 
+        <RelativeLayout
+            android:id="@+id/layout_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <SearchView
+                android:layout_marginTop="@dimen/_4"
+                android:background="@drawable/bg_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18" />
+
+        </RelativeLayout>
+
        <RelativeLayout
+           android:layout_below="@+id/layout_search"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:id="@+id/layout_filter">
@@ -19,7 +35,7 @@
            <ImageView
                android:id="@+id/img_move"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               android:layout_height="@dimen/_40"
                android:src="@drawable/ic_move"/>
 
 
@@ -47,20 +63,20 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"/>
 
-                   <AutoCompleteTextView
-                       android:drawableStart="@drawable/ic_spinner"
+<!--                   <AutoCompleteTextView-->
+<!--                       android:drawableStart="@drawable/ic_spinner"-->
 
-                       android:id="@+id/aouto_tv_from"
-                       android:paddingEnd="@dimen/_14s"
-                       android:paddingStart="@dimen/_14"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:background="@android:color/transparent"
-                       android:hint="..."
-                       android:textColor="@color/white"
-                       android:textColorHint="@color/trans3"
-                       android:textSize="@dimen/_14s"
-                       android:gravity="center"/>
+<!--                       android:id="@+id/aouto_tv_from"-->
+<!--                       android:paddingEnd="@dimen/_14s"-->
+<!--                       android:paddingStart="@dimen/_14"-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:background="@android:color/transparent"-->
+<!--                       android:hint="..."-->
+<!--                       android:textColor="@color/white"-->
+<!--                       android:textColorHint="@color/trans3"-->
+<!--                       android:textSize="@dimen/_14s"-->
+<!--                       android:gravity="center"/>-->
 
                </LinearLayout>
 
@@ -88,20 +104,20 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"/>
 
-                   <AutoCompleteTextView
-                       android:drawableEnd="@drawable/ic_spinner"
+<!--                   <AutoCompleteTextView-->
+<!--                       android:drawableEnd="@drawable/ic_spinner"-->
 
-                       android:id="@+id/aouto_tv_to"
-                       android:paddingEnd="@dimen/_14s"
-                       android:paddingStart="@dimen/_14"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:background="@android:color/transparent"
-                       android:hint="..."
-                       android:textColor="@color/white"
-                       android:textColorHint="@color/trans3"
-                       android:textSize="@dimen/_14s"
-                       android:gravity="center"/>
+<!--                       android:id="@+id/aouto_tv_to"-->
+<!--                       android:paddingEnd="@dimen/_14s"-->
+<!--                       android:paddingStart="@dimen/_14"-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:background="@android:color/transparent"-->
+<!--                       android:hint="..."-->
+<!--                       android:textColor="@color/white"-->
+<!--                       android:textColorHint="@color/trans3"-->
+<!--                       android:textSize="@dimen/_14s"-->
+<!--                       android:gravity="center"/>-->
                </LinearLayout>
 
            </LinearLayout>

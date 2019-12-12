@@ -30,25 +30,32 @@ public class LoginRepository {
         Call<LoginResponse> call = api.login(emailValue,
                 passwordValue);
 
-        call.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-
-                callbacks.status(response.body().getStatus());
-                callbacks.response(response.body());
-
-                progress.setValue(8);
-                loginText.setValue("LOGIN");
-
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                progress.setValue(8);
-                loginText.setValue("LOGIN");
-            }
-        });
 
 
+        try{
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                    callbacks.status(response.body().getStatus());
+                    callbacks.response(response.body());
+                    progress.setValue(8);
+                    loginText.setValue("LOGIN");
+
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    progress.setValue(8);
+                    loginText.setValue("LOGIN");
+                    t.printStackTrace();
+                }
+            });
+
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
+        
     }
     }

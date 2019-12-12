@@ -30,7 +30,8 @@ public class TripsRepository {
 
 data = new MutableLiveData<>();
 //
-        Api api = ApiClient.getClient().create(Api.class);
+
+        api = ApiClient.getClient().create(Api.class);
 //
         api.getAllTrips().subscribeOn(io())
                 .observeOn(mainThread())

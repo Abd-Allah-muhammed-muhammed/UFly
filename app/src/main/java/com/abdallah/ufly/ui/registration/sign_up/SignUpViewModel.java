@@ -2,9 +2,6 @@ package com.abdallah.ufly.ui.registration.sign_up;
 
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,8 +13,7 @@ import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
-import com.abdallah.ufly.ui.home.HomeActivity;
-import com.abdallah.ufly.ui.splash.SplashScreen;
+import com.abdallah.ufly.ui.home.nav.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import retrofit2.Call;

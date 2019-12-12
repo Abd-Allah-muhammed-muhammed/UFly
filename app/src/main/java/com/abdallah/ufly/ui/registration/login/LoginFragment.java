@@ -19,8 +19,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.login.LoginResponse;
-import com.abdallah.ufly.ui.home.HomeActivity;
-import com.facebook.shimmer.ShimmerFrameLayout;
+import com.abdallah.ufly.ui.home.nav.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;

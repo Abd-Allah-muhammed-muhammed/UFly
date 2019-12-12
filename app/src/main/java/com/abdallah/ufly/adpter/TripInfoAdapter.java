@@ -3,6 +3,7 @@ package com.abdallah.ufly.adpter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import com.abdallah.ufly.databinding.ItemTripsBinding;
 import com.abdallah.ufly.model.TripInfo;
 import com.abdallah.ufly.model.trips.TripsResponse;
 
+import java.nio.file.DirectoryStream;
 import java.util.ArrayList;
 
 public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripInfoViewHolder> {
@@ -29,6 +31,8 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                         R.layout.item_trips, parent, false);
         return new TripInfoViewHolder(itemTripsBinding);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
@@ -68,4 +72,9 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
             this.itemTripsBinding = itemView;
         }
     }
+
+
+
+
+
 }
