@@ -18,7 +18,7 @@ public class BottomNavView extends BottomNavigationView {
     private Paint paint ;
 
     // the cycle of fab bottom
-    public final int CYCLE_BOTTOM_RADIUS = 90;
+    public final int CYCLE_BOTTOM_RADIUS = 45;
 
     // first curve
     public Point mFirstCurvePoitnStart = new Point();

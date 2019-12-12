@@ -6,7 +6,9 @@ import android.os.Bundle;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
+import com.abdallah.ufly.ui.MyAccountFragment;
 import com.abdallah.ufly.ui.home.nav.home.HomeFragment;
+import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.abdallah.ufly.ui.registration.login.LoginFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,6 +20,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -41,14 +44,15 @@ import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private AppBarConfiguration mAppBarConfiguration;
 
     PathModel outline;
     ActivityHomeBinding binding;
+    Bundle savedInstanceState ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.savedInstanceState =savedInstanceState ;
         fullScreen(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
@@ -57,20 +61,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
 
 
-//        if (savedInstanceState == null) {
-//            replace(new HomeFragment(),binding.frameMain.getId(),getSupportFragmentManager().beginTransaction());
-//
-//
-//        }
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
-//
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+        if (savedInstanceState == null) {
+            replace(new HomeFragment(),binding.frameMain.getId(),getSupportFragmentManager().beginTransaction());
 
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        }
 
 
     }
@@ -83,7 +78,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
             case R.id.nav_info_person:
 
-                Toast.makeText(this, "clicked my info", Toast.LENGTH_SHORT).show();
+                menuItem.setTitle("");
+
                 // animation
                 draw(6);
 
@@ -92,12 +88,21 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 binding.fab2.setVisibility(View.GONE);
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab);
+
+
+                if (savedInstanceState == null) {
+                    replace(new MyAccountFragment(),binding.frameMain.getId(),getSupportFragmentManager().beginTransaction());
+
+                }
+
+
                 break;
 
 
             case R.id.vav_home:
 
-                Toast.makeText(this, "clicked Home", Toast.LENGTH_SHORT).show();
+
+                menuItem.setTitle("");
                 // animation
                 draw(2);
 
@@ -106,10 +111,16 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 binding.fab2.setVisibility(View.VISIBLE);
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab2);
+
+                if (savedInstanceState == null) {
+                    replace(new HomeFragment(),binding.frameMain.getId(),getSupportFragmentManager().beginTransaction());
+
+                }
+
                 break;
 
             case R.id.nav_mytrips:
-
+                menuItem.setTitle("");
                 Toast.makeText(this, "clicked trips", Toast.LENGTH_SHORT).show();
                 // animation
                 draw();
@@ -119,6 +130,14 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 binding.fab2.setVisibility(View.GONE);
                 binding.fab3.setVisibility(View.VISIBLE);
                 drawAnimation(binding.fab3);
+
+
+                if (savedInstanceState == null) {
+                    replace(new MyTripFragment(),binding.frameMain.getId(),getSupportFragmentManager().beginTransaction());
+
+                }
+
+
                 break;
         }
         return true;

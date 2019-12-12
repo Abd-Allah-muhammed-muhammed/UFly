@@ -13,11 +13,11 @@
 
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <FrameLayout
-                app:layout_constraintTop_toTopOf="@+id/bottom_nav"
+                android:layout_above="@+id/bottom_nav"
                 android:id="@+id/frame_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,24 +27,20 @@
 
 
             <com.abdallah.ufly.ui.bottom_nav.BottomNavView
+                app:itemTextColor="@color/dark"
+                app:itemIconTint="@color/dark"
                 android:id="@+id/bottom_nav"
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:layout_height="62dp"
+                android:layout_alignParentBottom="true"
+                >
 
 
             </com.abdallah.ufly.ui.bottom_nav.BottomNavView>
 
 
 
-
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
 
 
