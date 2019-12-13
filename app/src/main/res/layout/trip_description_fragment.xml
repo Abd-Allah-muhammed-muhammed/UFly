@@ -1,16 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <RelativeLayout
-        android:background="@drawable/bg_regstration"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:id="@+id/sl_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<!--parent layout id is  layout_desc-->
+            <RelativeLayout
+                android:id="@+id/layout_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_desc">
+
+
+                <RelativeLayout
+                    android:background="@drawable/bg_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_top">
+
+                    <TextView
+                        android:id="@+id/logo_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="@dimen/_16"
+                        android:background="@drawable/shap_desc"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:padding="@dimen/_12"
+                        android:text="@string/description"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/_20s"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+
+<!--                 all info in this layout id is layout_all_info -->
+                <RelativeLayout
+                    android:id="@+id/layout_all_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_top"
+                 android:layout_margin="@dimen/_16"
+                    android:background="@drawable/shap_desc_ifo">
+
+
+                    <!-- from to shape with bus icon -->
+                    <RelativeLayout
+                        android:id="@+id/layout_desc_from_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8">
+
+                        <ImageView
+                            android:id="@+id/img_move"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_70"
+                            android:src="@drawable/ic_move" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_move"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/layout_from"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_14"
+                                    android:paddingEnd="@dimen/_14s"
+                                    android:text="@string/from"
+                                    android:textColor="@color/yalow"
+                                    android:textSize="@dimen/_18s" />
+
+                                <TextView
+
+                                    android:id="@+id/desc_from"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_14"
+                                    android:paddingEnd="@dimen/_14s"
+                                    android:text="Cairo"
+                                    android:textColor="@color/white"
+                                    android:textColorHint="@color/trans3"
+                                    android:textSize="@dimen/_14s" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@drawable/ic_bus" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_to"
+
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_14"
+                                    android:paddingEnd="@dimen/_14s"
+                                    android:text="@string/to"
+                                    android:textColor="@color/yalow"
+                                    android:textSize="@dimen/_18s" />
+
+                                <TextView
+                                    android:id="@+id/desc_to"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_14"
+                                    android:paddingEnd="@dimen/_14s"
+                                    android:text="Alexandria"
+                                    android:textColor="@color/white"
+                                    android:textColorHint="@color/trans3"
+                                    android:textSize="@dimen/_14s" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--line one -->
+                    <TextView
+                        android:id="@+id/line_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/layout_desc_from_to"
+                        android:layout_margin="@dimen/_16"
+                        android:layout_marginTop="@dimen/_16"
+                        android:background="@color/trans3" />
+
+
+                    <!-- text view  include   id is inclouds_tv-->
+                    <TextView
+
+                        android:id="@+id/inclouds_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layout_desc_from_to"
+                        android:layout_marginStart="@dimen/_24"
+                        android:layout_marginTop="@dimen/_24"
+                        android:layout_marginEnd="@dimen/_24"
+                        android:drawableStart="@drawable/ic_inclouds"
+                        android:drawablePadding="@dimen/_24"
+                        android:text="@string/inclouds"
+                        android:textColor="@color/trans3"
+                        android:textSize="@dimen/_20s"
+                        android:textStyle="bold" />
+
+
+                    <!--                     rv includ id is layout_rv-->
+                    <RelativeLayout
+                        android:id="@+id/layout_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inclouds_tv"
+                        android:layout_margin="@dimen/_16"
+                        android:background="@drawable/shap_include">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/desc_rv_include"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_includ" />
+
+                    </RelativeLayout>
+
+
+                    <!--                    trip info tv  id is tripinfo_tv-->
+                    <TextView
+                        android:id="@+id/tripinfo_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layout_rv"
+                        android:layout_marginStart="@dimen/_24"
+                        android:layout_marginTop="@dimen/_24"
+                        android:layout_marginEnd="@dimen/_24"
+                        android:drawableStart="@drawable/ic_info_24px"
+                        android:drawablePadding="@dimen/_24"
+                        android:text="Trip Information"
+                        android:textColor="@color/trans3"
+                        android:textSize="@dimen/_20s"
+                        android:textStyle="bold" />
+
+                    <!--                    rv info layout_rv2 -->
+                    <RelativeLayout
+                        android:id="@+id/layout_rv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tripinfo_tv"
+                        android:layout_margin="@dimen/_16"
+                        android:background="@drawable/shap_include">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/desc_rv_trip_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="5"
+                            tools:listitem="@layout/item_includ" />
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+                <Button
+                    android:elevation="2dp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="@dimen/_20s"
+                    android:textColor="@color/trans3"
+                    android:id="@+id/desc_btn_book"
+                    android:layout_marginTop="@dimen/_4"
+                    android:layout_marginStart="@dimen/_40"
+                    android:layout_marginEnd="@dimen/_40"
+                    android:layout_below="@+id/layout_all_info"
+                    android:text="@string/book"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button_drawable3"/>
+
+
+
+
+                        <RelativeLayout
+                            android:layout_below="@+id/desc_btn_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_170"
+                                android:src="@drawable/bottom_shap" />
+
+                        </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </ScrollView>
+
 
 
 
     </RelativeLayout>
+
+
 </layout>

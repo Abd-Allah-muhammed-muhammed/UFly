@@ -12,11 +12,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
-import com.abdallah.ufly.ui.home.nav.home.HomeViewModel;
 
 public class TripDescriptionFragment extends Fragment {
 
@@ -35,6 +33,7 @@ public class TripDescriptionFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.trip_description_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(TripDescriptionViewModel.class);
+
 
         return binding.getRoot();
     }

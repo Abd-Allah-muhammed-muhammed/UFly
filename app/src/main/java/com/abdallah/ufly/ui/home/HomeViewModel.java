@@ -1,4 +1,4 @@
-package com.abdallah.ufly.ui.home.nav.home;
+package com.abdallah.ufly.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

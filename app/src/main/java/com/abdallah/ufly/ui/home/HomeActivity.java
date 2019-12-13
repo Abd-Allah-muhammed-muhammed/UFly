@@ -1,4 +1,4 @@
-package com.abdallah.ufly.ui.home.nav.home;
+package com.abdallah.ufly.ui.home;
 
 import android.animation.ValueAnimator;
 import android.os.Bundle;
@@ -49,6 +49,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
 
         }
+
+
+
 
 
     }

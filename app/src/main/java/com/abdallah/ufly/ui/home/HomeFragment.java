@@ -1,4 +1,4 @@
-package com.abdallah.ufly.ui.home.nav.home;
+package com.abdallah.ufly.ui.home;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import com.abdallah.ufly.databinding.FragmentHomeBinding;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import java.util.ArrayList;
 import java.util.List;
-import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;

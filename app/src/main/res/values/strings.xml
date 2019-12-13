@@ -49,5 +49,7 @@
     <string name="from">FROM</string>
     <string name="until">Until</string>
     <string name="mansoura">MANSOURA</string>
+    <string name="inclouds">Include</string>
+    <string name="book">Book Now</string>
 
 </resources>

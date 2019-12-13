@@ -13,7 +13,7 @@ import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
-import com.abdallah.ufly.ui.home.nav.home.HomeActivity;
+import com.abdallah.ufly.ui.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import retrofit2.Call;
@@ -132,6 +132,7 @@ public class SignUpViewModel extends ViewModel {
                     view.getContext().startActivity(intent);
 
 
+
                 }else {
 
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.error).show();
@@ -144,6 +145,8 @@ public class SignUpViewModel extends ViewModel {
             public void onFailure(Call<RegistarResponse> call, Throwable t) {
                 progress.setValue(8);
                 signText.setValue("SIGN UP");
+                StyleableToast.makeText(view.getContext(), "Try Again ", Toast.LENGTH_LONG, R.style.error).show();
+
             }
 
         });
