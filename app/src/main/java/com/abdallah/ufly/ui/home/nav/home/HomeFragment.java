@@ -22,45 +22,11 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding ;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        fullScreen(getActivity());
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         binding.setLifecycleOwner(this);
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
-
         fetchData();
-//        homeViewModel.getdata().observe(this, new Observer<List<TripsResponse>>() {
-//            @Override
-//            public void onChanged(List<TripsResponse> tripInfoList) {
-//
-//
-//                tripInfoAdapter.setTripInfoList((ArrayList<TripsResponse>) tripInfoList);
-//                tripInfoAdapter.notifyDataSetChanged();
-//
-//            }
-//        });
-
-
-//
-//        final List<String> list_country = new ArrayList<>();
-//        list_country.add("Cairo");
-//        list_country.add("Alexandria");
-//        list_country.add("El mansoura");
-//        list_country.add("El mahala");
-//        list_country.add("Aga");
-//        final AutoCompleteAdapter adapter = new AutoCompleteAdapter(getContext(), R.layout.drop_dowen, android.R.id.text1,list_country );
-
-
-//        binding.aoutoTvFrom.setAdapter(adapter);
-//        binding.aoutoTvFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//
-//
-//            }
-//
-//
-//        });
         return binding.getRoot();
     }
     private void fetchData() {

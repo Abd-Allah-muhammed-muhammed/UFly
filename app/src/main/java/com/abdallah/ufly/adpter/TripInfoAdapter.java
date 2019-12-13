@@ -1,22 +1,25 @@
 package com.abdallah.ufly.adpter;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemTripsBinding;
-import com.abdallah.ufly.model.TripInfo;
 import com.abdallah.ufly.model.trips.TripsResponse;
+import com.abdallah.ufly.ui.description.TripDescriptionFragment;
 
-import java.nio.file.DirectoryStream;
 import java.util.ArrayList;
+
+import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripInfoViewHolder> {
 
@@ -43,8 +46,12 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
             @Override
             public void onClick(View v) {
 
+                TripDescriptionFragment fragment = new TripDescriptionFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("TripId",tripInfo.getId());
+                fragment.setArguments(bundle);
+                replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction());
 
-                Toast.makeText(v.getContext(), ""+tripInfo.getId(), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,6 +1,9 @@
 
 package com.abdallah.ufly.model.trips;
 
+import android.view.View;
+import android.widget.Toast;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

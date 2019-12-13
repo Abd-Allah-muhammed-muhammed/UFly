@@ -1,42 +1,25 @@
 package com.abdallah.ufly.ui.home.nav.home;
 
 import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
-import com.abdallah.ufly.ui.MyAccountFragment;
-import com.abdallah.ufly.ui.home.nav.home.HomeFragment;
+import com.abdallah.ufly.ui.my_account.MyAccountFragment;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
-import com.abdallah.ufly.ui.registration.login.LoginFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.navigation.NavigationView;
 import com.sdsmdg.harjot.vectormaster.VectorMasterView;
 import com.sdsmdg.harjot.vectormaster.models.PathModel;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.view.Menu;
-import android.view.Window;
 import android.widget.Toast;
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
