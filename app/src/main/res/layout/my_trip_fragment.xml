@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.my_trip.MyTripFragment">
 
-    <TextView
+
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:background="@drawable/bg_regstration"
+        tools:context=".ui.my_trip.MyTripFragment">
 
-</FrameLayout>
+        <ImageButton
+
+            android:id="@+id/back"
+            android:background="@drawable/ic_back"
+            android:layout_width="@dimen/_50"
+            android:layout_height="@dimen/_50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp" />
+
+    </RelativeLayout>
+</layout>

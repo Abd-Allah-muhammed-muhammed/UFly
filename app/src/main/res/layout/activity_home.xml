@@ -4,18 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
-
-
-        android:background="@color/dark"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <FrameLayout
                 android:layout_above="@+id/bottom_nav"
                 android:id="@+id/frame_main"
@@ -24,70 +12,6 @@
                 tools:ignore="MissingConstraints">
 
             </FrameLayout>
-
-
-            <com.abdallah.ufly.ui.bottom_nav.BottomNavView
-                app:itemTextColor="@color/dark"
-                app:itemIconTint="@color/dark"
-                android:id="@+id/bottom_nav"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_60"
-                android:layout_alignParentBottom="true"
-                >
-
-
-            </com.abdallah.ufly.ui.bottom_nav.BottomNavView>
-
-
-
-        </RelativeLayout>
-
-
-
-
-        <RelativeLayout
-
-            android:id="@+id/line_id"
-            android:layout_gravity="bottom|center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/oval"
-            tools:ignore="MissingConstraints" >
-
-
-            <com.sdsmdg.harjot.vectormaster.VectorMasterView
-                android:id="@+id/fab"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/_12"
-                android:elevation="@dimen/_6"
-                android:visibility="gone"
-                app:vector_src="@drawable/ic_person_outline_black_24dp"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
-
-
-            <com.sdsmdg.harjot.vectormaster.VectorMasterView
-                android:id="@+id/fab2"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/_12"
-                android:elevation="@dimen/_6"
-                app:vector_src="@drawable/ic_home_black_24dp"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
-
-            <com.sdsmdg.harjot.vectormaster.VectorMasterView
-                android:id="@+id/fab3"
-                android:layout_centerInParent="true"
-                android:layout_margin="@dimen/_12"
-                android:elevation="@dimen/_6"
-                android:visibility="gone"
-                app:vector_src="@drawable/ic_account_balance_wallet_black_24dp"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
-
-        </RelativeLayout>
-    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
-
 
 
 </layout>

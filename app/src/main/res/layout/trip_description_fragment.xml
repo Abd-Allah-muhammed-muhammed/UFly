@@ -10,7 +10,7 @@
         <ScrollView
             android:id="@+id/sl_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 <!--parent layout id is  layout_desc-->
             <RelativeLayout
                 android:id="@+id/layout_desc"
@@ -25,6 +25,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/layout_top">
 
+                    <ImageButton
+
+                        android:id="@+id/back"
+                        android:background="@drawable/ic_back"
+                        android:layout_width="@dimen/_50"
+                        android:layout_height="@dimen/_50"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="0dp" />
                     <TextView
                         android:id="@+id/logo_desc"
                         android:layout_width="wrap_content"

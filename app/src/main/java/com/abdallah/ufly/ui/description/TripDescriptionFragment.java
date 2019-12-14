@@ -15,6 +15,9 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
+import com.abdallah.ufly.ui.home.HomeFragment;
+
+import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class TripDescriptionFragment extends Fragment {
 
@@ -33,6 +36,13 @@ public class TripDescriptionFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.trip_description_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(TripDescriptionViewModel.class);
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+            }
+        });
 
 
         return binding.getRoot();

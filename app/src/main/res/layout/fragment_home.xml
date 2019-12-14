@@ -3,144 +3,263 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <RelativeLayout
-        android:background="@drawable/bg_regstration"
-        android:layout_width="match_parent"
+
+    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
+
+
+        android:background="@color/dark"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        tools:showIn="@layout/activity_home">
-
+        android:layout_width="match_parent">
 
         <RelativeLayout
-            android:id="@+id/layout_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <SearchView
-                android:layout_marginTop="@dimen/_4"
-                android:background="@drawable/bg_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_18"
-                android:layout_marginEnd="@dimen/_18" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_below="@+id/layout_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/layout_filter">
-
-            <ImageView
-                android:id="@+id/img_move"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40"
-                android:src="@drawable/ic_move"/>
-
-
-
-            <LinearLayout
-                android:layout_below="@+id/img_move"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/layout_from"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:textSize="@dimen/_18s"
-                        android:gravity="center"
-                        android:textColor="@color/yalow"
-                        android:paddingStart="@dimen/_14"
-                        android:text="@string/from"
-                        android:paddingEnd="@dimen/_14s"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <!--                   <AutoCompleteTextView-->
-                    <!--                       android:drawableStart="@drawable/ic_spinner"-->
-
-                    <!--                       android:id="@+id/aouto_tv_from"-->
-                    <!--                       android:paddingEnd="@dimen/_14s"-->
-                    <!--                       android:paddingStart="@dimen/_14"-->
-                    <!--                       android:layout_width="match_parent"-->
-                    <!--                       android:layout_height="wrap_content"-->
-                    <!--                       android:background="@android:color/transparent"-->
-                    <!--                       android:hint="..."-->
-                    <!--                       android:textColor="@color/white"-->
-                    <!--                       android:textColorHint="@color/trans3"-->
-                    <!--                       android:textSize="@dimen/_14s"-->
-                    <!--                       android:gravity="center"/>-->
-
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_bus"/>
-
-                <LinearLayout
-                    android:id="@+id/layout_to"
-
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:textSize="@dimen/_18s"
-                        android:gravity="center"
-                        android:textColor="@color/yalow"
-                        android:paddingStart="@dimen/_14"
-                        android:text="@string/to"
-                        android:paddingEnd="@dimen/_14s"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <!--                   <AutoCompleteTextView-->
-                    <!--                       android:drawableEnd="@drawable/ic_spinner"-->
-
-                    <!--                       android:id="@+id/aouto_tv_to"-->
-                    <!--                       android:paddingEnd="@dimen/_14s"-->
-                    <!--                       android:paddingStart="@dimen/_14"-->
-                    <!--                       android:layout_width="match_parent"-->
-                    <!--                       android:layout_height="wrap_content"-->
-                    <!--                       android:background="@android:color/transparent"-->
-                    <!--                       android:hint="..."-->
-                    <!--                       android:textColor="@color/white"-->
-                    <!--                       android:textColorHint="@color/trans3"-->
-                    <!--                       android:textSize="@dimen/_14s"-->
-                    <!--                       android:gravity="center"/>-->
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@+id/layout_filter"
-            tools:listitem="@layout/item_trips"
-            android:id="@+id/rev_trip_info"
+            android:id="@+id/layout_rv_data"
+            android:background="@drawable/bg_regstration"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            tools:context=".MainActivity"
+            tools:showIn="@layout/activity_home">
 
-    </RelativeLayout>
+
+            <ProgressBar
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/trans3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:visibility="gone"
+                android:id="@+id/prog_home"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="145dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="158dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="10dp" />
+
+
+            <RelativeLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <SearchView
+                    android:layout_marginTop="@dimen/_4"
+                    android:background="@drawable/bg_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_18"
+                    android:layout_marginEnd="@dimen/_18" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_4"
+                android:layout_below="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_filter">
+
+                <ImageView
+                    android:id="@+id/img_move"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40"
+                    android:src="@drawable/ic_move"/>
+
+
+
+                <LinearLayout
+                    android:layout_below="@+id/img_move"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layout_from"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:textSize="@dimen/_18s"
+                            android:gravity="center"
+                            android:textColor="@color/yalow"
+                            android:paddingStart="@dimen/_14"
+                            android:text="@string/from"
+                            android:paddingEnd="@dimen/_14s"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <!--                   <AutoCompleteTextView-->
+                        <!--                       android:drawableStart="@drawable/ic_spinner"-->
+
+                        <!--                       android:id="@+id/aouto_tv_from"-->
+                        <!--                       android:paddingEnd="@dimen/_14s"-->
+                        <!--                       android:paddingStart="@dimen/_14"-->
+                        <!--                       android:layout_width="match_parent"-->
+                        <!--                       android:layout_height="wrap_content"-->
+                        <!--                       android:background="@android:color/transparent"-->
+                        <!--                       android:hint="..."-->
+                        <!--                       android:textColor="@color/white"-->
+                        <!--                       android:textColorHint="@color/trans3"-->
+                        <!--                       android:textSize="@dimen/_14s"-->
+                        <!--                       android:gravity="center"/>-->
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_bus"/>
+
+                    <LinearLayout
+                        android:id="@+id/layout_to"
+
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:textSize="@dimen/_18s"
+                            android:gravity="center"
+                            android:textColor="@color/yalow"
+                            android:paddingStart="@dimen/_14"
+                            android:text="@string/to"
+                            android:paddingEnd="@dimen/_14s"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <!--                   <AutoCompleteTextView-->
+                        <!--                       android:drawableEnd="@drawable/ic_spinner"-->
+
+                        <!--                       android:id="@+id/aouto_tv_to"-->
+                        <!--                       android:paddingEnd="@dimen/_14s"-->
+                        <!--                       android:paddingStart="@dimen/_14"-->
+                        <!--                       android:layout_width="match_parent"-->
+                        <!--                       android:layout_height="wrap_content"-->
+                        <!--                       android:background="@android:color/transparent"-->
+                        <!--                       android:hint="..."-->
+                        <!--                       android:textColor="@color/white"-->
+                        <!--                       android:textColorHint="@color/trans3"-->
+                        <!--                       android:textSize="@dimen/_14s"-->
+                        <!--                       android:gravity="center"/>-->
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:layout_marginBottom="@dimen/_50"
+                android:layout_below="@+id/layout_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    tools:listitem="@layout/item_trips"
+                    android:id="@+id/rev_trip_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/cycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--            <FrameLayout-->
+            <!--                android:layout_above="@+id/bottom_nav"-->
+            <!--                android:id="@+id/frame_main"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                tools:ignore="MissingConstraints">-->
+
+            <!--            </FrameLayout>-->
+
+
+            <com.abdallah.ufly.ui.bottom_nav.BottomNavView
+                app:itemTextColor="@color/dark"
+                app:itemIconTint="@color/dark"
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50"
+                android:layout_alignParentBottom="true"
+                >
+
+
+            </com.abdallah.ufly.ui.bottom_nav.BottomNavView>
+
+
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/line_id"
+            android:layout_gravity="bottom|center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            tools:ignore="MissingConstraints" >
+
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                android:visibility="gone"
+                app:vector_src="@drawable/ic_person_outline_black_24dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab2"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                app:vector_src="@drawable/ic_home_black_24dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab3"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                android:visibility="gone"
+                app:vector_src="@drawable/ic_account_balance_wallet_black_24dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+        </RelativeLayout>
+    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+
+
+
 </layout>
