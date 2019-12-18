@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class TripsResponse {
 
+
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -30,6 +31,19 @@ public class TripsResponse {
     @SerializedName("price")
     @Expose
     private String price;
+
+    @SerializedName("description")
+    @Expose
+    private String description;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;

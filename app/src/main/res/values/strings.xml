@@ -51,5 +51,9 @@
     <string name="mansoura">MANSOURA</string>
     <string name="inclouds">Include</string>
     <string name="book">Book Now</string>
+    <string name="trip_information">Trip Information</string>
+    <string name="alexandria">Alexandria</string>
+    <string name="cairo">Cairo</string>
+    <string name="get_out_and_have_fun">Get out and have fun</string>
 
 </resources>

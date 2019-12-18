@@ -3,6 +3,7 @@ package com.abdallah.ufly.retrofit;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.abdallah.ufly.model.includes.IncludesResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.model.trips.TripsResponse;
@@ -25,6 +26,11 @@ public interface Api {
                                   @Field("password")String password,
                                   @Field("address")String address,
                                   @Field("phone")String phone);
+    @FormUrlEncoded
+    @POST("includes_by_id.php")
+    Call<IncludesResponse> getIncludesById(@Field("id_trip")String id_trip);
+
+
     @FormUrlEncoded
     @POST("login.php")
     Call<LoginResponse> login(@Field("email")String email,

@@ -106,7 +106,7 @@
                                     android:gravity="center"
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
-                                    android:text="Cairo"
+                                    android:text="@string/cairo"
                                     android:textColor="@color/white"
                                     android:textColorHint="@color/trans3"
                                     android:textSize="@dimen/_14s" />
@@ -145,7 +145,7 @@
                                     android:gravity="center"
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
-                                    android:text="Alexandria"
+                                    android:text="@string/alexandria"
                                     android:textColor="@color/white"
                                     android:textColorHint="@color/trans3"
                                     android:textSize="@dimen/_14s" />
@@ -197,7 +197,6 @@
                             android:id="@+id/desc_rv_include"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:itemCount="2"
                             tools:listitem="@layout/item_includ" />
 
                     </RelativeLayout>
@@ -214,7 +213,7 @@
                         android:layout_marginEnd="@dimen/_24"
                         android:drawableStart="@drawable/ic_info_24px"
                         android:drawablePadding="@dimen/_24"
-                        android:text="Trip Information"
+                        android:text="@string/trip_information"
                         android:textColor="@color/trans3"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
@@ -228,11 +227,13 @@
                         android:layout_margin="@dimen/_16"
                         android:background="@drawable/shap_include">
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/desc_rv_trip_info"
+                        <TextView
+                            android:textSize="@dimen/_20s"
+                            android:textColor="@color/dark"
+                            android:layout_margin="@dimen/_20"
+                            android:id="@+id/desc_tv_trip_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:itemCount="5"
                             tools:listitem="@layout/item_includ" />
 
                     </RelativeLayout>

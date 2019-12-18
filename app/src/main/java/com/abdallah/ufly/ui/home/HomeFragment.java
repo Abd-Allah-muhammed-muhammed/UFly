@@ -19,6 +19,7 @@ import com.abdallah.ufly.databinding.FragmentHomeBinding;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.my_account.MyAccountFragment;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
+import com.abdallah.ufly.ui.setting.SettingHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.muddzdev.styleabletoast.StyleableToast;
 import com.sdsmdg.harjot.vectormaster.VectorMasterView;
@@ -86,7 +87,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab);
 
-                    replace(new MyAccountFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                    replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
 
 
                 break;
