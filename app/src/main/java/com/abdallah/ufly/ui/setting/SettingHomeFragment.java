@@ -8,12 +8,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.adpter.SettingAdapter;
 import com.abdallah.ufly.databinding.SettingHomeFragmentBinding;
 import com.abdallah.ufly.ui.my_account.MyAccountViewModel;
 
@@ -32,6 +34,13 @@ public class SettingHomeFragment extends Fragment {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.setting_home_fragment,container,false);
         mViewModel = ViewModelProviders.of(this).get(SettingHomeViewModel.class);
+
+        SettingAdapter settingAdapter = new SettingAdapter();
+        binding.rvSetting.setAdapter(settingAdapter);
+        binding.rvSetting.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvSetting.setHasFixedSize(true);
+        settingAdapter.setSettingModelsList(mViewModel.getSettinData(getContext(),"Full Name").getValue());
+        settingAdapter.notifyDataSetChanged();
 
 
 

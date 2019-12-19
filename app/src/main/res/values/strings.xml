@@ -54,6 +54,12 @@
     <string name="trip_information">Trip Information</string>
     <string name="alexandria">Alexandria</string>
     <string name="cairo">Cairo</string>
-    <string name="get_out_and_have_fun">Get out and have fun</string>
+    <string name="get_out_and_have_fun">Get out and have some fun</string>
+
+    <string name="try_gold_ufly"><font fgcolor='#CCA231'>Try Gold UFly</font></string> <!--gold-->
+
+    <string name="helps">Helps</string>
+    <string name="connect_us">Connect Us</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

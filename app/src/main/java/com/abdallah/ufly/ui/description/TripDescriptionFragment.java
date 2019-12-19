@@ -56,9 +56,17 @@ public class TripDescriptionFragment extends Fragment {
 
         int tripId = getArguments().getInt("TripId",0);
 
+
+
+
         getincludes(tripId);
 
         String trip_desc = getArguments().getString("Trip_desc");
+        String Trip_from = getArguments().getString("Trip_from");
+        String Trip_to = getArguments().getString("Trip_to");
+
+        binding.descFrom.setText(Trip_from);
+        binding.descTo.setText(Trip_to);
 
 
         binding.descTvTripInfo.setText(trip_desc);

@@ -51,6 +51,8 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
 
                 bundle.putInt("TripId",tripInfo.getId());
                 bundle.putString("Trip_desc",tripInfo.getDescription());
+                bundle.putString("Trip_from",tripInfo.getDepartuer());
+                bundle.putString("Trip_to",tripInfo.getArrival());
                 fragment.setArguments(bundle);
                 replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction());
 

@@ -17,11 +17,9 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
 import com.abdallah.ufly.model.trips.TripsResponse;
-import com.abdallah.ufly.ui.my_account.MyAccountFragment;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.abdallah.ufly.ui.setting.SettingHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.muddzdev.styleabletoast.StyleableToast;
 import com.sdsmdg.harjot.vectormaster.VectorMasterView;
 import com.sdsmdg.harjot.vectormaster.models.PathModel;
 
