@@ -16,6 +16,18 @@ public class Include {
     @Expose
     private String price;
 
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getIdTrip() {
         return idTrip;
     }

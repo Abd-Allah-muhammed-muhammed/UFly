@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.description;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -20,6 +21,7 @@ import com.abdallah.ufly.adpter.IncludesAdapter;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
 import com.abdallah.ufly.model.includes.Include;
 import com.abdallah.ufly.model.includes.IncludesResponse;
+import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
 
 import java.util.ArrayList;
@@ -71,6 +73,14 @@ public class TripDescriptionFragment extends Fragment {
 
         binding.descTvTripInfo.setText(trip_desc);
 
+        binding.descBtnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new BookFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+
+            }
+        });
+
         return binding.getRoot();
     }
 
@@ -89,6 +99,8 @@ public class TripDescriptionFragment extends Fragment {
         });
 
     }
+
+
 
 
 }

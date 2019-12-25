@@ -2,10 +2,10 @@
 <resources>
     <color name="colorPrimary">#455B6A</color>
     <color name="colorPrimaryDark">#1D3C45</color>
-    <color name="colorAccent">#FFC107</color>
+    <color name="colorAccent">#FBC83C</color>
     <color name="white">#ffffff</color>
     <color name="blow">#1E8DFF</color>
-    <color name="yalow">#FFC107</color>
+    <color name="yalow">#FBC83C</color>
     <color name="trans">#54FFFFFF</color>
     <color name="dark">#12262C</color>
 
@@ -28,6 +28,7 @@
 <color name="dot_light_screen4">#FFC107</color>
     <color name="trans2">#E8E8EA</color>
     <color name="trans3">#EBF0F0F0</color>
+    <color name="blck">#000000</color>
 
     <array name="array_dot_active">
     <item>@color/dot_light_screen1</item>

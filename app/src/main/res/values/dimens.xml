@@ -55,4 +55,6 @@
     <dimen name="_90">90dp</dimen>
     <dimen name="_400">400dp</dimen>
     <dimen name="_2">2dp</dimen>
+    <dimen name="_370">370dp</dimen>
+    <dimen name="_180">180dp</dimen>
 </resources>

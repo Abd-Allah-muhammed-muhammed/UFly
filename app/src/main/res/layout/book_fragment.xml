@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="book"
+            type="com.abdallah.ufly.ui.book.BookViewModel" />
+
+    </data>
+    <RelativeLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        tools:context=".ui.book.BookFragment">
+
+        <ImageButton
+
+            android:id="@+id/back"
+            android:background="@drawable/ic_back"
+            android:layout_width="@dimen/_50"
+            android:layout_height="@dimen/_50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp" />
+
+        <TextView
+android:layout_below="@+id/back"
+            android:textSize="@dimen/_18s"
+            android:textStyle="bold"
+            android:drawablePadding="@dimen/_18"
+            android:drawableEnd="@drawable/ic_mony"
+            android:id="@+id/text_chose"
+            android:layout_margin="@dimen/_18"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:lines="3"
+            android:layout_width="@dimen/_100"
+            android:layout_height="wrap_content"
+            android:text="@string/chose_your_payment_pay"/>
+
+
+        <RelativeLayout
+
+            android:id="@+id/layout_payment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_330"
+android:layout_marginStart="@dimen/_60"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/_50"
+            android:background="@drawable/bg_payment_card">
+
+
+            <CheckedTextView
+
+                android:id="@+id/book_cash"
+                android:layout_width="@dimen/_170"
+                android:layout_height="@dimen/_70"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_60"
+                android:background="@drawable/bg_btn_book_whit"
+                android:drawableEnd="@drawable/ic_cash"
+                android:gravity="center"
+                android:paddingStart="@dimen/_18"
+                android:paddingEnd="@dimen/_18"
+                android:text="@string/cash"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_18s"
+                android:textStyle="bold" />
+
+
+            <CheckedTextView
+                android:id="@+id/book_visa"
+                android:layout_width="@dimen/_170"
+                android:layout_height="@dimen/_70"
+                android:layout_below="@+id/book_cash"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40"
+                android:background="@drawable/bg_btn_book_whit"
+                android:drawableEnd="@drawable/ic_visa"
+                android:gravity="center"
+                android:paddingStart="@dimen/_18"
+                android:paddingEnd="@dimen/_18"
+                android:text="@string/visa"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_18s"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:onClick="@{(view) -> book.booking(view)}"
+
+                android:id="@+id/book_book"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_70"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/bg_btn_book_whit"
+                android:text="@string/book"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_18s" />
+
+        </RelativeLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/_20"
+            android:id="@+id/layout_price"
+            android:layout_marginBottom="@dimen/_40"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_price">
+
+            <TextView
+                android:textSize="@dimen/_18s"
+                android:textStyle="bold"
+                android:textColor="@color/dark"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Price">
+
+            </TextView>
+
+            <TextView
+                android:textSize="@dimen/_18s"
+                android:id="@+id/book_price"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="1500">
+
+            </TextView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>
+

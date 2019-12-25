@@ -14,6 +14,7 @@
     </data>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/item_settings"
             android:elevation="8dp"
             android:divider="@color/dark"
             android:dividerHeight="0.0px"

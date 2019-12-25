@@ -49,6 +49,13 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
         prefManager = new PrefManager(getContext());
 
+        if (prefManager.isLoged()) {
+
+            startActivity(new Intent(getContext(), HomeActivity.class));
+
+
+        }
+
 
 
         View view = binding.getRoot();
@@ -82,9 +89,10 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
             prefManager.saveToken(response.getData().getUuid());
             StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
             startActivity(new Intent(getContext(), HomeActivity.class));
+            prefManager.setIsLoged(true);
         }else {
 
-
+            prefManager.setIsLoged(false);
             StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
         }
 

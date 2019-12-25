@@ -15,6 +15,7 @@ public class PrefManager {
         private static final String PREF_NAME = "ufly_abdalah";
         private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
         private static final String TOKEN = "token";
+        private static final String ISLOGED = "is_loged";
 
         public PrefManager(Context context) {
             this._context = context;
@@ -44,4 +45,36 @@ public class PrefManager {
             return pref.getString(TOKEN,"");
 
         }
+
+
+
+        public void clear(){
+            editor.clear();
+            editor.commit();
+
+
+        }
+
+
+
+        public void setIsLoged (boolean isLoged){
+
+            editor.putBoolean(ISLOGED,isLoged);
+            editor.commit();
+
+
+        }
+
+
+        public boolean isLoged (){
+
+            return pref.getBoolean(ISLOGED,false);
+        }
+
+    public void removeToken() {
+
+
+            editor.remove(TOKEN);
+            editor.commit();
     }
+}

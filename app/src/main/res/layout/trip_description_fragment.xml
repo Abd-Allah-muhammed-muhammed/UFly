@@ -3,6 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+    <data>
+
+
+        <variable
+            name="desc_book"
+            type="com.abdallah.ufly.ui.description.TripDescriptionViewModel" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

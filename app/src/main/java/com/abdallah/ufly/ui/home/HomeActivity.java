@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
+import com.abdallah.ufly.ui.book.BookFragment;
 
 import androidx.databinding.DataBindingUtil;
 

@@ -61,5 +61,12 @@
     <string name="helps">Helps</string>
     <string name="connect_us">Connect Us</string>
     <string name="log_out">Log Out</string>
+    <string name="cash">Cash</string>
+    <string name="visa">Visa</string>
+    <string name="chose_your_payment_pay">chose your payment pay</string>
+    <string name="edit">Edite</string>
+    <string name="change_pass">Change Your pass..</string>
+    <string name="change_email">Change Your Email</string>
+    <string name="my_information_account">MY Information Account</string>
 
 </resources>

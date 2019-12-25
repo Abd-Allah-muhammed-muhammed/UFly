@@ -32,7 +32,7 @@
             android:paddingRight="@dimen/desc_padding"
             android:text="@string/safety"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/dark"
             android:textSize="@dimen/slide_desc" />
 
     </LinearLayout>

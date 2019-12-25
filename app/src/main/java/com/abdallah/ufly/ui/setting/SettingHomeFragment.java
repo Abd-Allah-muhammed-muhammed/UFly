@@ -17,7 +17,10 @@ import android.view.ViewGroup;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.SettingAdapter;
 import com.abdallah.ufly.databinding.SettingHomeFragmentBinding;
+import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.my_account.MyAccountViewModel;
+
+import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class SettingHomeFragment extends Fragment {
 
@@ -44,6 +47,12 @@ public class SettingHomeFragment extends Fragment {
 
 
 
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+            }
+        });
 
         return binding.getRoot();
     }

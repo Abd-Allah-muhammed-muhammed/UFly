@@ -18,71 +18,70 @@
         android:background="@drawable/bg_regstration">
 
 
-        <ImageView
-            android:contentDescription="@string/logo"
-            android:id="@+id/logo_dark_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30"
-            android:layout_marginTop="@dimen/_100"
-            android:src="@drawable/logo_dark" />
+        <ImageButton
+            android:id="@+id/back"
+            android:background="@drawable/ic_back_dark"
+            android:layout_width="@dimen/_50"
+            android:layout_height="@dimen/_50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp" />
 
 
         <TextView
+            android:layout_marginStart="@dimen/_30"
+            android:layout_below="@+id/back"
             android:layout_marginTop="@dimen/_12"
             android:id="@+id/text_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_30"
             android:text="@string/creat_acc"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:textSize="21sp" />
 
 
 
         <EditText
             android:onTextChanged="@{sign::setFullName}"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
             android:hint="@string/your_full_name"
             android:id="@+id/et_name"
             android:inputType="textPersonName"
             android:fontFamily="sans-serif-condensed-medium"
-            android:layout_marginTop="@dimen/_24"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:layout_marginTop="@dimen/_90"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_name"
             android:layout_width="match_parent"
-            android:layout_below="@+id/logo_dark_small"
+            android:layout_below="@+id/text_login"
             android:layout_height="@dimen/_40"/>
 
         <TextView
             android:id="@+id/view_name"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
-            android:layout_below="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            />
+            android:layout_below="@+id/et_name"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
+            android:background="@color/dark" />
 
 
 
         <EditText
             android:onTextChanged="@{sign::setAddress}"
             android:inputType="textPostalAddress"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
             android:hint="@string/your_address"
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_address"
             android:layout_marginTop="@dimen/_24"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_mail"
             android:layout_width="match_parent"
@@ -91,11 +90,11 @@
 
         <TextView
             android:id="@+id/view_address"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:background="@color/dark"
             android:layout_below="@+id/et_address"
             android:layout_width="match_parent"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:layout_height="2dp"
             />
 
@@ -107,15 +106,15 @@
         <EditText
             android:onTextChanged="@{sign::setPhone}"
             android:inputType="phone"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
             android:hint="@string/your_phone"
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_phone"
             android:layout_marginTop="@dimen/_24"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_phone"
             android:layout_width="match_parent"
@@ -124,9 +123,9 @@
 
         <TextView
             android:id="@+id/view_phone"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:background="@color/dark"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -140,23 +139,22 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40"
             android:layout_below="@+id/et_phone"
-            android:layout_marginStart="@dimen/_18"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"            android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_mail"
             android:drawablePadding="@dimen/_18"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="@string/your_mail"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:textColorHint="@color/dot_dark_screen1"
             />
 
         <TextView
             android:id="@+id/view_mail"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:background="@color/dark"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_mail"
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -167,15 +165,15 @@
         <EditText
             android:onTextChanged="@{sign::setPassword}"
             android:inputType="textPassword"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
             android:hint="@string/your_password"
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_password"
             android:layout_marginTop="@dimen/_24"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_password"
             android:layout_width="match_parent"
@@ -184,9 +182,9 @@
 
         <TextView
             android:id="@+id/view_password"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:background="@color/dark"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -196,7 +194,7 @@
         <EditText
 
             android:inputType="textPassword"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:drawablePadding="@dimen/_18"
             android:textColorHint="@color/dot_dark_screen1"
             android:onTextChanged="@{sign::setRePassword}"
@@ -204,8 +202,8 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:id="@+id/et_re_password"
             android:layout_marginTop="@dimen/_24"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:background="@android:color/transparent"
             android:drawableStart="@drawable/ic_password"
             android:layout_width="match_parent"
@@ -214,9 +212,9 @@
 
         <TextView
             android:id="@+id/view_re_password"
-            android:background="@color/white"
-            android:layout_marginEnd="@dimen/_18"
-            android:layout_marginStart="@dimen/_18"
+            android:background="@color/dark"
+            android:layout_marginEnd="@dimen/_30"
+            android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_re_password"
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -226,7 +224,7 @@
         <ProgressBar
             android:indeterminate="true"
             android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/colorPrimaryDark"
+            android:indeterminateTint="@color/white"
             android:visibility="@{sign.progress}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,10 +247,10 @@
             android:layout_height="@dimen/_70"
             android:layout_below="@+id/view_re_password"
             android:layout_marginStart="@dimen/_30"
-            android:layout_marginTop="@dimen/_18"
+            android:layout_marginTop="@dimen/_30"
             android:layout_marginEnd="@dimen/_30"
             android:background="@drawable/custom_button_drawable"
-            android:textColor="@color/dark"
+            android:textColor="@color/white"
             android:textSize="@dimen/_24_sp" />
 
     </RelativeLayout>

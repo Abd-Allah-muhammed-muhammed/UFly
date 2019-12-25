@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <RelativeLayout
+        android:background="@drawable/bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
                 <RelativeLayout
-                    android:background="@drawable/bg_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/layout_top">
@@ -31,7 +31,7 @@
                         android:layout_margin="@dimen/_18"
                         android:layout_alignParentEnd="true"
                         android:textSize="@dimen/_18s"
-                        android:textColor="@color/white"
+                        android:textColor="@color/dark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/action_settings"/>
@@ -49,19 +49,19 @@
                 </androidx.recyclerview.widget.RecyclerView>
 
 
-
         <TextView
 
-            android:layout_marginBottom="@dimen/_8"
-            android:drawablePadding="@dimen/_4"
-            android:layout_centerHorizontal="true"
-            android:drawableStart="@drawable/logo_small"
-            android:textColor="@color/dark"
-            android:layout_margin="@dimen/_4"
-            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/get_out_and_have_fun"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_4"
+            android:layout_marginEnd="@dimen/_4"
+            android:layout_marginBottom="@dimen/_8"
+            android:drawableStart="@drawable/logo_small"
+            android:drawablePadding="@dimen/_4"
+            android:text="@string/get_out_and_have_fun"
+            android:textColor="@color/dark" />
 
 
 

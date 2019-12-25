@@ -3,6 +3,7 @@ package com.abdallah.ufly.retrofit;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.includes.IncludesResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
@@ -39,5 +40,13 @@ public interface Api {
 
     @GET("trips.php")
     Single<List<TripsResponse>> getAllTrips();
+
+
+
+    @FormUrlEncoded
+    @POST("book.php")
+    Call<BookModelResponse> book(@Field("id_trip")String id_trip,
+                                 @Field("id_includes")String id_includes
+                                 ,@Field("uui_id")String uui_id);
 
 }

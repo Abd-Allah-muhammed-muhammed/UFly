@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.MyViewPagerAdapter;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.ui.registration.RegistrationActivity;
 
 public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChangeListener {
@@ -28,6 +29,7 @@ public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChang
     TextView [] dots;
   public MutableLiveData<String> btnText = new MutableLiveData<>();
 
+    PrefManager prefManager ;
 
     public WelcomeViewModel() {
     }
@@ -41,8 +43,16 @@ public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChang
         barTansparent();
         addBottomDots(0);
         changeStatusBarColor();
-
         btnText.setValue(activity.getString(R.string.next));
+
+        // check is it the first time
+        prefManager = new PrefManager(activity);
+        if (!prefManager.isFirstTimeLaunch()) {
+           launchHomeScreen();
+////
+        }
+
+
     }
 
     public void barTansparent(){
@@ -105,7 +115,7 @@ public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChang
     }
 
     public void launchHomeScreen() {
-//        prefManager.setFirstTimeLaunch(false);
+       prefManager.setFirstTimeLaunch(false);
        activity.startActivity(new Intent(activity, RegistrationActivity.class));
        activity.finish();
     }

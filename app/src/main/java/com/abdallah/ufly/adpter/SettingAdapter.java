@@ -1,19 +1,32 @@
 package com.abdallah.ufly.adpter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abdallah.ufly.R;
-import com.abdallah.ufly.databinding.ItemIncludBinding;
 import com.abdallah.ufly.databinding.ItemSettingBinding;
-import com.abdallah.ufly.model.includes.Include;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.setting.SettingModel;
+import com.abdallah.ufly.ui.my_account.MyAccountFragment;
+import com.abdallah.ufly.ui.registration.RegistrationActivity;
 
 import java.util.List;
+
+import static com.abdallah.ufly.helper.HelperMethod.replace;
+import static com.abdallah.ufly.helper.Setting.ACCOUNT;
+import static com.abdallah.ufly.helper.Setting.CONNECT_US;
+import static com.abdallah.ufly.helper.Setting.HELPS;
+import static com.abdallah.ufly.helper.Setting.LOG_OUT;
+import static com.abdallah.ufly.helper.Setting.SETTINGS;
+import static com.abdallah.ufly.helper.Setting.UFLY_GOLD;
 
 public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingViewHolder> {
 
@@ -32,12 +45,57 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
 
     @Override
-    public void onBindViewHolder(@NonNull SettingAdapter.SettingViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SettingAdapter.SettingViewHolder holder, final int position) {
 
 
-        SettingModel  setting_model = settingModels.get(position);
+        final SettingModel  setting_model = settingModels.get(position);
 
         holder.binding.setSetting(setting_model);
+
+        holder.binding.itemSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                switch (position){
+
+                    case ACCOUNT :
+
+
+                        replace(new MyAccountFragment(),R.id.frame_main,
+
+                                ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction());
+                        break;
+
+                        case UFLY_GOLD :
+
+                        break;
+
+                    case SETTINGS :
+
+                        break;
+
+                    case HELPS :
+
+                        break;
+
+                    case CONNECT_US :
+
+                        break;
+
+                        case LOG_OUT :
+                            PrefManager manager = new PrefManager(v.getContext());
+                            manager.setIsLoged(false);
+                            manager.removeToken();
+                            Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
+                            v.getContext().startActivity(intent);
+
+                        break;
+                }
+
+
+            }
+        });
+
 
 
 
