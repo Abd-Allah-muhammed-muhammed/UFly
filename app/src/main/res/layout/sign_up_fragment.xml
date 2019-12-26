@@ -28,6 +28,7 @@
 
 
         <TextView
+
             android:layout_marginStart="@dimen/_30"
             android:layout_below="@+id/back"
             android:layout_marginTop="@dimen/_12"
@@ -66,7 +67,8 @@
             android:layout_below="@+id/et_name"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginStart="@dimen/_50"
-            android:background="@color/dark" />
+            android:background="@drawable/custom_button_drawable3"
+            />
 
 
 
@@ -90,7 +92,7 @@
 
         <TextView
             android:id="@+id/view_address"
-            android:background="@color/dark"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_below="@+id/et_address"
             android:layout_width="match_parent"
             android:layout_marginEnd="@dimen/_30"
@@ -123,7 +125,7 @@
 
         <TextView
             android:id="@+id/view_phone"
-            android:background="@color/dark"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_phone"
@@ -152,7 +154,7 @@
 
         <TextView
             android:id="@+id/view_mail"
-            android:background="@color/dark"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_mail"
@@ -182,7 +184,7 @@
 
         <TextView
             android:id="@+id/view_password"
-            android:background="@color/dark"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_password"
@@ -212,7 +214,7 @@
 
         <TextView
             android:id="@+id/view_re_password"
-            android:background="@color/dark"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginStart="@dimen/_50"
             android:layout_below="@+id/et_re_password"
@@ -240,18 +242,21 @@
 
         <Button
             android:text="@{sign.signText}"
-
             android:onClick="@{(view) -> sign.onClick(view)}"
             android:id="@+id/btn_sign_up_2"
+            android:layout_below="@+id/view_re_password"
+            android:background="@drawable/custom_button_drawable3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_70"
-            android:layout_below="@+id/view_re_password"
             android:layout_marginStart="@dimen/_30"
-            android:layout_marginTop="@dimen/_30"
+            android:layout_marginTop="@dimen/_18"
             android:layout_marginEnd="@dimen/_30"
-            android:background="@drawable/custom_button_drawable"
             android:textColor="@color/white"
-            android:textSize="@dimen/_24_sp" />
+            android:textSize="@dimen/_24_sp"
+
+
+
+             />
 
     </RelativeLayout>
 

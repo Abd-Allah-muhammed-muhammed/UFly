@@ -12,6 +12,8 @@ import com.abdallah.ufly.retrofit.ApiClient;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,10 +37,14 @@ data = new MutableLiveData<>();
 //
         api.getAllTrips().subscribeOn(io())
                 .observeOn(mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<TripsResponse>>() {
+                .subscribeWith(new Observer<List<TripsResponse>>() {
                     @Override
-                    public void onSuccess(final List<TripsResponse> tripsResponses) {
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(List<TripsResponse> tripsResponses) {
 
                         data.setValue(tripsResponses);
                     }
@@ -46,7 +52,13 @@ data = new MutableLiveData<>();
                     @Override
                     public void onError(Throwable e) {
 
-                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+
+
                     }
                 });
 //

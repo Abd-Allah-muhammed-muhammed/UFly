@@ -21,13 +21,19 @@ import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.BookFragmentBinding;
+import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.model.book.BookModelResponse;
+import com.abdallah.ufly.model.login.LoginResponse;
+import com.abdallah.ufly.ui.my_trip.MyTripFragment;
+import com.muddzdev.styleabletoast.StyleableToast;
 
-public class BookFragment extends Fragment {
+import static com.abdallah.ufly.helper.HelperMethod.replace;
+
+public class BookFragment extends Fragment  implements BookResultCallBacks{
 
     private BookViewModel mViewModel;
 
     BookFragmentBinding binding ;
-
     public static BookFragment newInstance() {
         return new BookFragment();
     }
@@ -39,7 +45,9 @@ public class BookFragment extends Fragment {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.book_fragment,container,false);
         binding.setLifecycleOwner(this);
-        mViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
+        mViewModel = ViewModelProviders.of(this ,new BookViewModelFactory(this)).get(BookViewModel.class);
+
+        getDataIntent();
 
         binding.setBook(mViewModel);
         binding.bookBook.setText("");
@@ -64,9 +72,53 @@ public class BookFragment extends Fragment {
         });
 
 
+
+
        return binding.getRoot();
     }
 
+    private void getDataIntent() {
+
+        Bundle arguments = getArguments();
+
+        String price = arguments.getString("price");
+        binding.bookPrice.setText(price);
+
+        mViewModel.setArgments(arguments);
+//
+//        prefManager = new PrefManager(getContext());
+//         token = prefManager.getToken();
+//         trip_id = arguments.getInt("trip_id");
+//         id_includes = arguments.getString("id_includes");
+
+
+    }
+
+
+    @Override
+    public void onError(String msg) {
+        StyleableToast.makeText(getContext(), msg, Toast.LENGTH_LONG, R.style.error).show();
+
+    }
+
+
+    @Override
+    public void response(BookModelResponse response) {
+
+
+        if (response.getStatus()==0){
+            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
+
+            replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+
+        }else {
+
+            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+
+        }
+
+
+    }
 
 
 

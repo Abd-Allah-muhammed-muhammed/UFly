@@ -35,6 +35,8 @@ public class TripDescriptionFragment extends Fragment {
 
 
     TripDescriptionFragmentBinding binding ;
+    private String id_includse;
+    private int tripId;
 
     public static TripDescriptionFragment newInstance() {
         return new TripDescriptionFragment();
@@ -56,7 +58,7 @@ public class TripDescriptionFragment extends Fragment {
 
 
 
-        int tripId = getArguments().getInt("TripId",0);
+         tripId = getArguments().getInt("TripId",0);
 
 
 
@@ -76,7 +78,15 @@ public class TripDescriptionFragment extends Fragment {
         binding.descBtnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replace(new BookFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+
+                BookFragment bookFragment = new BookFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("trip_id",tripId);
+                bundle.putString("id_includes",id_includse);
+                bundle.putString("price",getArguments().getString("price"));
+
+                bookFragment.setArguments(bundle);
+                replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction());
 
             }
         });
@@ -92,6 +102,8 @@ public class TripDescriptionFragment extends Fragment {
         mViewModel.getdata(String.valueOf(tripId)).observe(this, new Observer<List<Include>>() {
             @Override
             public void onChanged(List<Include> includes) {
+
+                 id_includse = includes.get(0).getId();
                 adapter.setIncludesList(includes);
                 adapter.notifyDataSetChanged();
 

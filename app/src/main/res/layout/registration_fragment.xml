@@ -73,7 +73,7 @@
                     android:layout_marginStart="@dimen/_30"
                     android:layout_marginTop="@dimen/_18"
                     android:layout_marginEnd="@dimen/_30"
-                    android:background="@color/colorPrimary" />
+                    android:background="@drawable/custom_button_drawable3" />
 
             </LinearLayout>
 
@@ -110,7 +110,7 @@
                     android:layout_marginStart="@dimen/_30"
                     android:layout_marginTop="@dimen/_18"
                     android:layout_marginEnd="@dimen/_30"
-                    android:background="@color/colorPrimary" />
+                    android:background="@drawable/custom_button_drawable3" />
             </LinearLayout>
 
             <TextView
@@ -145,7 +145,7 @@
                     android:layout_marginStart="@dimen/_30"
                     android:layout_marginTop="@dimen/_18"
                     android:layout_marginEnd="@dimen/_30"
-                    android:background="@drawable/custom_button_drawable"
+                    android:background="@drawable/custom_button_drawable3"
 
                     android:onClick="@{(view) -> registraion.login(view)}"
                     android:text="@{registraion.loginText}"
@@ -160,10 +160,6 @@
                     android:layout_alignTop="@+id/btn_login"
                     android:layout_alignEnd="@+id/btn_login"
                     android:layout_alignBottom="@+id/btn_login"
-                    android:layout_marginStart="145dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="158dp"
-                    android:layout_marginBottom="12dp"
                     android:indeterminate="true"
                     android:indeterminateTintMode="src_atop"
                     android:indeterminateTint="@color/white"
@@ -174,17 +170,19 @@
 
             <Button
                 android:id="@+id/btn_sign_up"
+
+                android:layout_below="@+id/frame_login"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_70"
-                android:layout_below="@+id/frame_login"
                 android:layout_marginStart="@dimen/_30"
                 android:layout_marginTop="@dimen/_18"
                 android:layout_marginEnd="@dimen/_30"
-                android:background="@drawable/custom_button_drawable"
-                android:onClick="@{(view) -> registraion.signUp(view)}"
                 android:text="@string/sign_up"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_24_sp" />
+                android:textSize="@dimen/_24_sp"
+                android:background="@drawable/custom_button_drawable3"
+                android:onClick="@{(view) -> registraion.signUp(view)}"
+                 />
         </RelativeLayout>
 
 

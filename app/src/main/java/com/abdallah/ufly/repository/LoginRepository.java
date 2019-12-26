@@ -48,13 +48,14 @@ public class LoginRepository {
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     progress.setValue(8);
                     loginText.setValue("LOGIN");
-                    t.printStackTrace();
+                    callbacks.onError("Try Again");
                 }
             });
 
         }catch (Exception e){
-
-            e.printStackTrace();
+            progress.setValue(8);
+            loginText.setValue("LOGIN");
+            callbacks.onError("Try Again");
         }
         
     }

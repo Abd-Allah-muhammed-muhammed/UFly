@@ -11,6 +11,7 @@ import com.abdallah.ufly.model.trips.TripsResponse;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -39,14 +40,16 @@ public interface Api {
 
 
     @GET("trips.php")
-    Single<List<TripsResponse>> getAllTrips();
+    Observable<List<TripsResponse>> getAllTrips();
 
 
 
     @FormUrlEncoded
     @POST("book.php")
-    Call<BookModelResponse> book(@Field("id_trip")String id_trip,
+    Observable<BookModelResponse> book(@Field("id_trip")String id_trip,
                                  @Field("id_includes")String id_includes
-                                 ,@Field("uui_id")String uui_id);
+                                 ,@Field("uui_id")String uui_id,
+                                 @Field("id_payment")String id_payment,
+                                       @Field("price")String price);
 
 }

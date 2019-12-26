@@ -19,6 +19,9 @@
 
         <ImageButton
 
+
+            android:onClick="@{(view) -> book.back(view)}"
+
             android:id="@+id/back"
             android:background="@drawable/ic_back"
             android:layout_width="@dimen/_50"
@@ -88,6 +91,19 @@ android:layout_marginStart="@dimen/_60"
                 android:textSize="@dimen/_18s"
                 android:textStyle="bold" />
 
+            <ProgressBar
+                android:visibility="@{book.progress}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/book_book"
+                android:layout_alignTop="@+id/book_book"
+                android:layout_alignEnd="@+id/book_book"
+                android:layout_alignBottom="@+id/book_book"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/white"
+                android:elevation="10dp" />
+
 
             <Button
                 android:onClick="@{(view) -> book.booking(view)}"
@@ -97,7 +113,7 @@ android:layout_marginStart="@dimen/_60"
                 android:layout_height="@dimen/_70"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/bg_btn_book_whit"
-                android:text="@string/book"
+                android:text="@{book.bookText}"
                 android:textColor="@color/dark"
                 android:textSize="@dimen/_18s" />
 
