@@ -16,23 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:orientation="vertical"
-            app:cardBackgroundColor="@color/trans3"
-            app:cardCornerRadius="@dimen/_30"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_250">
-
-            <androidx.cardview.widget.CardView
-
-                android:id="@+id/card"
-                app:cardCornerRadius="@dimen/_30"
-                app:cardBackgroundColor="@color/trans2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
 
                 <RelativeLayout
+                    android:background="@drawable/bg_card_trip"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -48,10 +34,12 @@
                             android:layout_marginStart="@dimen/_16"
                             android:id="@+id/depar"
                             android:layout_width="0dp"
+                            android:gravity="center"
                             android:layout_weight="2"
+                            android:layout_marginTop="@dimen/_8"
                             android:layout_height="wrap_content"
                             android:text="@string/departure"
-                            android:textColor="@color/dark"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -59,15 +47,16 @@
 
 
                         <TextView
+                            android:layout_marginTop="@dimen/_8"
                             android:textStyle="bold"
                             android:layout_marginEnd="@dimen/_28"
-                            android:gravity="end"
+                            android:gravity="center"
                             android:id="@+id/arr"
                             android:layout_width="0dp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:text="@string/arrival"
-                            android:textColor="@color/dark"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -76,26 +65,27 @@
 
 
                     <LinearLayout
-                        android:layout_marginStart="@dimen/_8"
-                        android:layout_marginEnd="@dimen/_8"
+                        android:background="@drawable/bg_trip_where"
+                        android:layout_marginStart="@dimen/_20"
+                        android:layout_marginEnd="@dimen/_20"
                         android:id="@+id/layout_dep_view"
-                        android:background="@drawable/custom_button_drawable2"
                         android:layout_below="@+id/layout_dep"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50">
 
                         <TextView
+                            android:paddingEnd="@dimen/_14"
                             android:paddingStart="@dimen/_14"
                             android:textStyle="bold"
                             android:gravity="center"
                             android:id="@+id/tv_departure"
                             android:hint="cairo"
-                            android:textColorHint="@color/yalow"
+                            android:textColorHint="@color/color5"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
                             android:text="@{tripinfo.departuer}"
-                            android:textColor="@color/yalow"
+                            android:textColor="@color/color5"
                             android:textSize="@dimen/_20s"
                             />
                         <TextView
@@ -106,24 +96,26 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/to"
-                            android:textColor="@color/trans3"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
 
 
                         <TextView
+                            android:paddingEnd="@dimen/_14"
+                            android:paddingStart="@dimen/_14"
                             android:textStyle="bold"
                             android:gravity="center"
                             android:id="@+id/tv_arrival"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:paddingEnd="@dimen/_14"
+                            android:layout_marginStart="@dimen/_14"
                             android:hint="alexandria"
-                            android:textColorHint="@color/yalow"
+                            android:textColorHint="@color/color5"
                             android:layout_height="match_parent"
                             android:text="@{tripinfo.arrival}"
-                            android:textColor="@color/yalow"
+                            android:textColor="@color/color5"
                             android:textSize="@dimen/_20s"
                             />
 
@@ -146,7 +138,7 @@
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:text="@string/date"
-                            android:textColor="@color/dark"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -162,7 +154,7 @@
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:text="@string/to_date"
-                            android:textColor="@color/dark"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -171,10 +163,10 @@
 
 
                     <LinearLayout
-                        android:layout_marginEnd="@dimen/_8"
-                        android:layout_marginStart="@dimen/_8"
+                        android:background="@drawable/bg_trip_where"
+                        android:layout_marginEnd="@dimen/_20"
+                        android:layout_marginStart="@dimen/_20"
                         android:id="@+id/layout_date_view"
-                        android:background="@drawable/custom_button_drawable2"
                         android:layout_below="@+id/layout_date"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50">
@@ -185,13 +177,13 @@
                             android:textStyle="bold"
                             android:gravity="center"
                             android:id="@+id/tv_from_data"
-                            android:hint="monday 01/01/2020"
-                            android:textColorHint="@color/yalow"
+                            android:hint="@string/monday_01_01_2020"
+                            android:textColorHint="@color/color5"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@{tripinfo.dateFrom}"
-                            android:textColor="@color/yalow"
+                            android:textColor="@color/color5"
                             android:textSize="@dimen/_14s"
                             />
                         <TextView
@@ -203,7 +195,7 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/until"
-                            android:textColor="@color/trans3"
+                            android:textColor="@color/blck"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -217,10 +209,10 @@
                             android:textStyle="bold"
                             android:gravity="center"
                             android:hint="monday 01/01/2020"
-                            android:textColorHint="@color/yalow"
+                            android:textColorHint="@color/color5"
                             android:layout_height="wrap_content"
                             android:text="@{tripinfo.dateUntil}"
-                            android:textColor="@color/yalow"
+                            android:textColor="@color/color5"
                             android:textSize="@dimen/_14s"
                             />
 
@@ -231,7 +223,7 @@
                     <TextView
 
                         android:layout_marginTop="@dimen/_8"
-                        android:textColorHint="@color/dark"
+                        android:textColorHint="@color/blck"
                         android:hint="150"
                         android:drawableEnd="@drawable/ic_mony"
                         android:layout_below="@+id/layout_date_view"
@@ -242,8 +234,8 @@
                         android:layout_height="wrap_content"
                         android:text="@{tripinfo.price}"
                         android:textStyle="bold"
-                        android:layout_marginBottom="@dimen/_8"
-                        android:textColor="@color/dark"
+                        android:layout_marginBottom="@dimen/_30"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_32s"
                         />
 
@@ -253,17 +245,6 @@
                 </RelativeLayout>
 
 
-
-
-
-
-
-            </androidx.cardview.widget.CardView>
-
-
-
-
-        </androidx.cardview.widget.CardView>
 
 
 

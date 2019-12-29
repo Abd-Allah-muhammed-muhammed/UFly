@@ -35,7 +35,6 @@ public class MyTripFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.my_trip_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(MyTripViewModel.class);
-
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

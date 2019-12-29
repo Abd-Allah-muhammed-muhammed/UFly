@@ -35,7 +35,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("login.php")
-    Call<LoginResponse> login(@Field("email")String email,
+    Observable<LoginResponse> login(@Field("email")String email,
                               @Field("password")String password);
 
 

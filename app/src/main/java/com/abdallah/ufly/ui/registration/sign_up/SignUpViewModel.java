@@ -32,8 +32,7 @@ public class SignUpViewModel extends ViewModel {
     public MutableLiveData<String> rePassword = new MutableLiveData<>();
     public MutableLiveData<Integer> progress = new MutableLiveData<>();
     public MutableLiveData<String> signText = new MutableLiveData<>();
-
-
+    private PrefManager prefManager;
 
 
     public void onClick(View view) {
@@ -125,8 +124,9 @@ public class SignUpViewModel extends ViewModel {
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
 
                     String uuid = response.body().getData().getUuid();
-                    PrefManager prefManager = new PrefManager(view.getContext());
+                     prefManager = new PrefManager(view.getContext());
                     prefManager.saveToken(uuid);
+                    prefManager.setIsLoged(true);
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);
@@ -134,6 +134,9 @@ public class SignUpViewModel extends ViewModel {
 
 
                 }else {
+                    prefManager = new PrefManager(view.getContext());
+
+                    prefManager.setIsLoged(false);
 
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.error).show();
 
@@ -146,7 +149,9 @@ public class SignUpViewModel extends ViewModel {
                 progress.setValue(8);
                 signText.setValue("SIGN UP");
                 StyleableToast.makeText(view.getContext(), "Try Again ", Toast.LENGTH_LONG, R.style.error).show();
+                prefManager = new PrefManager(view.getContext());
 
+                prefManager.setIsLoged(false);
             }
 
         });

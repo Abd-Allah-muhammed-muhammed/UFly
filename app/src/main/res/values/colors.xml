@@ -10,6 +10,11 @@
     <color name="dark">#12262C</color>
 
     <color name="bag">#E8E8EA</color>
+    <color name="color1">#E170A4</color>
+    <color name="color2">#71E188</color>
+    <color name="color3">#FEAD50</color>
+    <color name="color4">#5ADAF0</color>
+    <color name="color5">#E8E8EA</color>
 
 
 
@@ -29,6 +34,8 @@
     <color name="trans2">#E8E8EA</color>
     <color name="trans3">#EBF0F0F0</color>
     <color name="blck">#000000</color>
+    <color name="dark_trans">#A3414244</color>
+    <color name="gold">#CCA231</color>
 
     <array name="array_dot_active">
     <item>@color/dot_light_screen1</item>

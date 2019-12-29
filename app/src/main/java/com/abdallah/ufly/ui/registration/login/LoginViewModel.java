@@ -34,7 +34,6 @@ public class LoginViewModel extends ViewModel {
         loginText.setValue("LOGIN");
     }
 
-    private MutableLiveData<Login> userMutableLiveData;
 
 
     public void setEmail(CharSequence s, int start, int before, int count) {

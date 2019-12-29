@@ -81,7 +81,7 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
 
         Bundle arguments = getArguments();
 
-        String price = arguments.getString("price");
+        String price = arguments.getString(getString(R.string.price));
         binding.bookPrice.setText(price);
 
         mViewModel.setArgments(arguments);

@@ -83,8 +83,7 @@ public class TripDescriptionFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("trip_id",tripId);
                 bundle.putString("id_includes",id_includse);
-                bundle.putString("price",getArguments().getString("price"));
-
+                bundle.putString(getString(R.string.price),getArguments().getString(getString(R.string.price)));
                 bookFragment.setArguments(bundle);
                 replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction());
 

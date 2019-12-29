@@ -68,5 +68,13 @@
     <string name="change_pass">Change Your pass..</string>
     <string name="change_email">Change Your Email</string>
     <string name="my_information_account">MY Information Account</string>
+    <string name="my_trip">My Trips</string>
+    <string name="cancel_the_trip">Cancel the trip</string>
+    <string name="monday_01_01_2020">monday 01/01/2020</string>
+    <string name="price">Price</string>
+    <string name="is_paid">I S   P A I D</string>
+    <string name="pay_now">PAY NOW</string>
+    <string name="register">Register</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
 
 </resources>

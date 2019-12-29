@@ -158,6 +158,9 @@ public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChang
 
     }
 
+
+
+
     @Override
     public void onPageScrollStateChanged(int state) {
 
