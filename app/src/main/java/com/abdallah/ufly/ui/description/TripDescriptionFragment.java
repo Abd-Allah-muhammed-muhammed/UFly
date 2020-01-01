@@ -35,7 +35,7 @@ public class TripDescriptionFragment extends Fragment {
 
 
     TripDescriptionFragmentBinding binding ;
-    private String id_includse;
+    private int id_includse;
     private int tripId;
 
     public static TripDescriptionFragment newInstance() {
@@ -57,10 +57,7 @@ public class TripDescriptionFragment extends Fragment {
         });
 
 
-
-         tripId = getArguments().getInt("TripId",0);
-
-
+        tripId = getArguments().getInt("TripId",0);
 
 
         getincludes(tripId);
@@ -73,6 +70,7 @@ public class TripDescriptionFragment extends Fragment {
         binding.descTo.setText(Trip_to);
 
 
+
         binding.descTvTripInfo.setText(trip_desc);
 
         binding.descBtnBook.setOnClickListener(new View.OnClickListener() {
@@ -82,13 +80,19 @@ public class TripDescriptionFragment extends Fragment {
                 BookFragment bookFragment = new BookFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("trip_id",tripId);
-                bundle.putString("id_includes",id_includse);
+                bundle.putInt("id_includes",id_includse);
                 bundle.putString(getString(R.string.price),getArguments().getString(getString(R.string.price)));
                 bookFragment.setArguments(bundle);
                 replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction());
 
             }
         });
+
+
+
+
+
+
 
         return binding.getRoot();
     }

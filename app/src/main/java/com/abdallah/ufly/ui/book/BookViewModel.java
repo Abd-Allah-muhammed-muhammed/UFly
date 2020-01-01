@@ -82,20 +82,11 @@ public class BookViewModel extends ViewModel {
             prefManager = new PrefManager(view.getContext());
             String token = prefManager.getToken();
             int  trip_id = bundle.getInt("trip_id");
-            String id_includes = bundle.getString("id_includes");
+            int id_includes = bundle.getInt("id_includes");
             String price = bundle.getString("price");
-            bookNow(String.valueOf(trip_id),id_includes,token,ID_PAYMENT,price);
+            bookNow(String.valueOf(trip_id),String.valueOf(id_includes),token,ID_PAYMENT,price);
 
         }
-
-
-
-
-
-
-
-
-
 
     }
 

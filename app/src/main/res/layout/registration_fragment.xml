@@ -40,6 +40,8 @@
                 android:layout_centerHorizontal="true"/>
 
             <androidx.cardview.widget.CardView
+                android:outlineSpotShadowColor="@color/blck"
+
                 app:cardCornerRadius="@dimen/_40"
                 android:layout_marginStart="@dimen/_40"
                 android:layout_marginEnd="@dimen/_40"
@@ -81,6 +83,7 @@
                 android:layout_below="@+id/layout_name"
 
 
+                android:outlineSpotShadowColor="@color/blck"
                 app:cardCornerRadius="@dimen/_40"
                 android:layout_marginStart="@dimen/_40"
                 android:layout_marginEnd="@dimen/_40"

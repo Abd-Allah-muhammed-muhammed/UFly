@@ -42,7 +42,6 @@ public class IncludesAdapter extends RecyclerView.Adapter<IncludesAdapter.Includ
         Include response = includesResponses.get(position);
         holder.binding.setIncludes(response);
 
-        Log.d("ufly", " id is :"+response.getId());
 
 
 

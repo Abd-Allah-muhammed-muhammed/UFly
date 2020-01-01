@@ -19,53 +19,33 @@
             android:id="@+id/sl_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-<!--parent layout id is  layout_desc-->
+            <!--parent layout id is  layout_desc-->
             <RelativeLayout
                 android:id="@+id/layout_desc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_desc">
+                android:layout_height="wrap_content">
 
 
                 <RelativeLayout
-                    android:background="@drawable/bg_top"
+                    android:id="@+id/layout_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/layout_top">
-
+                    android:background="@drawable/bg_top">
                     <ImageButton
-
                         android:id="@+id/back"
-                        android:background="@drawable/ic_back"
                         android:layout_width="@dimen/_50"
                         android:layout_height="@dimen/_50"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="0dp" />
-                    <TextView
-                        android:id="@+id/logo_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="@dimen/_16"
-                        android:background="@drawable/shap_desc"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:padding="@dimen/_12"
-                        android:text="@string/description"
-                        android:textColor="@color/dark"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
+                        android:background="@drawable/ic_back_dark" />
                 </RelativeLayout>
-
-
-<!--                 all info in this layout id is layout_all_info -->
+                <!-- all info in this layout id is layout_all_info -->
                 <RelativeLayout
                     android:id="@+id/layout_all_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/layout_top"
-                 android:layout_margin="@dimen/_16"
-                    android:background="@drawable/shap_desc_ifo">
+                    android:layout_margin="@dimen/_16"
+                    android:background="@drawable/bg_descr">
 
 
                     <!-- from to shape with bus icon -->
@@ -102,7 +82,7 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/from"
-                                    android:textColor="@color/yalow"
+                                    android:textColor="@color/color3"
                                     android:textSize="@dimen/_18s" />
 
                                 <TextView
@@ -115,8 +95,8 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/cairo"
-                                    android:textColor="@color/white"
-                                    android:textColorHint="@color/trans3"
+                                    android:textColor="@color/blck"
+                                    android:textColorHint="@color/blck"
                                     android:textSize="@dimen/_14s" />
 
                             </LinearLayout>
@@ -125,7 +105,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:src="@drawable/ic_bus" />
+                                android:src="@drawable/ic_bus_orange" />
 
                             <LinearLayout
                                 android:id="@+id/layout_to"
@@ -142,7 +122,7 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/to"
-                                    android:textColor="@color/yalow"
+                                    android:textColor="@color/color3"
                                     android:textSize="@dimen/_18s" />
 
                                 <TextView
@@ -154,8 +134,8 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/alexandria"
-                                    android:textColor="@color/white"
-                                    android:textColorHint="@color/trans3"
+                                    android:textColor="@color/blck"
+                                    android:textColorHint="@color/blck"
                                     android:textSize="@dimen/_14s" />
                             </LinearLayout>
 
@@ -187,7 +167,7 @@
                         android:drawableStart="@drawable/ic_inclouds"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/inclouds"
-                        android:textColor="@color/trans3"
+                        android:textColor="@color/blck"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
@@ -199,13 +179,17 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/inclouds_tv"
                         android:layout_margin="@dimen/_16"
-                        android:background="@drawable/shap_include">
+                        android:background="@drawable/bg_includse">
 
                         <androidx.recyclerview.widget.RecyclerView
+
+
+                            android:layout_margin="@dimen/_24"
+
                             android:id="@+id/desc_rv_include"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:listitem="@layout/item_includ" />
+                             />
 
                     </RelativeLayout>
 
@@ -222,7 +206,7 @@
                         android:drawableStart="@drawable/ic_info_24px"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/trip_information"
-                        android:textColor="@color/trans3"
+                        android:textColor="@color/blck"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
@@ -233,15 +217,16 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tripinfo_tv"
                         android:layout_margin="@dimen/_16"
-                        android:background="@drawable/shap_include">
+                        android:background="@drawable/bg_includse">
 
                         <TextView
-                            android:textSize="@dimen/_20s"
-                            android:textColor="@color/dark"
-                            android:layout_margin="@dimen/_20"
+                            android:text="dsvsdvsdvsdvsdvsdvsdvsdvsdvsdvdvd  dvdvd dvds v dsv vfdvfdvfdvfd  vdf vd vdfvd fvdfvdf df grdgfg htrhnnhfnhrynnnynn rh trh ryh ryh yj yj  yj yj j rh rn  rh yh rjh ryh ryhs ryh  ryj uj yj  ryj  jfghthrfghjygfyjtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty jtyfy r y tr jtuy thj yufghyty uj j"
                             android:id="@+id/desc_tv_trip_info"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_50"
+                            android:textColor="@color/blck"
+                            android:textSize="@dimen/_20s"
                             tools:listitem="@layout/item_includ" />
 
                     </RelativeLayout>
@@ -251,48 +236,40 @@
 
 
                 <Button
-                    android:elevation="2dp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:textSize="@dimen/_20s"
-                    android:textColor="@color/trans3"
                     android:id="@+id/desc_btn_book"
-                    android:layout_marginTop="@dimen/_4"
-                    android:layout_marginStart="@dimen/_40"
-                    android:layout_marginEnd="@dimen/_40"
-                    android:layout_below="@+id/layout_all_info"
-                    android:text="@string/book"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_drawable3"/>
+                    android:layout_below="@+id/layout_all_info"
+                    android:layout_marginStart="@dimen/_40"
+                    android:layout_marginTop="@dimen/_4"
+                    android:layout_marginEnd="@dimen/_40"
+                    android:background="@drawable/bg_btn_book"
+                    android:elevation="2dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="@string/book"
+                    android:textColor="@color/trans3"
+                    android:textSize="@dimen/_20s"
+                    android:textStyle="bold" />
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/desc_btn_book"
+                    android:layout_alignParentBottom="true">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_170"
+                        android:src="@drawable/bottom_shap" />
 
-                        <RelativeLayout
-                            android:layout_below="@+id/desc_btn_book"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentBottom="true">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_170"
-                                android:src="@drawable/bottom_shap" />
-
-                        </RelativeLayout>
+                </RelativeLayout>
 
 
             </RelativeLayout>
 
 
-
-
-
-
         </ScrollView>
-
-
 
 
     </RelativeLayout>

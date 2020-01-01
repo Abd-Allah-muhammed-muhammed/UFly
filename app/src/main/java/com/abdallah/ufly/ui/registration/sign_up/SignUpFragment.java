@@ -47,7 +47,6 @@ public class SignUpFragment extends Fragment {
         mViewModel.signText.setValue("SIGN UP");
 
 
-
         return binding.getRoot();
     }
 

@@ -40,7 +40,7 @@
             android:layout_marginStart="@dimen/_24"
             android:layout_marginTop="@dimen/_16"
             android:layout_marginEnd="@dimen/_24"
-            android:background="@drawable/bg_btn_book">
+            android:background="@color/color2">
 
             <ImageView
                 android:id="@+id/my_acc_img"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:background="@drawable/bg_btn_book"
+                android:background="@color/color3"
 
                 android:id="@+id/my_acc_full_name"
                 android:paddingEnd="@dimen/_18"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:background="@drawable/bg_btn_book"
+                android:background="@color/color3"
 
                 android:id="@+id/my_acc_change_pass"
                 android:paddingEnd="@dimen/_18"
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:background="@drawable/bg_btn_book"
+                android:background="@color/color1"
 
                 android:id="@+id/my_acc_change_email"
                 android:paddingEnd="@dimen/_18"
@@ -147,8 +147,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-
-            android:background="@color/dark"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginEnd="@dimen/_40"
+            android:layout_marginBottom="@dimen/_20"
+            android:background="@drawable/custom_button_drawable2"
             android:text="@string/edit"
             android:textColor="@color/white"
             android:textSize="@dimen/_18s"
