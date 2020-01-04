@@ -4,6 +4,7 @@ import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.includes.IncludesResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
+import com.abdallah.ufly.model.my_info.MyInfoResponse;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.model.trips.TripsResponse;
@@ -58,5 +59,9 @@ public interface Api {
     @FormUrlEncoded
     @POST("delete_trip.php")
     Observable<DelelteMyTripResponse> cancleMyTrip(@Field("uui_id") String uui_id);
+
+    @FormUrlEncoded
+    @POST("my_info.php")
+    Observable<MyInfoResponse> getMyinfo(@Field("uui_id") String uui_id);
 
 }

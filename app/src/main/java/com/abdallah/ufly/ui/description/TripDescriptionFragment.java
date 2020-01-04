@@ -48,7 +48,7 @@ public class TripDescriptionFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.trip_description_fragment, container, false);
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(TripDescriptionViewModel.class);
-
+        binding.setDescBook(mViewModel);
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +73,10 @@ public class TripDescriptionFragment extends Fragment {
 
         binding.descTvTripInfo.setText(trip_desc);
 
+        final String price = getArguments().getString(getString(R.string.price));
+
+        mViewModel.getPrice(price);
+
         binding.descBtnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +85,7 @@ public class TripDescriptionFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("trip_id",tripId);
                 bundle.putInt("id_includes",id_includse);
-                bundle.putString(getString(R.string.price),getArguments().getString(getString(R.string.price)));
+                bundle.putString(getString(R.string.price),binding.countPrice.getText().toString());
                 bookFragment.setArguments(bundle);
                 replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction());
 

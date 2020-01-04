@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+
+
+    <data>
+
+        <variable
+            name="my_info"
+            type="com.abdallah.ufly.ui.my_account.MyAccountViewModel" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,40 +29,31 @@
 
 
         <TextView
-            android:drawableEnd="@drawable/ic_settings_dark"
             android:textSize="@dimen/_18s"
             android:textColor="@color/dark"
             android:layout_margin="@dimen/_8"
             android:id="@+id/text_info_acc"
             android:layout_below="@+id/back"
-            android:layout_width="@dimen/_150"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_information_account"/>
+            android:text="@string/my_account"/>
 
-        <RelativeLayout
-            android:layout_centerHorizontal="true"
-            android:id="@+id/layout_img_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_250"
-            android:layout_below="@+id/text_info_acc"
-            android:layout_marginStart="@dimen/_24"
-            android:layout_marginTop="@dimen/_16"
-            android:layout_marginEnd="@dimen/_24"
-            android:background="@color/color2">
+
 
             <ImageView
+                android:scaleType="fitXY"
+                android:layout_marginTop="@dimen/_40"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/text_info_acc"
+                android:src="@drawable/logo"
                 android:id="@+id/my_acc_img"
-                android:layout_width="@dimen/_300"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/_2"
-                android:src="@drawable/ic_person_outline_black_24dp" />
-
-
-        </RelativeLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+              />
 
         <RelativeLayout
-            android:layout_below="@+id/layout_img_profile"
+            android:layout_below="@+id/my_acc_img"
             android:id="@+id/layout_full_name"
             android:layout_marginStart="@dimen/_24"
             android:layout_marginEnd="@dimen/_8"
@@ -62,16 +61,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:background="@color/color3"
-
+            <TextView
+                android:text="@{my_info.full_name}"
+                android:background="@drawable/bg_descr"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_40"
                 android:id="@+id/my_acc_full_name"
                 android:paddingEnd="@dimen/_18"
                 android:paddingStart="@dimen/_18"
                 android:textSize="@dimen/_18s"
-                android:textColor="@color/white"
-                android:textColorHint="@color/trans"
-                android:hint="@string/your_full_name"
+                android:textColor="@color/blck"
+                android:textColorHint="@color/blck"
+                android:hint="..."
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80"/>
 
@@ -82,76 +83,24 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
-            android:layout_below="@+id/layout_full_name"
-            android:id="@+id/layout_change_password"
-            android:layout_marginStart="@dimen/_24"
-            android:layout_marginEnd="@dimen/_8"
-            android:layout_marginTop="@dimen/_8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:background="@color/color3"
-
-                android:id="@+id/my_acc_change_pass"
-                android:paddingEnd="@dimen/_18"
-                android:paddingStart="@dimen/_18"
-                android:textSize="@dimen/_18s"
-                android:textColor="@color/white"
-                android:textColorHint="@color/trans"
-                android:hint="@string/change_pass"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_80"/>
 
 
-
-
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_below="@+id/layout_change_password"
-            android:id="@+id/layout_change_email"
-            android:layout_marginStart="@dimen/_24"
-            android:layout_marginEnd="@dimen/_8"
-            android:layout_marginTop="@dimen/_8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:background="@color/color1"
-
-                android:id="@+id/my_acc_change_email"
-                android:paddingEnd="@dimen/_18"
-                android:paddingStart="@dimen/_18"
-                android:textSize="@dimen/_18s"
-                android:textColor="@color/white"
-                android:textColorHint="@color/trans"
-                android:hint="@string/change_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_80"/>
-
-
-
-
-
-        </RelativeLayout>
 
 
         <Button
-            android:id="@+id/my_acc_edit"
+            android:onClick="@{(view)-> my_info.done(view)}"
+            android:layout_marginTop="@dimen/_40"
+            android:layout_below="@+id/layout_full_name"
+            android:id="@+id/my_acc_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:layout_marginBottom="@dimen/_20"
-            android:background="@drawable/custom_button_drawable2"
-            android:text="@string/edit"
+            android:background="@drawable/bg_btn_book"
+            android:text="@string/don"
             android:textColor="@color/white"
             android:textSize="@dimen/_18s"
             android:textStyle="bold" />

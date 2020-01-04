@@ -23,15 +23,28 @@ import retrofit2.Response;
 public class SignUpViewModel extends ViewModel {
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-   private Api api;
-    public MutableLiveData<String> fullName = new MutableLiveData<>();
-    public MutableLiveData<String> address = new MutableLiveData<>();
-    public MutableLiveData<String> phone = new MutableLiveData<>();
-    public MutableLiveData<String> email = new MutableLiveData<>();
-    public MutableLiveData<String> password = new MutableLiveData<>();
-    public MutableLiveData<String> rePassword = new MutableLiveData<>();
-    public MutableLiveData<Integer> progress = new MutableLiveData<>();
-    public MutableLiveData<String> signText = new MutableLiveData<>();
+
+    public SignUpViewModel() {
+        fullName = new MutableLiveData<>();
+      address = new MutableLiveData<>();
+        phone = new MutableLiveData<>();
+        email = new MutableLiveData<>();
+         password = new MutableLiveData<>();
+        rePassword = new MutableLiveData<>();
+         progress = new MutableLiveData<>();
+        signText = new MutableLiveData<>();
+
+    }
+
+    private Api api;
+    public MutableLiveData<String> fullName ;
+    public MutableLiveData<String> address ;
+    public MutableLiveData<String> phone ;
+    public MutableLiveData<String> email ;
+    public MutableLiveData<String> password;
+    public MutableLiveData<String> rePassword ;
+    public MutableLiveData<Integer> progress;
+    public MutableLiveData<String> signText ;
     private PrefManager prefManager;
 
 
@@ -150,7 +163,6 @@ public class SignUpViewModel extends ViewModel {
                 signText.setValue("SIGN UP");
                 StyleableToast.makeText(view.getContext(), "Try Again ", Toast.LENGTH_LONG, R.style.error).show();
                 prefManager = new PrefManager(view.getContext());
-
                 prefManager.setIsLoged(false);
             }
 

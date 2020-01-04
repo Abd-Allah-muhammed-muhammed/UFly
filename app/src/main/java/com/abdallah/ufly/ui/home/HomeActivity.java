@@ -6,6 +6,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
+import com.abdallah.ufly.ui.my_account.MyAccountFragment;
 
 import androidx.databinding.DataBindingUtil;
 
