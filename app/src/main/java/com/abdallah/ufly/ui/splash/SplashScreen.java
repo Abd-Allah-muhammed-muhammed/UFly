@@ -12,6 +12,8 @@ import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 public class SplashScreen extends AppCompatActivity {
     Thread splashTread;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
