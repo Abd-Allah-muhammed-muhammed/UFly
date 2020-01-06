@@ -1,7 +1,6 @@
 package com.abdallah.ufly.ui.description;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -17,14 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
-import com.abdallah.ufly.adpter.IncludesAdapter;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
-import com.abdallah.ufly.model.includes.Include;
-import com.abdallah.ufly.model.includes.IncludesResponse;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
@@ -59,13 +54,13 @@ public class TripDescriptionFragment extends Fragment {
 
         tripId = getArguments().getInt("TripId",0);
 
-
-        getincludes(tripId);
-
         String trip_desc = getArguments().getString("Trip_desc");
         String Trip_from = getArguments().getString("Trip_from");
         String Trip_to = getArguments().getString("Trip_to");
 
+        String includes = getArguments().getString("includes");
+
+        binding.descInclude.setText(includes);
         binding.descFrom.setText(Trip_from);
         binding.descTo.setText(Trip_to);
 
@@ -84,8 +79,9 @@ public class TripDescriptionFragment extends Fragment {
                 BookFragment bookFragment = new BookFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("trip_id",tripId);
-                bundle.putInt("id_includes",id_includse);
                 bundle.putString(getString(R.string.price),binding.countPrice.getText().toString());
+                bundle.putString("number",binding.countPassenger.getText().toString().trim());
+
                 bookFragment.setArguments(bundle);
                 replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction());
 
@@ -101,23 +97,6 @@ public class TripDescriptionFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private void getincludes(int tripId) {
-        final IncludesAdapter adapter = new IncludesAdapter();
-        binding.descRvInclude.setAdapter(adapter);
-        binding.descRvInclude.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.descRvInclude.setHasFixedSize(true);
-        mViewModel.getdata(String.valueOf(tripId)).observe(this, new Observer<List<Include>>() {
-            @Override
-            public void onChanged(List<Include> includes) {
-
-                 id_includse = includes.get(0).getId();
-                adapter.setIncludesList(includes);
-                adapter.notifyDataSetChanged();
-
-            }
-        });
-
-    }
 
 
 

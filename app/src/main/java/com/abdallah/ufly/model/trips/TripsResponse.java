@@ -36,6 +36,30 @@ public class TripsResponse {
     @Expose
     private String description;
 
+    public String getIncludes() {
+        return includes;
+    }
+
+    public void setIncludes(String includes) {
+        this.includes = includes;
+    }
+
+    @SerializedName("includes")
+    @Expose
+    private String includes;
+
+    public String getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(String company_id) {
+        this.company_id = company_id;
+    }
+
+    @SerializedName("company_id")
+    @Expose
+    private String company_id;
+
 
     public String getDescription() {
         return description;

@@ -113,7 +113,7 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
 
         }else {
 
-            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+            StyleableToast.makeText(getContext(), "error :"+response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
 
         }
 

@@ -6,9 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.abdallah.ufly.model.book.BookModelResponse;
-import com.abdallah.ufly.model.includes.Include;
-import com.abdallah.ufly.repository.TripDescriptionRepository;
 
 import java.util.List;
 
@@ -16,8 +13,6 @@ public class TripDescriptionViewModel extends ViewModel {
 
 
 
-    private MutableLiveData<List<Include>> data;
-    private TripDescriptionRepository repository ;
     private int count= 1;
 
 
@@ -28,8 +23,6 @@ public class TripDescriptionViewModel extends ViewModel {
 
     public TripDescriptionViewModel() {
 
-        data = new MutableLiveData<>();
-        repository = new TripDescriptionRepository();
         the_number = new MutableLiveData<>();
         this.price = new MutableLiveData<>();
         the_number.setValue(String.valueOf(count));
@@ -42,10 +35,7 @@ public class TripDescriptionViewModel extends ViewModel {
 
 
 
-    public LiveData<List<Include>> getdata(String trip_id) {
 
-        return repository.getIncludes(trip_id);
-    }
 
 
 

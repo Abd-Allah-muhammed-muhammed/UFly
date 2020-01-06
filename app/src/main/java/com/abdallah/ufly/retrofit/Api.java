@@ -2,7 +2,6 @@ package com.abdallah.ufly.retrofit;
 
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
-import com.abdallah.ufly.model.includes.IncludesResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
@@ -28,10 +27,10 @@ public interface Api {
                                   @Field("password") String password,
                                   @Field("address") String address,
                                   @Field("phone") String phone);
-
-    @FormUrlEncoded
-    @POST("includes_by_id.php")
-    Call<IncludesResponse> getIncludesById(@Field("id_trip") String id_trip);
+//
+//    @FormUrlEncoded
+//    @POST("includes_by_id.php")
+//    Call<IncludesResponse> getIncludesById(@Field("id_trip") String id_trip);
 
 
     @FormUrlEncoded
@@ -50,11 +49,11 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("book.php")
-    Observable<BookModelResponse> book(@Field("id_trip") String id_trip,
-                                       @Field("id_includes") String id_includes
+    Observable<BookModelResponse> book(@Field("id_trip") String id_trip
             , @Field("uui_id") String uui_id,
                                        @Field("id_payment") String id_payment,
-                                       @Field("price") String price);
+                                       @Field("price") String price,
+                                       @Field("number") String number);
 
     @FormUrlEncoded
     @POST("delete_trip.php")

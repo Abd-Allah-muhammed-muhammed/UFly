@@ -75,7 +75,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
     @Override
     public void onError(String msg) {
 
-
+        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
     }
 
     @Override
