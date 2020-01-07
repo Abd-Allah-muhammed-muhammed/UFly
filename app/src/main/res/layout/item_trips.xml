@@ -65,7 +65,7 @@
 
 
                     <LinearLayout
-                        android:background="@drawable/bg_trip_where"
+                        android:background="@drawable/ic_bg_trip_where_1"
                         android:layout_marginStart="@dimen/_20"
                         android:layout_marginEnd="@dimen/_20"
                         android:id="@+id/layout_dep_view"
@@ -96,7 +96,7 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/to"
-                            android:textColor="@color/blck"
+                            android:textColor="@color/color3"
                             android:textSize="@dimen/_18s"
                             />
 
@@ -163,7 +163,7 @@
 
 
                     <LinearLayout
-                        android:background="@drawable/bg_trip_where"
+                        android:background="@drawable/ic_bg_trip_where_1"
                         android:layout_marginEnd="@dimen/_20"
                         android:layout_marginStart="@dimen/_20"
                         android:id="@+id/layout_date_view"
@@ -195,7 +195,7 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/until"
-                            android:textColor="@color/blck"
+                            android:textColor="@color/color3"
                             android:textSize="@dimen/_18s"
                             />
 

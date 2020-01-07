@@ -96,11 +96,11 @@ public class BookViewModel extends ViewModel {
 
     public void shapVisa(CheckedTextView bookCash, CheckedTextView bookVisa, Button bookBook) {
 
-        bookVisa.setBackground((bookVisa.getContext().getDrawable(R.drawable.bg_btn_book)));
+        bookVisa.setBackground((bookVisa.getContext().getDrawable(R.drawable.ic_bg_trip_where_1)));
         bookCash.setBackground((bookCash.getContext().getDrawable(R.drawable.bg_btn_book_whit)));
         bookCash.setTextColor(Color.parseColor("#12262C"));
         bookVisa.setTextColor(Color.parseColor("#ffffff"));
-        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book)));
+        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
         bookBook.setTextColor(Color.parseColor("#ffffff"));
         bookText.setValue("Book Now");
         ID_PAYMENT = "Visa";
@@ -108,11 +108,11 @@ public class BookViewModel extends ViewModel {
 
     public void shapCash(CheckedTextView bookCash, CheckedTextView bookVisa , Button bookBook) {
 
-        bookCash.setBackground((bookCash.getContext().getDrawable(R.drawable.bg_btn_book)));
+        bookCash.setBackground((bookCash.getContext().getDrawable(R.drawable.ic_bg_trip_where_1)));
         bookVisa.setBackground((bookVisa.getContext().getDrawable(R.drawable.bg_btn_book_whit)));
         bookCash.setTextColor(Color.parseColor("#ffffff"));
         bookVisa.setTextColor(Color.parseColor("#12262C"));
-        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book)));
+        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
         bookBook.setTextColor(Color.parseColor("#ffffff"));
         bookText.setValue("Book Now");
         ID_PAYMENT = "Cash";
@@ -177,7 +177,7 @@ public class BookViewModel extends ViewModel {
     public void back(View view){
 
 
-        replace(new HomeFragment(),R.id.frame_main, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction());
+        replace(new HomeFragment(),R.id.frame_main, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction(),view.getContext().getString(R.string.tag_home));
 
 
     }

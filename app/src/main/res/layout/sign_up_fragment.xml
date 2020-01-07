@@ -15,12 +15,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_regstration">
+        android:background="@color/dark">
 
 
         <ImageButton
             android:id="@+id/back"
-            android:background="@drawable/ic_back_dark"
+            android:background="@drawable/ic_back"
             android:layout_width="@dimen/_50"
             android:layout_height="@dimen/_50"
             android:layout_alignParentStart="true"
@@ -28,7 +28,7 @@
 
 
         <ImageView
-            android:src="@drawable/logo_smol"
+            android:src="@drawable/ic_logo_gold"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_30"
             android:layout_below="@+id/back"
@@ -40,12 +40,11 @@
             />
 
 
-        <androidx.cardview.widget.CardView
-            android:outlineSpotShadowColor="@color/blck"
-            app:cardCornerRadius="@dimen/_40"
+        <RelativeLayout
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_name"
+            android:background="@drawable/bg_btn_book_whit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
             android:layout_below="@+id/text_login"
@@ -55,7 +54,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setFullName}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -64,15 +63,15 @@
                 android:id="@+id/et_name"
                 android:inputType="textPersonName"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_name"
+                android:drawableStart="@drawable/ic_person_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
 
 
@@ -81,9 +80,8 @@
 
 
 
-        <androidx.cardview.widget.CardView
-            android:outlineSpotShadowColor="@color/blck"
-            app:cardCornerRadius="@dimen/_40"
+        <RelativeLayout
+            android:background="@drawable/bg_btn_book_whit"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_address"
@@ -96,7 +94,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setAddress}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -105,18 +103,18 @@
                 android:id="@+id/et_address"
                 android:inputType="textPersonName"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_email"
+                android:drawableStart="@drawable/ic_address_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>   
-        <androidx.cardview.widget.CardView
+        </RelativeLayout>
+        <RelativeLayout
 
-            app:cardCornerRadius="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_phone"
@@ -129,7 +127,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setPhone}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -138,21 +136,21 @@
                 android:id="@+id/et_phone"
                 android:inputType="phone"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_phone"
+                android:drawableStart="@drawable/ic_phone_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
 
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
 
-            app:cardCornerRadius="@dimen/_40"
+           android:background="@drawable/bg_btn_book_whit"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_email"
@@ -165,7 +163,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setEmail}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -174,18 +172,18 @@
                 android:id="@+id/et_email"
                 android:inputType="textEmailAddress"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_email"
+                android:drawableStart="@drawable/ic_email_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
+        </RelativeLayout>
+        <RelativeLayout
 
-            app:cardCornerRadius="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_pass"
@@ -198,7 +196,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setPassword}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -207,23 +205,22 @@
                 android:id="@+id/et_password"
                 android:inputType="textPassword"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_pass"
+                android:drawableStart="@drawable/ic_password_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
 
 
 
 
-        <androidx.cardview.widget.CardView
-
-            app:cardCornerRadius="@dimen/_40"
+        <RelativeLayout
+            android:background="@drawable/bg_btn_book_whit"
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_re_pass"
@@ -236,7 +233,7 @@
 
             <EditText
 
-                android:textSize="@dimen/_24"
+                android:textSize="@dimen/_18s"
                 android:onTextChanged="@{sign::setRePassword}"
                 android:textColor="@color/dark"
                 android:drawablePadding="@dimen/_18"
@@ -245,15 +242,15 @@
                 android:id="@+id/et_re_password"
                 android:inputType="textPassword"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_30"
-                android:layout_marginStart="@dimen/_50"
+                android:layout_marginEnd="@dimen/_18"
+                android:layout_marginStart="@dimen/_18"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_pass"
+                android:drawableStart="@drawable/ic_password_orange_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
 
 
@@ -261,7 +258,7 @@
         <ProgressBar
             android:indeterminate="true"
             android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/white"
+            android:indeterminateTint="@color/dark"
             android:visibility="@{sign.progress}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -283,7 +280,7 @@
             android:layout_marginStart="@dimen/_30"
             android:layout_marginEnd="@dimen/_30"
             android:layout_marginBottom="@dimen/_24"
-            android:background="@drawable/bg_btn_book"
+            android:background="@drawable/bg_btn_book_orange"
             android:onClick="@{(view) -> sign.onClick(view)}"
             android:text="@{sign.signText}"
 

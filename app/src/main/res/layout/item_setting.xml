@@ -21,7 +21,7 @@
             android:clipToPadding="false"
             android:clipChildren="false"
             app:cardPreventCornerOverlap="false"
-            app:cardBackgroundColor="@color/bag"
+            app:cardBackgroundColor="@color/dark"
             android:layout_margin="@dimen/_8"
             app:cardCornerRadius="@dimen/_24"
             app:cardElevation="@dimen/_8"
@@ -30,7 +30,7 @@
 
 
 <LinearLayout
-    android:background="@drawable/bg_descr"
+    android:background="@drawable/bg_btn_book_whit"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">

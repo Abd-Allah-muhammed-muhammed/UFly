@@ -15,13 +15,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_regstration"
+        android:background="@color/dark"
         tools:context=".ui.my_account.MyAccountFragment">
 
 
         <ImageButton
             android:id="@+id/back"
-            android:background="@drawable/ic_back_dark"
+            android:background="@drawable/ic_back"
             android:layout_width="@dimen/_50"
             android:layout_height="@dimen/_50"
             android:layout_alignParentStart="true"
@@ -29,8 +29,9 @@
 
 
         <TextView
-            android:textSize="@dimen/_18s"
-            android:textColor="@color/dark"
+            android:textStyle="bold"
+            android:textSize="@dimen/_24_sp"
+            android:textColor="@color/white"
             android:layout_margin="@dimen/_8"
             android:id="@+id/text_info_acc"
             android:layout_below="@+id/back"
@@ -46,7 +47,7 @@
                 android:layout_marginTop="@dimen/_40"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/text_info_acc"
-                android:src="@drawable/logo"
+                android:src="@drawable/ic_logo_gold"
                 android:id="@+id/my_acc_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,15 +64,15 @@
 
             <TextView
                 android:text="@{my_info.full_name}"
-                android:background="@drawable/bg_descr"
+                android:background="@drawable/bg_btn_book_whit"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/_40"
                 android:id="@+id/my_acc_full_name"
                 android:paddingEnd="@dimen/_18"
                 android:paddingStart="@dimen/_18"
                 android:textSize="@dimen/_18s"
-                android:textColor="@color/blck"
-                android:textColorHint="@color/blck"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
                 android:hint="..."
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80"/>
@@ -99,7 +100,7 @@
             android:layout_marginStart="@dimen/_40"
             android:layout_marginEnd="@dimen/_40"
             android:layout_marginBottom="@dimen/_20"
-            android:background="@drawable/bg_btn_book"
+            android:background="@drawable/bg_btn_book_orange"
             android:text="@string/don"
             android:textColor="@color/white"
             android:textSize="@dimen/_18s"

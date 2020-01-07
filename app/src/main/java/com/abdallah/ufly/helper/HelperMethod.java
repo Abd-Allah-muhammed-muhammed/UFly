@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 public class HelperMethod {
 
 
-    public static void replace(Fragment fragment, int id, FragmentTransaction fragmentTransaction) {
+    public static void replace(Fragment fragment, int id, FragmentTransaction fragmentTransaction,String tag) {
         FragmentTransaction transaction = fragmentTransaction;
-        transaction.replace(id, fragment);
+        transaction.replace(id, fragment,tag);
         transaction.addToBackStack(null);
         transaction.commit();
 

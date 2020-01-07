@@ -74,7 +74,7 @@ public class MyAccountViewModel extends ViewModel {
     public void done(View view){
 
 
-        replace(new HomeFragment(), R.id.frame_main,((FragmentActivity)view.getContext()).getSupportFragmentManager().beginTransaction());
+        replace(new HomeFragment(), R.id.frame_main,((FragmentActivity)view.getContext()).getSupportFragmentManager().beginTransaction(),view.getContext().getString(R.string.tag_home));
 
     }
 

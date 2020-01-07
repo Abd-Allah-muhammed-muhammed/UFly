@@ -46,6 +46,8 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
 
         binding.progHome.setVisibility(View.VISIBLE);
         fetchData();
+
+
         return binding.getRoot();
     }
     private void fetchData() {
@@ -53,13 +55,16 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.revTripInfo.setHasFixedSize(true);
-        homeViewModel.getdata().observe(this, new Observer<List<TripsResponse>>() {
+        homeViewModel.getdata(binding.progHome).observe(this, new Observer<List<TripsResponse>>() {
             @Override
             public void onChanged(List<TripsResponse> tripsResponses) {
-                binding.progHome.setVisibility(View.GONE);
+
                 tripInfoAdapter.setTripInfoList((ArrayList<TripsResponse>) tripsResponses);
                 tripInfoAdapter.notifyDataSetChanged();
+
             }
+
+
         });
     }
 
@@ -85,7 +90,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab);
 
-                    replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                    replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_setting));
 
 
                 break;
@@ -103,7 +108,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
                 binding.fab2.setVisibility(View.VISIBLE);
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab2);
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
 
 
                 break;
@@ -119,7 +124,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
                 binding.fab3.setVisibility(View.VISIBLE);
                 drawAnimation(binding.fab3);
 
-                replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
 
 
 

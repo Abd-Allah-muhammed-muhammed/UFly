@@ -17,8 +17,10 @@ import android.view.ViewGroup;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.SignUpFragmentBinding;
 import com.abdallah.ufly.model.SignUp;
+import com.abdallah.ufly.ui.registration.login.LoginFragment;
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
+import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 
 public class SignUpFragment extends Fragment {
@@ -46,6 +48,13 @@ public class SignUpFragment extends Fragment {
         mViewModel.setProgress(progress);
         mViewModel.signText.setValue("SIGN UP");
 
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replace(LoginFragment.newInstance(),R.id.container,getFragmentManager().beginTransaction(),getString(R.string.tag_login));
+
+            }
+        });
 
         return binding.getRoot();
     }

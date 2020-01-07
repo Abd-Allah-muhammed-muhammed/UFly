@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <RelativeLayout
-        android:background="@drawable/bg"
+        android:background="@color/dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,7 +17,7 @@
                     <ImageButton
 
                         android:id="@+id/back"
-                        android:background="@drawable/ic_back_dark"
+                        android:background="@drawable/ic_back"
                         android:layout_width="@dimen/_50"
                         android:layout_height="@dimen/_50"
                         android:layout_alignParentStart="true"
@@ -27,12 +27,10 @@
 
                     <TextView
                         android:gravity="center"
-                        android:drawablePadding="@dimen/_4"
-                        android:drawableStart="@drawable/ic_settings"
                         android:layout_margin="@dimen/_18"
                         android:layout_alignParentEnd="true"
                         android:textSize="@dimen/_18s"
-                        android:textColor="@color/dark"
+                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_90"
                         android:text="@string/action_settings"/>
@@ -53,6 +51,7 @@
 
         <TextView
 
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +62,7 @@
             android:drawableStart="@drawable/logo_small"
             android:drawablePadding="@dimen/_4"
             android:text="@string/get_out_and_have_fun"
-            android:textColor="@color/dark" />
+            android:textColor="@color/white" />
 
 
 

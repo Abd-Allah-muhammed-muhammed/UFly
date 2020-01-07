@@ -50,7 +50,7 @@ public class SettingHomeFragment extends Fragment {
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
             }
         });
 

@@ -36,7 +36,6 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
     }
 
 
-
     @Override
     public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
 
@@ -57,7 +56,8 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                 bundle.putString("includes",tripInfo.getIncludes());
 
                 fragment.setArguments(bundle);
-                replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction());
+                replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                        ,v.getContext().getString(R.string.tag_desc));
 
             }
         });

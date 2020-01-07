@@ -53,7 +53,7 @@ public class MyAccountFragment extends Fragment {
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_setting));
             }
         });
 

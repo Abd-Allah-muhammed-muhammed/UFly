@@ -45,6 +45,8 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
 
         mViewModel = ViewModelProviders.of(this ,new MyTripViewModelFactory(this)).get(MyTripViewModel.class);
 
+        binding.myTrip.setVisibility(View.GONE);
+        binding.myTripPayNow.setVisibility(View.GONE);
 
         prefManager = new PrefManager(getContext());
         final String token = prefManager.getToken();
@@ -53,7 +55,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
 
             }
         });
@@ -65,6 +67,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
             public void onClick(View v) {
 
                 mViewModel.cancelMyTrip(token);
+                mViewModel.getMyTrip(token);
 
             }
         });
@@ -75,16 +78,16 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
     @Override
     public void onError(String msg) {
 
-        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
+        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
     }
 
     @Override
     public void response(MyTripResponse response) {
 
         if (response.getData().getArrival()!=null){
+            binding.myTrip.setVisibility(View.VISIBLE);
+            binding.myTripPayNow.setVisibility(View.VISIBLE);
             binding.setMyTrip(response);
-            binding.myTriplayout.setVisibility(View.VISIBLE);
-
             int isPaid = response.getIsPaid();
 
             if (isPaid!=0){
@@ -99,7 +102,17 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
             }
         }else {
 
-            binding.myTriplayout.setVisibility(View.GONE);
+            binding.myTrip.setVisibility(View.GONE);
+            binding.myTripPayNow.setVisibility(View.GONE);
+            binding.textNoTrips.setVisibility(View.VISIBLE);
+            binding.backHome.setVisibility(View.VISIBLE);
+            binding.backHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
+                }
+            });
+
         }
 
 

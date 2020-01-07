@@ -24,6 +24,7 @@ import com.abdallah.ufly.databinding.BookFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
+import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.muddzdev.styleabletoast.StyleableToast;
 
@@ -34,9 +35,9 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
     private BookViewModel mViewModel;
 
     BookFragmentBinding binding ;
-    public static BookFragment newInstance() {
-        return new BookFragment();
-    }
+//    public static BookFragment newInstance() {
+//        return new BookFragment();
+//    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -106,16 +107,35 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
     public void response(BookModelResponse response) {
 
 
-        if (response.getStatus()==0){
-            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
+try {
 
-            replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction());
 
-        }else {
+    if (response.getStatus()==0){
+        StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
 
-            StyleableToast.makeText(getContext(), "error :"+response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+        replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
 
-        }
+    }else if (response.getStatus()==4){
+
+        StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+        replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
+
+    }else {
+
+        StyleableToast.makeText(getContext(), "please tray again later :", Toast.LENGTH_LONG, R.style.error).show();
+
+        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
+    }
+
+}catch (Exception e){
+
+    StyleableToast.makeText(getContext(), "please tray again later :", Toast.LENGTH_LONG, R.style.error).show();
+
+    replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
+
+
+}
+
 
 
     }

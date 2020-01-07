@@ -85,7 +85,7 @@ public class LoginViewModel extends ViewModel {
 
 
         replace(new SignUpFragment(),R.id.container, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction()
-        );
+        ,view.getContext().getString(R.string.tag_sign_up));
 
 
     }

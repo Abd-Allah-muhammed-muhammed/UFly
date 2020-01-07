@@ -63,7 +63,10 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
                         replace(new MyAccountFragment(),R.id.frame_main,
 
-                                ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction());
+                                ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                        ,v.getContext().getString(R.string.tag_my_account));
+
+                        settingModels.clear();
                         break;
 
                         case UFLY_GOLD :

@@ -80,5 +80,13 @@
     <string name="not_paid">Not Paid</string>
     <string name="my_account">My Account</string>
     <string name="don">Done</string>
+    <string name="tag_home">home</string>
+    <string name="tag_setting">setting</string>
+    <string name="tag_mytrip">mytrip</string>
+    <string name="tag_sign_up">signup</string>
+    <string name="tag_login">login</string>
+    <string name="tag_my_account">myaccount</string>
+    <string name="tag_book">book</string>
+    <string name="tag_desc">descreption</string>
 
 </resources>

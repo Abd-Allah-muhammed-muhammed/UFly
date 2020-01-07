@@ -12,6 +12,7 @@
     </data>
 
     <RelativeLayout
+        android:background="@color/dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -29,44 +30,42 @@
                 <RelativeLayout
                     android:id="@+id/layout_top"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_top">
+                    android:layout_height="wrap_content">
 
                     <ImageButton
                         android:id="@+id/back"
                         android:layout_width="@dimen/_50"
                         android:layout_height="@dimen/_50"
                         android:layout_alignParentStart="true"
-                        android:background="@drawable/ic_back_dark" />
+                        android:background="@drawable/ic_back" />
                 </RelativeLayout>
                 <!-- all info in this layout id is layout_all_info -->
                 <RelativeLayout
+                    android:background="@drawable/bg_desc_stock"
                     android:id="@+id/layout_all_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/layout_top"
                     android:layout_margin="@dimen/_16"
-                    android:background="@drawable/bg_descr">
+                    >
 
 
                     <!-- from to shape with bus icon -->
                     <RelativeLayout
+
+                        android:layout_margin="@dimen/_16"
+                        android:background="@drawable/bg_btn_book_whit"
                         android:id="@+id/layout_desc_from_to"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8">
 
-                        <ImageView
-                            android:id="@+id/img_move"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_70"
-                            android:src="@drawable/ic_move" />
 
 
                         <LinearLayout
+                            android:padding="@dimen/_16"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/img_move"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -77,6 +76,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:layout_margin="@dimen/_6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -96,8 +96,9 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/cairo"
-                                    android:textColor="@color/blck"
-                                    android:textColorHint="@color/blck"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dark"
+                                    android:textColorHint="@color/dark"
                                     android:textSize="@dimen/_14s" />
 
                             </LinearLayout>
@@ -117,6 +118,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:layout_margin="@dimen/_6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -135,8 +137,9 @@
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/alexandria"
-                                    android:textColor="@color/blck"
-                                    android:textColorHint="@color/blck"
+                                    android:textColor="@color/dark"
+                                    android:textColorHint="@color/dark"
+                                    android:textStyle="bold"
                                     android:textSize="@dimen/_14s" />
                             </LinearLayout>
 
@@ -165,10 +168,10 @@
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_inclouds"
+                        android:drawableStart="@drawable/ic_includes_orange_24dp"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/inclouds"
-                        android:textColor="@color/blck"
+                        android:textColor="@color/bag"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
@@ -180,7 +183,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/inclouds_tv"
                         android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_includse">
+                        android:background="@drawable/bg_btn_book_whit">
 
                         <TextView
 
@@ -189,7 +192,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_24"
                             android:gravity="center"
-                            android:textColor="@color/blck"
+                            android:textColor="@color/dark"
                             android:textSize="@dimen/_18s" />
 
                     </RelativeLayout>
@@ -204,28 +207,30 @@
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_info_24px"
+                        android:drawableStart="@drawable/ic_info_outline_orange_24dp"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/trip_information"
-                        android:textColor="@color/blck"
+                        android:textColor="@color/bag"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
                     <!--                    rv info layout_rv2 -->
                     <RelativeLayout
+
                         android:id="@+id/layout_rv2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_below="@+id/tripinfo_tv"
                         android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_includse">
+                        android:background="@drawable/bg_btn_book_whit">
 
                         <TextView
+                            android:layout_margin="@dimen/_30"
                             android:id="@+id/desc_tv_trip_info"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_margin="@dimen/_50"
-                            android:textColor="@color/blck"
+                            android:textColor="@color/dark"
+                            android:textStyle="bold"
                             android:textSize="@dimen/_20s" />
 
 
@@ -238,10 +243,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layout_rv2"
                         android:layout_margin="@dimen/_24"
-                        android:drawableStart="@drawable/bg_plus"
+                        android:drawableStart="@drawable/ic_number_orange_24dp"
                         android:drawablePadding="@dimen/_24"
                         android:text="Number of Passengers"
-                        android:textColor="@color/blck"
+                        android:textColor="@color/bag"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
@@ -261,7 +266,7 @@
 
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="@drawable/ic_minus"
+                            android:background="@drawable/ic_plus"
                             android:onClick="@{(view)->desc_book.minus(view)}"
                             android:text="-"
                             android:textColor="@color/blck"
@@ -330,7 +335,8 @@
                     android:layout_marginStart="@dimen/_40"
                     android:layout_marginTop="@dimen/_4"
                     android:layout_marginEnd="@dimen/_40"
-                    android:background="@drawable/bg_btn_book"
+                    android:layout_marginBottom="@dimen/_24"
+                    android:background="@drawable/bg_btn_book_orange"
                     android:elevation="2dp"
                     android:fontFamily="sans-serif-smallcaps"
                     android:text="@string/book"
@@ -345,10 +351,6 @@
                     android:layout_below="@+id/desc_btn_book"
                     android:layout_alignParentBottom="true">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_170"
-                        android:src="@drawable/bottom_shap" />
 
                 </RelativeLayout>
 
