@@ -75,8 +75,7 @@ public class WelcomeViewModel extends ViewModel implements ViewPager.OnPageChang
        return layouts =   new int[]{
                 R.layout.welcome_slide1,
                 R.layout.welcome_slide2,
-                R.layout.welcome_slide3,
-                R.layout.welcome_slide4};
+                R.layout.welcome_slide3};
     }
 
 

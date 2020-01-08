@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.registration.login;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
@@ -88,6 +89,16 @@ public class LoginViewModel extends ViewModel {
         ,view.getContext().getString(R.string.tag_sign_up));
 
 
+    }
+
+
+
+
+    public void loginCopmany (View view){
+
+
+
+        Toast.makeText(view.getContext(), "not available yet", Toast.LENGTH_SHORT).show();
     }
 
 }

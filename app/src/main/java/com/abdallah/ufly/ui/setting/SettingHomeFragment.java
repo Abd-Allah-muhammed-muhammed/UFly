@@ -42,7 +42,7 @@ public class SettingHomeFragment extends Fragment {
         binding.rvSetting.setAdapter(settingAdapter);
         binding.rvSetting.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvSetting.setHasFixedSize(true);
-        settingAdapter.setSettingModelsList(mViewModel.getSettinData(getContext(),"Full Name").getValue());
+        settingAdapter.setSettingModelsList(mViewModel.getSettinData(getContext(),"My Account").getValue());
         settingAdapter.notifyDataSetChanged();
 
 

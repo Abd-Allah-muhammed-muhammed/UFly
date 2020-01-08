@@ -13,24 +13,16 @@
 
     </data>
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
+            android:background="@color/dark"
+
             android:id="@+id/item_settings"
-            android:elevation="8dp"
-            android:divider="@color/dark"
-            android:dividerHeight="0.0px"
-            android:clipToPadding="false"
-            android:clipChildren="false"
-            app:cardPreventCornerOverlap="false"
-            app:cardBackgroundColor="@color/dark"
-            android:layout_margin="@dimen/_8"
-            app:cardCornerRadius="@dimen/_24"
-            app:cardElevation="@dimen/_8"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100">
+            android:layout_height="@dimen/_70">
 
 
 <LinearLayout
-    android:background="@drawable/bg_btn_book_whit"
+    android:id="@+id/layout_setting"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -39,7 +31,6 @@
     <ImageButton
         android:background="@android:color/transparent"
         app:load_image="@{setting.resIconTwo}"
-        android:layout_margin="@dimen/_16"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
@@ -57,7 +48,6 @@
 
     <ImageButton
         app:load_image="@{setting.resIconOne}"
-        android:layout_margin="@dimen/_16"
         android:background="@android:color/transparent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -67,8 +57,15 @@
 </LinearLayout>
 
 
+            <View
 
-        </androidx.cardview.widget.CardView>
+
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bag"/>
+
+        </RelativeLayout>
 
 
 

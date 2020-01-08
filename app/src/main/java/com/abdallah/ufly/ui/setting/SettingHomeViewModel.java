@@ -29,13 +29,13 @@ public class SettingHomeViewModel extends ViewModel {
 
     public MutableLiveData<List<SettingModel>> getSettinData(@NonNull Context context, String userName){
 
-        SettingModel    settingModel1 = new SettingModel(userName,R.drawable.ic_arrow_back_24px , R.drawable.ic_account_circle_24px , Color.parseColor("#12262C"));
+        SettingModel    settingModel1 = new SettingModel(userName,R.drawable.ic_back_right_24dp , R.drawable.ic_person_orange_24dp , Color.parseColor("#E8E8EA"));
 
-        SettingModel  settingModel2 = new SettingModel(context.getString(R.string.try_gold_ufly),R.drawable.ic_arrow_back_gold , R.drawable.ic_logo_gold, Color.parseColor("#CCA231"));
-        SettingModel  settingModel3 = new SettingModel(context.getString(R.string.action_settings),R.drawable.ic_arrow_back_24px , R.drawable.ic_settings_dark,Color.parseColor("#12262C"));
-        SettingModel  settingModel4 = new SettingModel(context.getString(R.string.helps),R.drawable.ic_arrow_back_24px , R.drawable.ic_help_black_24dp,Color.parseColor("#12262C"));
-        SettingModel  settingModel5 = new SettingModel(context.getString(R.string.connect_us),R.drawable.ic_arrow_back_24px , R.drawable.ic_connect_us, Color.parseColor("#12262C"));
-        SettingModel  settingModel6 = new SettingModel(context.getString(R.string.log_out),0, R.drawable.ic_back_dark, Color.parseColor("#12262C"));
+        SettingModel  settingModel2 = new SettingModel(context.getString(R.string.try_gold_ufly),R.drawable.ic_back_right_24dp , R.drawable.ic_smal_logo, Color.parseColor("#E8E8EA"));
+        SettingModel  settingModel3 = new SettingModel(context.getString(R.string.action_settings),R.drawable.ic_back_right_24dp , R.drawable.ic_settings_black_24dp,Color.parseColor("#E8E8EA"));
+        SettingModel  settingModel4 = new SettingModel(context.getString(R.string.helps),R.drawable.ic_back_right_24dp , R.drawable.ic_info_outline_orange_24dp,Color.parseColor("#E8E8EA"));
+        SettingModel  settingModel5 = new SettingModel(context.getString(R.string.connect_us),R.drawable.ic_back_right_24dp , R.drawable.ic_connect_us, Color.parseColor("#E8E8EA"));
+        SettingModel  settingModel6 = new SettingModel(context.getString(R.string.log_out),0, R.drawable.ic_back, Color.parseColor("#FEAD50"));
 
         settingModelList.add(settingModel1);
         settingModelList.add(settingModel2);

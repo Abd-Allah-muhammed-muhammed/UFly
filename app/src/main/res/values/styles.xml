@@ -27,14 +27,14 @@
 
     <style name="error">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#FFC107</item>
+        <item name="stTextColor">#FEAD50</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
         <item name="stColorBackground">#13272D</item>
         <!--        <item name="stSolidBackground">true</item>-->
         <!--        <item name="stStrokeWidth">3dp</item>-->
         <!--        <item name="stStrokeColor">#13272D</item>-->
-        <item name="stIconStart">@drawable/ic_error</item>
+        <item name="stIconStart">@drawable/ic_info_outline_orange_24dp</item>
         <!--        <item name="stIconEnd">@drawable/ic_error</item>-->
         <item name="stLength">LONG</item>
         LONG or SHORT
@@ -46,7 +46,7 @@
 
     <style name="success">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#FFC107</item>
+        <item name="stTextColor">#FEAD50</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
         <item name="stColorBackground">#13272D</item>

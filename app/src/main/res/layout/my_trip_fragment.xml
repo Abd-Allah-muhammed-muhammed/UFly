@@ -31,12 +31,12 @@
 
             <ImageView
                 android:id="@+id/text_mytrip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_70"
+                android:layout_height="@dimen/_70"
                 android:layout_below="@+id/back"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/_8"
-                android:src="@drawable/ic_logo_gold" />
+                android:src="@drawable/ic_logo" />
 
 
             <RelativeLayout
@@ -319,7 +319,7 @@
             <Button
                 android:id="@+id/my_trip_pay_now"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70"
+                android:layout_height="@dimen/_60"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/_70"
                 android:layout_marginEnd="70dp"
