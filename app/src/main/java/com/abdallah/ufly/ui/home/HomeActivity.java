@@ -50,18 +50,24 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        HomeFragment myFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_home));
-        if (myFragment != null && myFragment.isVisible()) {
-
+        HomeFragment HomeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_home));
+        BookFragment  bookFragment = (BookFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_book));
+        if (HomeFragment != null && HomeFragment.isVisible()) {
 
             Intent a = new Intent(Intent.ACTION_MAIN);
             a.addCategory(Intent.CATEGORY_HOME);
             a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(a);
+        }else  if (bookFragment !=null&& bookFragment.isVisible()){
+
+            replace(new HomeFragment(), binding.frameMain.getId(), getSupportFragmentManager().beginTransaction(),getString(R.string.tag_home));
+
+
         }else {
 
 
-            StyleableToast.makeText(this, "You should use the back in the left up the screen", Toast.LENGTH_LONG, R.style.error).show();
+
+            super.onBackPressed();
 
         }
 
