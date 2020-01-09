@@ -88,5 +88,9 @@
     <string name="tag_my_account">myaccount</string>
     <string name="tag_book">book</string>
     <string name="tag_desc">descreption</string>
+    <string name="tag_login_company">login_company</string>
+    <string name="login_company">Login Company</string>
+    <string name="inter_your_company_id">Inter Your Company id</string>
+    <string name="add_price">Add Price</string>
 
 </resources>

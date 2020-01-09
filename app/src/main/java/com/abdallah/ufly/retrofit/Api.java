@@ -3,6 +3,7 @@ package com.abdallah.ufly.retrofit;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
+import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
@@ -62,5 +63,10 @@ public interface Api {
     @FormUrlEncoded
     @POST("my_info.php")
     Observable<MyInfoResponse> getMyinfo(@Field("uui_id") String uui_id);
+
+
+    @FormUrlEncoded
+    @POST("login_company.php")
+    Observable<LoginCompany> loginCompany(@Field("company_id") String company_id);
 
 }

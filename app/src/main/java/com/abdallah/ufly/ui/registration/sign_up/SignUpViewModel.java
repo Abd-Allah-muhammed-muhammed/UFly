@@ -161,7 +161,7 @@ public class SignUpViewModel extends ViewModel {
             public void onFailure(Call<RegistarResponse> call, Throwable t) {
                 progress.setValue(8);
                 signText.setValue("SIGN UP");
-                StyleableToast.makeText(view.getContext(), "Try Again ", Toast.LENGTH_LONG, R.style.error).show();
+                StyleableToast.makeText(view.getContext(), " please Try Again Later", Toast.LENGTH_LONG, R.style.error).show();
                 prefManager = new PrefManager(view.getContext());
                 prefManager.setIsLoged(false);
             }

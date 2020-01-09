@@ -4,8 +4,8 @@
     package="com.abdallah.ufly">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,24 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.company.hom.HomCompanyActivity">
 
-        <activity
-            android:name=".ui.home.HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-
-        </activity>
-        <activity android:name=".ui.registration.RegistrationActivity">
-
-        </activity>
-        <activity
-            android:name=".ui.welcome.WelcomeActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.splash.SplashScreen"
-            android:theme="@style/SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +25,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+        </activity>
+        <activity android:name=".ui.company.logincompany.LoginCompanyActivity" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.registration.RegistrationActivity" />
+        <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.splash.SplashScreen"
+            android:theme="@style/SplashScreen">
 
         </activity>
     </application>

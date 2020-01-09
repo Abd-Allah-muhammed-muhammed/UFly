@@ -46,7 +46,7 @@ public class LoginRepository {
 
                  progress.setValue(8);
                     loginText.setValue("LOGIN");
-                    callbacks.onError("Try Again");
+                    callbacks.onError(" Please Try Again Later");
 
              }
 

@@ -1,9 +1,8 @@
 package com.abdallah.ufly.ui.registration.login;
 
+import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
@@ -12,6 +11,7 @@ import androidx.lifecycle.ViewModel;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.model.login.Login;
 import com.abdallah.ufly.repository.LoginRepository;
+import com.abdallah.ufly.ui.company.logincompany.LoginCompanyActivity;
 import com.abdallah.ufly.ui.registration.sign_up.SignUpFragment;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
@@ -97,8 +97,7 @@ public class LoginViewModel extends ViewModel {
     public void loginCopmany (View view){
 
 
-
-        Toast.makeText(view.getContext(), "not available yet", Toast.LENGTH_SHORT).show();
+        view.getContext().startActivity(new Intent(view.getContext(), LoginCompanyActivity.class));
     }
 
 }

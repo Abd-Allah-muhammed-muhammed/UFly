@@ -20,246 +20,225 @@
 
         <ImageButton
             android:id="@+id/back"
-            android:background="@drawable/ic_back"
             android:layout_width="@dimen/_50"
             android:layout_height="@dimen/_50"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp" />
+            android:layout_marginStart="0dp"
+            android:background="@drawable/ic_back" />
 
 
         <ImageView
-            android:src="@drawable/ic_logo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/_30"
-            android:layout_below="@+id/back"
-            android:layout_marginTop="@dimen/_12"
             android:id="@+id/text_login"
             android:layout_width="@dimen/_50"
             android:layout_height="@dimen/_50"
+            android:layout_above="@+id/layout_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_30"
             android:layout_marginEnd="@dimen/_30"
-            />
+            android:layout_marginBottom="@dimen/_24"
+            android:src="@drawable/ic_logo" />
 
 
         <RelativeLayout
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_name"
-            android:background="@drawable/bg_btn_book_whit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/text_login"
-            android:layout_marginTop="@dimen/_24"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/layout_address"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:layout_marginEnd="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setFullName}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/your_full_name"
                 android:id="@+id/et_name"
-                android:inputType="textPersonName"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_person_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/your_full_name"
+                android:inputType="textPersonName"
+                android:onTextChanged="@{sign::setFullName}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
 
 
-
-
-
-
-
-
         <RelativeLayout
-            android:background="@drawable/bg_btn_book_whit"
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_address"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/layout_name"
-            android:layout_marginTop="@dimen/_12"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/layout_phone"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:layout_marginEnd="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setAddress}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/your_address"
                 android:id="@+id/et_address"
-                android:inputType="textPersonName"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_address_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/your_address"
+                android:inputType="textPersonName"
+                android:onTextChanged="@{sign::setAddress}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
+
         <RelativeLayout
 
-            android:background="@drawable/bg_btn_book_whit"
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_phone"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/layout_address"
-            android:layout_marginTop="@dimen/_12"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/layout_email"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:layout_marginEnd="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setPhone}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/your_phone"
                 android:id="@+id/et_phone"
-                android:inputType="phone"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_phone_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/your_phone"
+                android:inputType="phone"
+                android:onTextChanged="@{sign::setPhone}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
 
 
-
         <RelativeLayout
 
-           android:background="@drawable/bg_btn_book_whit"
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/layout_phone"
-            android:layout_marginTop="@dimen/_12"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/layout_pass"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:layout_marginEnd="@dimen/_40"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setEmail}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/your_mail"
                 android:id="@+id/et_email"
-                android:inputType="textEmailAddress"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_email_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/your_mail"
+                android:inputType="textEmailAddress"
+                android:onTextChanged="@{sign::setEmail}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
+
         <RelativeLayout
 
-            android:background="@drawable/bg_btn_book_whit"
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_pass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/layout_email"
-            android:layout_marginTop="@dimen/_12"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/layout_re_pass"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginEnd="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setPassword}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/your_password"
                 android:id="@+id/et_password"
-                android:inputType="textPassword"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_password_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/your_password"
+                android:inputType="textPassword"
+                android:onTextChanged="@{sign::setPassword}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
-
-
-
 
 
         <RelativeLayout
-            android:background="@drawable/bg_btn_book_whit"
-            android:layout_marginStart="@dimen/_40"
-            android:layout_marginEnd="@dimen/_40"
             android:id="@+id/layout_re_pass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60"
-            android:layout_below="@+id/layout_pass"
-            android:layout_marginTop="@dimen/_12"
-            android:orientation="vertical"
-            >
+            android:layout_above="@+id/btn_sign_up_2"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginEnd="@dimen/_40"
+            android:layout_marginBottom="@dimen/_12"
+            android:background="@drawable/bg_btn_book_whit"
+            android:orientation="vertical">
 
             <EditText
 
-                android:textSize="@dimen/_18s"
-                android:onTextChanged="@{sign::setRePassword}"
-                android:textColor="@color/dark"
-                android:drawablePadding="@dimen/_18"
-                android:textColorHint="@color/dark_trans"
-                android:hint="@string/re_your_password"
                 android:id="@+id/et_re_password"
-                android:inputType="textPassword"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:layout_marginEnd="@dimen/_18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_18"
+                android:layout_marginEnd="@dimen/_18"
                 android:background="@android:color/transparent"
                 android:drawableStart="@drawable/ic_password_orange_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:drawablePadding="@dimen/_18"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="@string/re_your_password"
+                android:inputType="textPassword"
+                android:onTextChanged="@{sign::setRePassword}"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark_trans"
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
 
 
-
-
         <ProgressBar
-            android:indeterminate="true"
-            android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/white"
-            android:visibility="@{sign.progress}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/btn_login"
@@ -270,7 +249,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="158dp"
             android:layout_marginBottom="12dp"
-            android:elevation="10dp" />
+            android:elevation="10dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="@{sign.progress}" />
 
         <Button
             android:id="@+id/btn_sign_up_2"
