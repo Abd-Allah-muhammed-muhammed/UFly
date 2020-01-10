@@ -10,6 +10,17 @@ import com.google.gson.annotations.SerializedName;
 public class TripsResponse {
 
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @SerializedName("status")
+    @Expose
+    private Integer status;
     @SerializedName("id")
     @Expose
     private Integer id;

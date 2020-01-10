@@ -2,79 +2,90 @@ package com.abdallah.ufly.helper;
 
 import android.content.SharedPreferences;
 import android.content.Context;
+
 public class PrefManager {
 
-        SharedPreferences pref;
-        SharedPreferences.Editor editor;
-        Context _context;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    Context _context;
 
-        // shared pref mode
-        int PRIVATE_MODE = 0;
+    // shared pref mode
+    int PRIVATE_MODE = 0;
 
-        // Shared preferences file name
-        private static final String PREF_NAME = "ufly_abdalah";
-        private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
-        private static final String TOKEN = "token";
-        private static final String ISLOGED = "is_loged";
+    // Shared preferences file name
+    private static final String PREF_NAME = "ufly_abdalah";
+    private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+    private static final String TOKEN = "token";
+    private static final String ISLOGED = "is_loged";
+    private static final String ID_COMPANY = "id_company";
 
-        public PrefManager(Context context) {
-            this._context = context;
-            pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-            editor = pref.edit();
-        }
+    public PrefManager(Context context) {
+        this._context = context;
+        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+        editor = pref.edit();
+    }
 
-        public void setFirstTimeLaunch(boolean isFirstTime) {
-            editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
-            editor.commit();
-        }
+    public void setFirstTimeLaunch(boolean isFirstTime) {
+        editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
+        editor.commit();
+    }
 
-        public boolean isFirstTimeLaunch() {
-            return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
-        }
-
-
-        public void saveToken(String token){
-           editor.putString(TOKEN,token) ;
-           editor.commit();
-        }
+    public boolean isFirstTimeLaunch() {
+        return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
+    }
 
 
-
-        public String getToken(){
-
-            return pref.getString(TOKEN,"");
-
-        }
+    public void saveToken(String token) {
+        editor.putString(TOKEN, token);
+        editor.commit();
+    }
 
 
+    public String getToken() {
 
-        public void clear(){
-            editor.clear();
-            editor.commit();
+        return pref.getString(TOKEN, "");
 
-
-        }
+    }
 
 
-
-        public void setIsLoged (boolean isLoged){
-
-            editor.putBoolean(ISLOGED,isLoged);
-            editor.commit();
+    public void clear() {
+        editor.clear();
+        editor.commit();
 
 
-        }
+    }
 
 
-        public boolean isLoged (){
+    public void setIsLoged(boolean isLoged) {
 
-            return pref.getBoolean(ISLOGED,false);
-        }
+        editor.putBoolean(ISLOGED, isLoged);
+        editor.commit();
+
+
+    }
+
+
+    public boolean isLoged() {
+
+        return pref.getBoolean(ISLOGED, false);
+    }
 
     public void removeToken() {
 
 
-            editor.remove(TOKEN);
-            editor.commit();
+        editor.remove(TOKEN);
+        editor.commit();
+    }
+
+    public String getID_Company() {
+
+        return pref.getString(ID_COMPANY, "");
+
+    }
+
+
+    public void saveIdCompany(String idCompany) {
+        editor.putString(ID_COMPANY, idCompany);
+        editor.commit();
     }
 }

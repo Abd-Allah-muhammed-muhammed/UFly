@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.LoginCompanyFragmentBinding;
+import com.abdallah.ufly.helper.PrefManager;
 
 public class LoginCompanyFragment extends Fragment {
 

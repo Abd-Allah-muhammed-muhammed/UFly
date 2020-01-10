@@ -18,12 +18,13 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.company.hom.HomCompanyActivity">
 
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
 
         </activity>
         <activity android:name=".ui.company.logincompany.LoginCompanyActivity" />
@@ -38,6 +39,7 @@
         <activity
             android:name=".ui.splash.SplashScreen"
             android:theme="@style/SplashScreen">
+
 
         </activity>
     </application>

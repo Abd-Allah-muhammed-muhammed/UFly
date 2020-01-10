@@ -92,5 +92,7 @@
     <string name="login_company">Login Company</string>
     <string name="inter_your_company_id">Inter Your Company id</string>
     <string name="add_price">Add Price</string>
+    <string name="general">General</string>
+    <string name="add_trip">Add Trip</string>
 
 </resources>

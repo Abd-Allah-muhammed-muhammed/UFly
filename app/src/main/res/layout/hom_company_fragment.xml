@@ -1,367 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
 
 
-    <data>
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-
-    </data>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dark">
-
-        <ScrollView
-            android:id="@+id/sl_view"
+        <RelativeLayout
+            android:id="@+id/layout_rv_data"
+            android:background="@color/dark"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <!--parent layout id is  layout_desc-->
-            <RelativeLayout
-                android:id="@+id/layout_desc"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            tools:showIn="@layout/activity_hom_company">
+
+
+            <ProgressBar
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+
+                android:visibility="gone"
+                android:id="@+id/prog_home"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="145dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="158dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="10dp" />
 
 
-                <RelativeLayout
-                    android:id="@+id/layout_top"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageButton
-                        android:id="@+id/back"
-                        android:layout_width="@dimen/_50"
-                        android:layout_height="@dimen/_50"
-                        android:layout_alignParentStart="true"
-                        android:background="@drawable/ic_back" />
-                </RelativeLayout>
-                <!-- all info in this layout id is layout_all_info -->
-                <RelativeLayout
-                    android:id="@+id/layout_all_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_top"
-                    android:layout_margin="@dimen/_16"
-                    android:background="@drawable/bg_desc_stock">
-
-
-                    <!-- from to shape with bus icon -->
-                    <RelativeLayout
-
-                        android:id="@+id/layout_desc_from_to"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_16"
-                        android:layout_marginTop="@dimen/_8"
-                        android:background="@drawable/bg_btn_book_whit">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:id="@+id/layout_from"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="@dimen/_6"
-                                    android:gravity="center"
-                                    android:lines="1"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/from"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <EditText
-                                    android:id="@+id/desc_from"
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_back_dark"
-                                    android:drawableEnd="@drawable/ic_back_right_dark"
-                                    android:drawablePadding="@dimen/_4"
-                                    android:gravity="center"
-                                    android:hint="..."
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:paddingBottom="@dimen/_14"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:src="@drawable/ic_bus" />
-
-                            <LinearLayout
-                                android:id="@+id/layout_to"
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="@dimen/_6"
-                                    android:gravity="center"
-                                    android:lines="1"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/to"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <EditText
-
-                                    android:id="@+id/desc_to"
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_back_dark"
-                                    android:drawableEnd="@drawable/ic_back_right_dark"
-                                    android:drawablePadding="@dimen/_4"
-                                    android:gravity="center"
-                                    android:hint="..."
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:paddingBottom="@dimen/_14"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                    <!--line one -->
-                    <TextView
-                        android:id="@+id/line_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_below="@+id/layout_desc_from_to"
-                        android:layout_margin="@dimen/_16"
-                        android:layout_marginTop="@dimen/_16"
-                        android:background="@color/trans3" />
-
-
-                    <!-- text view  include   id is inclouds_tv-->
-                    <TextView
-
-                        android:id="@+id/inclouds_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_desc_from_to"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_includes_green"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/inclouds"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-
-                    <!--                     rv includ id is layout_rv-->
-                    <RelativeLayout
-                        android:id="@+id/layout_rv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/inclouds_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
-
-                        <EditText
-
-
-                            android:id="@+id/desc_include"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_24"
-                            android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_back_dark"
-                            android:drawableEnd="@drawable/ic_back_right_dark"
-                            android:gravity="center"
-                            android:hint="..."
-                            android:textColor="@color/dark"
-                            android:textSize="@dimen/_18s" />
-
-                    </RelativeLayout>
-
-
-                    <!--                    trip info tv  id is tripinfo_tv-->
-                    <TextView
-                        android:id="@+id/tripinfo_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_rv"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_info_outline_green_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/trip_information"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-                    <!--                    rv info layout_rv2 -->
-                    <RelativeLayout
-
-                        android:id="@+id/layout_rv2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/tripinfo_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
-
-                        <EditText
-
-
-                            android:id="@+id/desc_tv_trip_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="@dimen/_30"
-                            android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_back_dark"
-                            android:drawableEnd="@drawable/ic_back_right_dark"
-                            android:gravity="center"
-                            android:hint=".......\n.......\n......."
-                            android:textColor="@color/dark"
-                            android:textSize="@dimen/_20s"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:id="@+id/text_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_rv2"
-                        android:layout_margin="@dimen/_24"
-                        android:drawableStart="@drawable/ic_number_green"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="Number of Passengers"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-
-                    <LinearLayout
-
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/text_number"
-                        android:layout_margin="@dimen/_24"
-                        android:background="@drawable/ic_bg_trip_where_1"
-                        android:orientation="horizontal">
-
-
-                        <EditText
-
-                            android:padding="@dimen/_12"
-
-                            android:id="@+id/count_passenger"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_number_green"
-                            android:gravity="center"
-                            android:hint="@string/price"
-                            android:paddingStart="@dimen/_12"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/white"
-                            android:textSize="@dimen/_18s"
-                            android:textStyle="bold">
-
-                        </EditText>
-
-                        <EditText
-
-                            android:id="@+id/count_price"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_number_orange_24dp"
-                            android:gravity="center"
-                            android:hint="@string/passengers"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/white"
-                            android:padding="@dimen/_12"
-                            android:textSize="@dimen/_14s"
-                            android:textStyle="bold">
-
-                        </EditText>
-
-
-                    </LinearLayout>
-
-
-                </RelativeLayout>
-
-
-                <Button
-                    android:id="@+id/desc_btn_book"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_all_info"
-                    android:layout_marginStart="@dimen/_40"
+            <RelativeLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <SearchView
+                    android:backgroundTintMode="screen"
+                    android:showDividers="beginning"
                     android:layout_marginTop="@dimen/_4"
-                    android:layout_marginEnd="@dimen/_40"
-                    android:layout_marginBottom="@dimen/_24"
-                    android:background="@drawable/bg_btn_book_green"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/book"
-                    android:textColor="@color/dark"
-                    android:textSize="@dimen/_20s"
-                    android:textStyle="bold" />
-
-
-                <RelativeLayout
+                    android:background="@drawable/bg_btn_book_whit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/desc_btn_book"
-                    android:layout_alignParentBottom="true">
+                    android:layout_height="@dimen/_50"
+                    android:layout_marginStart="@dimen/_18"
+                    android:layout_marginEnd="@dimen/_18" />
 
+            </RelativeLayout>
 
-                </RelativeLayout>
-
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_4"
+                android:layout_below="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_filter">
 
             </RelativeLayout>
 
 
-        </ScrollView>
+            <RelativeLayout
+
+                android:layout_marginBottom="@dimen/_50"
+                android:layout_below="@+id/layout_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/item_trips"
+                    android:id="@+id/rev_trip_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </RelativeLayout>
 
 
-    </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/cycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--            <FrameLayout-->
+            <!--                android:layout_above="@+id/bottom_nav"-->
+            <!--                android:id="@+id/frame_main"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                tools:ignore="MissingConstraints">-->
+
+            <!--            </FrameLayout>-->
+
+
+            <com.abdallah.ufly.ui.bottom_nav.BottomNavView
+                android:scrollbarStyle="insideInset"
+                app:itemTextColor="@color/blck"
+                app:itemIconTint="@color/color2"
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50"
+                android:layout_alignParentBottom="true"
+                >
+
+
+            </com.abdallah.ufly.ui.bottom_nav.BottomNavView>
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/floting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/_50"
+            android:tint="@color/trans"
+            app:backgroundTint="@color/trans"
+            app:menu_backgroundColor="@android:color/transparent"
+            app:menu_colorNormal="@color/colorPrimary"
+            app:menu_colorPressed="@color/colorPrimary"
+            app:menu_labels_colorNormal="@color/dark"
+            app:menu_labels_textColor="@color/color2"
+            app:menu_openDirection="up"
+            app:rippleColor="@color/color2"
+            tools:ignore="MissingConstraints">
+
+
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                android:id="@+id/add_fb"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_number_orange_24dp"-->
+<!--                android:tint="@color/color2"-->
+<!--                app:backgroundTint="@color/color2"-->
+<!--                app:fab_colorPressed="@color/colorPrimary"-->
+<!--                app:fab_colorRipple="@color/colorPrimary"-->
+<!--                app:fab_label="اضافة طلب"-->
+<!--                app:fab_size="mini"-->
+<!--                app:menu_colorNormal="@color/colorPrimary"-->
+<!--                app:menu_openDirection="up"-->
+<!--                app:rippleColor="@android:color/white" />-->
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/add_fb_trip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_number_green"
+                android:tint="@color/color2"
+                app:backgroundTint="@color/color2"
+                app:fab_colorPressed="@color/color2"
+                app:fab_label="@string/add_trip"
+                app:fab_progress_color="@color/color3"
+                app:fab_size="mini"
+                app:fab_colorDisabled="@color/white"
+
+                app:fab_colorNormal="@color/dark"
+                app:menu_colorNormal="@color/color2"
+
+                app:menu_openDirection="up"
+                app:rippleColor="@color/color2" />
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/line_id"
+            android:layout_gravity="bottom|center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval_green"
+            tools:ignore="MissingConstraints" >
+
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                android:visibility="gone"
+                app:vector_src="@drawable/ic_person_outline_black_24dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab2"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                app:vector_src="@drawable/ic_home_black_24dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+            <com.sdsmdg.harjot.vectormaster.VectorMasterView
+                android:id="@+id/fab3"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_12"
+                android:elevation="@dimen/_6"
+                android:visibility="gone"
+                app:vector_src="@drawable/ic_account_balance_wallet_green"
+                android:layout_width="54dp"
+                android:layout_height="54dp"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+
 
 
 </layout>

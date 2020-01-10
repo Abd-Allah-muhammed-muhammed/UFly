@@ -6,15 +6,12 @@
     <data>
 
 
-        <variable
-            name="desc_book"
-            type="com.abdallah.ufly.ui.description.TripDescriptionViewModel" />
     </data>
 
     <RelativeLayout
-        android:background="@color/dark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/dark">
 
         <ScrollView
             android:id="@+id/sl_view"
@@ -41,25 +38,23 @@
                 </RelativeLayout>
                 <!-- all info in this layout id is layout_all_info -->
                 <RelativeLayout
-                    android:background="@drawable/bg_desc_stock"
                     android:id="@+id/layout_all_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/layout_top"
                     android:layout_margin="@dimen/_16"
-                    >
+                    android:background="@drawable/bg_desc_stock">
 
 
                     <!-- from to shape with bus icon -->
                     <RelativeLayout
 
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit"
                         android:id="@+id/layout_desc_from_to"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8">
-
+                        android:layout_margin="@dimen/_16"
+                        android:layout_marginTop="@dimen/_8"
+                        android:background="@drawable/bg_btn_book_whit">
 
 
                         <LinearLayout
@@ -75,41 +70,43 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_margin="@dimen/_6"
-                                    android:lines="1"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:layout_margin="@dimen/_6"
                                     android:gravity="center"
+                                    android:lines="1"
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/from"
                                     android:textColor="@color/color3"
                                     android:textSize="@dimen/_18s" />
 
-                                <TextView
-
-
+                                <EditText
                                     android:id="@+id/desc_from"
+
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@android:color/transparent"
+                                    android:drawableStart="@drawable/ic_back_dark"
+                                    android:drawableEnd="@drawable/ic_back_right_dark"
+                                    android:drawablePadding="@dimen/_4"
                                     android:gravity="center"
+                                    android:hint="..."
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:paddingBottom="@dimen/_14"
-                                    android:text="@string/cairo"
-                                    android:textStyle="bold"
                                     android:textColor="@color/dark"
                                     android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s" />
+                                    android:textSize="@dimen/_14s"
+                                    android:textStyle="bold" />
 
                             </LinearLayout>
 
                             <ImageView
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:src="@drawable/ic_bus_orange" />
+                                android:src="@drawable/ic_bus" />
 
                             <LinearLayout
                                 android:id="@+id/layout_to"
@@ -120,32 +117,36 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:lines="1"
-                                    android:layout_margin="@dimen/_6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_6"
                                     android:gravity="center"
+                                    android:lines="1"
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
                                     android:text="@string/to"
                                     android:textColor="@color/color3"
                                     android:textSize="@dimen/_18s" />
 
-                                <TextView
-                                    android:paddingBottom="@dimen/_14"
+                                <EditText
 
                                     android:id="@+id/desc_to"
+
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:background="@android:color/transparent"
+                                    android:drawableStart="@drawable/ic_back_dark"
+                                    android:drawableEnd="@drawable/ic_back_right_dark"
+                                    android:drawablePadding="@dimen/_4"
                                     android:gravity="center"
+                                    android:hint="..."
                                     android:paddingStart="@dimen/_14"
                                     android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/alexandria"
+                                    android:paddingBottom="@dimen/_14"
                                     android:textColor="@color/dark"
                                     android:textColorHint="@color/dark"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/_14s" />
+                                    android:textSize="@dimen/_14s"
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -173,7 +174,7 @@
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_includes_orange_24dp"
+                        android:drawableStart="@drawable/ic_includes_green"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/inclouds"
                         android:textColor="@color/bag"
@@ -190,13 +191,18 @@
                         android:layout_margin="@dimen/_16"
                         android:background="@drawable/bg_btn_book_whit">
 
-                        <TextView
+                        <EditText
+
 
                             android:id="@+id/desc_include"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_24"
+                            android:background="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_back_dark"
+                            android:drawableEnd="@drawable/ic_back_right_dark"
                             android:gravity="center"
+                            android:hint="..."
                             android:textColor="@color/dark"
                             android:textSize="@dimen/_18s" />
 
@@ -212,7 +218,7 @@
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_info_outline_orange_24dp"
+                        android:drawableStart="@drawable/ic_info_outline_green_24dp"
                         android:drawablePadding="@dimen/_24"
                         android:text="@string/trip_information"
                         android:textColor="@color/bag"
@@ -229,14 +235,21 @@
                         android:layout_margin="@dimen/_16"
                         android:background="@drawable/bg_btn_book_whit">
 
-                        <TextView
-                            android:layout_margin="@dimen/_30"
+                        <EditText
+
+
                             android:id="@+id/desc_tv_trip_info"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_30"
+                            android:background="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_back_dark"
+                            android:drawableEnd="@drawable/ic_back_right_dark"
+                            android:gravity="center"
+                            android:hint=".......\n.......\n......."
                             android:textColor="@color/dark"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_20s" />
+                            android:textSize="@dimen/_20s"
+                            android:textStyle="bold" />
 
 
                     </RelativeLayout>
@@ -248,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layout_rv2"
                         android:layout_margin="@dimen/_24"
-                        android:drawableStart="@drawable/ic_person_orange_24dp"
+                        android:drawableStart="@drawable/ic_person_outline_black_24dp"
                         android:drawablePadding="@dimen/_24"
                         android:text="Number of Passengers"
                         android:textColor="@color/bag"
@@ -263,73 +276,60 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_number"
                         android:layout_margin="@dimen/_24"
+                        android:background="@drawable/bg_desc_stock"
                         android:orientation="horizontal">
 
 
-                        <Button
-                            android:layout_width="0dp"
+                        <EditText
 
-                            android:layout_height="wrap_content"
+                            android:inputType="number"
+
+                            android:padding="@dimen/_12"
+
+                            android:id="@+id/count_passenger"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:background="@drawable/ic_plus"
-                            android:onClick="@{(view)->desc_book.minus(view)}"
-                            android:text="-"
-                            android:textColor="@color/blck"
-                            android:textSize="@dimen/_20s" />
+                            android:background="@android:color/transparent"
+                            android:drawableEnd="@drawable/ic_number_green"
+                            android:gravity="center"
+                            android:hint="@string/price"
+                            android:paddingStart="@dimen/_12"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/_18s"
+                            android:textStyle="bold">
 
-                        <LinearLayout
-                            android:id="@+id/layout_price"
+                        </EditText>
+
+                        <EditText
+                            android:inputType="number"
+
+                            android:id="@+id/count_price"
                             android:layout_width="0dp"
-                            android:layout_height="@dimen/_50"
-                            android:layout_marginStart="@dimen/_16"
-                            android:layout_marginEnd="@dimen/_16"
-                            android:layout_weight="2"
-                            android:background="@drawable/bg_price"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/count_passenger"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="@{desc_book.the_number}"
-                                android:textColor="@color/blck"
-                                android:textSize="@dimen/_18s"
-                                android:textStyle="bold">
-
-                            </TextView>
-
-                            <TextView
-                                android:id="@+id/count_price"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="@{desc_book.price}"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_18s"
-                                android:textStyle="bold">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:background="@drawable/ic_plus"
-                            android:onClick="@{(view)->desc_book.plus(view)}"
-                            android:text="+"
-                            android:textColor="@color/blck"
-                            android:textSize="@dimen/_20s" />
+                            android:background="@android:color/transparent"
+                            android:drawableEnd="@drawable/ic_number_orange_24dp"
+                            android:gravity="center"
+                            android:hint="@string/passengers"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:padding="@dimen/_12"
+                            android:textSize="@dimen/_14s"
+                            android:textStyle="bold">
+
+                        </EditText>
+
 
                     </LinearLayout>
 
 
                 </RelativeLayout>
+
+
 
 
                 <Button
@@ -341,15 +341,13 @@
                     android:layout_marginTop="@dimen/_4"
                     android:layout_marginEnd="@dimen/_40"
                     android:layout_marginBottom="@dimen/_24"
-                    android:background="@drawable/bg_btn_book_orange"
+                    android:background="@drawable/bg_btn_book_green"
                     android:elevation="2dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/book"
-                    android:textColor="@color/trans3"
+                    android:text="@string/add_trip"
+                    android:textColor="@color/dark"
                     android:textSize="@dimen/_20s"
                     android:textStyle="bold" />
-
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

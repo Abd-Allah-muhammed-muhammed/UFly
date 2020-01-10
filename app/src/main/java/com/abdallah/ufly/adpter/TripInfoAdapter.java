@@ -35,6 +35,12 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
         return new TripInfoViewHolder(itemTripsBinding);
     }
 
+    int id ;
+
+    public TripInfoAdapter(int id) {
+
+        this.id = id;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
@@ -45,19 +51,28 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
             @Override
             public void onClick(View v) {
 
-                TripDescriptionFragment fragment = new TripDescriptionFragment();
-                Bundle bundle = new Bundle();
+                if (id==1){
 
-                bundle.putInt("TripId",tripInfo.getId());
-                bundle.putString("Trip_desc",tripInfo.getDescription());
-                bundle.putString("Trip_from",tripInfo.getDepartuer());
-                bundle.putString("Trip_to",tripInfo.getArrival());
-                bundle.putString("price",tripInfo.getPrice());
-                bundle.putString("includes",tripInfo.getIncludes());
 
-                fragment.setArguments(bundle);
-                replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
-                        ,v.getContext().getString(R.string.tag_desc));
+                    TripDescriptionFragment fragment = new TripDescriptionFragment();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putInt("TripId",tripInfo.getId());
+                    bundle.putString("Trip_desc",tripInfo.getDescription());
+                    bundle.putString("Trip_from",tripInfo.getDepartuer());
+                    bundle.putString("Trip_to",tripInfo.getArrival());
+                    bundle.putString("price",tripInfo.getPrice());
+                    bundle.putString("includes",tripInfo.getIncludes());
+
+                    fragment.setArguments(bundle);
+                    replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                            ,v.getContext().getString(R.string.tag_desc));
+
+                }else {
+
+
+
+                }
 
             }
         });
@@ -65,8 +80,8 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
     }
 
 
-    public void setTripInfoList(ArrayList<TripsResponse> employees) {
-        this.tripInfoArrayList = employees;
+    public void setTripInfoList(ArrayList<TripsResponse> tripsResponse) {
+        this.tripInfoArrayList = tripsResponse;
         notifyDataSetChanged();
     }
 

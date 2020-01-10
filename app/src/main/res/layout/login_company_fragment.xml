@@ -60,8 +60,9 @@
             android:paddingEnd="@dimen/_40">
 
             <EditText
+                android:inputType="textPassword"
                 android:onTextChanged="@{login::getIdCompany}"
-                android:id="@+id/my_acc_full_name"
+                android:id="@+id/id_company"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60"
                 android:layout_marginTop="@dimen/_40"

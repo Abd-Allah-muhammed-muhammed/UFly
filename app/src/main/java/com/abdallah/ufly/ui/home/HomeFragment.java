@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.abdallah.ufly.ui.setting.SettingHomeFragment;
@@ -32,6 +33,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
     PathModel outline;
 
     private HomeViewModel homeViewModel;
+
     FragmentHomeBinding binding ;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class HomeFragment extends Fragment implements BottomNavigationView.OnNav
         return binding.getRoot();
     }
     private void fetchData() {
-        final TripInfoAdapter tripInfoAdapter = new TripInfoAdapter();
+        final TripInfoAdapter tripInfoAdapter = new TripInfoAdapter(1);
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.revTripInfo.setHasFixedSize(true);

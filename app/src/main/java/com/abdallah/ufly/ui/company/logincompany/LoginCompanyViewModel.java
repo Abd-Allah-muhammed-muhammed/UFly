@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.ui.company.hom.HomCompanyActivity;
@@ -26,7 +27,9 @@ import static io.reactivex.schedulers.Schedulers.io;
 public class LoginCompanyViewModel extends ViewModel {
 
     Api api ;
+    PrefManager prefManager;
     public MutableLiveData<String> id_company   ;
+
     public LoginCompanyViewModel() {
 
         id_company = new MutableLiveData<>();
@@ -47,6 +50,8 @@ public class LoginCompanyViewModel extends ViewModel {
         }else {
 
 
+            prefManager = new PrefManager(view.getContext());
+            prefManager.saveIdCompany(id_company.getValue());
             login(id_company.getValue(),view);
 
         }
@@ -90,8 +95,6 @@ public class LoginCompanyViewModel extends ViewModel {
             @Override
             public void onError(Throwable e) {
                 StyleableToast.makeText(view.getContext(), "Please Try Again Later", Toast.LENGTH_LONG, R.style.error_company).show();
-
-
 
             }
 

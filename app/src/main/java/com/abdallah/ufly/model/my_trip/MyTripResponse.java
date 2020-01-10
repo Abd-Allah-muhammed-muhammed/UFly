@@ -9,6 +9,7 @@ public class MyTripResponse {
     @SerializedName("id")
     @Expose
     private Integer id;
+
     @SerializedName("id_trip")
     @Expose
     private Integer idTrip;

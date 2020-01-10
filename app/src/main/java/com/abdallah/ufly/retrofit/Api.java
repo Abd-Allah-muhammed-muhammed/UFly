@@ -69,4 +69,9 @@ public interface Api {
     @POST("login_company.php")
     Observable<LoginCompany> loginCompany(@Field("company_id") String company_id);
 
+
+
+    @GET("my_trip_company.php")
+    Observable<List<TripsResponse>> getMyTripsCompany(@Query("id_company") String id_company);
+
 }
