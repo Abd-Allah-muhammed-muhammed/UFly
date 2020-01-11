@@ -33,8 +33,11 @@ public class LoginCompanyFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.login_company_fragment, container, false);
         mViewModel = ViewModelProviders.of(this).get(LoginCompanyViewModel.class);
-
         binding.setLogin(mViewModel);
+
+
+
+
         return  binding.getRoot();
 
     }

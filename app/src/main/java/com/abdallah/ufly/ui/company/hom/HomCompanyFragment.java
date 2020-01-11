@@ -26,6 +26,7 @@ import com.abdallah.ufly.databinding.HomCompanyFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
+import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.abdallah.ufly.ui.setting.SettingHomeFragment;
@@ -61,7 +62,6 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
         binding.progHome.setVisibility(View.VISIBLE);
         prefManager = new PrefManager(getContext());
         String id_company = prefManager.getID_Company();
-
         fetchData(id_company ,binding.progHome);
 
 
@@ -115,7 +115,7 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab);
 
-//                replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_setting));
+                replace(new SettingCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_setting_company));
 
 
                 break;
@@ -133,7 +133,7 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
                 binding.fab2.setVisibility(View.VISIBLE);
                 binding.fab3.setVisibility(View.GONE);
                 drawAnimation(binding.fab2);
-                replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),"add_trip");
+                replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
 
 
                 break;
@@ -264,10 +264,7 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
 
     @Override
     public void onClick(View v) {
-
-
-
-        replace(new AddTripFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),"add_trip");
+        replace(new AddTripFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_add_trip));
 
     }
 }

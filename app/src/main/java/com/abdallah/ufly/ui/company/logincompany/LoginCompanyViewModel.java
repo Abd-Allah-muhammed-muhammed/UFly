@@ -50,9 +50,7 @@ public class LoginCompanyViewModel extends ViewModel {
         }else {
 
 
-            prefManager = new PrefManager(view.getContext());
-            prefManager.saveIdCompany(id_company.getValue());
-            login(id_company.getValue(),view);
+            login(id_company.getValue(),view );
 
         }
 
@@ -63,7 +61,9 @@ public class LoginCompanyViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    private void login(String id_company , final View view){
+    private void login(final String id_company, final View view){
+
+        prefManager = new PrefManager(view.getContext());
 
 
         api.loginCompany(id_company).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<LoginCompany>() {
@@ -81,12 +81,14 @@ public class LoginCompanyViewModel extends ViewModel {
 
                     StyleableToast.makeText(view.getContext(), loginCompany.getMessage(), Toast.LENGTH_LONG, R.style.error_company).show();
 
+                    prefManager.setIslogedCompany(false);
+
                 }else {
 
                     StyleableToast.makeText(view.getContext(), loginCompany.getMessage(), Toast.LENGTH_LONG, R.style.success_company).show();
-
                     view.getContext().startActivity(new Intent(view.getContext(), HomCompanyActivity.class));
-
+                    prefManager.saveIdCompany(id_company);
+                    prefManager.setIslogedCompany(true);
 
                 }
 
@@ -94,6 +96,9 @@ public class LoginCompanyViewModel extends ViewModel {
 
             @Override
             public void onError(Throwable e) {
+
+                prefManager.setIslogedCompany(false);
+
                 StyleableToast.makeText(view.getContext(), "Please Try Again Later", Toast.LENGTH_LONG, R.style.error_company).show();
 
             }

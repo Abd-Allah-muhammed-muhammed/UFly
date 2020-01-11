@@ -94,5 +94,8 @@
     <string name="add_price">Add Price</string>
     <string name="general">General</string>
     <string name="add_trip">Add Trip</string>
+    <string name="tag_hom_company">homecompany</string>
+    <string name="tag_setting_company">settingCompany</string>
+    <string name="tag_add_trip">add_trip</string>
 
 </resources>

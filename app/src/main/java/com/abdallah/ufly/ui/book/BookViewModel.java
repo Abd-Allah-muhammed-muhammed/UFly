@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModel;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.book.BookModelResponse;
-import com.abdallah.ufly.repository.BookRepository;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
 import com.abdallah.ufly.ui.home.HomeFragment;

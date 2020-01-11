@@ -1,5 +1,6 @@
 package com.abdallah.ufly.retrofit;
 
+import com.abdallah.ufly.model.addTrip.AddTripResponse;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
@@ -28,10 +29,6 @@ public interface Api {
                                   @Field("password") String password,
                                   @Field("address") String address,
                                   @Field("phone") String phone);
-//
-//    @FormUrlEncoded
-//    @POST("includes_by_id.php")
-//    Call<IncludesResponse> getIncludesById(@Field("id_trip") String id_trip);
 
 
     @FormUrlEncoded
@@ -70,8 +67,21 @@ public interface Api {
     Observable<LoginCompany> loginCompany(@Field("company_id") String company_id);
 
 
-
     @GET("my_trip_company.php")
     Observable<List<TripsResponse>> getMyTripsCompany(@Query("id_company") String id_company);
+
+
+    @FormUrlEncoded
+    @POST("add_trip.php")
+    Observable<AddTripResponse> addTrip(@Field("departure") String departure,
+                                        @Field("arrival") String arrival
+            , @Field("date_from") String date_from,
+                                        @Field("date_until") String date_until,
+                                        @Field("passengers") String passengers,
+                                        @Field("price") String price,
+                                        @Field("description") String description,
+                                        @Field("company_id") String company_id,
+                                        @Field("includes") String includes);
+
 
 }

@@ -140,6 +140,8 @@ public class SignUpViewModel extends ViewModel {
                      prefManager = new PrefManager(view.getContext());
                     prefManager.saveToken(uuid);
                     prefManager.setIsLoged(true);
+                    prefManager.setIslogedCompany(false);
+                    prefManager.removeIdCompany();
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);

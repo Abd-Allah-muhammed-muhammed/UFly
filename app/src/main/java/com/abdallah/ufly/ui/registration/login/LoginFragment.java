@@ -90,6 +90,8 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
             StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
             startActivity(new Intent(getContext(), HomeActivity.class));
             prefManager.setIsLoged(true);
+            prefManager.setIslogedCompany(false);
+            prefManager.removeIdCompany();
         }else {
 
             prefManager.setIsLoged(false);

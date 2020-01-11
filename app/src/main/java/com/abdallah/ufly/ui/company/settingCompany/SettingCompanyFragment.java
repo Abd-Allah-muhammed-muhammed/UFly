@@ -1,4 +1,4 @@
-package com.abdallah.ufly.ui.setting;
+package com.abdallah.ufly.ui.company.settingCompany;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
@@ -16,29 +16,32 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.SettingAdapter;
-import com.abdallah.ufly.databinding.SettingHomeFragmentBinding;
+import com.abdallah.ufly.databinding.SettingCompanyFragmentBinding;
+import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
-import com.abdallah.ufly.ui.my_account.MyAccountViewModel;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class SettingHomeFragment extends Fragment {
+public class SettingCompanyFragment extends Fragment {
 
-    private SettingHomeViewModel mViewModel;
-    SettingHomeFragmentBinding binding ;
+    private SettingCompanyViewModel mViewModel;
 
-    public static SettingHomeFragment newInstance() {
-        return new SettingHomeFragment();
+
+    SettingCompanyFragmentBinding binding ;
+    public static SettingCompanyFragment newInstance() {
+        return new SettingCompanyFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.setting_home_fragment,container,false);
-        mViewModel = ViewModelProviders.of(this).get(SettingHomeViewModel.class);
 
-        SettingAdapter settingAdapter = new SettingAdapter(1);
+        binding = DataBindingUtil.inflate(inflater,R.layout.setting_company_fragment,container, false);
+        mViewModel = ViewModelProviders.of(this).get(SettingCompanyViewModel.class);
+
+
+        SettingAdapter settingAdapter = new SettingAdapter(2);
         binding.rvSetting.setAdapter(settingAdapter);
         binding.rvSetting.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvSetting.setHasFixedSize(true);
@@ -47,15 +50,21 @@ public class SettingHomeFragment extends Fragment {
 
 
 
+
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
+                replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
             }
         });
 
+
         return binding.getRoot();
     }
+
+
+
+
 
 
 

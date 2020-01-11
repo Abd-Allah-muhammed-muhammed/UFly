@@ -6,6 +6,10 @@
     <data>
 
 
+        <variable
+            name="add_trip"
+            type="com.abdallah.ufly.ui.company.add_trip.AddTripViewModel" />
+        
     </data>
 
     <RelativeLayout
@@ -82,8 +86,10 @@
                                     android:textSize="@dimen/_18s" />
 
                                 <EditText
-                                    android:id="@+id/desc_from"
 
+                                    android:onTextChanged="@{add_trip::setFrom}"
+
+                                    android:id="@+id/desc_from"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@android:color/transparent"
@@ -132,6 +138,8 @@
 
                                     android:id="@+id/desc_to"
 
+                                    android:onTextChanged="@{add_trip::setTo}"
+
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:background="@android:color/transparent"
@@ -164,13 +172,84 @@
                         android:background="@color/trans3" />
 
 
+
+
+
+
+                    <LinearLayout
+                        android:background="@drawable/bg_desc_stock"
+                        android:layout_marginEnd="@dimen/_20"
+                        android:layout_marginStart="@dimen/_20"
+                        android:id="@+id/layout_date_view"
+                        android:layout_below="@+id/line_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50">
+
+                        <TextView
+
+
+
+                            android:onClick="@{(view)-> add_trip.dateFrom(view)}"
+                            android:drawableStart="@drawable/ic_number_green"
+                            android:background="@android:color/transparent"
+                            android:padding="@dimen/_6"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:id="@+id/tv_from_data"
+                            android:hint="@string/date"
+                            android:textColorHint="@color/color5"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/color5"
+                            android:textSize="@dimen/_14s"
+                            />
+                        <TextView
+                            android:fontFamily="sans-serif-smallcaps"
+
+                            android:gravity="center"
+                            android:id="@+id/until"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="match_parent"
+                            android:text="@string/until"
+                            android:textColor="@color/color3"
+                            android:textSize="@dimen/_18s"
+                            />
+
+
+
+                        <TextView
+
+                            android:onClick="@{(view)-> add_trip.dateUntil(view)}"
+
+                            android:background="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_number_green"
+                            android:id="@+id/tv_to_date"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_6"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:hint="@string/to_date"
+                            android:textColorHint="@color/color5"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/color5"
+                            android:textSize="@dimen/_14s"
+                            />
+
+
+                    </LinearLayout>
+
+
+
                     <!-- text view  include   id is inclouds_tv-->
                     <TextView
 
                         android:id="@+id/inclouds_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_desc_from_to"
+                        android:layout_below="@+id/layout_date_view"
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"
@@ -193,6 +272,9 @@
 
                         <EditText
 
+
+
+                            android:onTextChanged="@{add_trip::setIncludes}"
 
                             android:id="@+id/desc_include"
                             android:layout_width="match_parent"
@@ -238,6 +320,8 @@
                         <EditText
 
 
+                            android:onTextChanged="@{add_trip::setDescription}"
+
                             android:id="@+id/desc_tv_trip_info"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -282,6 +366,9 @@
 
                         <EditText
 
+
+                            android:onTextChanged="@{add_trip::setPrice}"
+
                             android:inputType="number"
 
                             android:padding="@dimen/_12"
@@ -305,6 +392,7 @@
 
                         <EditText
                             android:inputType="number"
+                            android:onTextChanged="@{add_trip::setPassengers}"
 
                             android:id="@+id/count_price"
                             android:layout_width="0dp"
@@ -330,9 +418,25 @@
                 </RelativeLayout>
 
 
+                <ProgressBar
 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/desc_btn_book"
+                    android:layout_alignEnd="@+id/desc_btn_book"
+                    android:layout_alignBottom="@+id/desc_btn_book"
+                    android:layout_marginStart="136dp"
+                    android:layout_marginEnd="147dp"
+                    android:layout_marginBottom="2dp"
+                    android:elevation="10dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/white"
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="@{add_trip.progress}" />
 
                 <Button
+
+                    android:onClick="@{(view)->add_trip.addTrip(view)}"
                     android:id="@+id/desc_btn_book"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -17,6 +17,7 @@ public class PrefManager {
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
     private static final String TOKEN = "token";
     private static final String ISLOGED = "is_loged";
+    private static final String ISLOGED_COMPANY = "is_loged_company";
     private static final String ID_COMPANY = "id_company";
 
     public PrefManager(Context context) {
@@ -64,10 +65,23 @@ public class PrefManager {
 
     }
 
+    public void setIslogedCompany(boolean islogedCompany) {
+
+        editor.putBoolean(ISLOGED_COMPANY, islogedCompany);
+        editor.commit();
+
+
+    }
+
 
     public boolean isLoged() {
 
         return pref.getBoolean(ISLOGED, false);
+
+
+    } public boolean isLogedCompany() {
+
+        return pref.getBoolean(ISLOGED_COMPANY, false);
     }
 
     public void removeToken() {
@@ -86,6 +100,12 @@ public class PrefManager {
 
     public void saveIdCompany(String idCompany) {
         editor.putString(ID_COMPANY, idCompany);
+        editor.commit();
+    }
+
+    public void removeIdCompany() {
+
+        editor.remove(ID_COMPANY);
         editor.commit();
     }
 }

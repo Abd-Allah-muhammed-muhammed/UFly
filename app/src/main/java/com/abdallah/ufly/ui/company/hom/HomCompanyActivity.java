@@ -16,7 +16,10 @@ public class HomCompanyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         fullScreen(this);
         setContentView(R.layout.activity_hom_company);
-        replace(new HomCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),"hmo_company");
+
+            replace(new HomCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
+
+
 
 
     }

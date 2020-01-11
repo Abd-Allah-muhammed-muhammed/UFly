@@ -3,6 +3,7 @@ package com.abdallah.ufly.helper;
 import android.app.Activity;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,7 +12,7 @@ public class HelperMethod {
 
     public static void replace(Fragment fragment, int id, FragmentTransaction fragmentTransaction,String tag) {
         FragmentTransaction transaction = fragmentTransaction;
-        transaction.replace(id, fragment,tag);
+        transaction.replace(id, fragment, tag);
         transaction.addToBackStack(null);
         transaction.commit();
 

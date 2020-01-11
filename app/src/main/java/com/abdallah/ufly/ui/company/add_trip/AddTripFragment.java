@@ -1,5 +1,6 @@
 package com.abdallah.ufly.ui.company.add_trip;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -13,11 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.databinding.AddTripFragmentBinding;
 
 public class AddTripFragment extends Fragment {
 
     private AddTripViewModel mViewModel;
 
+    AddTripFragmentBinding binding;
     public static AddTripFragment newInstance() {
         return new AddTripFragment();
     }
@@ -25,14 +28,14 @@ public class AddTripFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_trip_fragment, container, false);
+
+        binding = DataBindingUtil.inflate(inflater,R.layout.add_trip_fragment,container,false);
+        mViewModel = ViewModelProviders.of(this).get(AddTripViewModel.class);
+        binding.setAddTrip(mViewModel);
+
+
+        return binding.getRoot();
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(AddTripViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

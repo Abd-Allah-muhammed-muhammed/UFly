@@ -32,6 +32,12 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
     private List<SettingModel> settingModels;
 
+    int id ;
+    public SettingAdapter(int id) {
+
+        this.id = id;
+    }
+
 
     @NonNull
     @Override
@@ -52,21 +58,35 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
         holder.binding.setSetting(setting_model);
 
+
+
+
+
+
         holder.binding.itemSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 switch (position){
 
+
+
                     case ACCOUNT :
 
 
-                        replace(new MyAccountFragment(),R.id.frame_main,
 
-                                ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
-                        ,v.getContext().getString(R.string.tag_my_account));
+                        if (id==1){
 
-                        settingModels.clear();
+
+                            replace(new MyAccountFragment(),R.id.frame_main,
+
+                                    ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                                    ,v.getContext().getString(R.string.tag_my_account));
+
+                            settingModels.clear();
+                        }
+
+
                         break;
 
                         case UFLY_GOLD :
@@ -87,10 +107,22 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
                         case LOG_OUT :
                             PrefManager manager = new PrefManager(v.getContext());
-                            manager.setIsLoged(false);
-                            manager.removeToken();
-                            Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
-                            v.getContext().startActivity(intent);
+
+
+                            if (id==1){
+                                manager.setIsLoged(false);
+                                manager.removeToken();
+                                Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
+                                v.getContext().startActivity(intent);
+
+                            }else {
+                                manager.removeIdCompany();
+                                manager.setIslogedCompany(false);
+                                Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
+                                v.getContext().startActivity(intent);
+
+                            }
+
 
                         break;
                 }
