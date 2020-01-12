@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemTripsBinding;
 import com.abdallah.ufly.model.trips.TripsResponse;
+import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
 
 import java.util.ArrayList;
@@ -51,12 +52,11 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
             @Override
             public void onClick(View v) {
 
+                Bundle bundle = new Bundle();
                 if (id==1){
 
 
                     TripDescriptionFragment fragment = new TripDescriptionFragment();
-                    Bundle bundle = new Bundle();
-
                     bundle.putInt("TripId",tripInfo.getId());
                     bundle.putString("Trip_desc",tripInfo.getDescription());
                     bundle.putString("Trip_from",tripInfo.getDepartuer());
@@ -71,6 +71,20 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                 }else {
 
 
+
+                    AddTripFragment addTripFragment = new AddTripFragment();
+                    bundle.putInt("TripId",tripInfo.getId());
+                    bundle.putInt("id",id);
+                    bundle.putString("Trip_desc",tripInfo.getDescription());
+                    bundle.putString("Trip_from",tripInfo.getDepartuer());
+                    bundle.putString("Trip_to",tripInfo.getArrival());
+                    bundle.putString("price",tripInfo.getPrice());
+                    bundle.putString("includes",tripInfo.getIncludes());
+
+                    addTripFragment.setArguments(bundle);
+
+                    replace(addTripFragment,R.id.container_home_company,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                            ,v.getContext().getString(R.string.tag_add_trip));
 
                 }
 
