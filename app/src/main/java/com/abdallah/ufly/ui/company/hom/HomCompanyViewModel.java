@@ -28,8 +28,9 @@ import static io.reactivex.schedulers.Schedulers.io;
 public class HomCompanyViewModel extends ViewModel {
 
 
-    MutableLiveData<List<TripsResponse>> data ;
+    MutableLiveData<List<TripsResponse>> data;
     Api api;
+
     public HomCompanyViewModel() {
 
         api = ApiClient.getClient().create(Api.class);
@@ -38,28 +39,17 @@ public class HomCompanyViewModel extends ViewModel {
     }
 
 
-
-
-
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getMyTrip(String id_company, final ProgressBar progHome){
+    public MutableLiveData<List<TripsResponse>> getMyTrip(String id_company, final ProgressBar progHome) {
 
         api.getMyTripsCompany(id_company).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<List<TripsResponse>>() {
             @Override
             public void onSubscribe(Disposable d) {
-
-
             }
-
             @Override
             public void onNext(List<TripsResponse> tripsResponse) {
-
-
-
-                    progHome.setVisibility(View.GONE);
-
+                progHome.setVisibility(View.GONE);
                 data.setValue(tripsResponse);
-
             }
 
             @Override
@@ -70,15 +60,9 @@ public class HomCompanyViewModel extends ViewModel {
 
             @Override
             public void onComplete() {
-
-
                 progHome.setVisibility(View.GONE);
-
             }
         });
-
-
-
         return data;
     }
 }

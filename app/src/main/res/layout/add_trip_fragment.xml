@@ -87,8 +87,12 @@
 
                                 <EditText
 
-                                    android:onTextChanged="@{add_trip::setFrom}"
 
+
+
+                                    android:text="@{add_trip.trip_from}"
+                                    android:focusable="@{add_trip.focus}"
+                                    android:onTextChanged="@{add_trip::setFrom}"
                                     android:id="@+id/desc_from"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -98,8 +102,8 @@
                                     android:drawablePadding="@dimen/_4"
                                     android:gravity="center"
                                     android:hint="..."
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
+                                    android:paddingStart="@dimen/_4"
+                                    android:paddingEnd="@dimen/_4"
                                     android:paddingBottom="@dimen/_14"
                                     android:textColor="@color/dark"
                                     android:textColorHint="@color/dark"
@@ -111,7 +115,7 @@
                             <ImageView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
+                                android:layout_weight=".5"
                                 android:src="@drawable/ic_bus" />
 
                             <LinearLayout
@@ -135,7 +139,8 @@
                                     android:textSize="@dimen/_18s" />
 
                                 <EditText
-
+                                    android:focusable="@{add_trip.focus}"
+                                    android:text="@{add_trip.trip_to}"
                                     android:id="@+id/desc_to"
 
                                     android:onTextChanged="@{add_trip::setTo}"
@@ -148,8 +153,8 @@
                                     android:drawablePadding="@dimen/_4"
                                     android:gravity="center"
                                     android:hint="..."
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
+                                    android:paddingStart="@dimen/_4"
+                                    android:paddingEnd="@dimen/_4"
                                     android:paddingBottom="@dimen/_14"
                                     android:textColor="@color/dark"
                                     android:textColorHint="@color/dark"
@@ -188,7 +193,7 @@
                         <TextView
 
 
-
+                            android:text="@{add_trip.trip_datFrom}"
                             android:onClick="@{(view)-> add_trip.dateFrom(view)}"
                             android:drawableStart="@drawable/ic_number_green"
                             android:background="@android:color/transparent"
@@ -220,6 +225,8 @@
 
 
                         <TextView
+
+                            android:text="@{add_trip.trip_dateUntil}"
 
                             android:onClick="@{(view)-> add_trip.dateUntil(view)}"
 
@@ -272,7 +279,10 @@
 
                         <EditText
 
+                            android:text="@{add_trip.trip_includes}"
 
+
+                            android:focusable="@{add_trip.focus}"
 
                             android:onTextChanged="@{add_trip::setIncludes}"
 
@@ -318,6 +328,9 @@
                         android:background="@drawable/bg_btn_book_whit">
 
                         <EditText
+                            android:focusable="@{add_trip.focus}"
+
+                            android:text="@{add_trip.trip_desc}"
 
 
                             android:onTextChanged="@{add_trip::setDescription}"
@@ -366,6 +379,10 @@
 
                         <EditText
 
+                            android:text="@{add_trip.trip_price}"
+
+
+                            android:focusable="@{add_trip.focus}"
 
                             android:onTextChanged="@{add_trip::setPrice}"
 
@@ -393,7 +410,9 @@
                         <EditText
                             android:inputType="number"
                             android:onTextChanged="@{add_trip::setPassengers}"
+                            android:focusable="@{add_trip.focus}"
 
+                            android:text="@{add_trip.trip_passengers}"
                             android:id="@+id/count_price"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -448,7 +467,7 @@
                     android:background="@drawable/bg_btn_book_green"
                     android:elevation="2dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/add_trip"
+                    android:text="@{add_trip.textBtn}"
                     android:textColor="@color/dark"
                     android:textSize="@dimen/_20s"
                     android:textStyle="bold" />

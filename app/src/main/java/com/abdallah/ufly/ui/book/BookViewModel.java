@@ -83,8 +83,9 @@ public class BookViewModel extends ViewModel {
             int  trip_id = bundle.getInt("trip_id");
             String price = bundle.getString("price");
             String number = bundle.getString("number");
+            String id_comp = bundle.getString("id_comp");
 
-            bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number);
+            bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number,id_comp);
 
         }
 
@@ -128,7 +129,7 @@ public class BookViewModel extends ViewModel {
 
     @SuppressLint("CheckResult")
     public void bookNow (String id_trip
-            , String token, String ID_PAYMENT, String price,String number
+            , String token, String ID_PAYMENT, String price,String number,String id_comp
     ){
 
         progress.setValue(0);
@@ -136,7 +137,7 @@ public class BookViewModel extends ViewModel {
 
         api = ApiClient.getClient().create(Api.class);
 
-        api.book(id_trip,token,ID_PAYMENT,price,number).subscribeOn(io())
+        api.book(id_trip,token,ID_PAYMENT,price,number,id_comp).subscribeOn(io())
                 .observeOn(mainThread())
                 .subscribeWith(new Observer<BookModelResponse>() {
                     @Override

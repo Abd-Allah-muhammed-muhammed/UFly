@@ -51,7 +51,8 @@ public interface Api {
             , @Field("uui_id") String uui_id,
                                        @Field("id_payment") String id_payment,
                                        @Field("price") String price,
-                                       @Field("number") String number);
+                                       @Field("number") String number,
+                                       @Field("id_company") String id_comp);
 
     @FormUrlEncoded
     @POST("delete_trip.php")

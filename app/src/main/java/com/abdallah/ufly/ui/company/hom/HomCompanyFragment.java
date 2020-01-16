@@ -59,7 +59,6 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
         binding.bottomNav.inflateMenu(R.menu.nav_menu);
 
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
-        binding.progHome.setVisibility(View.VISIBLE);
         prefManager = new PrefManager(getContext());
         String id_company = prefManager.getID_Company();
         fetchData(id_company ,binding.progHome);
@@ -264,7 +263,13 @@ public class HomCompanyFragment extends Fragment implements BottomNavigationView
 
     @Override
     public void onClick(View v) {
-        replace(new AddTripFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_add_trip));
+
+        // send id to AddTripFragment
+        AddTripFragment fragment  = new AddTripFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("id",3);
+        fragment.setArguments(bundle);
+        replace(fragment,R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_add_trip));
 
     }
 }

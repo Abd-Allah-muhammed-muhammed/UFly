@@ -59,6 +59,7 @@ public class TripDescriptionFragment extends Fragment {
         String Trip_to = getArguments().getString("Trip_to");
 
         String includes = getArguments().getString("includes");
+        final String id_comp = getArguments().getString("id_comp");
 
         binding.descInclude.setText(includes);
         binding.descFrom.setText(Trip_from);
@@ -79,6 +80,7 @@ public class TripDescriptionFragment extends Fragment {
                 BookFragment bookFragment = new BookFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("trip_id",tripId);
+                bundle.putString("id_comp",id_comp);
                 bundle.putString(getString(R.string.price),binding.countPrice.getText().toString());
                 bundle.putString("number",binding.countPassenger.getText().toString().trim());
 

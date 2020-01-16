@@ -55,7 +55,6 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                 Bundle bundle = new Bundle();
                 if (id==1){
 
-
                     TripDescriptionFragment fragment = new TripDescriptionFragment();
                     bundle.putInt("TripId",tripInfo.getId());
                     bundle.putString("Trip_desc",tripInfo.getDescription());
@@ -63,15 +62,12 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     bundle.putString("Trip_to",tripInfo.getArrival());
                     bundle.putString("price",tripInfo.getPrice());
                     bundle.putString("includes",tripInfo.getIncludes());
+                    bundle.putString("id_comp",tripInfo.getCompany_id());
 
                     fragment.setArguments(bundle);
                     replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
                             ,v.getContext().getString(R.string.tag_desc));
-
                 }else {
-
-
-
                     AddTripFragment addTripFragment = new AddTripFragment();
                     bundle.putInt("TripId",tripInfo.getId());
                     bundle.putInt("id",id);
@@ -80,6 +76,9 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     bundle.putString("Trip_to",tripInfo.getArrival());
                     bundle.putString("price",tripInfo.getPrice());
                     bundle.putString("includes",tripInfo.getIncludes());
+                    bundle.putString("dateFrome",tripInfo.getDateFrom());
+                    bundle.putString("dateUntil",tripInfo.getDateUntil());
+                    bundle.putString("passengers",tripInfo.getPassengers());
 
                     addTripFragment.setArguments(bundle);
 
