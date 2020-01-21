@@ -24,18 +24,9 @@ public class LoginCompanyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         fullScreen(this);
         setContentView(R.layout.login_company_activity);
-
         prefManager = new PrefManager(this);
-        if (savedInstanceState == null) {
-
-
             if (prefManager.isLogedCompany()){
-
-
-
-
                 startActivity( new Intent(this,HomCompanyActivity.class));
-
 
             }else {
 
@@ -45,7 +36,7 @@ public class LoginCompanyActivity extends AppCompatActivity {
 
 
 
-        }
+
     }
 
 
@@ -57,6 +48,10 @@ public class LoginCompanyActivity extends AppCompatActivity {
         if (fragment != null && fragment.isVisible()) {
 
             startActivity(new Intent(this, RegistrationActivity.class));
+
+        }else {
+
+            super.onBackPressed();
 
         }
 

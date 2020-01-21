@@ -122,14 +122,14 @@ try {
 
     }else {
 
-        StyleableToast.makeText(getContext(), "please tray again later :", Toast.LENGTH_LONG, R.style.error).show();
+        StyleableToast.makeText(getContext(), getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
 
         replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
     }
 
 }catch (Exception e){
 
-    StyleableToast.makeText(getContext(), "please tray again later :", Toast.LENGTH_LONG, R.style.error).show();
+    StyleableToast.makeText(getContext(), getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
 
     replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
 

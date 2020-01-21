@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.book;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,7 +86,7 @@ public class BookViewModel extends ViewModel {
             String number = bundle.getString("number");
             String id_comp = bundle.getString("id_comp");
 
-            bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number,id_comp);
+            bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number,id_comp,view.getContext());
 
         }
 
@@ -102,7 +103,7 @@ public class BookViewModel extends ViewModel {
         bookVisa.setTextColor(Color.parseColor("#ffffff"));
         bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
         bookBook.setTextColor(Color.parseColor("#ffffff"));
-        bookText.setValue("Book Now");
+        bookText.setValue(bookBook.getContext().getString(R.string.book));
         ID_PAYMENT = "Visa";
     }
 
@@ -114,7 +115,8 @@ public class BookViewModel extends ViewModel {
         bookVisa.setTextColor(Color.parseColor("#12262C"));
         bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
         bookBook.setTextColor(Color.parseColor("#ffffff"));
-        bookText.setValue("Book Now");
+        bookText.setValue(bookBook.getContext().getString(R.string.book));
+
         ID_PAYMENT = "Cash";
     }
 
@@ -129,8 +131,8 @@ public class BookViewModel extends ViewModel {
 
     @SuppressLint("CheckResult")
     public void bookNow (String id_trip
-            , String token, String ID_PAYMENT, String price,String number,String id_comp
-    ){
+            , String token, String ID_PAYMENT, String price, String number, String id_comp, final Context context
+                         ){
 
         progress.setValue(0);
         bookText.setValue("");
@@ -150,7 +152,7 @@ public class BookViewModel extends ViewModel {
                     public void onNext(BookModelResponse bookModelResponse) {
                         progress.setValue(8);
 
-                        bookText.setValue("Book Now");
+                        bookText.setValue(context.getString(R.string.book));
                         callBacks.response(bookModelResponse);
 
                     }
@@ -159,14 +161,14 @@ public class BookViewModel extends ViewModel {
                     public void onError(Throwable e) {
 
                         progress.setValue(8);
-                        bookText.setValue("Book Now");
-                        callBacks.onError("Try Again Later");
+                        bookText.setValue(context.getString(R.string.book));
+                        callBacks.onError(context.getString(R.string.try_again));
                     }
 
                     @Override
                     public void onComplete() {
                         progress.setValue(8);
-                        bookText.setValue("Book Now");
+                        bookText.setValue(context.getString(R.string.book));
                     }
                 });
 

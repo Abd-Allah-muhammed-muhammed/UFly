@@ -47,12 +47,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-
-
-
-        HomeFragment HomeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_home));
+        HomeFragment homeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_home));
         BookFragment  bookFragment = (BookFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_book));
-        if (HomeFragment != null && HomeFragment.isVisible()) {
+        if (homeFragment != null && homeFragment.isVisible()) {
 
             Intent a = new Intent(Intent.ACTION_MAIN);
             a.addCategory(Intent.CATEGORY_HOME);

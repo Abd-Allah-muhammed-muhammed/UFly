@@ -250,7 +250,7 @@
                         android:layout_margin="@dimen/_24"
                         android:drawableStart="@drawable/ic_person_orange_24dp"
                         android:drawablePadding="@dimen/_24"
-                        android:text="Number of Passengers"
+                        android:text="@string/number_passenger"
                         android:textColor="@color/bag"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
@@ -259,6 +259,7 @@
                     <LinearLayout
 
 
+                        android:id="@+id/layout_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_number"
@@ -327,6 +328,9 @@
                             android:textSize="@dimen/_20s" />
 
                     </LinearLayout>
+
+
+
 
 
                 </RelativeLayout>

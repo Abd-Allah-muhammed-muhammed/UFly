@@ -2,7 +2,10 @@ package com.abdallah.ufly.ui.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -12,11 +15,9 @@ import com.abdallah.ufly.ui.registration.login.LoginFragment;
 
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
-import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class RegistrationActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-
-                replace(LoginFragment.newInstance(),R.id.container,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_login));
-
+            replace(LoginFragment.newInstance(), R.id.container, getSupportFragmentManager().beginTransaction(), getString(R.string.tag_login));
 
 
         }
@@ -42,7 +41,6 @@ public class RegistrationActivity extends AppCompatActivity {
     public void onBackPressed() {
 
 
-
         LoginFragment myFragment = (LoginFragment) getSupportFragmentManager().findFragmentByTag(getString(R.string.tag_login));
         if (myFragment != null && myFragment.isVisible()) {
 
@@ -50,11 +48,14 @@ public class RegistrationActivity extends AppCompatActivity {
             a.addCategory(Intent.CATEGORY_HOME);
             a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(a);
-        }else {
+        } else {
 
-            replace(LoginFragment.newInstance(),R.id.container,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_login));
+            replace(LoginFragment.newInstance(), R.id.container, getSupportFragmentManager().beginTransaction(), getString(R.string.tag_login));
 
 
         }
     }
+
+
 }
+

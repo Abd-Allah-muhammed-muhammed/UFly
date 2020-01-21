@@ -238,7 +238,7 @@
                             android:padding="@dimen/_6"
                             android:textStyle="bold"
                             android:gravity="center"
-                            android:hint="@string/to_date"
+                            android:hint="@string/date"
                             android:textColorHint="@color/color5"
                             android:layout_height="match_parent"
                             android:textColor="@color/color5"
@@ -360,7 +360,7 @@
                         android:layout_margin="@dimen/_24"
                         android:drawableStart="@drawable/ic_person_outline_black_24dp"
                         android:drawablePadding="@dimen/_24"
-                        android:text="Number of Passengers"
+                        android:text="@string/number_passenger"
                         android:textColor="@color/bag"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
@@ -369,6 +369,7 @@
                     <LinearLayout
 
 
+                        android:id="@+id/layout_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_number"
@@ -429,6 +430,41 @@
                             android:textStyle="bold">
 
                         </EditText>
+
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+
+
+                        android:visibility="@{add_trip.passenger_visibility}"
+                        android:layout_marginBottom="@dimen/_24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/layout_passenger_info"
+                        android:layout_below="@+id/layout_number">
+
+
+
+
+                        <Button
+                            android:onClick="@{(view)->add_trip.passengerInfo(view)}"
+
+                            android:textStyle="bold"
+                            android:textColor="@color/dark"
+                            android:text="@string/passenger_info"
+                            android:layout_marginStart="@dimen/_24"
+                            android:layout_marginEnd="@dimen/_24"
+                            android:background="@drawable/bg_btn_book_green"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+
 
 
                     </LinearLayout>

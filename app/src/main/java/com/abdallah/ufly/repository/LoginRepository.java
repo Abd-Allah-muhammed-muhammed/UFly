@@ -1,8 +1,11 @@
 package com.abdallah.ufly.repository;
 
 import android.annotation.SuppressLint;
+import android.view.View;
+
 import androidx.lifecycle.MutableLiveData;
 
+import com.abdallah.ufly.R;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -19,7 +22,7 @@ public class LoginRepository {
     Api api;
 
     @SuppressLint("CheckResult")
-    public void callSignUp(String emailValue, String passwordValue, final LoginResultCallbacks callbacks, final MutableLiveData<Integer> progress, final MutableLiveData<String> loginText) {
+    public void callSignUp(String emailValue, String passwordValue, final LoginResultCallbacks callbacks, final MutableLiveData<Integer> progress, final MutableLiveData<String> loginText, final View view) {
 
         api = ApiClient.getClient().create(Api.class);
 
@@ -39,7 +42,7 @@ public class LoginRepository {
                  callbacks.status(loginResponse.getStatus());
                     callbacks.response(loginResponse);
                     progress.setValue(8);
-                    loginText.setValue("LOGIN");
+                    loginText.setValue(view.getContext().getString(R.string.login));
 
              }
 
@@ -47,8 +50,8 @@ public class LoginRepository {
              public void onError(Throwable e) {
 
                  progress.setValue(8);
-                    loginText.setValue("LOGIN");
-                    callbacks.onError(" Please Try Again Later");
+                    loginText.setValue(view.getContext().getString(R.string.login));
+                    callbacks.onError(view.getContext().getString(R.string.try_again));
 
              }
 

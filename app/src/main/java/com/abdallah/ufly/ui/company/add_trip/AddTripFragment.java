@@ -56,7 +56,7 @@ public class AddTripFragment extends Fragment {
 
 
         mViewModel.setDesc(id , tripId , trip_desc,trip_from,trip_to, price,includes ,
-                dateFrome,dateUntil,passengers);
+                dateFrome,dateUntil,passengers,getContext());
         binding.setAddTrip(mViewModel);
 
         return binding.getRoot();

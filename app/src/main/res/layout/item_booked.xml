@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+
+    <data>
+
+
+        <variable
+            name="passBook"
+            type="com.abdallah.ufly.model.passenger_booked.Datum" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/item_tip"
+        android:layout_margin="@dimen/_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+
+            android:background="@drawable/bg_card_trip"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200">
+
+
+            <LinearLayout
+                android:id="@+id/layout_passenger_info"
+                android:layout_margin="@dimen/_18"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="@{passBook.passenger.full_name}"
+                    android:hint="@string/your_full_name"
+                    android:textColor="@color/dark"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:background="@drawable/bg_includse"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+
+                    android:text="@{passBook.passenger.address}"
+                    android:textColor="@color/dark"
+                    android:gravity="center"
+                    android:hint="@string/your_address"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:background="@drawable/bg_includse"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+
+                    android:text="@{passBook.passenger.phone}"
+
+                    android:paddingStart="@dimen/_18"
+
+                    android:drawableStart="@drawable/ic_phone_orange_24dp"
+                    android:textColor="@color/dark"
+                    android:gravity="center"
+                    android:hint="@string/your_phone"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:background="@drawable/bg_includse"
+
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+
+                android:id="@+id/layout_trip_info"
+                android:layout_margin="@dimen/_18"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/payment"
+                    android:textColorHint="@color/white"
+                android:gravity="center"
+                    android:textColor="@color/white"
+                    android:hint="@string/cash"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:background="@drawable/ic_bg_trip_where_1"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+
+                    android:text="@{passBook.booked.number.toString()}"
+                    android:drawableStart="@drawable/ic_number_green"
+                    android:textColorHint="@color/blck"
+                    android:gravity="center"
+                    android:textColor="@color/dark"
+                    android:hint="30"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:id="@+id/is_paid"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/blck"
+                    android:gravity="center"
+                    android:hint="@string/is_paid"
+                    android:background="@drawable/bg_includse"
+                    android:layout_marginBottom="@dimen/_8"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</layout>

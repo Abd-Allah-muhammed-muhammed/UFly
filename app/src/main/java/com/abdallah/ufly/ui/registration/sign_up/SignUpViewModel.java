@@ -130,7 +130,7 @@ public class SignUpViewModel extends ViewModel {
 
                 String message = response.body().getMessage();
                 progress.setValue(8);
-                signText.setValue("SIGN UP");
+                signText.setValue(view.getContext().getString(R.string.sign_up));
 
 
                 if (response.body().getStatus()==0){

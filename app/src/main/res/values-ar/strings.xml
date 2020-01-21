@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name" translatable="false">UFLY</string>
+    <string name="next">التالي</string>
+    <string name="skip">تخطي</string>
+    <string name="start">هيا بنا</string>
+
+
+    <string name="world_travel">استكشف العالم</string>
+    <string name="world_travel_desc">احجز اي تذكره الان واستكشف العالم!</string>
+
+    <string name="play_again">Play Again</string>
+    <string name="safety">we want you to be sure that   </string>
+    <string name="login_into_n_your_account">تسجيل الدخول</string>
+    <string name="your_phone">رقم الهاتف</string>
+    <string name="forget_password">نسيت كلمة المرور ؟</string>
+    <string name="login">دخول</string>
+    <string name="sign_up">انشاء حساب</string>
+    <string name="creat_acc">انشئ \n حسابك</string>
+    <string name="your_password">الرقم السري</string>
+    <string name="re_your_password">اعادة الرقم السري</string>
+    <string name="your_mail">الاميل الخاص بك</string>
+    <string name="your_address">موقعك</string>
+    <string name="your_full_name">اسمك بالكامل</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">الاعدادات</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="logo">logo</string>
+    <string name="departure">مــن</string>
+    <string name="ciro">القاهرة</string>
+    <string name="arrival">الـي  </string>
+    <string name="alex">اسكندريه</string>
+    <string name="date">تاريخ الذهاب</string>
+    <string name="date_ex">Sonday 1/1/2020</string>
+    <string name="to_date">تاريخ العودة</string>
+    <string name="passengers">المسافرين</string>
+    <string name="description">التفاصيل</string>
+    <string name="to">الـي</string>
+    <string name="from">مـن</string>
+    <string name="until">حتـي</string>
+    <string name="mansoura">المنصوره</string>
+    <string name="inclouds">يشمل</string>
+    <string name="book">احجز الان </string>
+    <string name="trip_information">معلومات الرحلة</string>
+    <string name="alexandria" translatable="false">Alexandria</string>
+    <string name="cairo">Cairo</string>
+    <string name="get_out_and_have_fun">اخرج واستمتع بالجو</string>
+
+    <string name="try_gold_ufly"><font fgcolor='#CCA231'>جرب يوفلاي الذهبي</font></string> <!--gold-->
+
+    <string name="helps">المساعدات</string>
+    <string name="connect_us">تواصل معنا</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="cash">نقدا</string>
+    <string name="visa">بطاقة ائتمان</string>
+    <string name="chose_your_payment_pay">اختار طريقة الدفع</string>
+    <string name="edit">تعديل</string>
+    <string name="change_pass">Change Your pass..</string>
+    <string name="change_email">Change Your Email</string>
+    <string name="my_information_account">معلومات حسابي</string>
+    <string name="my_trip">رحلاتي</string>
+    <string name="cancel_the_trip">الغاء الرحلة</string>
+    <string name="monday_01_01_2020">monday 01/01/2020</string>
+    <string name="is_paid">I S   P A I D</string>
+    <string name="pay_now">ادفع الان</string>
+    <string name="register">انشاء حساب</string>
+    <string name="don_t_have_an_account_yet">لا يوجد لديك حساب بعد ؟</string>
+    <string name="paid">تم الدفع  </string>
+    <string name="not_paid">لم يتم الدفع</string>
+    <string name="my_account">حسابي</string>
+    <string name="don">تم</string>
+    <string name="tag_home">home</string>
+    <string name="tag_setting">setting</string>
+    <string name="tag_mytrip">mytrip</string>
+    <string name="tag_sign_up">signup</string>
+    <string name="tag_login">login</string>
+    <string name="tag_my_account">myaccount</string>
+    <string name="tag_book">book</string>
+    <string name="tag_desc">descreption</string>
+    <string name="tag_login_company">login_company</string>
+    <string name="login_company">تسجيل دخول الشركة</string>
+    <string name="inter_your_company_id">ادخل رقم هوية الشركة</string>
+    <string name="add_price">اضافة سعر </string>
+    <string name="general">عام</string>
+    <string name="add_trip">اضافة رحلة</string>
+    <string name="tag_hom_company">homecompany</string>
+    <string name="tag_setting_company">settingCompany</string>
+    <string name="tag_add_trip">add_trip</string>
+    <string name="tag_books_comp">books_company</string>
+    <string name="trip_info">Trip Info</string>
+    <string name="passenger_info">معلومات المسافرين</string>
+    <string name="try_again">من فضلك حاول مره اخري في وقت لاحق</string>
+    <string name="number_passenger">عدد المسافرين</string>
+
+</resources>

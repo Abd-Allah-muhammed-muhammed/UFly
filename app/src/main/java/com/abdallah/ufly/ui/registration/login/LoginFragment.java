@@ -43,7 +43,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
         fullScreen(getActivity());
         binding = DataBindingUtil.inflate(inflater, R.layout.registration_fragment, container, false);
         binding.setLifecycleOwner(this);
-        mViewModel = ViewModelProviders.of(this,new LoginViewModelFactory(this)).get(LoginViewModel.class);
+        mViewModel = ViewModelProviders.of(this,new LoginViewModelFactory(this,getContext())).get(LoginViewModel.class);
 
         binding.setRegistraion(mViewModel);
 

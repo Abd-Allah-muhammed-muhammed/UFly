@@ -1,5 +1,6 @@
 package com.abdallah.ufly.ui.registration.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,12 +28,12 @@ public class LoginViewModel extends ViewModel {
     LoginRepository loginRepository;
     private String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-    public LoginViewModel(LoginResultCallbacks loginResultCallbacks) {
+    public LoginViewModel(LoginResultCallbacks loginResultCallbacks , Context context) {
         this.loginResultCallbacks = loginResultCallbacks;
         user = new Login();
         loginRepository = new LoginRepository();
         progress.setValue(8);
-        loginText.setValue("LOGIN");
+        loginText.setValue(context.getString(R.string.login));
     }
 
 
@@ -73,7 +74,7 @@ public class LoginViewModel extends ViewModel {
         }else {
 
 
-                loginRepository.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText);
+                loginRepository.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText ,view);
 
 
         }

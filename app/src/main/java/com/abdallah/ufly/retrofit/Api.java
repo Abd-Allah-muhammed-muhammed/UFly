@@ -7,6 +7,7 @@ import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
+import com.abdallah.ufly.model.passenger_booked.PassengerBookedResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.model.trips.TripsResponse;
 
@@ -71,6 +72,10 @@ public interface Api {
     @GET("my_trip_company.php")
     Observable<List<TripsResponse>> getMyTripsCompany(@Query("id_company") String id_company);
 
+
+
+    @GET("booksCompany.php")
+    Observable<PassengerBookedResponse> getPassengerBooked(@Query("id_company") String id_company , @Query("id_trip") int id_trip);
 
     @FormUrlEncoded
     @POST("add_trip.php")

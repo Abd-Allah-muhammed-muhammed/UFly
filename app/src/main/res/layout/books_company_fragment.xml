@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+    <RelativeLayout
+
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.company.book_company.BooksCompanyFragment">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PASSENGERS BOOKED"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/_24_sp"
+            android:gravity="center"
+            android:id="@+id/text_booked"
+            android:layout_marginTop="@dimen/_18"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:layout_below="@+id/text_booked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_booked"
+            android:layout_margin="@dimen/_18"
+            android:id="@+id/rv_booked"/>
+
+
+    </RelativeLayout>
+
+</layout>

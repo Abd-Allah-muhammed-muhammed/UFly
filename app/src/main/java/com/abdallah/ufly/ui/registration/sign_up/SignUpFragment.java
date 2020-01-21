@@ -46,7 +46,7 @@ public class SignUpFragment extends Fragment {
 
         progress.setValue(8);
         mViewModel.setProgress(progress);
-        mViewModel.signText.setValue("SIGN UP");
+        mViewModel.signText.setValue(getString(R.string.sign_up));
 
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override

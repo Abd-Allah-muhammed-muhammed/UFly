@@ -1,6 +1,8 @@
 package com.abdallah.ufly.ui.company.add_trip;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.addTrip.ModelAddTrip;
 import com.abdallah.ufly.repository.RepositoryAddTrip;
+import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
 import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
 import com.muddzdev.styleabletoast.StyleableToast;
 
@@ -32,6 +35,7 @@ public class AddTripViewModel extends ViewModel {
     public MutableLiveData<Integer> progress;
     public MutableLiveData<Boolean> focus;
     public MutableLiveData<String> textBtn;
+    public MutableLiveData<Integer> passenger_visibility;
 
 
     //
@@ -48,6 +52,7 @@ public class AddTripViewModel extends ViewModel {
  public MutableLiveData<String> trip_dateUntil;
     public MutableLiveData<String> trip_datFrom;
     public MutableLiveData<String> trip_passengers;
+    private int trip_id;
 
 
 
@@ -60,8 +65,11 @@ public class AddTripViewModel extends ViewModel {
 
     final Calendar myCalendar;
 
+    Bundle bundle ;
+
     public AddTripViewModel() {
 
+        bundle = new Bundle();
         modelAddTrip = new ModelAddTrip();
         progress = new MutableLiveData<>();
         progress.setValue(8);
@@ -81,14 +89,18 @@ public class AddTripViewModel extends ViewModel {
         trip_datFrom = new MutableLiveData<>();
         trip_dateUntil= new MutableLiveData<>();
         trip_passengers = new MutableLiveData<>();
+        passenger_visibility = new MutableLiveData<>();
+        trip_id = 0;
 
 
     }
 
 
-    public void setDesc(int id, int trip_id,String trip_desc, String trip_from, String trip_to, String price,String includes ,  String dateFrome
-    ,String dateTo , String passengers) {
+    public void setDesc(int id, int trip_id, String trip_desc, String trip_from, String trip_to, String price, String includes , String dateFrome
+    , String dateTo , String passengers , Context context) {
         this.id = id;
+
+        this.trip_id = trip_id;
 
 
         if (id==2){
@@ -105,14 +117,15 @@ public class AddTripViewModel extends ViewModel {
             this.trip_passengers.setValue(passengers);
 
             focus.setValue(false);
-            textBtn.setValue("Done");
+
+            textBtn.setValue(context.getString(R.string.don));
 
 
 
         }else {
 
-            textBtn.setValue("Add Trip");
-
+            textBtn.setValue(context.getString(R.string.add_trip));
+            passenger_visibility.setValue(8);
             focus.setValue(true);
 
         }
@@ -327,6 +340,19 @@ public class AddTripViewModel extends ViewModel {
     private void setToastError(String msg, View view) {
 
         StyleableToast.makeText(view.getContext(), msg, Toast.LENGTH_LONG, R.style.error_company).show();
+
+
+    }
+
+
+    public  void passengerInfo (View  view){
+
+        BooksCompanyFragment fragment  = new BooksCompanyFragment();
+
+        bundle.putInt("trip_id",trip_id);
+        fragment.setArguments(bundle);
+
+        replace(fragment, R.id.container_home_company, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction(), view.getContext().getString(R.string.tag_books_comp));
 
 
     }

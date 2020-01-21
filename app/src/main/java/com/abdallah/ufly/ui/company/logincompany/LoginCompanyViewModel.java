@@ -44,7 +44,7 @@ public class LoginCompanyViewModel extends ViewModel {
 
         if (TextUtils.isEmpty(id_company.getValue())){
 
-            StyleableToast.makeText(view.getContext(), "Please Enter Your ID", Toast.LENGTH_LONG, R.style.error_company).show();
+            StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.inter_your_company_id), Toast.LENGTH_LONG, R.style.error_company).show();
 
 
         }else {
@@ -99,7 +99,7 @@ public class LoginCompanyViewModel extends ViewModel {
 
                 prefManager.setIslogedCompany(false);
 
-                StyleableToast.makeText(view.getContext(), "Please Try Again Later", Toast.LENGTH_LONG, R.style.error_company).show();
+                StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error_company).show();
 
             }
 
