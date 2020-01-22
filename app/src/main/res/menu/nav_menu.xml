@@ -12,7 +12,7 @@
 
         />
 <item
-        android:id="@+id/vav_home"
+        android:id="@+id/nav_home"
         android:enabled="true"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home"

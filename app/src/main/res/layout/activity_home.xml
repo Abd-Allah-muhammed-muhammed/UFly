@@ -4,14 +4,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-            <FrameLayout
-                android:layout_above="@+id/bottom_nav"
-                android:id="@+id/frame_main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:ignore="MissingConstraints">
 
-            </FrameLayout>
+
+    <RelativeLayout
+        android:background="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_above="@+id/bottom_nav"
+
+            android:id="@+id/frame_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints">
+
+        </FrameLayout>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:itemTextColor="@color/dark"
+            app:itemBackground="@color/white"
+            android:layout_width="match_parent"
+            app:itemIconTint="@color/color3"
+            android:layout_height="@dimen/_50"
+            app:menu="@menu/nav_menu"
+            android:layout_alignParentBottom="true"
+            android:background="@color/dark"
+            android:backgroundTint="@color/color3"
+            android:backgroundTintMode="screen"
+            style="@android:style/Widget.Material.Toolbar.Button.Navigation"
+            android:id="@+id/bottom_nav"/>
+
+    </RelativeLayout>
 
 
 </layout>

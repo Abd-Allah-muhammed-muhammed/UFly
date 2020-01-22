@@ -2,15 +2,23 @@ package com.abdallah.ufly.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
 import com.abdallah.ufly.ui.book.BookFragment;
+import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
+import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
+import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
 import com.abdallah.ufly.ui.my_account.MyAccountFragment;
+import com.abdallah.ufly.ui.my_trip.MyTripFragment;
+import com.abdallah.ufly.ui.setting.SettingHomeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 
 
@@ -21,7 +29,7 @@ import androidx.fragment.app.Fragment;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 
     ActivityHomeBinding binding;
@@ -39,6 +47,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
         }
+
+        binding.bottomNav.setOnNavigationItemSelectedListener(this);
 
 
     }
@@ -71,6 +81,35 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_info_person:
+
+                replace(new SettingHomeFragment(),R.id.frame_main,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_setting));
+
+
+                break;
+            case R.id.nav_home:
+                replace(new HomeFragment(),R.id.frame_main,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_home));
+
+                break;
+            case R.id.nav_mytrips:
+
+                replace(new MyTripFragment(),R.id.frame_main,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
+
+                break;
+        }
+
+        return false;
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 }
 
