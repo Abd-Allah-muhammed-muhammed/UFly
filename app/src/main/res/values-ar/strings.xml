@@ -101,5 +101,6 @@
     <string name="passenger_info">معلومات المسافرين</string>
     <string name="try_again">من فضلك حاول مره اخري في وقت لاحق</string>
     <string name="number_passenger">عدد المسافرين</string>
+    <string name="this_trip_has_no_passengers_yet">هذه الرحله ليست بها اي مسافرين بعد</string>
 
 </resources>

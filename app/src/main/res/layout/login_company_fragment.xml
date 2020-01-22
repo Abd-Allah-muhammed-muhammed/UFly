@@ -77,6 +77,14 @@
         </RelativeLayout>
 
 
+
+        <ProgressBar
+            android:visibility="@{login.visibility}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/pro_log_comp"/>
+
         <Button
             android:id="@+id/btn_login_company"
             android:layout_width="match_parent"

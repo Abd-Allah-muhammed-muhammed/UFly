@@ -79,7 +79,7 @@ public class HomCompanyActivity extends AppCompatActivity implements BottomNavig
                 break;
             case R.id.nav_mytrips:
 
-                replace(new BooksCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_books_comp));
+//                replace(new BooksCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_books_comp));
 
                 break;
         }

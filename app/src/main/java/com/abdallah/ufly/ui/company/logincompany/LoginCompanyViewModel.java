@@ -29,10 +29,14 @@ public class LoginCompanyViewModel extends ViewModel {
     Api api ;
     PrefManager prefManager;
     public MutableLiveData<String> id_company   ;
+    public MutableLiveData<Integer> visibility = new MutableLiveData<>();
 
     public LoginCompanyViewModel() {
 
+        visibility.setValue(8);
+
         id_company = new MutableLiveData<>();
+
         api= getClient().create(Api.class);
     }
 
@@ -40,6 +44,7 @@ public class LoginCompanyViewModel extends ViewModel {
 
 
     public void loginCompany(View view){
+
 
 
         if (TextUtils.isEmpty(id_company.getValue())){
@@ -50,7 +55,7 @@ public class LoginCompanyViewModel extends ViewModel {
         }else {
 
 
-            login(id_company.getValue(),view );
+            login(id_company.getValue(),view,visibility );
 
         }
 
@@ -61,7 +66,10 @@ public class LoginCompanyViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    private void login(final String id_company, final View view){
+    private void login(final String id_company, final View view, final MutableLiveData<Integer> visibility){
+        visibility.setValue(0);
+
+
 
         prefManager = new PrefManager(view.getContext());
 
@@ -75,7 +83,7 @@ public class LoginCompanyViewModel extends ViewModel {
             @Override
             public void onNext(LoginCompany loginCompany) {
 
-
+                visibility.setValue(8);
 
                 if (loginCompany.getStatus()!=0){
 
@@ -96,7 +104,7 @@ public class LoginCompanyViewModel extends ViewModel {
 
             @Override
             public void onError(Throwable e) {
-
+              visibility.setValue(8);
                 prefManager.setIslogedCompany(false);
 
                 StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error_company).show();

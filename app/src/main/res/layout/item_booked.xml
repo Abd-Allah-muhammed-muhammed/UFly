@@ -58,6 +58,8 @@
                     android:layout_height="0dp"/>
                 <TextView
 
+
+                    android:id="@+id/phone_pass"
                     android:text="@{passBook.passenger.phone}"
 
                     android:paddingStart="@dimen/_18"
@@ -90,11 +92,14 @@
 
 
                 <TextView
+                    android:paddingEnd="@dimen/_18"
+                    android:drawableEnd="@drawable/ic_payment_black_24dp"
                     android:id="@+id/payment"
                     android:textColorHint="@color/white"
                 android:gravity="center"
                     android:textColor="@color/white"
                     android:hint="@string/cash"
+                    android:text="@{passBook.booked.id_payment}"
                     android:layout_marginBottom="@dimen/_8"
                     android:background="@drawable/ic_bg_trip_where_1"
                     android:layout_weight="1"
@@ -103,7 +108,7 @@
                 <TextView
 
                     android:text="@{passBook.booked.number.toString()}"
-                    android:drawableStart="@drawable/ic_number_green"
+                    android:drawableStart="@drawable/ic_person_outline_black_24dp"
                     android:textColorHint="@color/blck"
                     android:gravity="center"
                     android:textColor="@color/dark"
@@ -113,6 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"/>
                 <TextView
+
                     android:id="@+id/is_paid"
                     android:textStyle="bold"
                     android:textColorHint="@color/blck"
