@@ -68,6 +68,17 @@ public class BooksCompanyFragment extends Fragment {
                 adapter.setBookedInfoList((ArrayList<Datum>) data);
 
 
+               int finalNumber  = 0;
+                for (int i = 0; i < data.size(); i++) {
+
+                    int number =Integer.parseInt( data.get(i).getBooked().getNumber().trim());
+
+              finalNumber=  number+finalNumber;
+
+
+                }
+
+                // TODO: 27/01/20  add  to database  1 : "is it complet " , 2 :"number of passengers"
 
 
             }

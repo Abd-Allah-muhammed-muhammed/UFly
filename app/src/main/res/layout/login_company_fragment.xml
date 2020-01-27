@@ -78,12 +78,7 @@
 
 
 
-        <ProgressBar
-            android:visibility="@{login.visibility}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/pro_log_comp"/>
+
 
         <Button
             android:id="@+id/btn_login_company"
@@ -102,6 +97,24 @@
             android:textColor="@color/dark"
             android:textSize="@dimen/_18s"
             android:textStyle="bold" />
+
+
+
+
+        <ProgressBar
+            android:id="@+id/pro_log_comp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/btn_login_company"
+            android:layout_alignTop="@+id/btn_login_company"
+            android:layout_alignEnd="@+id/btn_login_company"
+            android:layout_alignBottom="@+id/btn_login_company"
+            android:elevation="10dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"
+             />
+
 
     </RelativeLayout>
 

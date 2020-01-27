@@ -14,6 +14,7 @@ import com.abdallah.ufly.model.trips.TripsResponse;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -57,7 +58,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("delete_trip.php")
-    Observable<DelelteMyTripResponse> cancleMyTrip(@Field("uui_id") String uui_id);
+    Single<DelelteMyTripResponse> cancleMyTrip(@Field("uui_id") String uui_id);
 
     @FormUrlEncoded
     @POST("my_info.php")

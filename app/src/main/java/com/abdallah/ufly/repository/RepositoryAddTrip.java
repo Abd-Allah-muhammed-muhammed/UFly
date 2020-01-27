@@ -3,6 +3,7 @@ package com.abdallah.ufly.repository;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
@@ -40,10 +41,11 @@ public class RepositoryAddTrip {
 
 
     @SuppressLint("CheckResult")
-    public void addTrip(ModelAddTrip modelAddTrip, String companyID, final Button view, final MutableLiveData<Integer> progress) {
+    public void addTrip(ModelAddTrip modelAddTrip, String companyID, final Button view, final ProgressBar progressBar) {
 
 
-        progress.setValue(0);
+
+        progressBar.setVisibility(View.VISIBLE);
         view.setText("");
 
 
@@ -67,7 +69,7 @@ public class RepositoryAddTrip {
             public void onNext(AddTripResponse addTripResponse) {
 
 
-                progress.setValue(8);
+                progressBar.setVisibility(View.GONE);
                 view.setText(view.getContext().getString(R.string.add_trip));
 
 
@@ -90,7 +92,7 @@ public class RepositoryAddTrip {
 
             @Override
             public void onError(Throwable e) {
-                progress.setValue(8);
+                progressBar.setVisibility(View.GONE);
                 view.setText(view.getContext().getString(R.string.add_trip));
 
 
@@ -101,7 +103,7 @@ public class RepositoryAddTrip {
             @Override
             public void onComplete() {
 
-                progress.setValue(8);
+                progressBar.setVisibility(View.GONE);
                 view.setText(view.getContext().getString(R.string.add_trip));
 
 

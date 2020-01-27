@@ -238,7 +238,7 @@
                             android:padding="@dimen/_6"
                             android:textStyle="bold"
                             android:gravity="center"
-                            android:hint="@string/date"
+                            android:hint="@string/to_date"
                             android:textColorHint="@color/color5"
                             android:layout_height="match_parent"
                             android:textColor="@color/color5"
@@ -397,7 +397,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_number_green"
+                            android:drawableEnd="@drawable/ic_mony"
                             android:gravity="center"
                             android:hint="@string/price"
                             android:paddingStart="@dimen/_12"
@@ -420,9 +420,9 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_number_orange_24dp"
+                            android:drawableEnd="@drawable/ic_person_orange_24dp"
                             android:gravity="center"
-                            android:hint="@string/passengers"
+                            android:hint="@string/number_passenger"
                             android:textColor="@color/white"
                             android:textColorHint="@color/white"
                             android:padding="@dimen/_12"
@@ -475,6 +475,7 @@
 
                 <ProgressBar
 
+                    android:id="@+id/prog_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/desc_btn_book"
@@ -487,7 +488,8 @@
                     android:indeterminate="true"
                     android:indeterminateTint="@color/white"
                     android:indeterminateTintMode="src_atop"
-                    android:visibility="@{add_trip.progress}" />
+                   android:visibility="gone"
+                    />
 
                 <Button
 

@@ -277,6 +277,16 @@
                         android:textSize="@dimen/_24_sp"
                         android:textStyle="bold" />
 
+
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:layout_below="@+id/price"
+                        android:id="@+id/progCancelMyTrip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:indeterminateTint="@color/blck"  />
+
                     <ImageView
                         android:src="@drawable/bg_cancle"
                         android:id="@+id/my_trip_cancel"
@@ -296,6 +306,15 @@
 
 
             </RelativeLayout>
+
+
+
+            <ProgressBar
+                android:id="@+id/progMyTrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/white"  />
 
 
 

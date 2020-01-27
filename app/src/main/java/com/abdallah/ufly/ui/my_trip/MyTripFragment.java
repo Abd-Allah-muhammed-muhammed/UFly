@@ -66,7 +66,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
             @Override
             public void onClick(View v) {
 
-                mViewModel.cancelMyTrip(token);
+                mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip);
                 mViewModel.getMyTrip(token);
 
             }
@@ -85,6 +85,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
     public void response(MyTripResponse response) {
 
         if (response.getData().getArrival()!=null){
+            binding.progMyTrip.setVisibility(View.GONE);
             binding.myTrip.setVisibility(View.VISIBLE);
             binding.myTripPayNow.setVisibility(View.VISIBLE);
             binding.setMyTrip(response);
@@ -102,6 +103,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
             }
         }else {
 
+            binding.progMyTrip.setVisibility(View.GONE);
             binding.myTrip.setVisibility(View.GONE);
             binding.myTripPayNow.setVisibility(View.GONE);
             binding.textNoTrips.setVisibility(View.VISIBLE);

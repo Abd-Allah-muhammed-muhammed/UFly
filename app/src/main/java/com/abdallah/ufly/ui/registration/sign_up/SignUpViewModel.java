@@ -2,7 +2,10 @@ package com.abdallah.ufly.ui.registration.sign_up;
 
 
 import android.content.Intent;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
@@ -22,29 +25,32 @@ import retrofit2.Response;
 
 public class SignUpViewModel extends ViewModel {
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private boolean visib;
+    private boolean reVisib;
 
 
+    EditText pass , rePass;
     public SignUpViewModel() {
         fullName = new MutableLiveData<>();
-      address = new MutableLiveData<>();
+        address = new MutableLiveData<>();
         phone = new MutableLiveData<>();
         email = new MutableLiveData<>();
-         password = new MutableLiveData<>();
+        password = new MutableLiveData<>();
         rePassword = new MutableLiveData<>();
-         progress = new MutableLiveData<>();
+        progress = new MutableLiveData<>();
         signText = new MutableLiveData<>();
 
     }
 
     private Api api;
-    public MutableLiveData<String> fullName ;
-    public MutableLiveData<String> address ;
-    public MutableLiveData<String> phone ;
-    public MutableLiveData<String> email ;
+    public MutableLiveData<String> fullName;
+    public MutableLiveData<String> address;
+    public MutableLiveData<String> phone;
+    public MutableLiveData<String> email;
     public MutableLiveData<String> password;
-    public MutableLiveData<String> rePassword ;
+    public MutableLiveData<String> rePassword;
     public MutableLiveData<Integer> progress;
-    public MutableLiveData<String> signText ;
+    public MutableLiveData<String> signText;
     private PrefManager prefManager;
 
 
@@ -54,23 +60,23 @@ public class SignUpViewModel extends ViewModel {
         if (fullName.getValue() != null && address.getValue() != null && email.getValue()
                 != null && phone.getValue() != null && password.getValue() != null) {
 
-            if (!password.getValue().equals(rePassword.getValue())){
+            if (!password.getValue().equals(rePassword.getValue())) {
 
 
                 StyleableToast.makeText(view.getContext(), "your password not matching", Toast.LENGTH_LONG, R.style.error).show();
 
 
-            }else if(!email.getValue().matches(emailPattern)){
+            } else if (!email.getValue().matches(emailPattern)) {
 
                 StyleableToast.makeText(view.getContext(), "Please enter correct email", Toast.LENGTH_LONG, R.style.error).show();
 
 
-            }else {
-                callSignUp(view,fullName.getValue(),address.getValue(),email.getValue(),phone.getValue(),password.getValue());
+            } else {
+                callSignUp(view, fullName.getValue(), address.getValue(), email.getValue(), phone.getValue(), password.getValue());
 
             }
 
-        }else {
+        } else {
 
             StyleableToast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG, R.style.error).show();
         }
@@ -114,8 +120,7 @@ public class SignUpViewModel extends ViewModel {
     }
 
 
-
-    public void callSignUp(final View  view, String fullName, String addressValue, String emailValue, String phoneValue, String passwordValue) {
+    public void callSignUp(final View view, String fullName, String addressValue, String emailValue, String phoneValue, String passwordValue) {
         api = ApiClient.getClient().create(Api.class);
 
         progress.setValue(0);
@@ -133,11 +138,11 @@ public class SignUpViewModel extends ViewModel {
                 signText.setValue(view.getContext().getString(R.string.sign_up));
 
 
-                if (response.body().getStatus()==0){
+                if (response.body().getStatus() == 0) {
                     StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
 
                     String uuid = response.body().getData().getUuid();
-                     prefManager = new PrefManager(view.getContext());
+                    prefManager = new PrefManager(view.getContext());
                     prefManager.saveToken(uuid);
                     prefManager.setIsLoged(true);
                     prefManager.setIslogedCompany(false);
@@ -147,8 +152,7 @@ public class SignUpViewModel extends ViewModel {
                     view.getContext().startActivity(intent);
 
 
-
-                }else {
+                } else {
                     prefManager = new PrefManager(view.getContext());
 
                     prefManager.setIsLoged(false);
@@ -162,8 +166,8 @@ public class SignUpViewModel extends ViewModel {
             @Override
             public void onFailure(Call<RegistarResponse> call, Throwable t) {
                 progress.setValue(8);
-                signText.setValue("SIGN UP");
-                StyleableToast.makeText(view.getContext(), " please Try Again Later", Toast.LENGTH_LONG, R.style.error).show();
+                signText.setValue(view.getContext().getString(R.string.sign_up));
+                StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
                 prefManager = new PrefManager(view.getContext());
                 prefManager.setIsLoged(false);
             }
@@ -174,8 +178,58 @@ public class SignUpViewModel extends ViewModel {
     }
 
 
+    public void passVisible(View view) {
+
+
+        if (visib) {
+            pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+            visib = false;
+        } else {
+
+
+            pass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+
+            visib = true;
+
+        }
+
+
+    }
+
+    public void rePassVisible(View view) {
+
+
+        if (reVisib) {
+            rePass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+            reVisib = false;
+        } else {
+
+
+            rePass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+
+            reVisib = true;
+
+        }
+
+
+    }
+
+
+    public void setEditText(EditText etPassword, EditText etRePassword) {
+
+
+
+
+        this.pass = etPassword;
+
+        this.rePass = etRePassword;
+
+
+    }
 }
-
-
 
 

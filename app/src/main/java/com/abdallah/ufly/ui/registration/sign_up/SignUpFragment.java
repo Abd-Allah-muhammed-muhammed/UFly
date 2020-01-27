@@ -40,7 +40,9 @@ public class SignUpFragment extends Fragment {
         fullScreen(getActivity());
          binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment, container, false);
         binding.setLifecycleOwner(this);
+
         mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        mViewModel.setEditText(binding.etPassword,binding.etRePassword);
 
         binding.setSign(mViewModel);
 

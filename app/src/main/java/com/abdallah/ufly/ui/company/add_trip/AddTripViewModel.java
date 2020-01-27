@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,6 @@ import static com.abdallah.ufly.helper.HelperMethod.replace;
 public class AddTripViewModel extends ViewModel {
 
 
-    public MutableLiveData<Integer> progress;
     public MutableLiveData<Boolean> focus;
     public MutableLiveData<String> textBtn;
     public MutableLiveData<Integer> passenger_visibility;
@@ -67,12 +67,13 @@ public class AddTripViewModel extends ViewModel {
 
     Bundle bundle ;
 
-    public AddTripViewModel() {
+    ProgressBar progressBar ;
+    public AddTripViewModel(ProgressBar progressBar) {
 
+        this.progressBar = progressBar;
         bundle = new Bundle();
         modelAddTrip = new ModelAddTrip();
-        progress = new MutableLiveData<>();
-        progress.setValue(8);
+
         repository = new RepositoryAddTrip();
         myCalendar = Calendar.getInstance();
         focus = new MutableLiveData<>();
@@ -319,7 +320,7 @@ public class AddTripViewModel extends ViewModel {
             } else {
                 prefManager = new PrefManager(view.getContext());
                 String id_company = prefManager.getID_Company();
-                repository.addTrip(modelAddTrip, id_company, (Button) view, progress);
+                repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar);
 
             }
 

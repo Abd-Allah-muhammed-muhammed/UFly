@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.LoginCompanyFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.ui.company.hom.LoginCompanyFactory;
 
 public class LoginCompanyFragment extends Fragment {
 
@@ -32,7 +33,7 @@ public class LoginCompanyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.login_company_fragment, container, false);
-        mViewModel = ViewModelProviders.of(this).get(LoginCompanyViewModel.class);
+        mViewModel = ViewModelProviders.of(this, new  LoginCompanyFactory(binding.proLogComp)).get(LoginCompanyViewModel.class);
         binding.setLogin(mViewModel);
 
 

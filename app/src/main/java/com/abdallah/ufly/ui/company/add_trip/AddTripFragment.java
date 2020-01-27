@@ -31,7 +31,7 @@ public class AddTripFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.add_trip_fragment,container,false);
-        mViewModel = ViewModelProviders.of(this).get(AddTripViewModel.class);
+        mViewModel = ViewModelProviders.of(this , new AddTripFactory(binding.progAdd)).get(AddTripViewModel.class);
 
 
         Bundle arguments = getArguments();

@@ -101,7 +101,7 @@
     <string name="trip_info">Trip Info</string>
     <string name="passenger_info">Passenger Info</string>
     <string name="try_again">Pleas Try Again Later</string>
-    <string name="number_passenger">Number Of PAssengers</string>
+    <string name="number_passenger">Number Of Passengers</string>
     <string name="this_trip_has_no_passengers_yet">this Trip has no Passengers yet</string>
 
 </resources>

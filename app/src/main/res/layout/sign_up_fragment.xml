@@ -187,18 +187,29 @@
             android:background="@drawable/bg_btn_book_whit"
             android:orientation="vertical">
 
-            <EditText
-                android:gravity="center"
 
+            <ImageView
+                android:onClick="@{(view) -> sign.passVisible(view)}"
+
+                android:id="@+id/visible_pass"
+                android:layout_margin="@dimen/_18"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_password_orange_24dp"/>
+
+
+            <EditText
                 android:id="@+id/et_password"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_18"
+                android:layout_marginStart="@dimen/_2"
                 android:layout_marginEnd="@dimen/_18"
+                android:layout_toEndOf="@+id/visible_pass"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_password_orange_24dp"
                 android:drawablePadding="@dimen/_18"
                 android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
                 android:hint="@string/your_password"
                 android:inputType="textPassword"
                 android:onTextChanged="@{sign::setPassword}"
@@ -221,18 +232,30 @@
             android:background="@drawable/bg_btn_book_whit"
             android:orientation="vertical">
 
-            <EditText
-                android:gravity="center"
 
+
+            <ImageView
+                android:onClick="@{(view) -> sign.rePassVisible(view)}"
+
+                android:id="@+id/visible_repass"
+                android:layout_margin="@dimen/_18"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_password_orange_24dp"/>
+
+
+            <EditText
                 android:id="@+id/et_re_password"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_18"
+                android:layout_marginStart="@dimen/_2"
                 android:layout_marginEnd="@dimen/_18"
+                android:layout_toEndOf="@+id/visible_repass"
                 android:background="@android:color/transparent"
-                android:drawableStart="@drawable/ic_password_orange_24dp"
                 android:drawablePadding="@dimen/_18"
                 android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
                 android:hint="@string/re_your_password"
                 android:inputType="textPassword"
                 android:onTextChanged="@{sign::setRePassword}"

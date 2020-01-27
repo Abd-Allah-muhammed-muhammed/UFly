@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextSwitcher;
 import android.widget.Toast;
 
@@ -29,11 +30,14 @@ public class LoginCompanyViewModel extends ViewModel {
     Api api ;
     PrefManager prefManager;
     public MutableLiveData<String> id_company   ;
-    public MutableLiveData<Integer> visibility = new MutableLiveData<>();
 
-    public LoginCompanyViewModel() {
 
-        visibility.setValue(8);
+    ProgressBar progressBar ;
+
+    public LoginCompanyViewModel( ProgressBar view) {
+
+        progressBar = view;
+        view.setVisibility(View.GONE);
 
         id_company = new MutableLiveData<>();
 
@@ -55,7 +59,7 @@ public class LoginCompanyViewModel extends ViewModel {
         }else {
 
 
-            login(id_company.getValue(),view,visibility );
+            login(id_company.getValue(),view );
 
         }
 
@@ -66,8 +70,8 @@ public class LoginCompanyViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    private void login(final String id_company, final View view, final MutableLiveData<Integer> visibility){
-        visibility.setValue(0);
+    private void login(final String id_company, final View view){
+       progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -83,7 +87,7 @@ public class LoginCompanyViewModel extends ViewModel {
             @Override
             public void onNext(LoginCompany loginCompany) {
 
-                visibility.setValue(8);
+              progressBar.setVisibility(View.GONE);
 
                 if (loginCompany.getStatus()!=0){
 
@@ -104,7 +108,7 @@ public class LoginCompanyViewModel extends ViewModel {
 
             @Override
             public void onError(Throwable e) {
-              visibility.setValue(8);
+                progressBar.setVisibility(View.GONE);
                 prefManager.setIslogedCompany(false);
 
                 StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error_company).show();

@@ -2,6 +2,8 @@ package com.abdallah.ufly.ui.my_trip;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
@@ -14,6 +16,7 @@ import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
 
 import io.reactivex.Observer;
+import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
@@ -68,29 +71,29 @@ public class MyTripViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void cancelMyTrip(final String token) {
+    public void cancelMyTrip(final String token, final ProgressBar progMyTrip) {
 
+
+        progMyTrip.setVisibility(View.VISIBLE);
         api.cancleMyTrip(token).subscribeOn(io()).observeOn(mainThread())
-                .subscribeWith(new Observer<DelelteMyTripResponse>() {
+                .subscribeWith(new SingleObserver<DelelteMyTripResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(DelelteMyTripResponse delelteMyTripResponse) {
+                    public void onSuccess(DelelteMyTripResponse delelteMyTripResponse) {
 
-
+                        progMyTrip.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        progMyTrip.setVisibility(View.GONE);
 
-                    }
+                        Toast.makeText(progMyTrip.getContext(), "error"+e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onComplete() {
-                        getMyTrip(token);
                     }
                 });
     }
