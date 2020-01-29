@@ -48,8 +48,6 @@ public class AddTripFragment extends Fragment {
         String includes = arguments.getString("includes");
 
         //
-        //
-        //
         String dateFrome = arguments.getString("dateFrome");
         String dateUntil = arguments.getString("dateUntil");
         String passengers = arguments.getString("passengers");

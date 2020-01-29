@@ -32,6 +32,7 @@ public class TripDescriptionFragment extends Fragment {
     TripDescriptionFragmentBinding binding ;
     private int id_includse;
     private int tripId;
+    private int numberAvailability;
 
     public static TripDescriptionFragment newInstance() {
         return new TripDescriptionFragment();
@@ -54,12 +55,16 @@ public class TripDescriptionFragment extends Fragment {
 
         tripId = getArguments().getInt("TripId",0);
 
+        numberAvailability = getArguments().getInt("numberAvailability",0);
+
         String trip_desc = getArguments().getString("Trip_desc");
         String Trip_from = getArguments().getString("Trip_from");
         String Trip_to = getArguments().getString("Trip_to");
 
         String includes = getArguments().getString("includes");
         final String id_comp = getArguments().getString("id_comp");
+
+
 
         binding.descInclude.setText(includes);
         binding.descFrom.setText(Trip_from);
@@ -71,7 +76,7 @@ public class TripDescriptionFragment extends Fragment {
 
         final String price = getArguments().getString(getString(R.string.price));
 
-        mViewModel.getPrice(price);
+        mViewModel.getPrice(price,numberAvailability);
 
         binding.descBtnBook.setOnClickListener(new View.OnClickListener() {
             @Override

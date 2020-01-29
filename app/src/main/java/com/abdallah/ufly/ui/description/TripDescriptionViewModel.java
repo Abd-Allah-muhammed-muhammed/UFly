@@ -20,6 +20,7 @@ public class TripDescriptionViewModel extends ViewModel {
 
     public MutableLiveData<String> the_number;
     public MutableLiveData<String> price;
+    private int numberAvailability;
 
     public TripDescriptionViewModel() {
 
@@ -43,7 +44,7 @@ public class TripDescriptionViewModel extends ViewModel {
 
 
 
-        if (count<=5){
+        if (count<numberAvailability){
             count++;
             the_number.setValue(""+count);
 
@@ -74,10 +75,11 @@ public class TripDescriptionViewModel extends ViewModel {
 
     }
 
-    public void getPrice(String price) {
+    public void getPrice(String price, int numberAvailability) {
 
         this.price.setValue(price);
         this.count_price = Integer.parseInt(price);
+        this.numberAvailability = numberAvailability;
 
     }
 }

@@ -1,5 +1,6 @@
 package com.abdallah.ufly.adpter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,31 +44,68 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
         this.id = id;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
 
         final TripsResponse tripInfo = tripInfoArrayList.get(position);
         holder.itemTripsBinding.setTripinfo(tripInfo);
+        
+        // set number of passenger booked 
+        
+        holder.itemTripsBinding.numberBooked.setText("("+tripInfo.getNumber_booked()+")  "+holder.itemTripsBinding.getRoot().getContext().getString(R.string.booked));
+        
+        // set number of availability chair 
+        holder.itemTripsBinding.availableBooked.setText("("+tripInfo.getAvailable_booked()+")"+"  "+holder.itemTripsBinding.getRoot().getContext().getString(R.string.available_chair));
+
+
+
+        if (tripInfo.getIs_complete()!=0){
+
+
+            // complete
+
+            holder.itemTripsBinding.availableBooked.setText("COMPLETE");
+            holder.itemTripsBinding.completed.setVisibility(View.VISIBLE);
+            holder.itemTripsBinding.transbg.setVisibility(View.VISIBLE);
+
+        }
+
         holder.itemTripsBinding.itemTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Bundle bundle = new Bundle();
                 if (id==1){
 
-                    TripDescriptionFragment fragment = new TripDescriptionFragment();
-                    bundle.putInt("TripId",tripInfo.getId());
-                    bundle.putString("Trip_desc",tripInfo.getDescription());
-                    bundle.putString("Trip_from",tripInfo.getDepartuer());
-                    bundle.putString("Trip_to",tripInfo.getArrival());
-                    bundle.putString("price",tripInfo.getPrice());
-                    bundle.putString("includes",tripInfo.getIncludes());
-                    bundle.putString("id_comp",tripInfo.getCompany_id());
 
-                    fragment.setArguments(bundle);
-                    replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
-                            ,v.getContext().getString(R.string.tag_desc));
+                    if (tripInfo.getIs_complete()!=0){
+
+
+                        // TODO: 30/01/20  create dialog says this trip is completed  but id some wone cansel the trip mybe you can book please check it later
+
+
+                    }else {
+
+                        // passenger
+                        TripDescriptionFragment fragment = new TripDescriptionFragment();
+                        bundle.putInt("TripId",tripInfo.getId());
+                        bundle.putString("Trip_desc",tripInfo.getDescription());
+                        bundle.putString("Trip_from",tripInfo.getDepartuer());
+                        bundle.putString("Trip_to",tripInfo.getArrival());
+                        bundle.putString("price",tripInfo.getPrice());
+                        bundle.putString("includes",tripInfo.getIncludes());
+                        bundle.putString("id_comp",tripInfo.getCompany_id());
+                        bundle.putInt("numberAvailability",tripInfo.getAvailable_booked());
+
+
+                        fragment.setArguments(bundle);
+                        replace(fragment,R.id.frame_main,((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                                ,v.getContext().getString(R.string.tag_desc));
+
+                    }
+
                 }else {
+                    // company
                     AddTripFragment addTripFragment = new AddTripFragment();
                     bundle.putInt("TripId",tripInfo.getId());
                     bundle.putInt("id",id);

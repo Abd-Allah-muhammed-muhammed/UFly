@@ -72,6 +72,20 @@ public class TripsResponse {
     private String company_id;
 
 
+
+  @SerializedName("is_complete")
+    @Expose
+    private int is_complete;
+
+
+  @SerializedName("available_booked")
+    @Expose
+    private int available_booked;
+  @SerializedName("number_booked")
+    @Expose
+    private int number_booked;
+
+
     public String getDescription() {
         return description;
     }
@@ -136,4 +150,27 @@ public class TripsResponse {
         this.price = price;
     }
 
+    public int getIs_complete() {
+        return is_complete;
+    }
+
+    public void setIs_complete(int is_complete) {
+        this.is_complete = is_complete;
+    }
+
+    public int getAvailable_booked() {
+        return available_booked;
+    }
+
+    public void setAvailable_booked(int available_booked) {
+        this.available_booked = available_booked;
+    }
+
+    public int getNumber_booked() {
+        return number_booked;
+    }
+
+    public void setNumber_booked(int number_booked) {
+        this.number_booked = number_booked;
+    }
 }
