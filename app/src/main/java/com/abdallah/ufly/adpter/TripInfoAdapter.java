@@ -2,6 +2,7 @@ package com.abdallah.ufly.adpter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
@@ -46,7 +48,7 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull TripInfoAdapter.TripInfoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TripInfoAdapter.TripInfoViewHolder holder, int position) {
 
         final TripsResponse tripInfo = tripInfoArrayList.get(position);
         holder.itemTripsBinding.setTripinfo(tripInfo);
@@ -72,6 +74,7 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
         }
 
         holder.itemTripsBinding.itemTip.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -81,7 +84,13 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     if (tripInfo.getIs_complete()!=0){
 
 
-                        // TODO: 30/01/20  create dialog says this trip is completed  but id some wone cansel the trip mybe you can book please check it later
+                        // TODO: 30/01/20  create class dialog
+
+                        Dialog dialog = new Dialog(holder.itemTripsBinding.getRoot().getContext());
+                        Objects.requireNonNull(dialog.getWindow()).getAttributes().windowAnimations = R.style.PauseDialogAnimation;
+                        dialog.setContentView(R.layout.my_dialog);
+                        dialog.show();
+
 
 
                     }else {

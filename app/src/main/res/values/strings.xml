@@ -105,5 +105,6 @@
     <string name="this_trip_has_no_passengers_yet">this Trip has no Passengers yet</string>
     <string name="booked">BOOKED</string>
     <string name="available_chair">CHAIR AVAILABLE</string>
+    <string name="complete">COMPLETE</string>
 
 </resources>
