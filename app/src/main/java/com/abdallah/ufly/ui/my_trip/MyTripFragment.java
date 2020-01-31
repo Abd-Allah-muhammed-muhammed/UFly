@@ -24,6 +24,8 @@ import com.abdallah.ufly.ui.book.BookViewModel;
 import com.abdallah.ufly.ui.book.BookViewModelFactory;
 import com.abdallah.ufly.ui.home.HomeFragment;
 
+import java.util.Objects;
+
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
@@ -66,7 +68,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
             @Override
             public void onClick(View v) {
 
-                mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip);
+                mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip ,myTripResponse.getData().getIdTrip());
                 mViewModel.getMyTrip(token);
 
             }
@@ -84,6 +86,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
     @Override
     public void response(MyTripResponse response) {
 
+        myTripResponse =response;
         if (response.getData().getArrival()!=null){
             binding.progMyTrip.setVisibility(View.GONE);
             binding.myTrip.setVisibility(View.VISIBLE);

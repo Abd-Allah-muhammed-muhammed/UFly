@@ -71,11 +71,11 @@ public class MyTripViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void cancelMyTrip(final String token, final ProgressBar progMyTrip) {
+    public void cancelMyTrip(final String token, final ProgressBar progMyTrip , int trip_id) {
 
 
         progMyTrip.setVisibility(View.VISIBLE);
-        api.cancleMyTrip(token).subscribeOn(io()).observeOn(mainThread())
+        api.cancleMyTrip(token,trip_id).subscribeOn(io()).observeOn(mainThread())
                 .subscribeWith(new SingleObserver<DelelteMyTripResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
