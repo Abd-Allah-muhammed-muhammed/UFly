@@ -72,19 +72,42 @@ public class TripsResponse {
     private String company_id;
 
 
-
-  @SerializedName("is_complete")
+    @SerializedName("is_complete")
     @Expose
     private int is_complete;
 
 
-  @SerializedName("available_booked")
+    @SerializedName("available_booked")
     @Expose
     private int available_booked;
-  @SerializedName("number_booked")
+    @SerializedName("number_booked")
     @Expose
     private int number_booked;
 
+
+    @SerializedName("time_in")
+    @Expose
+    private String time_in;
+
+    @SerializedName("time_out")
+    @Expose
+    private String time_out;
+
+    public String getTime_in() {
+        return time_in;
+    }
+
+    public void setTime_in(String time_in) {
+        this.time_in = time_in;
+    }
+
+    public String getTime_out() {
+        return time_out;
+    }
+
+    public void setTime_out(String time_out) {
+        this.time_out = time_out;
+    }
 
     public String getDescription() {
         return description;

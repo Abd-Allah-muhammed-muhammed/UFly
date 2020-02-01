@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.company.add_trip;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
@@ -48,6 +50,8 @@ public class AddTripViewModel extends ViewModel {
     public MutableLiveData<String> trip_to;
     public MutableLiveData<String> trip_price;
     public MutableLiveData<String> trip_includes;
+    public MutableLiveData<String> trip_timeIn;
+    public MutableLiveData<String> trip_timeout;
 
  public MutableLiveData<String> trip_dateUntil;
     public MutableLiveData<String> trip_datFrom;
@@ -78,6 +82,8 @@ public class AddTripViewModel extends ViewModel {
         myCalendar = Calendar.getInstance();
         focus = new MutableLiveData<>();
         textBtn = new MutableLiveData<>();
+        trip_timeIn = new MutableLiveData<>();
+        trip_timeout = new MutableLiveData<>();
 
 
         //init text Desc Fragment
@@ -97,8 +103,8 @@ public class AddTripViewModel extends ViewModel {
     }
 
 
-    public void setDesc(int id, int trip_id, String trip_desc, String trip_from, String trip_to, String price, String includes , String dateFrome
-    , String dateTo , String passengers , Context context) {
+    public void setDesc(int id, int trip_id, String trip_desc, String trip_from, String trip_to, String price, String includes, String dateFrome
+            , String dateTo, String passengers, Context context, String time_in, String time_out) {
         this.id = id;
 
         this.trip_id = trip_id;
@@ -116,6 +122,8 @@ public class AddTripViewModel extends ViewModel {
             this.trip_datFrom.setValue(dateFrome);
             this.trip_dateUntil.setValue(dateTo);
             this.trip_passengers.setValue(passengers);
+            this.trip_timeIn.setValue(time_in);
+            this.trip_timeout.setValue(time_out);
 
             focus.setValue(false);
 
@@ -354,6 +362,54 @@ public class AddTripViewModel extends ViewModel {
         fragment.setArguments(bundle);
 
         replace(fragment, R.id.container_home_company, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction(), view.getContext().getString(R.string.tag_books_comp));
+
+
+    }
+
+
+    public void timeUntil (View view){
+
+
+        final TextView  texttime = (TextView) view;
+
+        Calendar mcurrentTime = Calendar.getInstance();
+        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mcurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                texttime.setText( selectedHour + ":" + selectedMinute);
+                modelAddTrip.setTimeOut( selectedHour + ":" + selectedMinute);
+
+            }
+        }, hour, minute, true);//Yes 24 hour time
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
+
+
+    }
+
+
+    public void timeIn ( View   view){
+
+
+        final TextView  texttime = (TextView) view;
+
+        Calendar mcurrentTime = Calendar.getInstance();
+        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mcurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                texttime.setText( selectedHour + ":" + selectedMinute);
+                modelAddTrip.setTimeIn( selectedHour + ":" + selectedMinute);
+            }
+        }, hour, minute, true);//Yes 24 hour time
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
+
 
 
     }

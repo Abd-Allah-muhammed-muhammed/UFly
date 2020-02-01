@@ -109,6 +109,11 @@
     <string name="complete">العدد ممتلئ</string>
 
 
+    <string name="time_in">وقت الذهاب</string>
+    <string name="time_out">وقت العوده </string>
+
+
+
 
 
 </resources>

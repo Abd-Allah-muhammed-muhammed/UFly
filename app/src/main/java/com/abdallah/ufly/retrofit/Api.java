@@ -75,9 +75,8 @@ public interface Api {
     Observable<List<TripsResponse>> getMyTripsCompany(@Query("id_company") String id_company);
 
 
-
     @GET("booksCompany.php")
-    Observable<PassengerBookedResponse> getPassengerBooked(@Query("id_company") String id_company , @Query("id_trip") int id_trip);
+    Observable<PassengerBookedResponse> getPassengerBooked(@Query("id_company") String id_company, @Query("id_trip") int id_trip);
 
     @FormUrlEncoded
     @POST("add_trip.php")
@@ -89,7 +88,9 @@ public interface Api {
                                         @Field("price") String price,
                                         @Field("description") String description,
                                         @Field("company_id") String company_id,
-                                        @Field("includes") String includes);
+                                        @Field("includes") String includes,
+                                        @Field("time_in") String time_in,
+                                        @Field("time_out") String time_out);
 
 
 }

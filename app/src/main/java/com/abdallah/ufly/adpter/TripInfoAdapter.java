@@ -114,6 +114,9 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     }
 
                 }else {
+
+
+
                     // company
                     AddTripFragment addTripFragment = new AddTripFragment();
                     bundle.putInt("TripId",tripInfo.getId());
@@ -126,6 +129,8 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     bundle.putString("dateFrome",tripInfo.getDateFrom());
                     bundle.putString("dateUntil",tripInfo.getDateUntil());
                     bundle.putString("passengers",tripInfo.getPassengers());
+                    bundle.putString("time_in",tripInfo.getTime_in());
+                    bundle.putString("time_out",tripInfo.getTime_out());
 
                     addTripFragment.setArguments(bundle);
 

@@ -48,7 +48,6 @@ public class RepositoryAddTrip {
         progressBar.setVisibility(View.VISIBLE);
         view.setText("");
 
-
         String from = modelAddTrip.getFrom();
         String to = modelAddTrip.getTo();
         String datFrom = modelAddTrip.getDatFrom();
@@ -57,9 +56,11 @@ public class RepositoryAddTrip {
         String price = modelAddTrip.getPrice();
         String description = modelAddTrip.getDescription();
         String includse = modelAddTrip.getIncludse();
+        String timeIn = modelAddTrip.getTimeIn();
+        String timeOut = modelAddTrip.getTimeOut();
 
 
-        api.addTrip(from, to, datFrom, datUntil, passengers, price, description, companyID, includse).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
+        api.addTrip(from, to, datFrom, datUntil, passengers, price, description, companyID, includse,timeIn,timeOut).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
 

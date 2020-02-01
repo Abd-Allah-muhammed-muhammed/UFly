@@ -250,13 +250,84 @@
 
 
 
+
+                    <LinearLayout
+
+                        android:layout_marginTop="@dimen/_14"
+                        android:background="@drawable/bg_desc_stock"
+                        android:layout_marginEnd="@dimen/_20"
+                        android:layout_marginStart="@dimen/_20"
+                        android:id="@+id/layout_time_view"
+                        android:layout_below="@+id/layout_date_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50">
+
+                        <TextView
+
+                            android:text="@{add_trip.trip_timeIn}"
+                            android:onClick="@{(view)-> add_trip.timeIn(view)}"
+                            android:drawableStart="@drawable/ic_number_green"
+                            android:background="@android:color/transparent"
+                            android:padding="@dimen/_6"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:id="@+id/tv_from_time"
+                            android:hint="@string/time_in"
+                            android:textColorHint="@color/color5"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/color5"
+                            android:textSize="@dimen/_14s"
+                            />
+                        <TextView
+                            android:fontFamily="sans-serif-smallcaps"
+
+                            android:gravity="center"
+                            android:id="@+id/until_time"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="match_parent"
+                            android:text="@string/to"
+                            android:textColor="@color/color3"
+                            android:textSize="@dimen/_18s"
+                            />
+
+
+
+                        <TextView
+
+                            android:text="@{add_trip.trip_timeout}"
+
+                            android:onClick="@{(view)-> add_trip.timeUntil(view)}"
+
+                            android:background="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_number_green"
+                            android:id="@+id/tv_to_time"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_6"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:hint="@string/time_out"
+                            android:textColorHint="@color/color5"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/color5"
+                            android:textSize="@dimen/_14s"
+                            />
+
+
+                    </LinearLayout>
+
+
+
                     <!-- text view  include   id is inclouds_tv-->
                     <TextView
 
                         android:id="@+id/inclouds_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_date_view"
+                        android:layout_below="@+id/layout_time_view"
                         android:layout_marginStart="@dimen/_24"
                         android:layout_marginTop="@dimen/_24"
                         android:layout_marginEnd="@dimen/_24"

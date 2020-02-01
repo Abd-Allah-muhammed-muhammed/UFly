@@ -28,8 +28,33 @@ public class Data {
     @Expose
     private String price;
     @SerializedName("description")
+
     @Expose
     private String description;
+
+  @SerializedName("time_in")
+    @Expose
+    private String time_in;
+
+    public String getTime_in() {
+        return time_in;
+    }
+
+    public void setTime_in(String time_in) {
+        this.time_in = time_in;
+    }
+
+    public String getTime_out() {
+        return time_out;
+    }
+
+    public void setTime_out(String time_out) {
+        this.time_out = time_out;
+    }
+
+    @SerializedName("time_out")
+    @Expose
+    private String time_out;
 
     public Integer getIdTrip() {
         return idTrip;

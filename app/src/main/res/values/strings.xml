@@ -106,5 +106,7 @@
     <string name="booked">BOOKED</string>
     <string name="available_chair">CHAIR AVAILABLE</string>
     <string name="complete">COMPLETE</string>
+    <string name="time_in">TIME IN</string>
+    <string name="time_out">TIME OUT</string>
 
 </resources>

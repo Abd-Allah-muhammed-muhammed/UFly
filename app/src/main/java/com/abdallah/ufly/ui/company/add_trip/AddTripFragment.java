@@ -51,10 +51,12 @@ public class AddTripFragment extends Fragment {
         String dateFrome = arguments.getString("dateFrome");
         String dateUntil = arguments.getString("dateUntil");
         String passengers = arguments.getString("passengers");
+        String time_in = arguments.getString("time_in");
+        String time_out = arguments.getString("time_out");
 
 
         mViewModel.setDesc(id , tripId , trip_desc,trip_from,trip_to, price,includes ,
-                dateFrome,dateUntil,passengers,getContext());
+                dateFrome,dateUntil,passengers,getContext(),time_in,time_out);
         binding.setAddTrip(mViewModel);
 
         return binding.getRoot();

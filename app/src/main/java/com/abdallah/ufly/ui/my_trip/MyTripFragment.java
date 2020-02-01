@@ -63,7 +63,6 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks{
         });
 
 
-
         binding.myTripCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

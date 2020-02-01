@@ -13,8 +13,26 @@ public class ModelAddTrip {
     private  String description ;
     private  String passengers ;
     private  String price ;
+    private  String timeIn ;
 
-    private String message;
+    public String getTimeIn() {
+        return timeIn;
+    }
+
+    public void setTimeIn(String timeIn) {
+        this.timeIn = timeIn;
+    }
+
+    public String getTimeOut() {
+        return timeOut;
+    }
+
+    public void setTimeOut(String timeOut) {
+        this.timeOut = timeOut;
+    }
+
+    private  String timeOut ;
+
 
     public String getFrom() {
         return from;
