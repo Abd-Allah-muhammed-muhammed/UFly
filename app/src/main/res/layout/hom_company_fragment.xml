@@ -37,6 +37,7 @@
                 android:layout_margin="@dimen/_18">
 
                 <SearchView
+
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50"
                     android:layout_marginStart="@dimen/_18"
@@ -49,11 +50,13 @@
             </RelativeLayout>
 
             <RelativeLayout
+
                 android:id="@+id/layout_filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout_search"
                 android:layout_marginTop="@dimen/_4">
+
 
             </RelativeLayout>
 
@@ -68,56 +71,73 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rev_trip_info"
                     android:layout_width="match_parent"
+
+
+                    android:layout_marginBottom="@dimen/_24"
                     android:layout_height="match_parent"
                     tools:listitem="@layout/item_trips" />
 
                 <com.github.clans.fab.FloatingActionMenu
-                    android:id="@+id/floting_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                    app:menu_animationDelayPerItem="@integer/defaultBackgroundAlpha"
+
+
+                    android:elevation="@dimen/_4"
+
+                    android:layout_marginEnd="@dimen/_18"
+                    android:layout_marginStart="@dimen/_18"
+                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
+                    app:menu_icon="@drawable/ic_more_horiz_black_24dp"
+                    android:id="@+id/floting_btn"
+
+                    android:layout_width="match_parent"
+                    app:menu_fab_size="mini"
+                    android:layout_height="wrap_content"
                     android:tint="@color/trans"
                     app:backgroundTint="@color/trans"
                     app:menu_backgroundColor="@android:color/transparent"
                     app:menu_colorNormal="@color/color2"
                     app:menu_colorPressed="@color/colorPrimary"
-                    app:menu_labels_colorNormal="@color/dark"
-                    app:menu_labels_textColor="@color/color2"
+                    app:menu_labels_colorNormal="@color/color3"
+                    app:menu_labels_textColor="@color/dark"
                     app:menu_openDirection="up"
                     app:rippleColor="@color/color2"
+
                     tools:ignore="MissingConstraints">
 
 
-                    <!--            <com.github.clans.fab.FloatingActionButton-->
-                    <!--                android:id="@+id/add_fb"-->
-                    <!--                android:layout_width="wrap_content"-->
-                    <!--                android:layout_height="wrap_content"-->
-                    <!--                android:src="@drawable/ic_number_orange_24dp"-->
-                    <!--                android:tint="@color/color2"-->
-                    <!--                app:backgroundTint="@color/color2"-->
-                    <!--                app:fab_colorPressed="@color/colorPrimary"-->
-                    <!--                app:fab_colorRipple="@color/colorPrimary"-->
-                    <!--                app:fab_label="اضافة طلب"-->
-                    <!--                app:fab_size="mini"-->
-                    <!--                app:menu_colorNormal="@color/colorPrimary"-->
-                    <!--                app:menu_openDirection="up"-->
-                    <!--                app:rippleColor="@android:color/white" />-->
+                                <com.github.clans.fab.FloatingActionButton
+                                    android:id="@+id/setting_fb"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_settings"
+                                    android:tint="@color/white"
+                                    app:fab_colorRipple="@color/colorPrimary"
+                                    app:fab_label="@string/action_settings"
+                                    app:fab_size="mini"
+                                    app:fab_colorNormal="@color/color3"
+                                    app:fab_colorPressed="@color/color2"
+                                    app:backgroundTint="@color/color2"
+                                    app:menu_colorNormal="@color/white"
+                                    app:menu_openDirection="down"
+                                    app:rippleColor="@android:color/white" />
 
                     <com.github.clans.fab.FloatingActionButton
+
                         android:id="@+id/add_fb_trip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_number_green"
-                        android:tint="@color/color2"
+                        android:src="@drawable/ic_number_white_24dp"
+                        android:tint="@color/white"
                         app:backgroundTint="@color/color2"
                         app:fab_colorDisabled="@color/white"
-                        app:fab_colorNormal="@color/dark"
+                        app:fab_colorNormal="@color/color3"
                         app:fab_colorPressed="@color/color2"
                         app:fab_label="@string/add_trip"
                         app:fab_progress_color="@color/color3"
-
                         app:fab_size="mini"
-                        app:menu_colorNormal="@color/color2"
+                        app:menu_colorNormal="@color/white"
 
                         app:menu_openDirection="up"
                         app:rippleColor="@color/color2" />

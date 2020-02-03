@@ -22,6 +22,7 @@ import com.abdallah.ufly.databinding.HomCompanyFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
+import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 
 
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
 
         binding.addFbTrip.setOnClickListener(this);
+        binding.settingFb.setOnClickListener(this);
         return  binding.getRoot();
 
     }
@@ -91,12 +93,25 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
     @Override
     public void onClick(View v) {
 
-        // send id to AddTripFragment
-        AddTripFragment fragment  = new AddTripFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("id",3);
-        fragment.setArguments(bundle);
-        replace(fragment,R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_add_trip));
+
+        switch (v.getId()) {
+            case R.id.add_fb_trip:
+                // send id to AddTripFragment
+                AddTripFragment fragment  = new AddTripFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("id",3);
+                fragment.setArguments(bundle);
+                replace(fragment,R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_add_trip));
+
+                break;
+
+
+            case R.id.setting_fb:
+
+                replace(new SettingCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_setting_company));
+
+                break;
+        }
 
     }
 }

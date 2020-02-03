@@ -23,19 +23,6 @@
 
         </FrameLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-
-            app:itemTextColor="@color/dark"
-            app:itemIconTint="@color/color2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50"
-            app:itemBackground="@color/white"
-            app:menu="@menu/nav_menu"
-            android:backgroundTint="@color/color2"
-            android:background="@color/dark"
-            android:layout_alignParentBottom="true"
-            style="@android:style/Widget.Material.Toolbar.Button.Navigation"
-            android:id="@+id/bottom_nav"/>
 
     </RelativeLayout>
 

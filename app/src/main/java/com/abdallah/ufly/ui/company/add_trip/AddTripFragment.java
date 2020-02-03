@@ -16,8 +16,12 @@ import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.AddTripFragmentBinding;
+import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
+import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 
-public class AddTripFragment extends Fragment {
+import static com.abdallah.ufly.helper.HelperMethod.replace;
+
+public class AddTripFragment extends Fragment implements View.OnClickListener {
 
     private AddTripViewModel mViewModel;
 
@@ -33,6 +37,8 @@ public class AddTripFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater,R.layout.add_trip_fragment,container,false);
         mViewModel = ViewModelProviders.of(this , new AddTripFactory(binding.progAdd)).get(AddTripViewModel.class);
 
+
+        binding.back.setOnClickListener(this);
 
         Bundle arguments = getArguments();
 
@@ -63,4 +69,13 @@ public class AddTripFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+
+
+        replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
+
+
+    }
 }

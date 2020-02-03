@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class HomCompanyActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomCompanyActivity extends AppCompatActivity  {
 
     ActivityHomCompanyBinding binding;
     @Override
@@ -32,14 +32,7 @@ public class HomCompanyActivity extends AppCompatActivity implements BottomNavig
         binding = DataBindingUtil.setContentView(this,R.layout.activity_hom_company);
 
             replace(new HomCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
-
-
-            binding.bottomNav.setOnNavigationItemSelectedListener(this);
-
-
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -63,27 +56,27 @@ public class HomCompanyActivity extends AppCompatActivity implements BottomNavig
 
     }
 
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.id.nav_info_person:
-
-                replace(new SettingCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_setting_company));
-
-
-                break;
-            case R.id.nav_home:
-                replace(new HomCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
-
-                break;
-            case R.id.nav_mytrips:
-
-//                replace(new BooksCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_books_comp));
-
-                break;
-        }
-        return false;
-
-    }
+//
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//        switch (menuItem.getItemId()) {
+//            case R.id.nav_info_person:
+//
+//                replace(new SettingCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_setting_company));
+//
+//
+//                break;
+//            case R.id.nav_home:
+//                replace(new HomCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
+//
+//                break;
+//            case R.id.nav_mytrips:
+//
+////                replace(new BooksCompanyFragment(),R.id.container_home_company,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_books_comp));
+//
+//                break;
+//        }
+//        return false;
+//
+//    }
 }
