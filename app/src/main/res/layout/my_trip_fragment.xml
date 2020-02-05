@@ -324,7 +324,7 @@
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_18s"
-                android:text="there are no Trips booked yet"
+                android:text="@string/no_trip_booked"
                 android:layout_centerInParent="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -338,7 +338,7 @@
                 android:gravity="center"
                 android:textColor="@color/color3"
                 android:textSize="@dimen/_24_sp"
-                android:text="click here to book a Trip"
+                android:text="@string/cleck_To_book"
                 android:layout_centerInParent="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

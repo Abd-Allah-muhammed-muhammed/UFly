@@ -29,16 +29,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">الاعدادات</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">الرئيسيه</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="logo">logo</string>
-    <string name="departure">مــن</string>
+    <string name="departure">مكان الاقلاع</string>
     <string name="ciro">القاهرة</string>
-    <string name="arrival">الـي  </string>
+    <string name="arrival">مكان الوصول</string>
     <string name="alex">اسكندريه</string>
     <string name="date">تاريخ الذهاب</string>
     <string name="date_ex">Sonday 1/1/2020</string>
@@ -114,6 +114,8 @@
     <string name="refresh">تحديث</string>
     <string name="you_don_t_have_any_trip_now_n_try_do_add_on">لا يوجد لديك رحلات الان \n حاول ان تضيف رحله</string>
     <string name="no_trip_now">لا يوجد رحلات في الوقت الحالي</string>
+    <string name="no_trip_booked">لا يوجد لديك رحلات في الوقت الحالي</string>
+    <string name="cleck_To_book">اضغط هنا لتحجز رحلتك</string>
 
 
 </resources>
