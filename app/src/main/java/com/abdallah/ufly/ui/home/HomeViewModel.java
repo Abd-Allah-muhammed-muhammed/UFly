@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.home;
 
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -27,8 +28,8 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome) {
+    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, TextView noTrip) {
 
-        return repository.getTrips(progHome);
+        return repository.getTrips(progHome,noTrip);
     }
 }

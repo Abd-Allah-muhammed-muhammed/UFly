@@ -2,6 +2,7 @@ package com.abdallah.ufly.retrofit;
 
 import com.abdallah.ufly.model.addTrip.AddTripResponse;
 import com.abdallah.ufly.model.book.BookModelResponse;
+import com.abdallah.ufly.model.company_info.CompanyAccountResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.login_company.LoginCompany;
@@ -94,5 +95,11 @@ public interface Api {
                                         @Field("time_in") String time_in,
                                         @Field("time_out") String time_out);
 
+
+
+
+
+    @GET("my_info_company.php")
+    Observable<CompanyAccountResponse> getMyinfoCompany(@Query("company_id") String company_id);
 
 }

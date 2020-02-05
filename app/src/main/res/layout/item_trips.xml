@@ -375,7 +375,7 @@
                             android:text="@{tripinfo.price}"
                             android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_32s"
+                            android:textSize="@dimen/_24_sp"
                             />
                         <TextView
                             android:id="@+id/number_booked"

@@ -84,6 +84,19 @@
         </RelativeLayout>
 
 
+        <TextView
+
+            android:drawablePadding="@dimen/_8"
+            android:drawableEnd="@drawable/ic_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/no_trip_now"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24_sp"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:id="@+id/no_trip"/>
 
 
     </RelativeLayout>

@@ -111,9 +111,9 @@
 
     <string name="time_in">وقت الذهاب</string>
     <string name="time_out">وقت العوده </string>
-
-
-
+    <string name="refresh">تحديث</string>
+    <string name="you_don_t_have_any_trip_now_n_try_do_add_on">لا يوجد لديك رحلات الان \n حاول ان تضيف رحله</string>
+    <string name="no_trip_now">لا يوجد رحلات في الوقت الحالي</string>
 
 
 </resources>

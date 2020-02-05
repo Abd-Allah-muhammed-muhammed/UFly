@@ -45,10 +45,18 @@ public class HomeFragment extends Fragment  {
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.revTripInfo.setHasFixedSize(true);
-        homeViewModel.getdata(binding.progHome).observe(this, new Observer<List<TripsResponse>>() {
+        homeViewModel.getdata(binding.progHome,binding.noTrip).observe(this, new Observer<List<TripsResponse>>() {
             @Override
             public void onChanged(List<TripsResponse> tripsResponses) {
 
+
+
+                if (tripsResponses.isEmpty()){
+
+
+                    binding.noTrip.setVisibility(View.VISIBLE);
+
+                }
                 tripInfoAdapter.setTripInfoList((ArrayList<TripsResponse>) tripsResponses);
                 tripInfoAdapter.notifyDataSetChanged();
 

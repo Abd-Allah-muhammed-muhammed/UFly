@@ -3,6 +3,7 @@ package com.abdallah.ufly.repository;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -30,7 +31,7 @@ public class TripsRepository {
 
 
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome) {
+    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final TextView noTrip) {
 
 data = new MutableLiveData<>();
 //
@@ -49,11 +50,21 @@ data = new MutableLiveData<>();
                     public void onNext(List<TripsResponse> tripsResponses) {
 
 
+                        if (tripsResponses.isEmpty()){
+
+                            noTrip.setVisibility(View.VISIBLE);
+
+                        }
+                        progHome.setVisibility(View.GONE);
+
                         data.setValue(tripsResponses);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
+
+                        noTrip.setVisibility(View.VISIBLE);
 
                         progHome.setVisibility(View.GONE);
 
@@ -61,7 +72,6 @@ data = new MutableLiveData<>();
 
                     @Override
                     public void onComplete() {
-                        progHome.setVisibility(View.GONE);
 
 
                     }

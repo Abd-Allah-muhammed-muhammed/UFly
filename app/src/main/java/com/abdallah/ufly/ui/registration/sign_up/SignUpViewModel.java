@@ -133,13 +133,12 @@ public class SignUpViewModel extends ViewModel {
             public void onResponse(Call<RegistarResponse> call, Response<RegistarResponse> response) {
 
 
-                String message = response.body().getMessage();
                 progress.setValue(8);
                 signText.setValue(view.getContext().getString(R.string.sign_up));
 
 
                 if (response.body().getStatus() == 0) {
-                    StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.success).show();
+                    StyleableToast.makeText(view.getContext(), response.body().getMessage(), Toast.LENGTH_LONG, R.style.success).show();
 
                     String uuid = response.body().getData().getUuid();
                     prefManager = new PrefManager(view.getContext());
@@ -157,7 +156,7 @@ public class SignUpViewModel extends ViewModel {
 
                     prefManager.setIsLoged(false);
 
-                    StyleableToast.makeText(view.getContext(), message, Toast.LENGTH_LONG, R.style.error).show();
+                    StyleableToast.makeText(view.getContext(), response.body().getMessage(), Toast.LENGTH_LONG, R.style.error).show();
 
                 }
 

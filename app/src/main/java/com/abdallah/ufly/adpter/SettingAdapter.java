@@ -15,6 +15,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemSettingBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.setting.SettingModel;
+import com.abdallah.ufly.ui.company.myAccount.MyAccountCompanyFragment;
 import com.abdallah.ufly.ui.my_account.MyAccountFragment;
 import com.abdallah.ufly.ui.registration.RegistrationActivity;
 
@@ -78,12 +79,23 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
                         if (id==1){
 
 
+                            int x = 5;
                             replace(new MyAccountFragment(),R.id.frame_main,
 
                                     ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
                                     ,v.getContext().getString(R.string.tag_my_account));
 
                             settingModels.clear();
+                        }else {
+                            int x = 5;
+                            replace(new MyAccountCompanyFragment(),R.id.container_home_company,
+
+                                    ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                                    ,v.getContext().getString(R.string.tag_my_account_company));
+
+                            settingModels.clear();
+
+
                         }
 
 
@@ -110,12 +122,14 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
 
                             if (id==1){
+                                // clint
                                 manager.setIsLoged(false);
                                 manager.removeToken();
                                 Intent intent = new Intent(v.getContext(), RegistrationActivity.class);
                                 v.getContext().startActivity(intent);
 
                             }else {
+                                // company
                                 manager.removeIdCompany();
                                 manager.setIslogedCompany(false);
                                 Intent intent = new Intent(v.getContext(), RegistrationActivity.class);

@@ -108,5 +108,9 @@
     <string name="complete">COMPLETE</string>
     <string name="time_in">TIME IN</string>
     <string name="time_out">TIME OUT</string>
+    <string name="refresh">REFRESH</string>
+    <string name="you_don_t_have_any_trip_now_n_try_do_add_on">you don\'t have any trip now \n try to add one</string>
+    <string name="no_trip_now">NO TRIPS  RIGHT NOW</string>
+    <string name="tag_my_account_company" translatable="false">tagcompanyaccount</string>
 
 </resources>

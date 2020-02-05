@@ -143,12 +143,46 @@
                         app:rippleColor="@color/color2" />
 
 
+
+                    <com.github.clans.fab.FloatingActionButton
+
+                        android:id="@+id/refresh_fb_trip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_refresh_black_24dp"
+                        android:tint="@color/white"
+                        app:backgroundTint="@color/color2"
+                        app:fab_colorDisabled="@color/white"
+                        app:fab_colorNormal="@color/color3"
+                        app:fab_colorPressed="@color/color2"
+                        app:fab_label="@string/refresh"
+                        app:fab_progress_color="@color/color3"
+                        app:fab_size="mini"
+                        app:menu_colorNormal="@color/white"
+
+                        app:menu_openDirection="up"
+                        app:rippleColor="@color/color2" />
+
+
                 </com.github.clans.fab.FloatingActionMenu>
             </RelativeLayout>
 
 
         </RelativeLayout>
 
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/you_don_t_have_any_trip_now_n_try_do_add_on"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24_sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/no_trip"/>
 
     </RelativeLayout>
 

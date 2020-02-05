@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
@@ -49,11 +50,12 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
         prefManager = new PrefManager(getContext());
         String id_company = prefManager.getID_Company();
-        fetchData(id_company ,binding.progHome);
+        fetchData(id_company ,binding.progHome,binding.noTrip);
 
 
         binding.addFbTrip.setOnClickListener(this);
         binding.settingFb.setOnClickListener(this);
+        binding.refreshFbTrip.setOnClickListener(this);
         return  binding.getRoot();
 
     }
@@ -62,9 +64,9 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
 
 
-    private void fetchData(String id_company, final ProgressBar progHome){
+    private void fetchData(String id_company, final ProgressBar progHome, final TextView noTrip){
 
-        mViewModel.getMyTrip(id_company,progHome).observeForever(new Observer<List<TripsResponse>>() {
+        mViewModel.getMyTrip(id_company,progHome,noTrip).observeForever(new Observer<List<TripsResponse>>() {
             @Override
             public void onChanged(List<TripsResponse> tripsResponse) {
 
@@ -73,6 +75,9 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
                 {
 
                     progHome.setVisibility(View.GONE);
+                }else {
+
+                    noTrip.setVisibility(View.VISIBLE);
                 }
                 binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
                 TripInfoAdapter adapter = new TripInfoAdapter(2);
@@ -111,6 +116,13 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
                 replace(new SettingCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_setting_company));
 
                 break;
+
+
+            case R.id.refresh_fb_trip:
+                replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
+
+                break;
+
         }
 
     }
