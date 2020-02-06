@@ -30,15 +30,30 @@ public class RepositoryAddTrip {
 
     AddTripResponse addTripResponseRE;
 
+    private static RepositoryAddTrip instance;
+
     Api api;
 
-    public RepositoryAddTrip() {
+    private RepositoryAddTrip() {
 
         api = getClient().create(Api.class);
 
         addTripResponseRE = new AddTripResponse();
     }
 
+
+    public static RepositoryAddTrip getInstance(){
+
+        if (instance==null){
+
+
+            instance = new RepositoryAddTrip();
+        }
+
+
+
+        return instance ;
+    }
 
     @SuppressLint("CheckResult")
     public void addTrip(ModelAddTrip modelAddTrip, String companyID, final Button view, final ProgressBar progressBar) {

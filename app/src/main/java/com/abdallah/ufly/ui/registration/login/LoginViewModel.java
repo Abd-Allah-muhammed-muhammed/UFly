@@ -31,17 +31,18 @@ public class LoginViewModel extends ViewModel {
     boolean visib  ;
     Login user;
     LoginResultCallbacks loginResultCallbacks;
-    LoginRepository loginRepository;
-    private String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    LoginRepository instance ;
 
+    private String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     EditText etPassword;
     public LoginViewModel(LoginResultCallbacks loginResultCallbacks, Context context, EditText etPassword) {
         this.loginResultCallbacks = loginResultCallbacks;
         user = new Login();
-        loginRepository = new LoginRepository();
         progress.setValue(8);
         loginText.setValue(context.getString(R.string.login));
         this.etPassword = etPassword;
+
+        instance = LoginRepository.getInstance();
     }
 
 
@@ -105,7 +106,7 @@ public class LoginViewModel extends ViewModel {
         }else {
 
 
-                loginRepository.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText ,view);
+            instance.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText ,view);
 
 
         }

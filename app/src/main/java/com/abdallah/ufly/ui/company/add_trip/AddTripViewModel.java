@@ -78,7 +78,7 @@ public class AddTripViewModel extends ViewModel {
         bundle = new Bundle();
         modelAddTrip = new ModelAddTrip();
 
-        repository = new RepositoryAddTrip();
+        repository =  RepositoryAddTrip.getInstance();
         myCalendar = Calendar.getInstance();
         focus = new MutableLiveData<>();
         textBtn = new MutableLiveData<>();

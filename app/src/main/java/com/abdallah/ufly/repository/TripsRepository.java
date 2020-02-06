@@ -26,6 +26,33 @@ import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 
 public class TripsRepository {
+
+
+    private TripsRepository(){
+
+
+    }
+
+
+
+    public static TripsRepository getInstance(){
+
+
+        if (instance==null){
+
+            instance = new TripsRepository();
+        }
+
+
+        return instance;
+
+    }
+
+
+
+
+
+   private static TripsRepository instance ;
     Api api;
     MutableLiveData<List<TripsResponse>> data;
 

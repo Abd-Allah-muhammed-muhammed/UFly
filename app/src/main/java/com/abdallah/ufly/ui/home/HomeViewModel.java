@@ -11,25 +11,26 @@ import com.abdallah.ufly.model.TripInfo;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.repository.TripsRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<List<TripInfo>>  data;
     private TripsRepository repository ;
 
 
     public HomeViewModel() {
 
-        data = new MutableLiveData<>();
-        repository = new TripsRepository();
+        repository =  TripsRepository.getInstance();
 
     }
 
 
     public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, TextView noTrip) {
 
-        return repository.getTrips(progHome,noTrip);
+
+        return   repository.getTrips(progHome, noTrip);
+
+
     }
 }

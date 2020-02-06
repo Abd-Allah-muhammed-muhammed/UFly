@@ -50,7 +50,6 @@ public class HomeFragment extends Fragment  {
             public void onChanged(List<TripsResponse> tripsResponses) {
 
 
-
                 if (tripsResponses.isEmpty()){
 
 

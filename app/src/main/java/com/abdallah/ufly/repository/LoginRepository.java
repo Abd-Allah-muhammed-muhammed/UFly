@@ -15,9 +15,29 @@ import io.reactivex.disposables.Disposable;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
 
+
+
 public class LoginRepository {
 
 
+   public static LoginRepository instance ;
+
+
+    private LoginRepository() {
+
+    }
+
+
+
+    public static  LoginRepository getInstance (){
+
+        if (instance==null){
+            instance = new LoginRepository();
+        }
+
+
+        return instance;
+    }
 
     Api api;
 
