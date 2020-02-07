@@ -22,6 +22,20 @@ public class Data {
     @Expose
     private String company_phone;
 
+
+
+    @SerializedName("qr")
+    @Expose
+    private String qr;
+
+    public String getQr() {
+        return qr;
+    }
+
+    public void setQr(String qr) {
+        this.qr = qr;
+    }
+
     public String getId() {
         return id;
     }

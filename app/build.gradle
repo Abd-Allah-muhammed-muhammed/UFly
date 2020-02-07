@@ -73,4 +73,9 @@ dependencies {
     // fluting button
     implementation 'com.github.clans:fab:1.6.4'
 
+    // scanner camera
+    implementation 'me.dm7.barcodescanner:zbar:1.9.8'
+
+
+
 }

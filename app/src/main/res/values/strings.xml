@@ -114,5 +114,7 @@
     <string name="tag_my_account_company" translatable="false">tagcompanyaccount</string>
     <string name="no_trip_booked">there are no Trips booked yet</string>
     <string name="cleck_To_book">click here to book a Trip</string>
+    <string name="googlepay_status_unavailable">Unavailable</string>
+    <string name="payments_show_name">Show name</string>
 
 </resources>
