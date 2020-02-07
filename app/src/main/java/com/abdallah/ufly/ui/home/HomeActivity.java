@@ -51,6 +51,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
 
 
+
+
     }
 
 

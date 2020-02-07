@@ -4,13 +4,10 @@ import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.abdallah.ufly.model.my_info.MyInfoResponse;
-import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -18,9 +15,7 @@ import com.abdallah.ufly.retrofit.ApiClient;
 import java.util.List;
 
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;

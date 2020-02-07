@@ -1,13 +1,10 @@
 package com.abdallah.ufly.ui.my_trip;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;

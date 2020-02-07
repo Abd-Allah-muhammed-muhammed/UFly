@@ -2,6 +2,7 @@ package com.abdallah.ufly.retrofit;
 
 import com.abdallah.ufly.model.addTrip.AddTripResponse;
 import com.abdallah.ufly.model.book.BookModelResponse;
+import com.abdallah.ufly.model.cashPay.CashPay;
 import com.abdallah.ufly.model.company_info.CompanyAccountResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
@@ -63,6 +64,10 @@ public interface Api {
     @POST("delete_trip.php")
     Single<DelelteMyTripResponse> cancleMyTrip(@Field("uui_id") String uui_id,
                                                @Field("trip_id") int trip_id);
+ @FormUrlEncoded
+    @POST("setIsPaid.php")
+    Single<CashPay> cashPay(@Field("uui_id") String uui_id,
+                            @Field("is_paid") int is_paid);
 
     @FormUrlEncoded
     @POST("my_info.php")

@@ -116,6 +116,8 @@
     <string name="no_trip_now">لا يوجد رحلات في الوقت الحالي</string>
     <string name="no_trip_booked">لا يوجد لديك رحلات في الوقت الحالي</string>
     <string name="cleck_To_book">اضغط هنا لتحجز رحلتك</string>
+    <string name="tag_pay_qr">tag_pay_qr</string>
+    <string name="wrong_qr_code">خاطئ QR Code</string>
 
 
 </resources>

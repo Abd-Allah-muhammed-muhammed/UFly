@@ -116,5 +116,7 @@
     <string name="cleck_To_book">click here to book a Trip</string>
     <string name="googlepay_status_unavailable">Unavailable</string>
     <string name="payments_show_name">Show name</string>
+    <string name="tag_pay_qr">tag_pay_qr</string>
+    <string name="wrong_qr_code">Wrong QR Code</string>
 
 </resources>

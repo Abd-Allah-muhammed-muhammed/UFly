@@ -45,6 +45,8 @@
         </activity>
 
 
+        <activity android:name=".ui.payCash.PayCashQRActivity"/>
+
 
     </application>
 

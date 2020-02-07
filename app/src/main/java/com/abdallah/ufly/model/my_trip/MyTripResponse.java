@@ -9,13 +9,9 @@ public class MyTripResponse {
     @SerializedName("id")
     @Expose
     private Integer id;
-
     @SerializedName("id_trip")
     @Expose
     private Integer idTrip;
-    @SerializedName("id_includes")
-    @Expose
-    private Integer idIncludes;
     @SerializedName("uui_id")
     @Expose
     private String uuiId;
@@ -28,20 +24,12 @@ public class MyTripResponse {
     @SerializedName("price")
     @Expose
     private String price;
-
-    public Integer getIsPaid() {
-        return isPaid;
-    }
-
-    public void setIsPaid(Integer isPaid) {
-        this.isPaid = isPaid;
-    }
-
     @SerializedName("is_paid")
     @Expose
     private Integer isPaid;
-
-
+    @SerializedName("dataCompany")
+    @Expose
+    private DataCompany dataCompany;
     @SerializedName("data")
     @Expose
     private Data data;
@@ -60,14 +48,6 @@ public class MyTripResponse {
 
     public void setIdTrip(Integer idTrip) {
         this.idTrip = idTrip;
-    }
-
-    public Integer getIdIncludes() {
-        return idIncludes;
-    }
-
-    public void setIdIncludes(Integer idIncludes) {
-        this.idIncludes = idIncludes;
     }
 
     public String getUuiId() {
@@ -100,6 +80,22 @@ public class MyTripResponse {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public Integer getIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(Integer isPaid) {
+        this.isPaid = isPaid;
+    }
+
+    public DataCompany getDataCompany() {
+        return dataCompany;
+    }
+
+    public void setDataCompany(DataCompany dataCompany) {
+        this.dataCompany = dataCompany;
     }
 
     public Data getData() {

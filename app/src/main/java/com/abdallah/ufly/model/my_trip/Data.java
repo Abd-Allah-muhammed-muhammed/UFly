@@ -26,35 +26,28 @@ public class Data {
     private String passengers;
     @SerializedName("price")
     @Expose
-    private String price;
+    private Integer price;
     @SerializedName("description")
-
     @Expose
     private String description;
-
-  @SerializedName("time_in")
+    @SerializedName("company_id")
     @Expose
-    private String time_in;
-
-    public String getTime_in() {
-        return time_in;
-    }
-
-    public void setTime_in(String time_in) {
-        this.time_in = time_in;
-    }
-
-    public String getTime_out() {
-        return time_out;
-    }
-
-    public void setTime_out(String time_out) {
-        this.time_out = time_out;
-    }
-
+    private String companyId;
+    @SerializedName("is_complete")
+    @Expose
+    private Integer isComplete;
+    @SerializedName("available_booked")
+    @Expose
+    private Integer availableBooked;
+    @SerializedName("number_booked")
+    @Expose
+    private Integer numberBooked;
+    @SerializedName("time_in")
+    @Expose
+    private String timeIn;
     @SerializedName("time_out")
     @Expose
-    private String time_out;
+    private String timeOut;
 
     public Integer getIdTrip() {
         return idTrip;
@@ -104,11 +97,11 @@ public class Data {
         this.passengers = passengers;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -118,6 +111,54 @@ public class Data {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    public Integer getIsComplete() {
+        return isComplete;
+    }
+
+    public void setIsComplete(Integer isComplete) {
+        this.isComplete = isComplete;
+    }
+
+    public Integer getAvailableBooked() {
+        return availableBooked;
+    }
+
+    public void setAvailableBooked(Integer availableBooked) {
+        this.availableBooked = availableBooked;
+    }
+
+    public Integer getNumberBooked() {
+        return numberBooked;
+    }
+
+    public void setNumberBooked(Integer numberBooked) {
+        this.numberBooked = numberBooked;
+    }
+
+    public String getTimeIn() {
+        return timeIn;
+    }
+
+    public void setTimeIn(String timeIn) {
+        this.timeIn = timeIn;
+    }
+
+    public String getTimeOut() {
+        return timeOut;
+    }
+
+    public void setTimeOut(String timeOut) {
+        this.timeOut = timeOut;
     }
 
 }

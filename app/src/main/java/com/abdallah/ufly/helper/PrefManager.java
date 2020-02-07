@@ -19,6 +19,7 @@ public class PrefManager {
     private static final String ISLOGED = "is_loged";
     private static final String ISLOGED_COMPANY = "is_loged_company";
     private static final String ID_COMPANY = "id_company";
+    private static final String QR  = "qr";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -40,11 +41,22 @@ public class PrefManager {
         editor.putString(TOKEN, token);
         editor.commit();
     }
+ public void saveQR(String qr) {
+        editor.putString(QR, qr);
+        editor.commit();
+    }
 
 
     public String getToken() {
 
         return pref.getString(TOKEN, "");
+
+    }
+
+
+    public String getQr() {
+
+        return pref.getString(QR, "");
 
     }
 
