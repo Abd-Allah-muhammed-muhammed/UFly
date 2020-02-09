@@ -56,8 +56,7 @@ public class MyAccountFragment extends Fragment {
                 replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_setting));
             }
         });
-
-        mViewModel.getmyInfo(getContext());
+        mViewModel.getmyInfo(getContext(),binding.progMyAccount);
         binding.setMyInfo(mViewModel);
 
 

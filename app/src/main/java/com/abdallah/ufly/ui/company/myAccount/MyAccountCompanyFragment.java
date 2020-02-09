@@ -48,7 +48,7 @@ public class MyAccountCompanyFragment extends Fragment {
         binding.setMyinfo(mViewModel);
 
 
-        mViewModel.getmyInfoCompany(getContext());
+        mViewModel.getmyInfoCompany(getContext(),binding.progMyCpmpAccount);
 
         return binding.getRoot();
     }

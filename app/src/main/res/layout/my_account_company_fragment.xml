@@ -83,6 +83,7 @@
         </RelativeLayout>
 
 
+
         <Button
             android:onClick="@{(view)-> myinfo.done(view)}"
             android:id="@+id/my_acc_done"
@@ -100,6 +101,15 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_18s"
             android:textStyle="bold" />
+        <ProgressBar
+            android:visibility="visible"
+
+            android:layout_centerHorizontal="true"
+            android:id="@+id/prog_myCpmp_Account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_below="@+id/my_acc_done"            android:indeterminateTint="@color/color2" />
+
 
     </RelativeLayout>
 

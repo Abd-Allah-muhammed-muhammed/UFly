@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.my_account;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
@@ -39,8 +40,11 @@ public class MyAccountViewModel extends ViewModel {
     }
 
     @SuppressLint("CheckResult")
-    public void getmyInfo(Context context){
+    public void getmyInfo(Context context, final ProgressBar progMyAccount){
         prefManager = new PrefManager(context);
+
+        progMyAccount.setVisibility(View.VISIBLE);
+
 
         String token = prefManager.getToken();
         api.getMyinfo(token).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<MyInfoResponse>() {
@@ -54,10 +58,13 @@ public class MyAccountViewModel extends ViewModel {
                 String fullName = myInfoResponse.getData().getFullName();
 
                 full_name.setValue(fullName);
+                progMyAccount.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onError(Throwable e) {
+                progMyAccount.setVisibility(View.GONE);
 
             }
 

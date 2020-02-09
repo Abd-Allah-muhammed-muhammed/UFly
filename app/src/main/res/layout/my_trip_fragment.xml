@@ -122,14 +122,14 @@
                         android:text="@{my_trip.data.departure}"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        android:textSize="@dimen/_20s"
+                        android:textSize="@dimen/_18s"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/to"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
                         android:fontFamily="sans-serif-smallcaps"
                         android:gravity="center"
                         android:text="@string/to"
@@ -141,7 +141,6 @@
                         android:id="@+id/tv_arrival"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_14"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:paddingStart="@dimen/_14"
@@ -149,7 +148,7 @@
                         android:text="@{my_trip.data.arrival}"
                         android:textColor="@color/color5"
                         android:textColorHint="@color/white"
-                        android:textSize="@dimen/_20s"
+                        android:textSize="@dimen/_18"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -218,8 +217,8 @@
                         android:id="@+id/until"
 
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
                         android:fontFamily="sans-serif-smallcaps"
                         android:gravity="center"
                         android:text="@string/until"
@@ -288,10 +287,10 @@
                     android:indeterminateTint="@color/blck"  />
 
                 <ImageView
-                    android:src="@drawable/bg_cancle"
+                    android:src="@drawable/ic_cncle"
                     android:id="@+id/my_trip_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_70"
+                    android:layout_height="@dimen/_70"
                     android:layout_below="@+id/price"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/_40"

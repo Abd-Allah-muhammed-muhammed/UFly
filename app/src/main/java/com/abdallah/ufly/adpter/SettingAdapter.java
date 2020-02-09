@@ -78,8 +78,6 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
                         if (id==1){
 
-
-                            int x = 5;
                             replace(new MyAccountFragment(),R.id.frame_main,
 
                                     ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
@@ -87,7 +85,6 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
                             settingModels.clear();
                         }else {
-                            int x = 5;
                             replace(new MyAccountCompanyFragment(),R.id.container_home_company,
 
                                     ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
@@ -122,7 +119,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingV
 
 
                             if (id==1){
-                                // clint
+                                // client
                                 manager.setIsLoged(false);
                                 manager.removeToken();
                                 Intent intent = new Intent(v.getContext(), RegistrationActivity.class);

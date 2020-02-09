@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.company.myAccount;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
@@ -40,8 +41,9 @@ public class MyAccountCompanyViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void  getmyInfoCompany (Context context){
+    public void  getmyInfoCompany(final Context context, final ProgressBar progMyCpmpAccount){
 
+        progMyCpmpAccount.setVisibility(View.VISIBLE);
         prefManager = new PrefManager(context);
 
         String id_company = prefManager.getID_Company();
@@ -57,10 +59,14 @@ public class MyAccountCompanyViewModel extends ViewModel {
                 String company_name = companyAccountResponse.getData().getCompany_name();
 
                 companyNAme.setValue(company_name);
+                progMyCpmpAccount.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onError(Throwable e) {
+                progMyCpmpAccount.setVisibility(View.GONE);
+
 
 
             }

@@ -100,7 +100,7 @@
     <string name="trip_info">Trip Info</string>
     <string name="passenger_info">معلومات المسافرين</string>
     <string name="try_again">من فضلك حاول مره اخري في وقت لاحق</string>
-    <string name="number_passenger">عدد المسافرين</string>
+    <string name="number_passenger"> عدد المسافرين \n والسعر</string>
     <string name="this_trip_has_no_passengers_yet">هذه الرحله ليست بها اي مسافرين بعد</string>
 
     <string name="booked">حجزوا</string>
@@ -118,6 +118,8 @@
     <string name="cleck_To_book">اضغط هنا لتحجز رحلتك</string>
     <string name="tag_pay_qr">tag_pay_qr</string>
     <string name="wrong_qr_code">خاطئ QR Code</string>
+    <string name="number_passenger_">عدد المسافرين</string>
+    <string name="price_">السعر</string>
 
 
 </resources>
