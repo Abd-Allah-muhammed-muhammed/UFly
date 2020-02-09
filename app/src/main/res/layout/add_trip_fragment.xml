@@ -468,7 +468,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_mony"
+                            android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                             android:gravity="center"
                             android:hint="@string/price_"
                             android:paddingStart="@dimen/_12"

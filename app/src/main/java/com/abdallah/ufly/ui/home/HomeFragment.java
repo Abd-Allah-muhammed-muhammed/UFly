@@ -31,9 +31,6 @@ public class HomeFragment extends Fragment  {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         binding.setLifecycleOwner(this);
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-
-
-
         binding.progHome.setVisibility(View.VISIBLE);
         fetchData();
 
@@ -41,6 +38,8 @@ public class HomeFragment extends Fragment  {
         return binding.getRoot();
     }
     private void fetchData() {
+
+
         final TripInfoAdapter tripInfoAdapter = new TripInfoAdapter(1);
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));

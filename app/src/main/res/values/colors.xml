@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#455B6A</color>
-    <color name="colorPrimaryDark">#1D3C45</color>
-    <color name="colorAccent">#FBC83C</color>
+    <color name="colorPrimary">#12262C</color>
+    <color name="colorPrimaryDark">#12262C</color>
+    <color name="colorAccent">#FEAD50</color>
     <color name="white">#ffffff</color>
-    <color name="blow">#1E8DFF</color>
-    <color name="yalow">#FBC83C</color>
     <color name="trans">#54FFFFFF</color>
     <color name="dark">#12262C</color>
 
     <color name="bag">#E8E8EA</color>
-    <color name="color1">#E170A4</color>
     <color name="color2">#71E188</color>
     <color name="color3">#FEAD50</color>
-    <color name="color4">#5ADAF0</color>
     <color name="color5">#E8E8EA</color>
 
 

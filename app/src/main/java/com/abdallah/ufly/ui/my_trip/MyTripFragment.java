@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +21,12 @@ import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.payCash.PayCashQRActivity;
+import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity;
+import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
+import static android.app.Activity.RESULT_OK;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
+import static com.abdallah.ufly.ui.payCash.PayCashQRActivity.PAY;
 
 public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  , View.OnClickListener {
     private MyTripViewModel mViewModel;
@@ -31,6 +36,8 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
     MyTripFragmentBinding binding;
     private String token;
     private String qr;
+    private boolean CASH;
+    private double PRICE;
 
     public static MyTripFragment newInstance() {
         return new MyTripFragment();
@@ -79,6 +86,9 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
             binding.setMyTrip(response);
             int isPaid = response.getIsPaid();
 
+
+            PRICE =Double.parseDouble(response.getPrice());
+
             qr = response.getDataCompany().getQr();
 
 
@@ -89,8 +99,18 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
                 binding.myTripCancel.setImageResource(R.drawable.ic_complete);
                 binding.myTripCancel.setClickable(false);
 
+
+
             }else {
 
+                if (response.getIdPayment().equals("Cash")) {
+
+                    CASH = true;
+                }else if (response.getIdPayment().equals("Visa")){
+
+                    CASH = false;
+
+                }
                 binding.myTripIsPaid.setText(R.string.not_paid);
             }
         }else {
@@ -122,7 +142,6 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
 
             case R.id.my_trip_cancel :
                 mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip ,myTripResponse.getData().getIdTrip());
-                mViewModel.getMyTrip(token);
 
                 break;
 
@@ -135,14 +154,65 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
             case R.id.my_trip_pay_now:
 
 
-                Intent intent = new Intent(getContext(), PayCashQRActivity.class);
-                intent.putExtra("qr",qr);
-                startActivity(intent);
+
+                if (CASH){
+
+                    Intent intent = new Intent(getContext(), PayCashQRActivity.class);
+                    intent.putExtra("qr",qr);
+                    startActivity(intent);
+
+                }else {
+startactivityPAymentVisa(PRICE);
+
+                }
 
 
                 break;
 
         }
+    }
+
+    private void startactivityPAymentVisa( double price) {
+
+
+        Intent in = new Intent(getContext(), PayTabActivity.class);
+        in.putExtra(PaymentParams.MERCHANT_EMAIL, "abd_allah_kshaf@icloud.com"); //this a demo account for testing the sdk
+        in.putExtra(PaymentParams.SECRET_KEY,"9pfpbnaxshV3XhBtXX66TXRiQ97aAydJYs9aQjIjADnyVY2TW90P6R8X0g7APlkOOuYENHXoklXgjZ9g895e0ec0vjBkEV8tp77d");//Add your Secret Key Here
+        in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
+        in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
+        in.putExtra(PaymentParams.AMOUNT, price);
+        in.putExtra(PaymentParams.ARABIC, "ar");
+
+        in.putExtra(PaymentParams.CURRENCY_CODE, "EGP");
+        in.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733");
+        in.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com");
+        in.putExtra(PaymentParams.ORDER_ID, "123456");
+        in.putExtra(PaymentParams.PRODUCT_NAME, "Product 1, Product 2");
+
+//Billing Address
+        in.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345");
+        in.putExtra(PaymentParams.CITY_BILLING, "Mansoura");
+        in.putExtra(PaymentParams.STATE_BILLING, "Mansoura");
+        in.putExtra(PaymentParams.COUNTRY_BILLING, "BHR");
+        in.putExtra(PaymentParams.POSTAL_CODE_BILLING, "0020"); //Put Country Phone code if Postal code not available '00973'
+//
+////Shipping Address
+//        in.putExtra(PaymentParams.ADDRESS_SHIPPING, "Flat 1,Building 123, Road 2345");
+//        in.putExtra(PaymentParams.CITY_SHIPPING, "Manama");
+//        in.putExtra(PaymentParams.STATE_SHIPPING, "Manama");
+//        in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
+//        in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
+
+//Payment Page Style
+        in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#FEAD50");
+
+//Tokenization
+        in.putExtra(PaymentParams.IS_TOKENIZATION, false);
+//PreAuth
+        in.putExtra(PaymentParams.IS_PREAUTH, false);
+
+        startActivityForResult(in, PaymentParams.PAYMENT_REQUEST_CODE);
+
     }
 
 
@@ -152,4 +222,29 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
         mViewModel.getMyTrip(token);
 
     }
+
+
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
+
+
+            mViewModel.pay(token,PAY , getActivity());
+
+
+            Log.i("Tag"," successful_"+data.getStringExtra(PaymentParams.RESULT_MESSAGE));
+//            Log.e("Tag", data.getStringExtra(PaymentParams.TRANSACTION_ID));
+            if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN).isEmpty()) {
+
+
+
+            }
+        }
+    }
+
+
 }

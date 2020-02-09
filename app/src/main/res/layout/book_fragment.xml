@@ -34,7 +34,7 @@
             android:textSize="@dimen/_24_sp"
             android:layout_marginEnd="@dimen/_12"
             android:drawablePadding="@dimen/_4"
-            android:drawableEnd="@drawable/ic_mony"
+            android:drawableEnd="@drawable/ic_attach_money_black_24dp"
             android:id="@+id/text_chose"
             android:layout_marginTop="@dimen/_50"
             android:gravity="center"

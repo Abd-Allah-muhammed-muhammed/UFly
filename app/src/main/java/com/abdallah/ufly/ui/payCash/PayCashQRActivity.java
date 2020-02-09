@@ -35,7 +35,7 @@ public class PayCashQRActivity extends AppCompatActivity implements ZBarScannerV
     private int requestcode = 1;
     private String qr;
     PrefManager prefManager;
-    private  static  final int PAY = 1;
+    public static  final int PAY = 1;
 
     public static PayCashQRActivity newInstance() {
         return new PayCashQRActivity();

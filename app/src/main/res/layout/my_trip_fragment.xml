@@ -251,7 +251,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_8"
                     android:layout_marginBottom="@dimen/_30"
-                    android:drawableEnd="@drawable/ic_mony"
+                    android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                     android:drawablePadding="@dimen/_8"
                     android:text="@{my_trip.data.price.toString()}"
                     android:textColor="@color/dark"

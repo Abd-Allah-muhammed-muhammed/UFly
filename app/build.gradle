@@ -77,4 +77,10 @@ dependencies {
     implementation 'me.dm7.barcodescanner:zbar:1.9.8'
 
 
+    // visa
+    // using pay tap now just for test or just  for this version
+    implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
+    implementation project(path: ':paytabs_sdk-v4.0.1')
+
+
 }

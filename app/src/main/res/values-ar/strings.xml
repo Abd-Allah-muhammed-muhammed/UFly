@@ -5,11 +5,11 @@
     <string name="start">هيا بنا</string>
 
 
-    <string name="world_travel">استكشف العالم</string>
-    <string name="world_travel_desc">احجز اي تذكره الان واستكشف العالم!</string>
+    <string name="world_travel">استكشف عالمك</string>
+    <string name="world_travel_desc">احجز اي تذكره الان واستكشف عالمك!</string>
 
     <string name="play_again">Play Again</string>
-    <string name="safety">we want you to be sure that   </string>
+    <string name="safety">استمتع مع يوفلاي</string>
     <string name="login_into_n_your_account">تسجيل الدخول</string>
     <string name="your_phone">رقم الهاتف</string>
     <string name="forget_password">نسيت كلمة المرور ؟</string>

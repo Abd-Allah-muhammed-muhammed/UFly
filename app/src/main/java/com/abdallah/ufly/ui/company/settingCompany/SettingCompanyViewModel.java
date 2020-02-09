@@ -36,7 +36,7 @@ public class SettingCompanyViewModel extends ViewModel {
 
         SettingModel    settingModel1 = new SettingModel(userName, R.drawable.ic_back_right_24dp , R.drawable.ic_person_orange_24dp , Color.parseColor("#E8E8EA"));
         SettingModel  settingModel2 = new SettingModel(context.getString(R.string.try_gold_ufly),R.drawable.ic_back_right_24dp , R.drawable.ic_smal_logo, Color.parseColor("#E8E8EA"));
-        SettingModel  settingModel3 = new SettingModel(context.getString(R.string.general),R.drawable.ic_back_right_24dp , R.drawable.ic_settings_black_24dp,Color.parseColor("#E8E8EA"));
+        SettingModel  settingModel3 = new SettingModel(context.getString(R.string.general),R.drawable.ic_back_right_24dp , R.drawable.ic_settings,Color.parseColor("#E8E8EA"));
         SettingModel  settingModel4 = new SettingModel(context.getString(R.string.helps),R.drawable.ic_back_right_24dp , R.drawable.ic_info_outline_orange_24dp,Color.parseColor("#E8E8EA"));
         SettingModel  settingModel5 = new SettingModel(context.getString(R.string.connect_us),R.drawable.ic_back_right_24dp , R.drawable.ic_connect_us, Color.parseColor("#E8E8EA"));
         SettingModel  settingModel6 = new SettingModel(context.getString(R.string.log_out),0, R.drawable.ic_back, Color.parseColor("#FEAD50"));
