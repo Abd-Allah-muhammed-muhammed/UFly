@@ -46,17 +46,22 @@
                 android:elevation="10dp" />
 
 
+
+
             <RelativeLayout
-                android:layout_margin="@dimen/_18"
+                android:background="@color/dark_"
+                android:layout_marginBottom="@dimen/_16"
                 android:id="@+id/layout_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
                 <EditText
+                    android:layout_marginBottom="@dimen/_4"
                     android:drawablePadding="@dimen/_8"
                     android:imeOptions="actionSearch"
                     android:drawableStart="@drawable/ic_search"
                     android:hint="@string/search_by_your_city"
+                    android:textColorHint="@color/white"
                     android:inputType="text"
                     android:lines="1"
                     android:id="@+id/searchTrip"
@@ -64,11 +69,22 @@
                     android:backgroundTintMode="screen"
                     android:showDividers="beginning"
                     android:layout_marginTop="@dimen/_4"
-                    android:background="@drawable/bg_btn_book_whit"
-                    android:layout_width="match_parent"
+                    android:background="@drawable/bg_desc_stock"
+                    android:layout_width="@dimen/_300"
                     android:layout_height="@dimen/_50"
-                    android:layout_marginStart="@dimen/_18"
-                    android:layout_marginEnd="@dimen/_18" />
+                    android:layout_marginStart="@dimen/_4"
+                    android:layout_marginEnd="@dimen/_4" />
+
+
+                <ImageView
+                    android:layout_marginStart="@dimen/_30"
+                    android:layout_marginEnd="@dimen/_30"
+                    android:layout_toEndOf="@+id/searchTrip"
+                    android:layout_width="@dimen/_30"
+                    android:layout_height="@dimen/_30"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_smal_logo_green"/>
 
             </RelativeLayout>
 

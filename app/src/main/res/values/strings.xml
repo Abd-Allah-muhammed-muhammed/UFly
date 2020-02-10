@@ -104,7 +104,7 @@
     <string name="number_passenger">Number Of Passengers \n and price</string>
     <string name="this_trip_has_no_passengers_yet">this Trip has no Passengers yet</string>
     <string name="booked">BOOKED</string>
-    <string name="available_chair">CHAIR AVAILABLE</string>
+    <string name="available_chair">AVAILABLE</string>
     <string name="complete">COMPLETE</string>
     <string name="time_in">TIME IN</string>
     <string name="time_out">TIME OUT</string>

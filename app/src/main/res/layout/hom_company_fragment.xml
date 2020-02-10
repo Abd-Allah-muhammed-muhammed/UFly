@@ -8,7 +8,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <androidx.appcompat.widget.ActionMenuView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50"
+            android:background="@color/dark_"
+            android:id="@+id/action_bar">
+
+
+            <TextView
+                android:drawablePadding="@dimen/_16"
+                android:drawableStart="@drawable/ic_smal_logo_green"
+                android:fontFamily="sans-serif-thin"
+                android:textSize="@dimen/_20s"
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+
+
+        </androidx.appcompat.widget.ActionMenuView>
+
         <RelativeLayout
+            android:layout_below="@+id/action_bar"
             android:id="@+id/layout_rv_data"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,21 +55,12 @@
 
 
             <RelativeLayout
+                android:layout_marginTop="@dimen/_8"
                 android:id="@+id/layout_search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_18">
+                android:layout_height="wrap_content">
 
-                <SearchView
 
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50"
-                    android:layout_marginStart="@dimen/_18"
-                    android:layout_marginTop="@dimen/_4"
-                    android:layout_marginEnd="@dimen/_18"
-                    android:background="@drawable/bg_btn_book_whit"
-                    android:backgroundTintMode="screen"
-                    android:showDividers="beginning" />
 
             </RelativeLayout>
 
