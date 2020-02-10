@@ -120,6 +120,7 @@
     <string name="wrong_qr_code">خاطئ QR Code</string>
     <string name="number_passenger_">عدد المسافرين</string>
     <string name="price_">السعر</string>
+    <string name="search_by_your_city">ابحث باسم مدينتك</string>
 
 
 </resources>

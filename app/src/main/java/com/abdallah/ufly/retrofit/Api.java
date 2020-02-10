@@ -17,6 +17,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import io.reactivex.annotations.Nullable;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -44,7 +45,7 @@ public interface Api {
 
 
     @GET("trips.php")
-    Observable<List<TripsResponse>> getAllTrips();
+    Observable<List<TripsResponse>> getAllTrips(@Nullable @Query("query")String query );
 
 
     @GET("my_trips.php")

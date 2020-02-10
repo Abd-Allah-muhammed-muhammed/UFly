@@ -26,11 +26,18 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, TextView noTrip) {
+    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, TextView noTrip,String query) {
 
 
-        return   repository.getTrips(progHome, noTrip);
+        return   repository.getTrips(progHome, noTrip,query);
 
 
     }
+
+
+
+
+
+
+
 }

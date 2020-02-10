@@ -119,5 +119,9 @@
     <string name="wrong_qr_code">Wrong QR Code</string>
     <string name="number_passenger_">Number of Passengers</string>
     <string name="price_">Price</string>
+    <string name="sk_id" translatable="false">9pfpbnaxshV3XhBtXX66TXRiQ97aAydJYs9aQjIjADnyVY2TW90P6R8X0g7APlkOOuYENHXoklXgjZ9g895e0ec0vjBkEV8tp77d</string>
+    <string name="myemail" translatable="false">abd_allah_kshaf@icloud.com</string>
+    <string name="egp" translatable="false">EGP</string>
+    <string name="search_by_your_city">SEARCH BY YOUR CITY</string>
 
 </resources>

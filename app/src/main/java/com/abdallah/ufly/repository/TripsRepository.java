@@ -58,14 +58,14 @@ public class TripsRepository {
 
 
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final TextView noTrip) {
+    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final TextView noTrip , final String query) {
 
 data = new MutableLiveData<>();
 //
 
         api = ApiClient.getClient().create(Api.class);
 //
-        api.getAllTrips().subscribeOn(io())
+        api.getAllTrips(query).subscribeOn(io())
                 .observeOn(mainThread())
                 .subscribeWith(new Observer<List<TripsResponse>>() {
                     @Override
@@ -77,11 +77,16 @@ data = new MutableLiveData<>();
                     public void onNext(List<TripsResponse> tripsResponses) {
 
 
-                        if (tripsResponses.isEmpty()){
 
-                            noTrip.setVisibility(View.VISIBLE);
+                        if (query.equals("")){
 
+                            if (tripsResponses.isEmpty()){
+
+                                noTrip.setVisibility(View.VISIBLE);
+
+                            }
                         }
+
                         progHome.setVisibility(View.GONE);
 
                         data.setValue(tripsResponses);
@@ -91,7 +96,7 @@ data = new MutableLiveData<>();
                     @Override
                     public void onError(Throwable e) {
 
-                        noTrip.setVisibility(View.VISIBLE);
+//                        noTrip.setVisibility(View.VISIBLE);
 
                         progHome.setVisibility(View.GONE);
 

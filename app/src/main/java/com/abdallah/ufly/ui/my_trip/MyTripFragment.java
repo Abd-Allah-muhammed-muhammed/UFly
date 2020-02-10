@@ -176,25 +176,25 @@ startactivityPAymentVisa(PRICE);
 
 
         Intent in = new Intent(getContext(), PayTabActivity.class);
-        in.putExtra(PaymentParams.MERCHANT_EMAIL, "abd_allah_kshaf@icloud.com"); //this a demo account for testing the sdk
-        in.putExtra(PaymentParams.SECRET_KEY,"9pfpbnaxshV3XhBtXX66TXRiQ97aAydJYs9aQjIjADnyVY2TW90P6R8X0g7APlkOOuYENHXoklXgjZ9g895e0ec0vjBkEV8tp77d");//Add your Secret Key Here
+        in.putExtra(PaymentParams.MERCHANT_EMAIL, getString(R.string.myemail)); //this a demo account for testing the sdk
+        in.putExtra(PaymentParams.SECRET_KEY,getString(R.string.sk_id));//Add your Secret Key Here
         in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
-        in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
         in.putExtra(PaymentParams.AMOUNT, price);
         in.putExtra(PaymentParams.ARABIC, "ar");
-
         in.putExtra(PaymentParams.CURRENCY_CODE, "EGP");
-        in.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733");
-        in.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com");
-        in.putExtra(PaymentParams.ORDER_ID, "123456");
-        in.putExtra(PaymentParams.PRODUCT_NAME, "Product 1, Product 2");
+
+        // customer info
+//        in.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733");
+//        in.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com");
+//        in.putExtra(PaymentParams.ORDER_ID, "123456");
+//        in.putExtra(PaymentParams.PRODUCT_NAME, "Product 1, Product 2");
 
 //Billing Address
-        in.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345");
-        in.putExtra(PaymentParams.CITY_BILLING, "Mansoura");
-        in.putExtra(PaymentParams.STATE_BILLING, "Mansoura");
-        in.putExtra(PaymentParams.COUNTRY_BILLING, "BHR");
-        in.putExtra(PaymentParams.POSTAL_CODE_BILLING, "0020"); //Put Country Phone code if Postal code not available '00973'
+//        in.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345");
+//        in.putExtra(PaymentParams.CITY_BILLING, "Mansoura");
+//        in.putExtra(PaymentParams.STATE_BILLING, "Mansoura");
+//        in.putExtra(PaymentParams.COUNTRY_BILLING, "BHR");
+//        in.putExtra(PaymentParams.POSTAL_CODE_BILLING, "0020"); //Put Country Phone code if Postal code not available '00973'
 //
 ////Shipping Address
 //        in.putExtra(PaymentParams.ADDRESS_SHIPPING, "Flat 1,Building 123, Road 2345");
@@ -204,7 +204,7 @@ startactivityPAymentVisa(PRICE);
 //        in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
 
 //Payment Page Style
-        in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#FEAD50");
+        in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#12262C");
 
 //Tokenization
         in.putExtra(PaymentParams.IS_TOKENIZATION, false);

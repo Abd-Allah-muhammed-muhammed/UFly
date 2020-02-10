@@ -5,6 +5,14 @@
     >
 
 
+    <data>
+
+
+        <variable
+            name="search"
+            type="com.abdallah.ufly.ui.home.HomeViewModel" />
+    </data>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,7 +52,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-                <SearchView
+                <EditText
+                    android:drawablePadding="@dimen/_8"
+                    android:imeOptions="actionSearch"
+                    android:drawableStart="@drawable/ic_search"
+                    android:hint="@string/search_by_your_city"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:id="@+id/searchTrip"
+                    android:padding="@dimen/_8"
                     android:backgroundTintMode="screen"
                     android:showDividers="beginning"
                     android:layout_marginTop="@dimen/_4"

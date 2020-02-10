@@ -44,6 +44,7 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
     public TripInfoAdapter(int id) {
 
         this.id = id;
+        notifyDataSetChanged();
     }
 
     @SuppressLint("SetTextI18n")
