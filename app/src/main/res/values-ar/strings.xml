@@ -122,6 +122,12 @@
     <string name="price_">السعر</string>
     <string name="search_by_your_city">ابحث باسم مدينتك</string>
     <string name="no_intrnet">لا يوحد انترنت</string>
+    <string name="emailverification">email verification</string>
+    <string name="email_verification">تفعيل الاميل</string>
+    <string name="enter_your_verification_id">ادخل رقم تفعيل الاميل خاصتك</string>
+    <string name="check">تاكد</string>
+    <string name="wrong_code">كود خاطئ</string>
+    <string name="please_enter_a_valid_code">من فضلك ادخل الكود الصحيح المكون من 6 ارقام</string>
 
 
 </resources>

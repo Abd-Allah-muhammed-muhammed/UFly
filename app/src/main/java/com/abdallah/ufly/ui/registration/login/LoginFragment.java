@@ -95,10 +95,26 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
             prefManager.saveToken(response.getData().getUuid());
             StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
-            startActivity(new Intent(getContext(), HomeActivity.class));
             prefManager.setIsLoged(true);
             prefManager.setIslogedCompany(false);
             prefManager.removeIdCompany();
+
+            prefManager.saveIDValidition(response.getData().getId_mail_valid());
+
+            int is_mail_valid = response.getData().getIs_mail_valid();
+
+            if (is_mail_valid!=0){
+
+                prefManager.setIsValidMail(true);
+
+            }else {
+                prefManager.setIsValidMail(false);
+
+
+            }
+
+            startActivity(new Intent(getContext(), HomeActivity.class));
+
         }else {
 
             prefManager.setIsLoged(false);

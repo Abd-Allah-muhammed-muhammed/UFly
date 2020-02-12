@@ -123,7 +123,13 @@
     <string name="myemail" translatable="false">abd_allah_kshaf@icloud.com</string>
     <string name="egp" translatable="false">EGP</string>
     <string name="search_by_your_city">SEARCH BY YOUR CITY</string>
-    <string name="content_description_base_dialog_icon">content_description_base_dialog_icon</string>
+    <string name="content_description_base_dialog_icon" translatable="false">content_description_base_dialog_icon</string>
     <string name="no_intrnet">NO INTERNET</string>
+    <string name="emailverification">email verification</string>
+    <string name="email_verification">EMAIL VERIFICATION</string>
+    <string name="enter_your_verification_id">ENTER YOUR VERIFICATION</string>
+    <string name="check">CHECK</string>
+    <string name="wrong_code">WRONG CODE</string>
+    <string name="please_enter_a_valid_code">PLEASE ENTER A VALID CODE CONTAIN 6 NUMBERS</string>
 
 </resources>

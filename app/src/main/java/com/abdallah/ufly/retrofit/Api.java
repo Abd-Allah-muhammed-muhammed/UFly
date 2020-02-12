@@ -5,6 +5,7 @@ import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.cashPay.CashPay;
 import com.abdallah.ufly.model.company_info.CompanyAccountResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
+import com.abdallah.ufly.model.emailvalidetion.EmailVerificationModel;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
@@ -108,4 +109,9 @@ public interface Api {
     @GET("my_info_company.php")
     Observable<CompanyAccountResponse> getMyinfoCompany(@Query("company_id") String company_id);
 
+
+
+    @FormUrlEncoded
+    @POST("valid_mail.php")
+    Single<EmailVerificationModel> checkCodeEmail(@Field("id_mail_valid") String id_mail_valid);
 }

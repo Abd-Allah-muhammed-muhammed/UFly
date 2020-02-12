@@ -1,7 +1,6 @@
 package com.abdallah.ufly.ui.description;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +15,10 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
+import com.abdallah.ufly.ui.email_verification.EmailVerificationFragment;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
-
-import java.util.List;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
@@ -30,9 +28,10 @@ public class TripDescriptionFragment extends Fragment {
 
 
     TripDescriptionFragmentBinding binding ;
-    private int id_includse;
     private int tripId;
     private int numberAvailability;
+
+    private PrefManager prefManager;
 
     public static TripDescriptionFragment newInstance() {
         return new TripDescriptionFragment();
@@ -52,6 +51,8 @@ public class TripDescriptionFragment extends Fragment {
             }
         });
 
+
+        prefManager = new PrefManager(getContext());
 
         tripId = getArguments().getInt("TripId",0);
 
@@ -82,15 +83,33 @@ public class TripDescriptionFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                BookFragment bookFragment = new BookFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt("trip_id",tripId);
-                bundle.putString("id_comp",id_comp);
-                bundle.putString(getString(R.string.price),binding.countPrice.getText().toString());
-                bundle.putString("number",binding.countPassenger.getText().toString().trim());
 
-                bookFragment.setArguments(bundle);
-                replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_book));
+                if (prefManager.isvalidMAil()) {
+
+
+                    BookFragment bookFragment = new BookFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("trip_id",tripId);
+                    bundle.putString("id_comp",id_comp);
+                    bundle.putString(getString(R.string.price),binding.countPrice.getText().toString());
+                    bundle.putString("number",binding.countPassenger.getText().toString().trim());
+
+                    bookFragment.setArguments(bundle);
+                    replace(bookFragment,R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_book));
+
+
+                }else {
+
+
+                    EmailVerificationFragment fragment = new EmailVerificationFragment();
+
+                    replace(fragment,R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.emailverification));
+
+
+
+                }
+
+
 
             }
         });

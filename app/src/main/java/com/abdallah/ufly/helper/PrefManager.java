@@ -20,6 +20,8 @@ public class PrefManager {
     private static final String ISLOGED_COMPANY = "is_loged_company";
     private static final String ID_COMPANY = "id_company";
     private static final String QR  = "qr";
+    private static final String IS_VALID_MAIL  = "IS_VALID_MAIL";
+    private static final String ID_VALIDATION  = "ID_VALIDATION";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -47,12 +49,38 @@ public class PrefManager {
     }
 
 
+ public void saveIDValidition(String id) {
+        editor.putString(ID_VALIDATION, id);
+        editor.commit();
+    }
+
+
     public String getToken() {
 
         return pref.getString(TOKEN, "");
 
     }
 
+
+    public String getIdValidation() {
+
+        return pref.getString(ID_VALIDATION, "");
+
+    }
+
+
+ public boolean isvalidMAil() {
+
+        return pref.getBoolean(IS_VALID_MAIL, false);
+
+
+    }
+
+
+    public void setIsValidMail(boolean isValidMail) {
+        editor.putBoolean(IS_VALID_MAIL, isValidMail);
+        editor.commit();
+    }
 
     public String getQr() {
 

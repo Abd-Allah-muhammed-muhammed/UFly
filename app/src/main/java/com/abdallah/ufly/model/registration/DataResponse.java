@@ -22,6 +22,33 @@ public class DataResponse {
     @Expose
     private String address;
 
+
+    @SerializedName("id_mail_valid")
+    @Expose
+    private String id_mail_valid;
+
+
+  @SerializedName("is_mail_valid")
+    @Expose
+    private int is_mail_valid;
+
+    public String getId_mail_valid() {
+        return id_mail_valid;
+    }
+
+    public void setId_mail_valid(String id_mail_valid) {
+        this.id_mail_valid = id_mail_valid;
+    }
+
+
+    public int getIs_mail_valid() {
+        return is_mail_valid;
+    }
+
+    public void setIs_mail_valid(int is_mail_valid) {
+        this.is_mail_valid = is_mail_valid;
+    }
+
     public String getUuid() {
         return uuid;
     }

@@ -159,6 +159,7 @@ public class SignUpViewModel extends ViewModel {
             @Override
             public void onResponse(Call<RegistarResponse> call, Response<RegistarResponse> response) {
 
+                prefManager = new PrefManager(view.getContext());
 
                 progress.setValue(8);
                 signText.setValue(view.getContext().getString(R.string.sign_up));
@@ -168,18 +169,29 @@ public class SignUpViewModel extends ViewModel {
                     StyleableToast.makeText(view.getContext(), response.body().getMessage(), Toast.LENGTH_LONG, R.style.success).show();
 
                     String uuid = response.body().getData().getUuid();
-                    prefManager = new PrefManager(view.getContext());
                     prefManager.saveToken(uuid);
                     prefManager.setIsLoged(true);
                     prefManager.setIslogedCompany(false);
                     prefManager.removeIdCompany();
+                    prefManager.saveIDValidition(response.body().getData().getId_mail_valid());
+
+                    int is_mail_valid = response.body().getData().getIs_mail_valid();
+
+                    if (is_mail_valid!=0){
+
+                        prefManager.setIsValidMail(true);
+
+                    }else {
+                        prefManager.setIsValidMail(false);
+
+
+                    }
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);
 
 
                 } else {
-                    prefManager = new PrefManager(view.getContext());
 
                     prefManager.setIsLoged(false);
 

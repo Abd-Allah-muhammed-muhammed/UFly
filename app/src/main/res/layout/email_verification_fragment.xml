@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+
+    <data>
+
+        <variable
+            name="emailV"
+            type="com.abdallah.ufly.ui.email_verification.EmailVerificationViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        tools:context=".ui.my_account.MyAccountFragment">
+
+
+        <ImageButton
+            android:id="@+id/back"
+            android:background="@drawable/ic_back"
+            android:layout_width="@dimen/_50"
+            android:layout_height="@dimen/_50"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp" />
+
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="@dimen/_24_sp"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/_8"
+            android:id="@+id/text_info_acc"
+            android:layout_below="@+id/back"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_verification"/>
+
+
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/_40"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/text_info_acc"
+            android:src="@drawable/ic_logo"
+            android:id="@+id/my_acc_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <RelativeLayout
+            android:layout_below="@+id/my_acc_img"
+            android:id="@+id/layout_full_name"
+            android:paddingEnd="@dimen/_40"
+            android:paddingStart="@dimen/_40"
+            android:layout_marginTop="@dimen/_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:onTextChanged="@{emailV::setID}"
+
+                android:background="@drawable/bg_btn_book_whit"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_40"
+                android:id="@+id/my_acc_full_name"
+                android:textSize="@dimen/_18s"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/dark"
+                android:hint="@string/enter_your_verification_id"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60"/>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+        <Button
+            android:onClick="@{(view)-> emailV.chick(view)}"
+            android:layout_marginTop="@dimen/_40"
+            android:layout_below="@+id/layout_full_name"
+            android:id="@+id/my_acc_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginEnd="@dimen/_40"
+            android:layout_marginBottom="@dimen/_20"
+            android:background="@drawable/bg_btn_book_orange"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18s"
+            android:textStyle="bold" />
+
+
+        <ProgressBar
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/my_acc_done"
+            android:visibility="gone"
+            android:id="@+id/prog_myAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/color3" />
+
+
+    </RelativeLayout>
+
+</layout>
