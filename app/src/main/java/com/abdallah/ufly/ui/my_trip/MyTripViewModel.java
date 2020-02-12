@@ -6,9 +6,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.cashPay.CashPay;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
@@ -39,7 +41,7 @@ public class MyTripViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void getMyTrip(String token){
+    public void getMyTrip(String token , final ProgressBar progressBar){
 
 
         api.getMyTrips(token).subscribeOn(io()).observeOn(mainThread())
@@ -53,11 +55,14 @@ public class MyTripViewModel extends ViewModel {
                     public void onNext(MyTripResponse myTripResponse) {
 
                         callBacks.response(myTripResponse);
+                        progressBar.setVisibility(View.GONE);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
 
+                        progressBar.setVisibility(View.GONE);
                         callBacks.onError(e.getMessage());
                     }
 
@@ -73,7 +78,7 @@ public class MyTripViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void cancelMyTrip(final String token, final ProgressBar progMyTrip , int trip_id) {
+    public void cancelMyTrip(final String token, final ProgressBar progMyTrip , int trip_id , final ProgressBar bar) {
 
 
         progMyTrip.setVisibility(View.VISIBLE);
@@ -88,7 +93,7 @@ public class MyTripViewModel extends ViewModel {
                     public void onSuccess(DelelteMyTripResponse delelteMyTripResponse) {
 
                         progMyTrip.setVisibility(View.GONE);
-                        getMyTrip(token);
+                        getMyTrip(token,bar);
                     }
 
                     @Override
@@ -107,7 +112,7 @@ public class MyTripViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void pay(final String uui_id, int pay, final Activity activity) {
+    public void pay(final String uui_id, int pay, final Activity activity, final ProgressBar progressBar) {
         api = getClient().create(Api.class);
 
         api.cashPay(uui_id,pay).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<CashPay>() {
@@ -119,13 +124,21 @@ public class MyTripViewModel extends ViewModel {
             @Override
             public void onSuccess(CashPay cashPay) {
 
-                StyleableToast.makeText(activity, cashPay.getMsg(), Toast.LENGTH_LONG, R.style.success).show();
-                getMyTrip(uui_id);
+
+                GeneralDialogFragment generalDialogFragment =
+                        GeneralDialogFragment.newInstance(cashPay.getMsg(),cashPay.getMsg(),R.drawable.ic_done);
+                generalDialogFragment.show(((FragmentActivity)activity).getSupportFragmentManager(),"dialog");
+
+                getMyTrip(uui_id,progressBar);
             }
             @Override
             public void onError(Throwable e) {
 
-                StyleableToast.makeText(activity, activity.getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
+
+                GeneralDialogFragment generalDialogFragment =
+                        GeneralDialogFragment.newInstance(activity.getString(R.string.paytabs_err_unknown),activity.getString(R.string.try_again),R.drawable.ic_error);
+                generalDialogFragment.show(((FragmentActivity)activity).getSupportFragmentManager(),"dialog");
+
 
 
             }

@@ -1,52 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-    android:background="@color/color3"
-android:layout_height="@dimen/_250"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/dark"
 
-    >
+    android:layout_height="wrap_content">
 
 
 
     <RelativeLayout
-        android:background="@color/dark"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:layout_margin="@dimen/_8"
+            android:layout_width="@dimen/_50"
+            android:layout_height="@dimen/_50"
+            android:src="@drawable/ic_cancel_black_24dp"
+            android:id="@+id/cancel_dialog"/>
+
+
+
+        <ImageView
+
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"
+            android:layout_below="@+id/cancel_dialog"
+            android:layout_margin="@dimen/_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            app:srcCompat="@drawable/ic_complete" />
+            android:scaleType="center"
+            android:src="@drawable/ic_done"
+            android:id="@+id/icon_dialog"/>
+
 
 
         <TextView
-            android:id="@+id/text_dialog"
-            android:fontFamily="sans-serif-condensed-light"
+            android:textSize="@dimen/_18s"
             android:textStyle="bold"
-            android:textSize="@dimen/_28s"
-            android:textColor="@color/color3"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/complete"/>
+            android:id="@+id/title_dialog"
+            android:layout_below="@+id/icon_dialog"
+            android:textColor="@color/white"
+            android:gravity="center"/>
 
 
-
-
-
+        <TextView
+            android:background="@drawable/bg_desc_stock"
+            android:padding="@dimen/_18"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_18"
+            android:layout_height="wrap_content"
+            android:id="@+id/msg_dialog"
+            android:layout_below="@+id/title_dialog"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/color3"
+            android:gravity="center"/>
 
 
     </RelativeLayout>
-
-
-
-
 
 </RelativeLayout>

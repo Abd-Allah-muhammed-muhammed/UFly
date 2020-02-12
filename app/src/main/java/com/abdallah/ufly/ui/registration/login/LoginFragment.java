@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.registration.login;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.RegistrationFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.ui.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
@@ -68,7 +70,12 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
     @Override
     public void onError(String msg) {
-        StyleableToast.makeText(getContext(), msg, Toast.LENGTH_LONG, R.style.error).show();
+
+
+        GeneralDialogFragment generalDialogFragment =
+                GeneralDialogFragment.newInstance(getString(R.string.paytabs_error),msg,R.drawable.ic_error);
+        generalDialogFragment.show(getFragmentManager(),"dialog");
+
 
 
 
@@ -95,7 +102,12 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
         }else {
 
             prefManager.setIsLoged(false);
-            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
+
+
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.paytabs_error),response.getMessage(),R.drawable.ic_error);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
         }
 
 

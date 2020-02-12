@@ -75,6 +75,7 @@
 
 
             <CheckedTextView
+                android:visibility="gone"
                 android:id="@+id/book_visa"
                 android:layout_width="@dimen/_170"
                 android:layout_height="@dimen/_70"

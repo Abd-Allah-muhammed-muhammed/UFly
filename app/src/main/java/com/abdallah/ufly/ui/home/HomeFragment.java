@@ -22,14 +22,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 
-public class HomeFragment extends Fragment  {
+
+public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
 
@@ -43,8 +46,28 @@ public class HomeFragment extends Fragment  {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.progHome.setVisibility(View.VISIBLE);
 
-        fetchData();
-        searchTrip();
+
+
+
+        if (!isNetworkAvailable(getContext())){
+
+
+            binding.noTrip.setVisibility(View.VISIBLE);
+            binding.noTrip.setText(getString(R.string.paytabs_err_no_internet));
+
+
+            binding.progHome.setVisibility(View.GONE);
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet),getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
+        }else {
+            fetchData();
+            searchTrip();
+        }
+
+
+
 
         return binding.getRoot();
     }
@@ -128,5 +151,6 @@ public class HomeFragment extends Fragment  {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 
 }

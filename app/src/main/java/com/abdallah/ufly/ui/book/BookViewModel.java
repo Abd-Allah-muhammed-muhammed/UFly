@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -31,6 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
@@ -70,25 +72,43 @@ public class BookViewModel extends ViewModel {
     public void booking (View view){
 
 
+        Context mContext = view.getContext();
+        if (!isNetworkAvailable(mContext)){
 
-        if (ID_PAYMENT .equals("0")) {
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(mContext.getString(R.string.no_intrnet),mContext.getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
 
-            String msg = "check your way to pay first";
-            StyleableToast.makeText(view.getContext(), msg, Toast.LENGTH_LONG, R.style.error).show();
+
 
 
         }else {
 
-            prefManager = new PrefManager(view.getContext());
-            String token = prefManager.getToken();
-            int  trip_id = bundle.getInt("trip_id");
-            String price = bundle.getString("price");
-            String number = bundle.getString("number");
-            String id_comp = bundle.getString("id_comp");
 
-            bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number,id_comp,view.getContext());
+
+            if (ID_PAYMENT .equals("0")) {
+
+                String msg = "check your way to pay first";
+                StyleableToast.makeText(view.getContext(), msg, Toast.LENGTH_LONG, R.style.error).show();
+
+
+            }else {
+
+                prefManager = new PrefManager(view.getContext());
+                String token = prefManager.getToken();
+                int  trip_id = bundle.getInt("trip_id");
+                String price = bundle.getString("price");
+                String number = bundle.getString("number");
+                String id_comp = bundle.getString("id_comp");
+
+                bookNow(String.valueOf(trip_id),token,ID_PAYMENT,price,number,id_comp,view.getContext());
+
+            }
 
         }
+
+
+
 
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.company.hom.HomCompanyActivity;
 import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
@@ -16,7 +17,7 @@ import com.abdallah.ufly.ui.registration.RegistrationActivity;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class LoginCompanyActivity extends AppCompatActivity {
+public class LoginCompanyActivity extends AppCompatActivity implements GeneralDialogFragment.OnDialogFragmentClickListener {
 
     PrefManager prefManager ;
     @Override
@@ -55,5 +56,10 @@ public class LoginCompanyActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public void onOkClicked(GeneralDialogFragment dialog) {
+        dialog.dismiss();
     }
 }

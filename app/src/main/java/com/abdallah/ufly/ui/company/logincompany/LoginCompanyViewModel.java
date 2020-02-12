@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.company.logincompany;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,11 +9,13 @@ import android.widget.ProgressBar;
 import android.widget.TextSwitcher;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.ui.company.hom.HomCompanyActivity;
@@ -21,6 +24,7 @@ import com.muddzdev.styleabletoast.StyleableToast;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.retrofit.ApiClient.getClient;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
@@ -50,18 +54,29 @@ public class LoginCompanyViewModel extends ViewModel {
     public void loginCompany(View view){
 
 
+        Context context = view.getContext();
+        if (!isNetworkAvailable(context)) {
 
-        if (TextUtils.isEmpty(id_company.getValue())){
-
-            StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.inter_your_company_id), Toast.LENGTH_LONG, R.style.error_company).show();
-
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(context.getString(R.string.no_intrnet),context.getString(R.string.paytabs_err_no_internet), R.drawable.ic_no_internet);
+            generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
 
         }else {
+            if (TextUtils.isEmpty(id_company.getValue())){
+
+                StyleableToast.makeText(view.getContext(), view.getContext().getString(R.string.inter_your_company_id), Toast.LENGTH_LONG, R.style.error_company).show();
 
 
-            login(id_company.getValue(),view );
+            }else {
+
+
+                login(id_company.getValue(),view );
+
+            }
 
         }
+
+
 
 
 

@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomCompanyBinding;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
 import com.abdallah.ufly.ui.company.logincompany.LoginCompanyActivity;
 import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
@@ -21,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class HomCompanyActivity extends AppCompatActivity  {
+public class HomCompanyActivity extends AppCompatActivity  implements GeneralDialogFragment.OnDialogFragmentClickListener {
 
     ActivityHomCompanyBinding binding;
     @Override
@@ -54,6 +55,12 @@ public class HomCompanyActivity extends AppCompatActivity  {
 
 
 
+    }
+
+    @Override
+    public void onOkClicked(GeneralDialogFragment dialog) {
+
+        dialog.dismiss();
     }
 
 //

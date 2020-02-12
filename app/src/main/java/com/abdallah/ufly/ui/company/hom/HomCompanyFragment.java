@@ -21,6 +21,7 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.HomCompanyFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
 import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
@@ -29,6 +30,7 @@ import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class HomCompanyFragment extends Fragment implements  View.OnClickListener {
@@ -50,8 +52,22 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
         prefManager = new PrefManager(getContext());
         String id_company = prefManager.getID_Company();
-        fetchData(id_company ,binding.progHome,binding.noTrip);
 
+
+        if (!isNetworkAvailable(getContext())) {
+
+
+            binding.progHome.setVisibility(View.GONE);
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet), getString(R.string.paytabs_err_no_internet), R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(), "dialog");
+
+        }else {
+
+            fetchData(id_company ,binding.progHome,binding.noTrip);
+
+
+        }
 
         binding.addFbTrip.setOnClickListener(this);
         binding.settingFb.setOnClickListener(this);

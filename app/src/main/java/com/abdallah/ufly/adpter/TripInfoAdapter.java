@@ -3,6 +3,7 @@ package com.abdallah.ufly.adpter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemTripsBinding;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
@@ -85,12 +87,11 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     if (tripInfo.getIs_complete()!=0){
 
 
-                        // TODO: 30/01/20  create class dialog
 
-                        Dialog dialog = new Dialog(holder.itemTripsBinding.getRoot().getContext());
-                        Objects.requireNonNull(dialog.getWindow()).getAttributes().windowAnimations = R.style.PauseDialogAnimation;
-                        dialog.setContentView(R.layout.my_dialog);
-                        dialog.show();
+                        Context mContext = holder.itemTripsBinding.getRoot().getContext();
+                        GeneralDialogFragment generalDialogFragment =
+                                GeneralDialogFragment.newInstance("Complete", "THIS TRIP IS COMPLETE",R.drawable.ic_done);
+                        generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
 
 
 

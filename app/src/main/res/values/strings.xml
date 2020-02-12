@@ -123,5 +123,7 @@
     <string name="myemail" translatable="false">abd_allah_kshaf@icloud.com</string>
     <string name="egp" translatable="false">EGP</string>
     <string name="search_by_your_city">SEARCH BY YOUR CITY</string>
+    <string name="content_description_base_dialog_icon">content_description_base_dialog_icon</string>
+    <string name="no_intrnet">NO INTERNET</string>
 
 </resources>

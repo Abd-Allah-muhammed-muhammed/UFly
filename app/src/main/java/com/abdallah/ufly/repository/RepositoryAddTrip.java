@@ -112,7 +112,7 @@ public class RepositoryAddTrip {
                 view.setText(view.getContext().getString(R.string.add_trip));
 
 
-                StyleableToast.makeText(view.getContext(),view.getContext().getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error_company).show();
+                StyleableToast.makeText(view.getContext(),view.getContext().getString(R.string.paytabs_err_unknown), Toast.LENGTH_LONG, R.style.error_company).show();
 
             }
 

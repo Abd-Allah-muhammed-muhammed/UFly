@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.registration.sign_up;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.text.InputType;
 import android.view.View;
@@ -8,11 +9,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -22,6 +25,8 @@ import com.muddzdev.styleabletoast.StyleableToast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 
 public class SignUpViewModel extends ViewModel {
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -57,29 +62,51 @@ public class SignUpViewModel extends ViewModel {
     public void onClick(View view) {
 
 
-        if (fullName.getValue() != null && address.getValue() != null && email.getValue()
-                != null && phone.getValue() != null && password.getValue() != null) {
-
-            if (!password.getValue().equals(rePassword.getValue())) {
 
 
-                StyleableToast.makeText(view.getContext(), "your password not matching", Toast.LENGTH_LONG, R.style.error).show();
+        Context mContext = view.getContext();
+
+        if (!isNetworkAvailable(mContext)){
 
 
-            } else if (!email.getValue().matches(emailPattern)) {
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(mContext.getString(R.string.no_intrnet),mContext.getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
 
-                StyleableToast.makeText(view.getContext(), "Please enter correct email", Toast.LENGTH_LONG, R.style.error).show();
+        }else {
 
+
+
+            if (fullName.getValue() != null && address.getValue() != null && email.getValue()
+                    != null && phone.getValue() != null && password.getValue() != null) {
+
+                if (!password.getValue().equals(rePassword.getValue())) {
+
+
+                    StyleableToast.makeText(view.getContext(), "your password not matching", Toast.LENGTH_LONG, R.style.error).show();
+
+
+                } else if (!email.getValue().matches(emailPattern)) {
+
+                    StyleableToast.makeText(view.getContext(), "Please enter correct email", Toast.LENGTH_LONG, R.style.error).show();
+
+
+                } else {
+                    callSignUp(view, fullName.getValue(), address.getValue(), email.getValue(), phone.getValue(), password.getValue());
+
+                }
 
             } else {
-                callSignUp(view, fullName.getValue(), address.getValue(), email.getValue(), phone.getValue(), password.getValue());
 
+                StyleableToast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG, R.style.error).show();
             }
 
-        } else {
-
-            StyleableToast.makeText(view.getContext(), "Please enter all data", Toast.LENGTH_LONG, R.style.error).show();
         }
+
+
+
+
+
 
 
     }

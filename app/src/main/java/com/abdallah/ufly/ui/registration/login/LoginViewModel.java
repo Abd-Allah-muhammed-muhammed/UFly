@@ -13,6 +13,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.login.Login;
 import com.abdallah.ufly.repository.LoginRepository;
 import com.abdallah.ufly.ui.company.logincompany.LoginCompanyActivity;
@@ -20,6 +21,7 @@ import com.abdallah.ufly.ui.registration.sign_up.SignUpFragment;
 
 import org.w3c.dom.Text;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class LoginViewModel extends ViewModel {
@@ -88,28 +90,40 @@ public class LoginViewModel extends ViewModel {
 
     public void login(View view){
 
+        Context context = view.getContext();
+        if (!isNetworkAvailable(context)) {
 
-
-
-
-        if (TextUtils.isEmpty(user.getEmail())) {
-            loginResultCallbacks.onError("Pleas Enter Your Email");
-
-        }else if (!user.getEmail().matches(emailPattern)){
-
-            loginResultCallbacks.onError("Pleas Enter Correct Mail");
-
-
-        }else if (TextUtils.isEmpty(user.getPassword())){
-            loginResultCallbacks.onError("Pleas Enter Your Password");
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(context.getString(R.string.no_intrnet),context.getString(R.string.paytabs_err_no_internet), R.drawable.ic_no_internet);
+            generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
 
         }else {
 
 
-            instance.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText ,view);
+
+            if (TextUtils.isEmpty(user.getEmail())) {
+                loginResultCallbacks.onError("Pleas Enter Your Email");
+
+            }else if (!user.getEmail().matches(emailPattern)){
+
+                loginResultCallbacks.onError("Pleas Enter Correct Mail");
+
+
+            }else if (TextUtils.isEmpty(user.getPassword())){
+                loginResultCallbacks.onError("Pleas Enter Your Password");
+
+            }else {
+
+
+                instance.callSignUp(user.getEmail(),user.getPassword(),loginResultCallbacks ,progress, loginText ,view);
+
+
+            }
 
 
         }
+
+
 
 
 

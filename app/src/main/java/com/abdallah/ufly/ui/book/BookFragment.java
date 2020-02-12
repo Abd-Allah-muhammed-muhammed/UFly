@@ -54,6 +54,8 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
         binding.bookBook.setText("");
 
 
+
+
         binding.bookCash.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
 import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
@@ -29,7 +30,10 @@ import androidx.fragment.app.Fragment;
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener ,
+
+  GeneralDialogFragment.OnDialogFragmentClickListener
+{
 
 
     ActivityHomeBinding binding;
@@ -113,6 +117,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+
+    @Override
+    public void onOkClicked(GeneralDialogFragment dialog) {
+        dialog.dismiss();
+    }
+
+
 }
 
 

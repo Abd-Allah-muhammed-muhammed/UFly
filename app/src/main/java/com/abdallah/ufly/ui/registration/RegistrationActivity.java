@@ -11,13 +11,14 @@ import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.registration.login.LoginFragment;
 
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity implements GeneralDialogFragment.OnDialogFragmentClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,5 +58,9 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onOkClicked(GeneralDialogFragment dialog) {
+        dialog.dismiss();
+    }
 }
 

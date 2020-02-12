@@ -15,9 +15,11 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.MyAccountCompanyFragmentBinding;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
 import com.abdallah.ufly.ui.setting.SettingHomeFragment;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class MyAccountCompanyFragment extends Fragment {
@@ -48,7 +50,22 @@ public class MyAccountCompanyFragment extends Fragment {
         binding.setMyinfo(mViewModel);
 
 
-        mViewModel.getmyInfoCompany(getContext(),binding.progMyCpmpAccount);
+
+        if (!isNetworkAvailable(getContext())){
+
+
+            binding.progMyCpmpAccount.setVisibility(View.GONE);
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet),getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
+        }else {
+            mViewModel.getmyInfoCompany(getContext(),binding.progMyCpmpAccount);
+
+
+        }
+
+
 
         return binding.getRoot();
     }

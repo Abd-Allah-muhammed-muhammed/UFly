@@ -71,7 +71,7 @@ public class LoginRepository {
 
                  progress.setValue(8);
                     loginText.setValue(view.getContext().getString(R.string.login));
-                    callbacks.onError(view.getContext().getString(R.string.try_again));
+                    callbacks.onError(view.getContext().getString(R.string.paytabs_error));
 
              }
 
@@ -83,32 +83,6 @@ public class LoginRepository {
          });
 
 
-//
-//        try{
-//            call.enqueue(new Callback<LoginResponse>() {
-//                @Override
-//                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-//
-//                    callbacks.status(response.body().getStatus());
-//                    callbacks.response(response.body());
-//                    progress.setValue(8);
-//                    loginText.setValue("LOGIN");
-//
-//                }
-//
-//                @Override
-//                public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                    progress.setValue(8);
-//                    loginText.setValue("LOGIN");
-//                    callbacks.onError("Try Again");
-//                }
-//            });
-//
-//        }catch (Exception e){
-//            progress.setValue(8);
-//            loginText.setValue("LOGIN");
-//            callbacks.onError("Try Again");
-//        }
         
     }
     }

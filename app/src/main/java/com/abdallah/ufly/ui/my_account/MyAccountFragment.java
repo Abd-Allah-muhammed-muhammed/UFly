@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.MyAccountFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -24,6 +25,7 @@ import com.abdallah.ufly.ui.setting.SettingHomeFragment;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
 import static io.reactivex.schedulers.Schedulers.io;
@@ -56,42 +58,35 @@ public class MyAccountFragment extends Fragment {
                 replace(new SettingHomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_setting));
             }
         });
-        mViewModel.getmyInfo(getContext(),binding.progMyAccount);
+
+
+
+
+        if (!isNetworkAvailable(getContext())){
+
+
+            binding.progMyAccount.setVisibility(View.GONE);
+
+
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet),getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
+        }else {
+            mViewModel.getmyInfo(getContext(),binding.progMyAccount);
+        }
+
         binding.setMyInfo(mViewModel);
 
 
 
-//        binding.myAccImg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE);
-//
-//
-//            }
-//        });
+
+
+
 
        return binding.getRoot();
 
     }
 
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//
-//
-//        if (PICK_IMAGE==requestCode){
-//
-//
-//            Uri uri = data.getData();
-//            Log.d("ufly", "onActivityResult: uri is : "+uri);
-//
-//            binding.myAccImg.setImageURI(uri);
-//        }
-//
-//
-//    }
 }

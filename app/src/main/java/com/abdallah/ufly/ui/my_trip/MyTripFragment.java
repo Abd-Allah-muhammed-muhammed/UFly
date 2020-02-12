@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.MyTripFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.payCash.PayCashQRActivity;
@@ -25,6 +26,7 @@ import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity;
 import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
 import static android.app.Activity.RESULT_OK;
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 import static com.abdallah.ufly.ui.payCash.PayCashQRActivity.PAY;
 
@@ -54,9 +56,29 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
         binding.myTrip.setVisibility(View.GONE);
         binding.myTripPayNow.setVisibility(View.GONE);
 
-        prefManager = new PrefManager(getContext());
-        token = prefManager.getToken();
-        mViewModel.getMyTrip(token);
+
+        if (!isNetworkAvailable(getContext())){
+
+
+            binding.textNoTrips.setVisibility(View.VISIBLE);
+            binding.textNoTrips.setText(getString(R.string.paytabs_err_no_internet));
+
+
+            binding.progMyTrip.setVisibility(View.GONE);
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet),getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
+        }else {
+            prefManager = new PrefManager(getContext());
+            token = prefManager.getToken();
+            mViewModel.getMyTrip(token,binding.progMyTrip);
+        }
+
+
+
+
+
 
 
 
@@ -72,7 +94,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
     @Override
     public void onError(String msg) {
 
-        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
+//        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
     }
 
     @Override
@@ -141,7 +163,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
         switch (v.getId()) {
 
             case R.id.my_trip_cancel :
-                mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip ,myTripResponse.getData().getIdTrip());
+                mViewModel.cancelMyTrip(token ,binding.progCancelMyTrip ,myTripResponse.getData().getIdTrip(),binding.progMyTrip);
 
                 break;
 
@@ -152,7 +174,6 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
                 break;
 
             case R.id.my_trip_pay_now:
-
 
 
                 if (CASH){
@@ -219,7 +240,7 @@ startactivityPAymentVisa(PRICE);
     @Override
     public void onResume() {
         super.onResume();
-        mViewModel.getMyTrip(token);
+        mViewModel.getMyTrip(token,binding.progCancelMyTrip);
 
     }
 
@@ -233,7 +254,7 @@ startactivityPAymentVisa(PRICE);
         if (resultCode == RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
 
 
-            mViewModel.pay(token,PAY , getActivity());
+            mViewModel.pay(token,PAY , getActivity(),binding.progMyTrip);
 
 
             Log.i("Tag"," successful_"+data.getStringExtra(PaymentParams.RESULT_MESSAGE));

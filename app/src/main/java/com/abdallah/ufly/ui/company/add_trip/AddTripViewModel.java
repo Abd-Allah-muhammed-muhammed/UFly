@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.addTrip.ModelAddTrip;
 import com.abdallah.ufly.repository.RepositoryAddTrip;
 import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
@@ -30,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class AddTripViewModel extends ViewModel {
@@ -188,14 +190,12 @@ public class AddTripViewModel extends ViewModel {
 
     public void dateFrom(View view) {
 
-        if (id==2){
-
-
-        }else {
+        if (id!=2){
             DatePickerDialog.OnDateSetListener date = openCalenderFrom((TextView) view);
             new DatePickerDialog(view.getContext(), date, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
         }
 
 
@@ -205,20 +205,14 @@ public class AddTripViewModel extends ViewModel {
     public void dateUntil(View view) {
 
 
-        if (id==2){
-
-
-
-        }else {
+        if (id!=2){
 
             DatePickerDialog.OnDateSetListener date = openCalenderUntil((TextView) view);
-
-
             new DatePickerDialog(view.getContext(), date, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-        }
 
+        }
 
 
 
@@ -304,33 +298,50 @@ public class AddTripViewModel extends ViewModel {
 
         }else {
 
-            if (isEmpty(modelAddTrip.getFrom())) {
-                setToastError("please Enter From", view);
 
-            } else if (isEmpty(modelAddTrip.getTo())) {
+            Context mContext = view.getContext();
 
-                setToastError("please Enter To", view);
-            } else if (isEmpty(modelAddTrip.getDatFrom())) {
+            if (!isNetworkAvailable(mContext)){
 
-                setToastError("please Enter Date From", view);
-            } else if (isEmpty(modelAddTrip.getDatUntil())) {
 
-                setToastError("please Enter Date Until", view);
-            } else if (isEmpty(modelAddTrip.getDescription())) {
+                GeneralDialogFragment generalDialogFragment =
+                        GeneralDialogFragment.newInstance(mContext.getString(R.string.no_intrnet),mContext.getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+                generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
 
-                setToastError("please Enter the Description", view);
-            } else if (isEmpty(modelAddTrip.getPrice())) {
+            }else {
 
-                setToastError("please Enter The price", view);
-            } else if (isEmpty(modelAddTrip.getPassengers())) {
+                if (isEmpty(modelAddTrip.getFrom())) {
+                    setToastError("please Enter From", view);
 
-                setToastError("please Enter the number of passengers", view);
-            } else {
-                prefManager = new PrefManager(view.getContext());
-                String id_company = prefManager.getID_Company();
-                repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar);
+                } else if (isEmpty(modelAddTrip.getTo())) {
+
+                    setToastError("please Enter To", view);
+                } else if (isEmpty(modelAddTrip.getDatFrom())) {
+
+                    setToastError("please Enter Date From", view);
+                } else if (isEmpty(modelAddTrip.getDatUntil())) {
+
+                    setToastError("please Enter Date Until", view);
+                } else if (isEmpty(modelAddTrip.getDescription())) {
+
+                    setToastError("please Enter the Description", view);
+                } else if (isEmpty(modelAddTrip.getPrice())) {
+
+                    setToastError("please Enter The price", view);
+                } else if (isEmpty(modelAddTrip.getPassengers())) {
+
+                    setToastError("please Enter the number of passengers", view);
+                } else {
+                    prefManager = new PrefManager(view.getContext());
+                    String id_company = prefManager.getID_Company();
+                    repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar);
+
+                }
 
             }
+
+
+
 
         }
 
@@ -370,22 +381,29 @@ public class AddTripViewModel extends ViewModel {
     public void timeUntil (View view){
 
 
-        final TextView  texttime = (TextView) view;
 
-        Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
-        TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                texttime.setText( selectedHour + ":" + selectedMinute);
-                modelAddTrip.setTimeOut( selectedHour + ":" + selectedMinute);
 
-            }
-        }, hour, minute, true);//Yes 24 hour time
-        mTimePicker.setTitle("Select Time");
-        mTimePicker.show();
+        if (id!=2) {
+            final TextView  texttime = (TextView) view;
+
+            Calendar mcurrentTime = Calendar.getInstance();
+            int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mcurrentTime.get(Calendar.MINUTE);
+            TimePickerDialog mTimePicker;
+            mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                    texttime.setText( selectedHour + ":" + selectedMinute);
+                    modelAddTrip.setTimeOut( selectedHour + ":" + selectedMinute);
+
+                }
+            }, hour, minute, true);//Yes 24 hour time
+            mTimePicker.setTitle("Select Time");
+            mTimePicker.show();
+
+
+        }
+
 
 
     }
@@ -393,22 +411,27 @@ public class AddTripViewModel extends ViewModel {
 
     public void timeIn ( View   view){
 
+        if (id!=2){
 
-        final TextView  texttime = (TextView) view;
+            final TextView  texttime = (TextView) view;
 
-        Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
-        TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                texttime.setText( selectedHour + ":" + selectedMinute);
-                modelAddTrip.setTimeIn( selectedHour + ":" + selectedMinute);
-            }
-        }, hour, minute, true);//Yes 24 hour time
-        mTimePicker.setTitle("Select Time");
-        mTimePicker.show();
+            Calendar mcurrentTime = Calendar.getInstance();
+            int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mcurrentTime.get(Calendar.MINUTE);
+            TimePickerDialog mTimePicker;
+            mTimePicker = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                    texttime.setText( selectedHour + ":" + selectedMinute);
+                    modelAddTrip.setTimeIn( selectedHour + ":" + selectedMinute);
+                }
+            }, hour, minute, true);//Yes 24 hour time
+            mTimePicker.setTitle("Select Time");
+            mTimePicker.show();
+
+        }
+
+
 
 
 

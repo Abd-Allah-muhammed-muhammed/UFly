@@ -1,9 +1,11 @@
 package com.abdallah.ufly.ui.company.book_company;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,11 +22,14 @@ import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.BookedInfoAdapter;
 import com.abdallah.ufly.databinding.BooksCompanyFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.passenger_booked.Booked;
 import com.abdallah.ufly.model.passenger_booked.Datum;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 
 public class BooksCompanyFragment extends Fragment {
 
@@ -50,22 +55,38 @@ public class BooksCompanyFragment extends Fragment {
         String id_company = prefManager.getID_Company();
         int trip_id = getArguments() != null ? getArguments().getInt("trip_id") : 0;
 
-        mViewModel.infoBooked(getContext(), trip_id, id_company,binding.emptyPassengers,binding.progBooked).observe(this, new Observer<List<Datum>>() {
-            @Override
-            public void onChanged(List<Datum> data) {
 
 
 
-                if (!data.isEmpty()){
 
-                    binding.progBooked.setVisibility(View.GONE);
+        if (!isNetworkAvailable(getContext())){
 
-                }
-                BookedInfoAdapter adapter = new BookedInfoAdapter();
-                binding.rvBooked.setLayoutManager(new LinearLayoutManager(getContext()));
-                binding.rvBooked.setAdapter(adapter);
 
-                adapter.setBookedInfoList((ArrayList<Datum>) data);
+            binding.progBooked.setVisibility(View.GONE);
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(getString(R.string.no_intrnet),getString(R.string.paytabs_err_no_internet),R.drawable.ic_no_internet);
+            generalDialogFragment.show(getFragmentManager(),"dialog");
+
+        }else {
+
+
+
+            mViewModel.infoBooked(getContext(), trip_id, id_company,binding.emptyPassengers,binding.progBooked).observe(this, new Observer<List<Datum>>() {
+                @Override
+                public void onChanged(List<Datum> data) {
+
+
+
+                    if (!data.isEmpty()){
+
+                        binding.progBooked.setVisibility(View.GONE);
+
+                    }
+                    BookedInfoAdapter adapter = new BookedInfoAdapter();
+                    binding.rvBooked.setLayoutManager(new LinearLayoutManager(getContext()));
+                    binding.rvBooked.setAdapter(adapter);
+
+                    adapter.setBookedInfoList((ArrayList<Datum>) data);
 
 
 //               int finalNumber  = 0;
@@ -80,8 +101,13 @@ public class BooksCompanyFragment extends Fragment {
 
 
 
-            }
-        });
+                }
+            });
+
+        }
+
+
+
 
         return binding.getRoot();
     }
