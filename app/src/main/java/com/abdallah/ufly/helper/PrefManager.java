@@ -22,6 +22,7 @@ public class PrefManager {
     private static final String QR  = "qr";
     private static final String IS_VALID_MAIL  = "IS_VALID_MAIL";
     private static final String ID_VALIDATION  = "ID_VALIDATION";
+    private static final String EMAIL  = "EMAIL";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -55,6 +56,12 @@ public class PrefManager {
     }
 
 
+    public void savEmail(String mail) {
+        editor.putString(EMAIL, mail);
+        editor.commit();
+    }
+
+
     public String getToken() {
 
         return pref.getString(TOKEN, "");
@@ -65,6 +72,10 @@ public class PrefManager {
     public String getIdValidation() {
 
         return pref.getString(ID_VALIDATION, "");
+
+    } public String grtEmail() {
+
+        return pref.getString(EMAIL, "");
 
     }
 

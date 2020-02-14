@@ -174,6 +174,7 @@ public class SignUpViewModel extends ViewModel {
                     prefManager.setIslogedCompany(false);
                     prefManager.removeIdCompany();
                     prefManager.saveIDValidition(response.body().getData().getId_mail_valid());
+                    prefManager.savEmail(response.body().getData().getEmail());
 
                     int is_mail_valid = response.body().getData().getIs_mail_valid();
 

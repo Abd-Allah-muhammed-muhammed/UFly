@@ -99,6 +99,7 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
             prefManager.setIslogedCompany(false);
             prefManager.removeIdCompany();
 
+            prefManager.savEmail(response.getData().getEmail());
             prefManager.saveIDValidition(response.getData().getId_mail_valid());
 
             int is_mail_valid = response.getData().getIs_mail_valid();

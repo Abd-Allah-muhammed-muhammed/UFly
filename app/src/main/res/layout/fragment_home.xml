@@ -53,9 +53,12 @@
                 android:layout_marginBottom="@dimen/_16"
                 android:id="@+id/layout_search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100"
                 >
                 <EditText
+
+
+                    android:layout_centerVertical="true"
                     android:layout_marginBottom="@dimen/_4"
                     android:drawablePadding="@dimen/_8"
                     android:imeOptions="actionSearch"
@@ -66,14 +69,15 @@
                     android:lines="1"
                     android:id="@+id/searchTrip"
                     android:padding="@dimen/_8"
+                    android:textColor="@color/white"
                     android:backgroundTintMode="screen"
                     android:showDividers="beginning"
                     android:layout_marginTop="@dimen/_4"
                     android:background="@drawable/bg_desc_stock"
                     android:layout_width="@dimen/_300"
                     android:layout_height="@dimen/_50"
-                    android:layout_marginStart="@dimen/_4"
-                    android:layout_marginEnd="@dimen/_4" />
+                    android:layout_marginStart="@dimen/_8"
+                    android:layout_marginEnd="@dimen/_8" />
 
 
                 <ImageView

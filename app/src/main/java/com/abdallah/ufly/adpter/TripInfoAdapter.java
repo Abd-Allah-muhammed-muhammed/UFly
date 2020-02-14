@@ -72,7 +72,6 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
 
             holder.itemTripsBinding.availableBooked.setText(holder.itemTripsBinding.getRoot().getContext().getString(R.string.complete));
             holder.itemTripsBinding.completed.setVisibility(View.VISIBLE);
-            holder.itemTripsBinding.transbg.setVisibility(View.VISIBLE);
 
         }
 
