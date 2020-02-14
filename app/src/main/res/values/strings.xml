@@ -131,5 +131,7 @@
     <string name="check">CHECK</string>
     <string name="wrong_code">WRONG CODE</string>
     <string name="please_enter_a_valid_code">PLEASE ENTER A VALID CODE CONTAIN 6 NUMBERS</string>
+    <string name="reSend">Re Send The Code</string>
+    <string name="chang_your_mail_first">YOU SHOULD CHANGE YOUR EMAIL FIRST  /n  THEN RE SEND YOUR EMAIL </string>
 
 </resources>

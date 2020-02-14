@@ -114,4 +114,12 @@ public interface Api {
     @FormUrlEncoded
     @POST("valid_mail.php")
     Single<EmailVerificationModel> checkCodeEmail(@Field("id_mail_valid") String id_mail_valid);
+
+
+    @FormUrlEncoded
+    @POST("change_mail.php")
+    Single<EmailVerificationModel> resendAndUpdateEmail(@Field("uui_id") String uui_id,
+                                               @Field("email") String email);
+
+
 }

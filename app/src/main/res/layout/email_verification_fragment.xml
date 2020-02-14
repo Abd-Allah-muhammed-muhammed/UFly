@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <data>
@@ -12,6 +9,7 @@
             name="emailV"
             type="com.abdallah.ufly.ui.email_verification.EmailVerificationViewModel" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,100 +19,127 @@
 
         <ImageButton
             android:id="@+id/back"
-            android:background="@drawable/ic_back"
             android:layout_width="@dimen/_50"
             android:layout_height="@dimen/_50"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp" />
+            android:layout_marginStart="0dp"
+            android:background="@drawable/ic_back" />
 
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="@dimen/_24_sp"
-            android:textColor="@color/white"
-            android:layout_margin="@dimen/_8"
             android:id="@+id/text_info_acc"
-            android:layout_below="@+id/back"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/email_verification"/>
-
+            android:layout_below="@+id/back"
+            android:layout_margin="@dimen/_8"
+            android:gravity="center"
+            android:text="@string/email_verification"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24_sp"
+            android:textStyle="bold" />
 
 
         <ImageView
-            android:scaleType="fitXY"
-            android:layout_marginTop="@dimen/_40"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/text_info_acc"
-            android:src="@drawable/ic_logo"
             android:id="@+id/my_acc_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_below="@+id/text_info_acc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_24"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_logo" />
 
         <RelativeLayout
-            android:layout_below="@+id/my_acc_img"
             android:id="@+id/layout_full_name"
-            android:paddingEnd="@dimen/_40"
-            android:paddingStart="@dimen/_40"
-            android:layout_marginTop="@dimen/_8"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_acc_img"
+            android:layout_marginTop="@dimen/_8"
+            android:paddingStart="@dimen/_40"
+            android:paddingEnd="@dimen/_40">
 
 
             <EditText
-                android:onTextChanged="@{emailV::setID}"
+                android:id="@+id/my_acc_full_name"
 
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60"
+                android:layout_marginTop="@dimen/_40"
                 android:background="@drawable/bg_btn_book_whit"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/_40"
-                android:id="@+id/my_acc_full_name"
-                android:textSize="@dimen/_18s"
+                android:hint="@string/enter_your_verification_id"
+                android:onTextChanged="@{emailV::setID}"
                 android:textColor="@color/dark"
                 android:textColorHint="@color/dark"
-                android:hint="@string/enter_your_verification_id"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_60"/>
-
-
-
+                android:textSize="@dimen/_18s" />
 
 
         </RelativeLayout>
 
 
-
-
-
-
         <Button
-            android:onClick="@{(view)-> emailV.chick(view)}"
-            android:layout_marginTop="@dimen/_40"
-            android:layout_below="@+id/layout_full_name"
             android:id="@+id/my_acc_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_full_name"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/_40"
+            android:layout_marginTop="@dimen/_18"
             android:layout_marginEnd="@dimen/_40"
             android:layout_marginBottom="@dimen/_20"
             android:background="@drawable/bg_btn_book_orange"
+            android:onClick="@{(view)-> emailV.chick(view)}"
             android:text="@string/check"
             android:textColor="@color/white"
             android:textSize="@dimen/_18s"
             android:textStyle="bold" />
 
 
-        <ProgressBar
-            android:layout_centerHorizontal="true"
+        <EditText
+            android:id="@+id/my_email"
+
+            android:autofillHints="@string/change_email"
+            android:contentDescription="@string/change_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60"
             android:layout_below="@+id/my_acc_done"
-            android:visibility="gone"
+            android:layout_marginStart="@dimen/_18"
+            android:layout_marginEnd="@dimen/_18"
+            android:drawableStart="@drawable/ic_email_orange_24dp"
+            android:gravity="center"
+            android:onTextChanged="@{emailV::setMail}"
+            android:textColor="@color/white" />
+
+
+        <Button
+
+            android:id="@+id/Change_my_email"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="@dimen/_50"
+            android:layout_below="@+id/my_email"
+            android:layout_marginStart="@dimen/_70"
+            android:layout_marginTop="@dimen/_8"
+            android:layout_marginEnd="@dimen/_70"
+            android:background="@drawable/bg_btn_book_orange"
+            android:drawableStart="@drawable/ic_refresh_black_24dp"
+            android:onClick="@{(view)-> emailV.changeMail(view)}"
+            android:paddingStart="@dimen/_18"
+            android:paddingEnd="@dimen/_18"
+            android:text="@string/reSend"
+            android:textColor="@color/white" />
+
+
+        <ProgressBar
             android:id="@+id/prog_myAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/color3" />
+            android:layout_below="@+id/my_acc_done"
+            android:layout_centerHorizontal="true"
+            android:indeterminateTint="@color/color3"
+            android:visibility="gone" />
 
 
     </RelativeLayout>

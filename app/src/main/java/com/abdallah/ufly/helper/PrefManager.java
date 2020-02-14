@@ -73,7 +73,7 @@ public class PrefManager {
 
         return pref.getString(ID_VALIDATION, "");
 
-    } public String grtEmail() {
+    } public String getEmail() {
 
         return pref.getString(EMAIL, "");
 

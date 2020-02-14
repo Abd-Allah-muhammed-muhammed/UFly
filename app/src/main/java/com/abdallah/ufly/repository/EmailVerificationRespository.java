@@ -2,6 +2,7 @@ package com.abdallah.ufly.repository;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -12,6 +13,7 @@ import com.abdallah.ufly.model.emailvalidetion.EmailVerificationModel;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
+import com.abdallah.ufly.ui.registration.RegistrationActivity;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -95,5 +97,58 @@ public class EmailVerificationRespository {
         });
 
 
+
+
+
+    }
+
+
+
+    @SuppressLint("CheckResult")
+    public void resend(String uiid , final String email , final Context context , final PrefManager manager){
+
+        api.resendAndUpdateEmail(uiid,email).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<EmailVerificationModel>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onSuccess(EmailVerificationModel emailVerificationModel) {
+
+
+
+                if (emailVerificationModel.getStatus()==0) {
+
+
+                    // successful
+
+
+                    manager.setIsLoged(false);
+                    manager.removeToken();
+                    Intent intent = new Intent(context, RegistrationActivity.class);
+                    context.startActivity(intent);
+
+
+                }else {
+
+                    GeneralDialogFragment generalDialogFragment =
+                            GeneralDialogFragment.newInstance(context.getString(R.string.paytabs_error),emailVerificationModel.getMessage(), R.drawable.ic_error);
+                    generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
+
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+                GeneralDialogFragment generalDialogFragment =
+                        GeneralDialogFragment.newInstance(context.getString(R.string.paytabs_error),context.getString(R.string.try_again), R.drawable.ic_error);
+                generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
+
+
+            }
+        });
     }
 }

@@ -128,6 +128,8 @@
     <string name="check">تاكد</string>
     <string name="wrong_code">كود خاطئ</string>
     <string name="please_enter_a_valid_code">من فضلك ادخل الكود الصحيح المكون من 6 ارقام</string>
+    <string name="reSend">اعادة ارسال الكود</string>
+    <string name="chang_your_mail_first">انت لم تقم بتغير البريد الخاص بك \n يجب عليك تغير البريد الخاص بك اولا /n ثم قم باعاده الارسال</string>
 
 
 </resources>
