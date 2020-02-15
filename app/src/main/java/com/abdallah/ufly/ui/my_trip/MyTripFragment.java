@@ -1,5 +1,6 @@
 package com.abdallah.ufly.ui.my_trip;
 
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -118,7 +119,8 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
 
                 binding.myTripIsPaid.setText(R.string.paid);
                 binding.myTripPayNow.setVisibility(View.GONE);
-                binding.myTripCancel.setImageResource(R.drawable.ic_complete);
+                binding.myTripCancel.setVisibility(View.INVISIBLE);
+                ;
                 binding.myTripCancel.setClickable(false);
 
 

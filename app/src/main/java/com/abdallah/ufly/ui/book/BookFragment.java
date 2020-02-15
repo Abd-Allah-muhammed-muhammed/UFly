@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.book;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.BookFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.ui.home.HomeFragment;
@@ -113,14 +115,19 @@ try {
 
 
     if (response.getStatus()==0){
-        StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
 
-        replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
+
+        GeneralDialogFragment generalDialogFragment =
+                GeneralDialogFragment.newInstance(getString(R.string.booked),response.getMessage(),R.drawable.ic_done);
+        generalDialogFragment.show(getFragmentManager(),"dialog");
+
 
     }else if (response.getStatus()==4){
 
-        StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.error).show();
-        replace(new MyTripFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
+        GeneralDialogFragment generalDialogFragment =
+                GeneralDialogFragment.newInstance(getString(R.string.paytabs_error),response.getMessage(),R.drawable.ic_error);
+        generalDialogFragment.show(getFragmentManager(),"dialog");
+
 
     }else {
 

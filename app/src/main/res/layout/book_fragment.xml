@@ -63,7 +63,7 @@
                 android:layout_height="@dimen/_70"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_60"
-                android:background="@drawable/bg_btn_book_whit"
+                android:background="@drawable/bg_btn_book_orange"
                 android:drawableEnd="@drawable/ic_cash"
                 android:gravity="center"
                 android:paddingStart="@dimen/_18"

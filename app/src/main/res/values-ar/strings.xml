@@ -18,9 +18,9 @@
     <string name="creat_acc">انشئ \n حسابك</string>
     <string name="your_password">الرقم السري</string>
     <string name="re_your_password">اعادة الرقم السري</string>
-    <string name="your_mail">الاميل الخاص بك</string>
+    <string name="your_mail">البريد الالكتروني</string>
     <string name="your_address">موقعك</string>
-    <string name="your_full_name">اسمك بالكامل</string>
+    <string name="your_full_name">الاسم بالكامل</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -75,7 +75,7 @@
     <string name="pay_now">ادفع الان</string>
     <string name="register">انشاء حساب</string>
     <string name="don_t_have_an_account_yet">لا يوجد لديك حساب بعد ؟</string>
-    <string name="paid">تم الدفع  </string>
+    <string name="paid">تم الدفع</string>
     <string name="not_paid">لم يتم الدفع</string>
     <string name="my_account">حسابي</string>
     <string name="don">تم</string>
@@ -130,6 +130,7 @@
     <string name="please_enter_a_valid_code">من فضلك ادخل الكود الصحيح المكون من 6 ارقام</string>
     <string name="reSend">اعادة ارسال الكود</string>
     <string name="chang_your_mail_first">انت لم تقم بتغير البريد الخاص بك \n يجب عليك تغير البريد الخاص بك اولا /n ثم قم باعاده الارسال</string>
+    <string name="no_result">NO RESULT</string>
 
 
 </resources>

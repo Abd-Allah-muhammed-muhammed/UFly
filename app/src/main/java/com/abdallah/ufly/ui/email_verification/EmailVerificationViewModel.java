@@ -35,11 +35,7 @@ public class EmailVerificationViewModel extends ViewModel {
 
         if (idValidation.equals(ID)){
             respository = EmailVerificationRespository.getInstance();
-
             respository.checkCode(ID,context,prefManager);
-
-
-
         }else {
 
             GeneralDialogFragment generalDialogFragment =

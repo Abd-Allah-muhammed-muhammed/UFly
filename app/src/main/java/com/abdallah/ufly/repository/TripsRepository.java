@@ -1,13 +1,18 @@
 package com.abdallah.ufly.repository;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.abdallah.ufly.R;
+import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
@@ -60,7 +65,9 @@ public class TripsRepository {
     @SuppressLint("CheckResult")
     public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final TextView noTrip , final String query) {
 
-data = new MutableLiveData<>();
+
+        final Context context = progHome.getContext();
+        data = new MutableLiveData<>();
 //
 
         api = ApiClient.getClient().create(Api.class);
@@ -83,18 +90,62 @@ data = new MutableLiveData<>();
                             if (tripsResponses.isEmpty()){
 
                                 noTrip.setVisibility(View.VISIBLE);
+                                progHome.setVisibility(View.GONE);
+
+
+                            }else {
+
+                                progHome.setVisibility(View.GONE);
+
+                                data.setValue(tripsResponses);
 
                             }
+                        }else {
+
+
+                            // search case
+
+                            if (tripsResponses.isEmpty()){
+
+                                progHome.setVisibility(View.GONE);
+
+                                // show dialog error
+
+                                GeneralDialogFragment generalDialogFragment =
+                                        GeneralDialogFragment.newInstance(context.getString(R.string.no_result),context.getString(R.string.no_result),R.drawable.ic_error);
+                                generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
+
+
+
+
+                            }else {
+                                progHome.setVisibility(View.GONE);
+
+                                data.setValue(tripsResponses);
+
+
+                            }
+
+
                         }
 
-                        progHome.setVisibility(View.GONE);
 
-                        data.setValue(tripsResponses);
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
+
+
+
+                        if (!query.equals("")){
+
+                            GeneralDialogFragment generalDialogFragment =
+                                    GeneralDialogFragment.newInstance(context.getString(R.string.no_result),context.getString(R.string.no_result),R.drawable.ic_error);
+                            generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
+
+                        }
+
 
 //                        noTrip.setVisibility(View.VISIBLE);
 

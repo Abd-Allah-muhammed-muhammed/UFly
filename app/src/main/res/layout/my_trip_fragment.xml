@@ -286,17 +286,22 @@
                     android:layout_height="wrap_content"
                     android:indeterminateTint="@color/blck"  />
 
-                <ImageView
-                    android:src="@drawable/ic_cncle"
+                <TextView
+
+                    android:drawableBottom="@drawable/ic_cancel_black_24dp"
+                    android:textColor="@color/color2"
+                    android:gravity="center"
+                    android:text="@string/cancel_the_trip"
                     android:id="@+id/my_trip_cancel"
-                    android:layout_width="@dimen/_70"
-                    android:layout_height="@dimen/_70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/price"
+                    android:layout_marginTop="@dimen/_24"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="@dimen/_40"
-                    android:layout_marginBottom="@dimen/_40"
+                    android:layout_marginStart="@dimen/_24"
+                    android:layout_marginBottom="@dimen/_24"
                     android:layout_toEndOf="@+id/my_trip_is_paid"
-                    android:textSize="@dimen/_24_sp"
+                    android:textSize="@dimen/_18s"
                     android:textStyle="bold" />
 
 
