@@ -19,11 +19,15 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.annotations.Nullable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -88,19 +92,21 @@ public interface Api {
     @GET("booksCompany.php")
     Observable<PassengerBookedResponse> getPassengerBooked(@Query("id_company") String id_company, @Query("id_trip") int id_trip);
 
-    @FormUrlEncoded
+
+    @Multipart
     @POST("add_trip.php")
-    Observable<AddTripResponse> addTrip(@Field("departure") String departure,
-                                        @Field("arrival") String arrival
-            , @Field("date_from") String date_from,
-                                        @Field("date_until") String date_until,
-                                        @Field("passengers") String passengers,
-                                        @Field("price") String price,
-                                        @Field("description") String description,
-                                        @Field("company_id") String company_id,
-                                        @Field("includes") String includes,
-                                        @Field("time_in") String time_in,
-                                        @Field("time_out") String time_out);
+    Observable<AddTripResponse> addTrip(@Part("departure") RequestBody departure,
+                                        @Part("arrival") RequestBody arrival
+            , @Part("date_from") RequestBody date_from,
+                                        @Part("date_until") RequestBody date_until,
+                                        @Part("passengers") RequestBody passengers,
+                                        @Part("price") RequestBody price,
+                                        @Part("description") RequestBody description,
+                                        @Part("company_id") RequestBody company_id,
+                                        @Part("includes") RequestBody includes,
+                                        @Part("time_in") RequestBody time_in,
+                                        @Part("time_out") RequestBody time_out,
+                                        @Part MultipartBody.Part image);
 
 
 

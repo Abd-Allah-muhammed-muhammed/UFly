@@ -120,10 +120,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
                 binding.myTripIsPaid.setText(R.string.paid);
                 binding.myTripPayNow.setVisibility(View.GONE);
                 binding.myTripCancel.setVisibility(View.INVISIBLE);
-                ;
                 binding.myTripCancel.setClickable(false);
-
-
 
             }else {
 

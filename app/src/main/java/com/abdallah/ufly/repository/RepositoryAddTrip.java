@@ -3,6 +3,7 @@ package com.abdallah.ufly.repository;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -17,9 +18,15 @@ import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import java.util.ArrayList;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
+import static com.abdallah.ufly.helper.HelperMethod.convertFileToMultipart;
+import static com.abdallah.ufly.helper.HelperMethod.convertToRequestBody;
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 import static com.abdallah.ufly.retrofit.ApiClient.getClient;
 import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
@@ -31,6 +38,7 @@ public class RepositoryAddTrip {
     AddTripResponse addTripResponseRE;
 
     private static RepositoryAddTrip instance;
+
 
     Api api;
 
@@ -56,26 +64,39 @@ public class RepositoryAddTrip {
     }
 
     @SuppressLint("CheckResult")
-    public void addTrip(ModelAddTrip modelAddTrip, String companyID, final Button view, final ProgressBar progressBar) {
+    public void addTrip(ModelAddTrip modelAddTrip, String companyID, final Button view, final ProgressBar progressBar , ImageView imageView , String imageFile_path) {
 
 
 
         progressBar.setVisibility(View.VISIBLE);
         view.setText("");
 
-        String from = modelAddTrip.getFrom();
-        String to = modelAddTrip.getTo();
-        String datFrom = modelAddTrip.getDatFrom();
-        String datUntil = modelAddTrip.getDatUntil();
-        String passengers = modelAddTrip.getPassengers();
-        String price = modelAddTrip.getPrice();
-        String description = modelAddTrip.getDescription();
-        String includse = modelAddTrip.getIncludse();
-        String timeIn = modelAddTrip.getTimeIn();
-        String timeOut = modelAddTrip.getTimeOut();
+        RequestBody includse ;
+        RequestBody from = convertToRequestBody(modelAddTrip.getFrom());
+        RequestBody to = convertToRequestBody(modelAddTrip.getTo());
+        RequestBody datFrom =convertToRequestBody( modelAddTrip.getDatFrom());
+        RequestBody datUntil =convertToRequestBody(modelAddTrip.getDatUntil());
+        RequestBody passengers = convertToRequestBody(modelAddTrip.getPassengers());
+        RequestBody price = convertToRequestBody(modelAddTrip.getPrice());
+        RequestBody description = convertToRequestBody(modelAddTrip.getDescription());
+        if (modelAddTrip.getIncludse()!=null&&!modelAddTrip.getIncludse().equals("")){
+
+             includse = convertToRequestBody(modelAddTrip.getIncludse());
+
+        }else {
+            includse =   convertToRequestBody("no includes\n");
+
+        }
 
 
-        api.addTrip(from, to, datFrom, datUntil, passengers, price, description, companyID, includse,timeIn,timeOut).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
+        RequestBody timeIn = convertToRequestBody(modelAddTrip.getTimeIn());
+        RequestBody timeOut =convertToRequestBody( modelAddTrip.getTimeOut());
+
+        RequestBody comp_id = convertToRequestBody(companyID);
+
+        MultipartBody.Part image = convertFileToMultipart(imageFile_path, "image");
+
+        api.addTrip(from, to, datFrom, datUntil, passengers, price, description, comp_id, includse,timeIn,timeOut ,image).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
 

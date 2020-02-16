@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -60,6 +61,8 @@ public class AddTripViewModel extends ViewModel {
     public MutableLiveData<String> trip_passengers;
     private int trip_id;
 
+    private String image_path_file ;
+
 
 
 
@@ -74,8 +77,10 @@ public class AddTripViewModel extends ViewModel {
     Bundle bundle ;
 
     ProgressBar progressBar ;
-    public AddTripViewModel(ProgressBar progressBar) {
+    ImageView image_trip ;
+    public AddTripViewModel(ProgressBar progressBar , ImageView image_trip) {
 
+        this.image_trip = image_trip;
         this.progressBar = progressBar;
         bundle = new Bundle();
         modelAddTrip = new ModelAddTrip();
@@ -334,7 +339,7 @@ public class AddTripViewModel extends ViewModel {
                 } else {
                     prefManager = new PrefManager(view.getContext());
                     String id_company = prefManager.getID_Company();
-                    repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar);
+                    repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar , image_trip , image_path_file );
 
                 }
 
@@ -432,11 +437,21 @@ public class AddTripViewModel extends ViewModel {
         }
 
 
+    }
+
+
+    public void selectImage (View view){
+
+
 
 
 
     }
 
+    public void getPath(String path) {
+
+        this.image_path_file = path;
+    }
 }
 
 

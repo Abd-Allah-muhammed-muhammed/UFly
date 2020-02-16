@@ -2,6 +2,8 @@ package com.abdallah.ufly.model.addTrip;
 
 import android.text.TextUtils;
 
+import java.io.File;
+
 public class ModelAddTrip {
 
 

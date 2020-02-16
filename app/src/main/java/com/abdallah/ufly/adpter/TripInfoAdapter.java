@@ -105,6 +105,7 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                         bundle.putString("price",tripInfo.getPrice());
                         bundle.putString("includes",tripInfo.getIncludes());
                         bundle.putString("id_comp",tripInfo.getCompany_id());
+                        bundle.putString("image",tripInfo.getImage());
                         bundle.putInt("numberAvailability",tripInfo.getAvailable_booked());
 
 
@@ -132,6 +133,7 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                     bundle.putString("passengers",tripInfo.getPassengers());
                     bundle.putString("time_in",tripInfo.getTime_in());
                     bundle.putString("time_out",tripInfo.getTime_out());
+                    bundle.putString("image",tripInfo.getImage());
 
                     addTripFragment.setArguments(bundle);
 
