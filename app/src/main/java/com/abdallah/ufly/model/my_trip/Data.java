@@ -49,6 +49,33 @@ public class Data {
     @Expose
     private String timeOut;
 
+
+ @SerializedName("image")
+    @Expose
+    private String image;
+
+
+
+ @SerializedName("includes")
+    @Expose
+    private String includes;
+
+    public String getIncludes() {
+        return includes;
+    }
+
+    public void setIncludes(String includes) {
+        this.includes = includes;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Integer getIdTrip() {
         return idTrip;
     }

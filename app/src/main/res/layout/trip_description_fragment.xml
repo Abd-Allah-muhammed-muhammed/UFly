@@ -12,9 +12,9 @@
     </data>
 
     <RelativeLayout
-        android:background="@color/dark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/dark">
 
         <ScrollView
             android:id="@+id/sl_view"
@@ -27,314 +27,389 @@
                 android:layout_height="wrap_content">
 
 
+                <!--                 image layout -->
+
+
                 <RelativeLayout
-                    android:id="@+id/layout_top"
+                    android:id="@+id/layout_image"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageButton
-                        android:id="@+id/back"
-                        android:layout_width="@dimen/_50"
-                        android:layout_height="@dimen/_50"
-                        android:layout_alignParentStart="true"
-                        android:background="@drawable/ic_back" />
-                </RelativeLayout>
-                <!-- all info in this layout id is layout_all_info -->
-                <RelativeLayout
-                    android:background="@drawable/bg_desc_stock"
-                    android:id="@+id/layout_all_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_top"
-                    android:layout_margin="@dimen/_16"
-                    >
+                    android:layout_height="@dimen/_200">
 
 
-                    <!-- from to shape with bus icon -->
-                    <RelativeLayout
-
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit"
-                        android:id="@+id/layout_desc_from_to"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8">
-
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:id="@+id/layout_from"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_margin="@dimen/_6"
-                                    android:lines="1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/from"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <TextView
-
-
-                                    android:id="@+id/desc_from"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@android:color/transparent"
-                                    android:gravity="center"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:paddingBottom="@dimen/_14"
-                                    android:text="@string/cairo"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s" />
-
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:src="@drawable/ic_bus_orange" />
-
-                            <LinearLayout
-                                android:id="@+id/layout_to"
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:lines="1"
-                                    android:layout_margin="@dimen/_6"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/to"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <TextView
-                                    android:paddingBottom="@dimen/_14"
-
-                                    android:id="@+id/desc_to"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@android:color/transparent"
-                                    android:gravity="center"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/alexandria"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/_14s" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                    <!--line one -->
-                    <TextView
-                        android:id="@+id/line_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_below="@+id/layout_desc_from_to"
-                        android:layout_margin="@dimen/_16"
-                        android:layout_marginTop="@dimen/_16"
-                        android:background="@color/trans3" />
-
-
-                    <!-- text view  include   id is inclouds_tv-->
-                    <TextView
-
-                        android:id="@+id/inclouds_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_desc_from_to"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_includes_orange_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/inclouds"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-
-                    <!--                     rv includ id is layout_rv-->
-                    <RelativeLayout
-                        android:id="@+id/layout_rv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/inclouds_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
-
-                        <TextView
-
-                            android:id="@+id/desc_include"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_24"
-                            android:gravity="center"
-                            android:textColor="@color/dark"
-                            android:textSize="@dimen/_18s" />
-
-                    </RelativeLayout>
-
-
-                    <!--                    trip info tv  id is tripinfo_tv-->
-                    <TextView
-                        android:id="@+id/tripinfo_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_rv"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_info_outline_orange_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/trip_information"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-                    <!--                    rv info layout_rv2 -->
-                    <RelativeLayout
-
-                        android:id="@+id/layout_rv2"
+                    <ImageView
+                        android:id="@+id/desc_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@+id/tripinfo_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
+                        android:scaleType="centerCrop"
+                         />
 
-                        <TextView
-                            android:layout_margin="@dimen/_30"
-                            android:id="@+id/desc_tv_trip_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textColor="@color/dark"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_20s" />
-
-
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:id="@+id/text_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_rv2"
-                        android:layout_margin="@dimen/_24"
-                        android:drawableStart="@drawable/ic_person_orange_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/number_passenger"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-
-
-                    <TextView
-                        android:drawableStart="@drawable/ic_attach_money_black_24dp"
-                        android:padding="@dimen/_8"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/bg_desc_stock_white"
-                        android:layout_below="@+id/text_number"
-                        android:hint="150"
-                        android:id="@+id/count_price"
+                    <ProgressBar
+                        android:id="@+id/prog_desc_image"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@{desc_book.price}"
-                        android:textColor="@color/color3"
-                        android:textSize="@dimen/_18s"
-                        android:textStyle="bold">
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"/>
 
-                    </TextView>
+
+                </RelativeLayout>
+
+
+                <!--                layout from and to -->
+                <RelativeLayout
+                    android:id="@+id/layout_from_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_image">
 
 
                     <LinearLayout
-
-
-                        android:id="@+id/layout_number"
+                        android:id="@+id/layout_place"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/count_price"
-                        android:layout_margin="@dimen/_24"
-                        android:orientation="horizontal">
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/white">
 
 
-                        <Button
+                        <TextView
+                            android:id="@+id/desc_from"
                             android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="@string/alexandria"
+                            android:textColor="@color/color3"
+                            android:textColorHint="@color/color3"
+                            android:textStyle="bold" />
 
-                            android:layout_height="wrap_content"
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight=".5"
-                            android:background="@drawable/ic_plus"
-                            android:onClick="@{(view)->desc_book.minus(view)}"
-                            android:text="-"
-                            android:textColor="@color/blck"
-                            android:textSize="@dimen/_20s" />
+                            android:gravity="center"
+                            android:text="@string/to"
+                            android:textColor="@color/dark_"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/desc_to"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="@string/alexandria"
+                            android:textColor="@color/color3"
+                            android:textColorHint="@color/color3"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <!--                layout small info-->
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_2"
+                    android:id="@+id/layout_small_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_from_to">
+
+                    <LinearLayout
+                        android:id="@+id/layout_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/color3">
+
 
                         <LinearLayout
-                            android:id="@+id/layout_price"
+                            android:id="@+id/layout_date"
                             android:layout_width="0dp"
-                            android:layout_height="@dimen/_50"
-                            android:layout_marginStart="@dimen/_16"
-                            android:layout_marginEnd="@dimen/_16"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
 
                             <TextView
-                                android:background="@drawable/bg_btn_book_orange"
-                                android:id="@+id/count_passenger"
-                                android:layout_width="0dp"
+
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@{desc_book.the_number}"
-                                android:textColor="@color/blck"
-                                android:textSize="@dimen/_18s"
-                                android:textStyle="bold">
+                                android:hint="01/01/2020"
+                                android:text="@string/date"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12s"
+                                android:textStyle="bold" />
 
-                            </TextView>
+                            <TextView
+                                android:id="@+id/desc_date_in"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_btn_book_whit_bottom"
+                                android:gravity="center"
+                                android:textColor="@color/dark_"
+                                android:textColorHint="@color/dark_"
+                                android:textSize="@dimen/_12s" />
 
 
                         </LinearLayout>
 
-                        <Button
+
+                        <LinearLayout
+                            android:id="@+id/layout_available"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@string/until"
+                                android:textColor="@color/dark_"
+                                android:textSize="@dimen/_12s"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/layout_booked"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="01/01/2020"
+                                android:text="@string/to_date"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12s"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/desc_date_out"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_btn_book_whit_bottom"
+                                android:gravity="center"
+                                android:textColor="@color/dark_"
+                                android:textColorHint="@color/dark_"
+                                android:textSize="@dimen/_12s" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+
+<!--                layout time 12:00 Am-->
+                <RelativeLayout
+                    android:id="@+id/layout_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_small_info"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/dark_">
+
+
+                        <TextView
+                            android:id="@+id/desc_time_in"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/color3"
+                            android:textColorHint="@color/color3"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight=".5"
-                            android:background="@drawable/ic_plus"
-                            android:onClick="@{(view)->desc_book.plus(view)}"
-                            android:text="+"
-                            android:textColor="@color/blck"
-                            android:textSize="@dimen/_20s" />
+                            android:gravity="center"
+                            android:text="@string/until"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/desc_time_out"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/color3"
+                            android:textColorHint="@color/color3"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+
+<!--                layout description -->
+
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_2"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_desc_description"
+                    android:layout_below="@+id/layout_time">
+
+
+                    <TextView
+                        android:background="@drawable/bg_btn_book_dark_top"
+
+
+                        android:drawablePadding="@dimen/_4"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:layout_width="@dimen/_200"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18s"
+                        android:gravity="center"/>
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_18"
+
+                        android:padding="@dimen/_18"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark"
+                        android:id="@+id/descTvTripInfo"/>
+
+
+
+
+
+
+                </RelativeLayout>
+
+
+
+<!--                layout  includes-->
+
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_2"
+                    android:id="@+id/layout_includes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_desc_description"
+                    android:background="@color/color3">
+
+
+                    <TextView
+                        android:background="@drawable/bg_btn_book_whit_top"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:layout_width="@dimen/_200"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/_4"
+                        android:paddingEnd="@dimen/_18"
+                        android:paddingStart="@dimen/_4"
+                        android:text="@string/inclouds"
+                        android:textColor="@color/dark_"
+                        android:textSize="@dimen/_18s"
+                        android:gravity="center"/>
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_18"
+
+                        android:padding="@dimen/_18"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:id="@+id/desc_include"/>
+
+
+
+
+                </RelativeLayout>
+
+
+
+<!--                layout price and count-->
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/desc_layout_count"
+                    android:layout_below="@+id/layout_includes"
+                    android:background="@color/white">
+
+
+
+<!--                    layout count-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+
+                        <ImageButton
+                            android:onClick="@{(view)-> desc_book.minus(view)}"
+                            android:src="@drawable/ic_remove_circle_black_24dp"
+                            android:layout_margin="@dimen/_4"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40"
+                            android:layout_weight=".5"
+                            android:background="@drawable/bg_btn_book_whit"
+                            android:id="@+id/minus"
+                            />
+
+                        <TextView
+                            android:paddingEnd="@dimen/_4"
+                            android:paddingStart="@dimen/_4"
+                            android:drawablePadding="@dimen/_4"
+                            android:drawableStart="@drawable/ic_person_white"
+                            android:text="@{desc_book.the_number.toString()}"
+                            android:id="@+id/countPassenger"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_4"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_btn_book_orange"/>
+
+
+                        <ImageButton
+                            android:onClick="@{(view)-> desc_book.plus(view)}"
+
+                            android:src="@drawable/ic_number_white_24dp"
+                            android:layout_margin="@dimen/_4"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40"
+                            android:layout_weight=".5"
+                            android:background="@drawable/bg_btn_book_whit"
+                            android:id="@+id/plus"
+                            />
 
                     </LinearLayout>
 
@@ -342,37 +417,74 @@
 
 
 
-                </RelativeLayout>
 
 
-                <Button
-                    android:id="@+id/desc_btn_book"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_all_info"
-                    android:layout_marginStart="@dimen/_40"
-                    android:layout_marginTop="@dimen/_4"
-                    android:layout_marginEnd="@dimen/_40"
-                    android:layout_marginBottom="@dimen/_24"
-                    android:background="@drawable/bg_btn_book_orange"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/book"
-                    android:textColor="@color/trans3"
-                    android:textSize="@dimen/_20s"
-                    android:textStyle="bold" />
+                    <!--                    layout price count-->
+                    <LinearLayout
+                        android:layout_margin="@dimen/_4"
+                        android:background="@drawable/bg_btn_book_dark"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8">
+
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".5"
+                            android:text="@string/price_"
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
+
+
+                        <TextView
+
+                            android:id="@+id/countPrice"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@{desc_book.price}"
+                            android:gravity="center"
+                            android:textStyle="bold|italic"
+                            android:textColor="@color/color3"/>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/desc_btn_book"
-                    android:layout_alignParentBottom="true">
+                    android:layout_height="@dimen/_70"
+                    android:layout_below="@+id/desc_layout_count">
 
+
+
+                    <Button
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:id="@+id/descBtnBook"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40"
+                        android:background="@drawable/bg_btn_book_orange"
+                        android:layout_marginStart="@dimen/_40"
+                        android:layout_marginEnd="@dimen/_40"
+                        android:layout_marginTop="@dimen/_20"
+                        android:text="@string/book"/>
 
                 </RelativeLayout>
 
 
+
+
+
+<!--bottom of parent layout-->
             </RelativeLayout>
 
 

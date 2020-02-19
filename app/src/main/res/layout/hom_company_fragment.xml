@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
 
-        <androidx.appcompat.widget.ActionMenuView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_100"
             android:background="@color/dark_"
@@ -17,6 +17,7 @@
 
 
             <TextView
+                android:layout_centerInParent="true"
                 android:drawablePadding="@dimen/_16"
                 android:drawableStart="@drawable/ic_smal_logo_green"
                 android:fontFamily="sans-serif-thin"
@@ -29,7 +30,7 @@
 
 
 
-        </androidx.appcompat.widget.ActionMenuView>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_below="@+id/action_bar"
@@ -86,11 +87,18 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rev_trip_info"
                     android:layout_width="match_parent"
-
-
                     android:layout_marginBottom="@dimen/_24"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/item_trips" />
+                    />
+
+
+                <ImageView
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_more_horiz_black_24dp"
+                    />
+
 
                 <com.github.clans.fab.FloatingActionMenu
 

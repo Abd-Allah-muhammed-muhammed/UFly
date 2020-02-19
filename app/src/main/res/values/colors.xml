@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#12262C</color>
-    <color name="colorPrimaryDark">#12262C</color>
-    <color name="colorAccent">#FEAD50</color>
+    <color name="colorPrimary">#141531</color>
+    <color name="colorPrimaryDark">#141531</color>
+    <color name="colorAccent">#F3A812</color>
     <color name="white">#ffffff</color>
     <color name="trans">#54FFFFFF</color>
-    <color name="dark">#12262C</color>
-    <color name="dark_">#050F13</color>
+    <color name="dark">#15163C</color>
+    <color name="dark_">#141531</color>
 
     <color name="bag">#E8E8EA</color>
     <color name="color2">#71E188</color>
-    <color name="color3">#FEAD50</color>
+    <color name="color3">#F3A812</color>
     <color name="color5">#E8E8EA</color>
 
 
@@ -24,11 +24,11 @@
 <color name="dot_dark_screen4">#54FFFFFF</color>
 
 <!-- dots active colors -->
-<color name="dot_light_screen1">#FEAD50</color>
-<color name="dot_light_screen2">#FEAD50</color>
-<color name="dot_light_screen3">#FEAD50</color>
-<color name="dot_light_screen4">#FEAD50</color>
-    <color name="trans2">#E8E8EA</color>
+<color name="dot_light_screen1">#F3A812</color>
+<color name="dot_light_screen2">#F3A812</color>
+<color name="dot_light_screen3">#F3A812</color>
+<color name="dot_light_screen4">#F3A812</color>
+    <color name="trans2">#F3A812</color>
     <color name="trans3">#EBF0F0F0</color>
     <color name="blck">#000000</color>
     <color name="dark_trans">#A3414244</color>

@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.description;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,10 +16,16 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.TripDescriptionFragmentBinding;
+import com.abdallah.ufly.helper.GlideApp;
 import com.abdallah.ufly.ui.email_verification.EmailVerificationFragment;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.ui.book.BookFragment;
 import com.abdallah.ufly.ui.home.HomeFragment;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
@@ -44,15 +51,9 @@ public class TripDescriptionFragment extends Fragment {
         binding.setLifecycleOwner(this);
         mViewModel = ViewModelProviders.of(this).get(TripDescriptionViewModel.class);
         binding.setDescBook(mViewModel);
-        binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
-            }
-        });
 
 
-        prefManager = new PrefManager(getContext());
+          prefManager = new PrefManager(getContext());
 
         tripId = getArguments().getInt("TripId",0);
 
@@ -64,6 +65,52 @@ public class TripDescriptionFragment extends Fragment {
 
         String includes = getArguments().getString("includes");
         final String id_comp = getArguments().getString("id_comp");
+        String image = getArguments().getString("image");
+
+        String time_in = getArguments().getString("time_in");
+
+        String time_out = getArguments().getString("time_out");
+
+
+
+        String dateFrome = getArguments().getString("dateFrome");
+        String dateUntil = getArguments().getString("dateUntil");
+
+
+
+        binding.descTimeIn.setText(time_in);
+        binding.descTimeOut.setText(time_out);
+
+
+        binding.descDateIn.setText(dateFrome);
+        binding.descDateOut.setText(dateUntil);
+
+
+        GlideApp.with(getContext()).load(image)
+
+
+
+                .error(R.drawable.test)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+
+                        binding.progDescImage.setVisibility(View.GONE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+
+                        binding.progDescImage.setVisibility(View.GONE);
+
+                        return false;
+                    }
+                })
+
+                .into(binding.descImage);
+
+
 
 
 

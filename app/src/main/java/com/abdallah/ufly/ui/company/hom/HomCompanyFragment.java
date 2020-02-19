@@ -10,11 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.abdallah.ufly.R;
@@ -52,6 +57,42 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
         prefManager = new PrefManager(getContext());
         String id_company = prefManager.getID_Company();
+
+
+
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        binding.revTripInfo.setLayoutManager(layoutManager);
+
+        final SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(binding.revTripInfo);
+
+
+
+
+        binding.revTripInfo.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                View v = snapHelper.findSnapView(layoutManager);
+                int pos = layoutManager.getPosition(v);
+
+                RecyclerView.ViewHolder viewHolder = binding.revTripInfo.findViewHolderForAdapterPosition(pos);
+                RelativeLayout rl1 = viewHolder.itemView.findViewById(R.id.item_tip);
+
+                if (newState == RecyclerView.SCROLL_STATE_IDLE){
+                    rl1.animate().setDuration(350).scaleX(1).scaleY(1).setInterpolator(new AccelerateInterpolator()).start();
+                }else{
+                    rl1.animate().setDuration(350).scaleX(0.75f).scaleY(0.75f).setInterpolator(new AccelerateInterpolator()).start();
+                }
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
+
 
 
         if (!isNetworkAvailable(getContext())) {
@@ -95,7 +136,10 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
                     noTrip.setVisibility(View.VISIBLE);
                 }
-                binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+
+
                 TripInfoAdapter adapter = new TripInfoAdapter(2);
                 binding.revTripInfo.setAdapter(adapter);
 

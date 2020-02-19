@@ -1,29 +1,34 @@
 package com.abdallah.ufly.adpter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ItemTripsBinding;
+
+import com.abdallah.ufly.helper.GlideApp;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 import com.abdallah.ufly.ui.company.add_trip.AddTripFragment;
 import com.abdallah.ufly.ui.description.TripDescriptionFragment;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
 
@@ -57,11 +62,32 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
         holder.itemTripsBinding.setTripinfo(tripInfo);
         
         // set number of passenger booked 
-        
-        holder.itemTripsBinding.numberBooked.setText("("+tripInfo.getNumber_booked()+")  "+holder.itemTripsBinding.getRoot().getContext().getString(R.string.booked));
-        
-        // set number of availability chair 
-        holder.itemTripsBinding.availableBooked.setText("("+tripInfo.getAvailable_booked()+")"+"  "+holder.itemTripsBinding.getRoot().getContext().getString(R.string.available_chair));
+
+
+
+
+        GlideApp.with(holder.itemTripsBinding.getRoot().getContext())
+                .load(tripInfo.getImage())
+                .error(R.drawable.test)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+
+
+                        holder.itemTripsBinding.progItemTrip.setVisibility(View.GONE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        holder.itemTripsBinding.progItemTrip.setVisibility(View.GONE);
+
+                        return false;
+                    }
+                })
+                .into
+                (holder.itemTripsBinding.imageTrip);
+
 
 
 
@@ -106,7 +132,11 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
                         bundle.putString("includes",tripInfo.getIncludes());
                         bundle.putString("id_comp",tripInfo.getCompany_id());
                         bundle.putString("image",tripInfo.getImage());
+                        bundle.putString("time_in",tripInfo.getTime_in());
+                        bundle.putString("time_out",tripInfo.getTime_out());
                         bundle.putInt("numberAvailability",tripInfo.getAvailable_booked());
+                        bundle.putString("dateFrome",tripInfo.getDateFrom());
+                        bundle.putString("dateUntil",tripInfo.getDateUntil());
 
 
                         fragment.setArguments(bundle);

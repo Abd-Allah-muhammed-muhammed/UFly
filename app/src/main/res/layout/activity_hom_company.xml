@@ -11,6 +11,7 @@
 
 
 
+        android:background="@color/dark_"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.company.hom.HomCompanyActivity">

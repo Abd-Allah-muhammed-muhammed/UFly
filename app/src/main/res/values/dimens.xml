@@ -58,4 +58,5 @@
     <dimen name="_370">370dp</dimen>
     <dimen name="_180">180dp</dimen>
     <dimen name="_130">130dp</dimen>
+    <dimen name="_12s">12sp</dimen>
 </resources>

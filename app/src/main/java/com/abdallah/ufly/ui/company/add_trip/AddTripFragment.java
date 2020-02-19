@@ -3,10 +3,9 @@ package com.abdallah.ufly.ui.company.add_trip;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -18,23 +17,18 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.AddTripFragmentBinding;
-import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
-import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
+import com.abdallah.ufly.helper.GlideApp;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Objects;
-
 import static android.app.Activity.RESULT_OK;
-import static com.abdallah.ufly.helper.HelperMethod.replace;
 
 public class AddTripFragment extends Fragment implements View.OnClickListener {
 
@@ -55,7 +49,6 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         mViewModel = ViewModelProviders.of(this , new AddTripFactory(binding.progAdd ,binding.photoTrip)).get(AddTripViewModel.class);
 
 
-        binding.back.setOnClickListener(this);
         binding.photoTrip.setOnClickListener(this);
 
         Bundle arguments = getArguments();
@@ -70,7 +63,6 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         String trip_to = arguments.getString("Trip_to");
         String price = arguments.getString("price");
         String includes = arguments.getString("includes");
-
         //
         String dateFrome = arguments.getString("dateFrome");
         String dateUntil = arguments.getString("dateUntil");
@@ -79,9 +71,36 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         String image = arguments.getString("image");
         String time_out = arguments.getString("time_out");
 
+
         if (id==2){
 
-            Glide.with(getContext()).load(image).into(binding.photoTrip);
+
+
+
+
+            GlideApp.with(getContext()).
+                    load(image)
+                    .error(R.drawable.test)
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+
+                            binding.progImageDesc.setVisibility(View.GONE);
+
+
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            binding.progImageDesc.setVisibility(View.GONE);
+
+                            return false;
+                        }
+                    }) .into(binding.photoTrip);
+        }else {
+
+            binding.progImageDesc.setVisibility(View.GONE);
         }
 
 
@@ -99,11 +118,6 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
 
-            case R.id.back:
-
-                replace(new HomCompanyFragment(),R.id.container_home_company,getFragmentManager().beginTransaction(),getString(R.string.tag_hom_company));
-
-                break;
 
             case R.id.photo_trip:
                 if (id!=2){

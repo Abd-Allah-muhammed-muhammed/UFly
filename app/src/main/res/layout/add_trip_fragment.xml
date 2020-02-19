@@ -17,282 +17,265 @@
         android:layout_height="wrap_content"
         android:background="@color/dark">
 
+
+
+
+
         <ScrollView
             android:id="@+id/sl_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <!--parent layout id is  layout_desc-->
+
+
             <RelativeLayout
-                android:id="@+id/layout_desc"
+                android:id="@+id/layout_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
+
+
+
+
+                <!--                 image layout -->
+
+
                 <RelativeLayout
-                    android:id="@+id/layout_top"
+                    android:id="@+id/layout_image"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="@dimen/_200">
 
-                    <ImageButton
-                        android:id="@+id/back"
-                        android:layout_width="@dimen/_50"
-                        android:layout_height="@dimen/_50"
-                        android:layout_alignParentStart="true"
-                        android:background="@drawable/ic_back" />
-                </RelativeLayout>
-                <!-- all info in this layout id is layout_all_info -->
-                <RelativeLayout
-                    android:id="@+id/layout_all_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_top"
-                    android:layout_margin="@dimen/_16"
-                    android:background="@drawable/bg_desc_stock">
+                    <ImageView
 
-
-                    <!-- from to shape with bus icon -->
-                    <RelativeLayout
-
-                        android:id="@+id/layout_desc_from_to"
+                        android:background="@drawable/ic_add_a_photo_black_24dp"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/photo_trip"/>
+
+                    <ProgressBar
+                        android:id="@+id/prog_image_desc"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_16"
-                        android:layout_marginTop="@dimen/_8"
-                        android:background="@drawable/bg_btn_book_whit">
+                        android:layout_centerInParent="true"/>
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:id="@+id/layout_from"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="@dimen/_6"
-                                    android:gravity="center"
-                                    android:lines="1"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/from"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <EditText
+                </RelativeLayout>
 
 
-
-
-                                    android:text="@{add_trip.trip_from}"
-                                    android:focusable="@{add_trip.focus}"
-                                    android:onTextChanged="@{add_trip::setFrom}"
-                                    android:id="@+id/desc_from"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_back_dark"
-                                    android:drawableEnd="@drawable/ic_back_right_dark"
-                                    android:drawablePadding="@dimen/_4"
-                                    android:gravity="center"
-                                    android:hint="..."
-                                    android:paddingStart="@dimen/_4"
-                                    android:paddingEnd="@dimen/_4"
-                                    android:paddingBottom="@dimen/_14"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight=".5"
-                                android:src="@drawable/ic_bus" />
-
-                            <LinearLayout
-                                android:id="@+id/layout_to"
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="@dimen/_6"
-                                    android:gravity="center"
-                                    android:lines="1"
-                                    android:paddingStart="@dimen/_14"
-                                    android:paddingEnd="@dimen/_14s"
-                                    android:text="@string/to"
-                                    android:textColor="@color/color3"
-                                    android:textSize="@dimen/_18s" />
-
-                                <EditText
-                                    android:focusable="@{add_trip.focus}"
-                                    android:text="@{add_trip.trip_to}"
-                                    android:id="@+id/desc_to"
-
-                                    android:onTextChanged="@{add_trip::setTo}"
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@android:color/transparent"
-                                    android:drawableStart="@drawable/ic_back_dark"
-                                    android:drawableEnd="@drawable/ic_back_right_dark"
-                                    android:drawablePadding="@dimen/_4"
-                                    android:gravity="center"
-                                    android:hint="..."
-                                    android:paddingStart="@dimen/_4"
-                                    android:paddingEnd="@dimen/_4"
-                                    android:paddingBottom="@dimen/_14"
-                                    android:textColor="@color/dark"
-                                    android:textColorHint="@color/dark"
-                                    android:textSize="@dimen/_14s"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                    <!--line one -->
-                    <TextView
-                        android:id="@+id/line_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_below="@+id/layout_desc_from_to"
-                        android:layout_margin="@dimen/_16"
-                        android:layout_marginTop="@dimen/_16"
-                        android:background="@color/trans3" />
-
-
-
-
+                <!--                layout from and to -->
+                <RelativeLayout
+                    android:id="@+id/layout_from_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_image">
 
 
                     <LinearLayout
-                        android:background="@drawable/bg_desc_stock"
-                        android:layout_marginEnd="@dimen/_20"
-                        android:layout_marginStart="@dimen/_20"
-                        android:id="@+id/layout_date_view"
-                        android:layout_below="@+id/line_1"
+                        android:id="@+id/layout_place"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50">
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
 
-                        <TextView
-
-
-                            android:text="@{add_trip.trip_datFrom}"
-                            android:onClick="@{(view)-> add_trip.dateFrom(view)}"
-                            android:drawableStart="@drawable/ic_number_green"
-                            android:background="@android:color/transparent"
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:id="@+id/tv_from_data"
-                            android:hint="@string/date"
-                            android:textColorHint="@color/color5"
+                        <EditText
+                            android:text="@{add_trip.trip_from}"
+                            android:focusable="@{add_trip.focus}"
+                            android:onTextChanged="@{add_trip::setFrom}"
+                            android:id="@+id/desc_from"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:textColor="@color/color5"
-                            android:textSize="@dimen/_14s"
-                            />
-                        <TextView
-                            android:fontFamily="sans-serif-smallcaps"
-
                             android:gravity="center"
-                            android:id="@+id/until"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/departure"
+                            android:textColor="@color/dark_"
+                            android:textColorHint="@color/dark_trans"
+                            android:textSize="@dimen/_14s"
+                            android:textStyle="bold" />
+
+
+                        <TextView
                             android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight=".5"
-                            android:layout_height="match_parent"
-                            android:text="@string/until"
-                            android:textColor="@color/color3"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-                        <TextView
-
-                            android:text="@{add_trip.trip_dateUntil}"
-
-                            android:onClick="@{(view)-> add_trip.dateUntil(view)}"
-
-                            android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_number_green"
-                            android:id="@+id/tv_to_date"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
                             android:gravity="center"
-                            android:hint="@string/to_date"
-                            android:textColorHint="@color/color5"
+                            android:text="@string/to"
+                            android:textColor="@color/dark_"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:focusable="@{add_trip.focus}"
+                            android:text="@{add_trip.trip_to}"
+                            android:id="@+id/desc_to"
+
+                            android:onTextChanged="@{add_trip::setTo}"
+
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:textColor="@color/color5"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:hint="@string/arrival"
+                            android:textColor="@color/dark_"
+                            android:textColorHint="@color/dark_trans"
                             android:textSize="@dimen/_14s"
-                            />
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
 
 
+                </RelativeLayout>
+
+                <!--                layout small info-->
+                <RelativeLayout
+                    android:id="@+id/layout_small_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_from_to">
+
+                    <LinearLayout
+                        android:id="@+id/layout_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/color3">
+
+
+                        <LinearLayout
+                            android:id="@+id/layout_date"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+
+
+                            <TextView
+
+                                android:text="@{add_trip.trip_datFrom}"
+                                android:onClick="@{(view)-> add_trip.dateFrom(view)}"
+                                android:drawableStart="@drawable/ic_date"
+                                android:padding="@dimen/_6"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:hint="@string/dateh"
+                                android:id="@+id/tv_from_data"
+                                android:textColorHint="@color/dark_trans"
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/dark_"
+                                android:textSize="@dimen/_14s"
+                                />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/layout_available"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".5"
+                            >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="@string/until"
+                                android:textColor="@color/dark_"
+                                android:textSize="@dimen/_12s"
+                                android:textStyle="bold"
+                                tools:ignore="NestedWeights" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/layout_booked"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+
+                            <TextView
+
+                                android:text="@{add_trip.trip_dateUntil}"
+
+                                android:onClick="@{(view)-> add_trip.dateUntil(view)}"
+                                android:hint="@string/dateh"
+
+                                android:drawableStart="@drawable/ic_date"
+                                android:id="@+id/tv_to_date"
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:padding="@dimen/_6"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColorHint="@color/dark_trans"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/dark_"
+                                android:textSize="@dimen/_14s"
+                                />
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+
+                <!--                layout time 12:00 Am-->
+                <RelativeLayout
+                    android:id="@+id/layout_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:layout_below="@+id/layout_small_info"
+                    >
 
 
                     <LinearLayout
-
-                        android:layout_marginTop="@dimen/_14"
-                        android:background="@drawable/bg_desc_stock"
-                        android:layout_marginEnd="@dimen/_20"
-                        android:layout_marginStart="@dimen/_20"
-                        android:id="@+id/layout_time_view"
-                        android:layout_below="@+id/layout_date_view"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50">
+                        android:layout_height="@dimen/_60"
+                        android:background="@color/dark_">
 
                         <TextView
 
                             android:text="@{add_trip.trip_timeIn}"
                             android:onClick="@{(view)-> add_trip.timeIn(view)}"
-                            android:drawableStart="@drawable/ic_number_green"
+                            android:drawableStart="@drawable/ic_time"
                             android:background="@android:color/transparent"
                             android:padding="@dimen/_6"
                             android:textStyle="bold"
                             android:gravity="center"
                             android:id="@+id/tv_from_time"
                             android:hint="@string/time_in"
-                            android:textColorHint="@color/color5"
+                            android:textColorHint="@color/dark_trans"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:textColor="@color/color5"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_14s"
                             />
+
                         <TextView
-                            android:fontFamily="sans-serif-smallcaps"
-
-                            android:gravity="center"
-                            android:id="@+id/until_time"
                             android:layout_width="0dp"
-                            android:layout_weight=".5"
                             android:layout_height="match_parent"
-                            android:text="@string/to"
-                            android:textColor="@color/color3"
-                            android:textSize="@dimen/_18s"
-                            />
-
+                            android:layout_weight=".5"
+                            android:gravity="center"
+                            android:text="@string/until"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
 
 
                         <TextView
@@ -302,7 +285,7 @@
                             android:onClick="@{(view)-> add_trip.timeUntil(view)}"
 
                             android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_number_green"
+                            android:drawableStart="@drawable/ic_time"
                             android:id="@+id/tv_to_time"
                             android:layout_width="0dp"
                             android:layout_weight="1"
@@ -310,166 +293,186 @@
                             android:textStyle="bold"
                             android:gravity="center"
                             android:hint="@string/time_out"
-                            android:textColorHint="@color/color5"
+                            android:textColorHint="@color/dark_trans"
                             android:layout_height="match_parent"
-                            android:textColor="@color/color5"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_14s"
                             />
 
-
                     </LinearLayout>
 
 
 
-                    <!-- text view  include   id is inclouds_tv-->
-                    <TextView
+                </RelativeLayout>
 
-                        android:id="@+id/inclouds_tv"
+
+                <!--                layout description -->
+
+
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_desc_description"
+                    android:layout_below="@+id/layout_time">
+
+
+                    <TextView
+                        android:background="@drawable/bg_btn_book_dark_start"
+
+
+                        android:drawablePadding="@dimen/_4"
+                        android:paddingEnd="@dimen/_18"
+                        android:drawableStart="@drawable/ic_info_outline_orange_24dp"
+                        android:layout_marginTop="@dimen/_4"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18s"
+                        android:gravity="center"/>
+
+
+                    <EditText
+                        android:focusable="@{add_trip.focus}"
+
+                        android:text="@{add_trip.trip_desc}"
+
+
+                        android:onTextChanged="@{add_trip::setDescription}"
+
+                        android:id="@+id/desc_tv_trip_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_time_view"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_includes_green"
-                        android:drawablePadding="@dimen/_24"
+                        android:layout_margin="@dimen/_30"
+                        android:background="@android:color/transparent"
+                        android:drawableStart="@drawable/ic_back_dark"
+                        android:drawableEnd="@drawable/ic_back_right_dark"
+                        android:gravity="center"
+                        android:hint=".......\n.......\n......."
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/_20s"
+                        android:textStyle="bold" />
+
+
+
+
+
+                </RelativeLayout>
+
+
+
+                <!--                layout  includes-->
+
+
+                <RelativeLayout
+                    android:id="@+id/layout_includes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_desc_description"
+                    android:background="@color/color3">
+
+
+                    <TextView
+                        android:background="@drawable/bg_btn_book_dark_start"
+                        android:drawableStart="@drawable/ic_includes_white"
+                        android:layout_marginTop="@dimen/_4"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/_4"
+                        android:paddingEnd="@dimen/_18"
+                        android:paddingStart="@dimen/_4"
                         android:text="@string/inclouds"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18s"
+                        android:gravity="center"/>
 
 
-                    <!--                     rv includ id is layout_rv-->
-                    <RelativeLayout
-                        android:id="@+id/layout_rv"
+
+                    <EditText
+
+                        android:text="@{add_trip.trip_includes}"
+
+
+                        android:focusable="@{add_trip.focus}"
+
+                        android:onTextChanged="@{add_trip::setIncludes}"
+
+                        android:id="@+id/desc_include"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/inclouds_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
-
-                        <EditText
-
-                            android:text="@{add_trip.trip_includes}"
-
-
-                            android:focusable="@{add_trip.focus}"
-
-                            android:onTextChanged="@{add_trip::setIncludes}"
-
-                            android:id="@+id/desc_include"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_24"
-                            android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_back_dark"
-                            android:drawableEnd="@drawable/ic_back_right_dark"
-                            android:gravity="center"
-                            android:hint="..."
-                            android:textColor="@color/dark"
-                            android:textSize="@dimen/_18s" />
-
-                    </RelativeLayout>
+                        android:layout_margin="@dimen/_30"
+                        android:background="@android:color/transparent"
+                        android:drawableStart="@drawable/ic_back_dark"
+                        android:drawableEnd="@drawable/ic_back_right_dark"
+                        android:gravity="center"
+                        android:textColorHint="@color/white"
+                        android:hint="..."
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18s" />
 
 
-                    <!--                    trip info tv  id is tripinfo_tv-->
-                    <TextView
-                        android:id="@+id/tripinfo_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_rv"
-                        android:layout_marginStart="@dimen/_24"
-                        android:layout_marginTop="@dimen/_24"
-                        android:layout_marginEnd="@dimen/_24"
-                        android:drawableStart="@drawable/ic_info_outline_green_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/trip_information"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
 
-                    <!--                    rv info layout_rv2 -->
-                    <RelativeLayout
-
-                        android:id="@+id/layout_rv2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/tripinfo_tv"
-                        android:layout_margin="@dimen/_16"
-                        android:background="@drawable/bg_btn_book_whit">
-
-                        <EditText
-                            android:focusable="@{add_trip.focus}"
-
-                            android:text="@{add_trip.trip_desc}"
+                </RelativeLayout>
 
 
-                            android:onTextChanged="@{add_trip::setDescription}"
 
-                            android:id="@+id/desc_tv_trip_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="@dimen/_30"
-                            android:background="@android:color/transparent"
-                            android:drawableStart="@drawable/ic_back_dark"
-                            android:drawableEnd="@drawable/ic_back_right_dark"
-                            android:gravity="center"
-                            android:hint=".......\n.......\n......."
-                            android:textColor="@color/dark"
-                            android:textSize="@dimen/_20s"
-                            android:textStyle="bold" />
+                <!--                layout price and count-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60"
+                    android:id="@+id/desc_layout_count"
+                    android:layout_below="@+id/layout_includes"
+                    android:background="@color/white">
 
 
-                    </RelativeLayout>
 
-
+                    <!--                    layout count-->
                     <LinearLayout
-                        android:layout_below="@+id/layout_rv2"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_margin="@dimen/_18"
-                        android:layout_height="@dimen/_100"
-                        android:background="@drawable/bg_desc_stock"
-                        android:id="@+id/add_photo">
+                        android:layout_margin="@dimen/_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
 
-                        <ImageView
-
-                            android:src="@drawable/ic_add_a_photo_black_24dp"
-                            android:layout_margin="@dimen/_2"
-                            android:layout_width="match_parent"
+                        <EditText
+                            android:id="@+id/count_price"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:id="@+id/photo_trip"/>
+
+                            android:paddingEnd="@dimen/_4"
+                            android:paddingStart="@dimen/_4"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_btn_book_orange"
+                            android:drawableStart="@drawable/ic_person_white"
+                            android:focusable="@{add_trip.focus}"
+                            android:gravity="center"
+                            android:hint="@string/number_passenger_"
+                            android:inputType="number"
+                            android:onTextChanged="@{add_trip::setPassengers}"
+                            android:text="@{add_trip.trip_passengers}"
+                            android:textColor="@color/dark_"
+                            android:textColorHint="@color/dark_trans"
+                            android:textSize="@dimen/_14s"
+                            android:textStyle="bold">
+
+                        </EditText>
+
 
                     </LinearLayout>
 
 
 
-
-                    <TextView
-                        android:id="@+id/text_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/add_photo"
-                        android:layout_margin="@dimen/_24"
-                        android:drawableStart="@drawable/ic_person_outline_black_24dp"
-                        android:drawablePadding="@dimen/_24"
-                        android:text="@string/number_passenger"
-                        android:textColor="@color/bag"
-                        android:textSize="@dimen/_20s"
-                        android:textStyle="bold" />
-
-
+                    <!--                    layout price count-->
                     <LinearLayout
-
-
-                        android:id="@+id/layout_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/text_number"
-                        android:layout_margin="@dimen/_24"
-                        android:background="@drawable/bg_desc_stock"
-                        android:orientation="horizontal">
+                        android:layout_margin="@dimen/_4"
+                        android:background="@drawable/bg_btn_book_dark"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8">
 
 
                         <EditText
@@ -481,49 +484,24 @@
 
                             android:onTextChanged="@{add_trip::setPrice}"
 
+                            android:paddingStart="@dimen/_4"
+                            android:paddingEnd="@dimen/_4"
+                            android:drawableStart="@drawable/ic_attach_money_black_24dp"
                             android:inputType="number"
-
-                            android:padding="@dimen/_12"
-
                             android:id="@+id/count_passenger"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_attach_money_black_24dp"
                             android:gravity="center"
-                            android:hint="@string/price_"
-                            android:paddingStart="@dimen/_12"
                             android:textColor="@color/white"
-                            android:textColorHint="@color/white"
+                            android:textColorHint="@color/dark_trans"
+                            android:hint="@string/price_"
                             android:textSize="@dimen/_18s"
                             android:textStyle="bold">
 
                         </EditText>
 
-                        <EditText
-                            android:inputType="number"
-                            android:onTextChanged="@{add_trip::setPassengers}"
-                            android:focusable="@{add_trip.focus}"
-
-                            android:text="@{add_trip.trip_passengers}"
-                            android:id="@+id/count_price"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:drawableEnd="@drawable/ic_person_orange_24dp"
-                            android:gravity="center"
-                            android:hint="@string/number_passenger_"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/white"
-                            android:padding="@dimen/_12"
-                            android:textSize="@dimen/_14s"
-                            android:textStyle="bold">
-
-                        </EditText>
 
 
                     </LinearLayout>
@@ -532,87 +510,83 @@
 
 
 
-                    <LinearLayout
 
 
-                        android:visibility="@{add_trip.passenger_visibility}"
-                        android:layout_marginBottom="@dimen/_24"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/layout_passenger_info"
-                        android:layout_below="@+id/layout_number">
+                </LinearLayout>
 
 
 
-
-                        <Button
-                            android:onClick="@{(view)->add_trip.passengerInfo(view)}"
-
-                            android:textStyle="bold"
-                            android:textColor="@color/dark"
-                            android:text="@string/passenger_info"
-                            android:layout_marginStart="@dimen/_24"
-                            android:layout_marginEnd="@dimen/_24"
-                            android:background="@drawable/bg_btn_book_green"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-
-
-
-                    </LinearLayout>
-
-
-                </RelativeLayout>
-
-
-                <ProgressBar
-
-                    android:id="@+id/prog_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/desc_btn_book"
-                    android:layout_alignEnd="@+id/desc_btn_book"
-                    android:layout_alignBottom="@+id/desc_btn_book"
-                    android:layout_marginStart="136dp"
-                    android:layout_marginEnd="147dp"
-                    android:layout_marginBottom="2dp"
-                    android:elevation="10dp"
-                    android:indeterminate="true"
-                    android:indeterminateTint="@color/white"
-                    android:indeterminateTintMode="src_atop"
-                   android:visibility="gone"
-                    />
 
                 <Button
+                    android:onClick="@{(view)->add_trip.passengerInfo(view)}"
 
-                    android:onClick="@{(view)->add_trip.addTrip(view)}"
-                    android:id="@+id/desc_btn_book"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout_all_info"
-                    android:layout_marginStart="@dimen/_40"
-                    android:layout_marginTop="@dimen/_4"
-                    android:layout_marginEnd="@dimen/_40"
-                    android:layout_marginBottom="@dimen/_24"
-                    android:background="@drawable/bg_btn_book_green"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:text="@{add_trip.textBtn}"
+
+                    android:visibility="@{add_trip.passenger_visibility}"
+                    android:layout_marginTop="@dimen/_18"
+                    android:id="@+id/passengers_info"
+                    android:textStyle="bold"
                     android:textColor="@color/dark"
-                    android:textSize="@dimen/_20s"
-                    android:textStyle="bold" />
+                    android:text="@string/passenger_info"
+                    android:layout_marginStart="@dimen/_24"
+                    android:layout_marginEnd="@dimen/_24"
+                    android:background="@drawable/bg_btn_book_green"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/desc_layout_count"
+                    android:layout_height="@dimen/_50"/>
+
+
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/desc_btn_book"
-                    android:layout_alignParentBottom="true">
+                    android:layout_height="@dimen/_70"
+                    android:layout_below="@+id/passengers_info">
 
+
+
+
+                    <ProgressBar
+
+                        android:id="@+id/prog_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/desc_btn_book"
+                        android:layout_alignEnd="@+id/desc_btn_book"
+                        android:layout_alignBottom="@+id/desc_btn_book"
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="147dp"
+                        android:layout_marginBottom="2dp"
+                        android:elevation="10dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="@color/white"
+                        android:indeterminateTintMode="src_atop"
+                        android:visibility="gone"
+                        />
+
+
+                    <Button
+
+                        android:onClick="@{(view)->add_trip.addTrip(view)}"
+                        android:id="@+id/desc_btn_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50"
+                        android:layout_marginStart="@dimen/_40"
+                        android:layout_marginTop="@dimen/_18"
+                        android:layout_marginEnd="@dimen/_40"
+                        android:background="@drawable/bg_btn_book_orange"
+                        android:elevation="2dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="@{add_trip.textBtn}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_20s"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
 
+
+
+
+                <!--bottom of parent layout-->
             </RelativeLayout>
 
 

@@ -15,6 +15,7 @@
 
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,7 +23,6 @@
 
         <RelativeLayout
             android:id="@+id/layout_rv_data"
-            android:background="@color/dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".MainActivity"
@@ -49,20 +49,21 @@
 
 
             <RelativeLayout
-                android:background="@color/dark_"
                 android:layout_marginBottom="@dimen/_16"
                 android:id="@+id/layout_search"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100"
+                android:layout_margin="@dimen/_18"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_book_orange"
+
                 >
                 <EditText
 
-
+                    android:drawableEnd="@drawable/ic_search"
+                  android:layout_margin="@dimen/_8"
+                    android:gravity="start"
                     android:layout_centerInParent="true"
-                    android:layout_marginBottom="@dimen/_4"
-                    android:drawablePadding="@dimen/_8"
                     android:imeOptions="actionSearch"
-                    android:drawableStart="@drawable/ic_search"
                     android:hint="@string/search_by_your_city"
                     android:textColorHint="@color/white"
                     android:inputType="text"
@@ -72,37 +73,48 @@
                     android:textColor="@color/white"
                     android:backgroundTintMode="screen"
                     android:showDividers="beginning"
-                    android:layout_marginTop="@dimen/_4"
-                    android:background="@drawable/bg_desc_stock"
-                    android:layout_width="@dimen/_300"
-                    android:layout_height="@dimen/_50"
-                    android:layout_marginStart="@dimen/_8"
-                    android:layout_marginEnd="@dimen/_8" />
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
 
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_marginTop="@dimen/_4"
-                android:layout_below="@+id/layout_search"
+
+            <TextView
+                android:textSize="@dimen/_18s"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/layout_filter">
-
-            </RelativeLayout>
-
+                android:text="@string/chose_your_payment_pay"
+                android:layout_below="@+id/layout_search"
+                android:id="@+id/text_select"/>
 
             <RelativeLayout
 
-                android:layout_below="@+id/layout_filter"
+                android:layout_below="@+id/text_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    tools:listitem="@layout/item_trips"
                     android:id="@+id/rev_trip_info"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_above="@+id/dots"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/dots"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:src="@drawable/ic_more_horiz_black"
                     />
             </RelativeLayout>
 

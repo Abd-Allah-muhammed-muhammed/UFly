@@ -7,7 +7,7 @@
 
 
     <RelativeLayout
-        android:background="@color/dark"
+        android:background="@color/dark_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -23,15 +23,14 @@
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            app:itemTextColor="@color/dark"
-            app:itemBackground="@color/white"
+            app:itemTextColor="@color/white"
             android:layout_width="match_parent"
-            app:itemIconTint="@color/color3"
+            app:itemIconTint="@color/dark_"
+
             android:layout_height="@dimen/_50"
             app:menu="@menu/nav_menu"
             android:layout_alignParentBottom="true"
-            android:background="@color/dark"
-            android:backgroundTint="@color/color3"
+            android:background="@drawable/bg_btn_book_orange_bottom"
             android:backgroundTintMode="screen"
             style="@android:style/Widget.Material.Toolbar.Button.Navigation"
             android:id="@+id/bottom_nav"/>

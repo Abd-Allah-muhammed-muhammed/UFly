@@ -11,307 +11,257 @@
     </data>
 
     <RelativeLayout
-        android:layout_marginStart="@dimen/_4"
-        android:layout_marginEnd="@dimen/_4"
-        android:layout_marginTop="@dimen/_2"
+
+
+        android:layout_marginStart="@dimen/_30"
+        android:layout_marginEnd="@dimen/_30"
+        android:layout_marginTop="@dimen/_30"
         android:id="@+id/item_tip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
+<!--0504496592-->
 
-            <RelativeLayout
 
-                android:background="@drawable/bg_desc_stock"
-                android:id="@+id/card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-
-                <RelativeLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_margin="@dimen/_8"
-                        android:orientation="horizontal"
-                        android:id="@+id/layout_dep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_marginStart="@dimen/_16"
-                            android:id="@+id/depar"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="@string/departure"
-                            android:textColor="@color/color3"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_marginEnd="@dimen/_28"
-                            android:gravity="end"
-                            android:id="@+id/arr"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="@string/arrival"
-                            android:textColor="@color/color3"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/_8"
-                        android:layout_marginEnd="@dimen/_8"
-                        android:id="@+id/layout_dep_view"
-                        android:background="@drawable/bg_desc_stock_orange"
-                        android:layout_below="@+id/layout_dep"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50">
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:id="@+id/tv_departure"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="@{tripinfo.departuer}"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_20s"
-                            />
-                        <TextView
-                            android:background="@drawable/bg_desc_stock_white"
-                            android:fontFamily="sans-serif-smallcaps"
-                            android:gravity="center"
-                            android:id="@+id/to"
-                            android:layout_width="0dp"
-                            android:layout_weight=".5"
-                            android:layout_height="match_parent"
-                            android:text="@string/to"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:id="@+id/tv_arrival"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:textColorHint="@color/dark_"
-                            android:layout_height="match_parent"
-                            android:text="@{tripinfo.arrival}"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_20s"
-                            />
-
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:id="@+id/layout_date"
-                        android:layout_margin="@dimen/_8"
-                        android:orientation="horizontal"
-                        android:layout_below="@+id/layout_dep_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_marginStart="@dimen/_28"
-                            android:id="@+id/date"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="@string/date"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_marginEnd="@dimen/_35"
-                            android:gravity="end"
-                            android:id="@+id/date_until"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:text="@string/to_date"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_marginEnd="@dimen/_8"
-                        android:layout_marginStart="@dimen/_8"
-                        android:id="@+id/layout_date_view"
-                        android:background="@drawable/bg_desc_stock_white"
-                        android:layout_below="@+id/layout_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50">
-
-                        <TextView
-
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:id="@+id/tv_from_data"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="@{tripinfo.dateFrom}"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_14s"
-                            />
-                        <TextView
-                            android:fontFamily="sans-serif-smallcaps"
-
-                            android:background="@drawable/bg_desc_stock"
-                            android:gravity="center"
-                            android:id="@+id/until"
-                            android:layout_width="0dp"
-                            android:layout_weight=".5"
-                            android:layout_height="match_parent"
-                            android:text="@string/until"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-                        <TextView
-                            android:id="@+id/tv_to_date"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:layout_height="match_parent"
-                            android:text="@{tripinfo.dateUntil}"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_14s"
-                            />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginBottom="@dimen/_8"
-                        android:layout_marginTop="@dimen/_18"
-                        android:layout_marginEnd="@dimen/_8"
-                        android:layout_marginStart="@dimen/_8"
-                        android:id="@+id/layout_price"
-                        android:background="@drawable/bg_desc_stock_orange"
-                        android:layout_below="@+id/layout_date_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50">
-
-                        <TextView
-
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:id="@+id/availableBooked"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_14s"
-                            />
-                        <TextView
-
-                            android:background="@drawable/bg_btn_book_whit"
-
-                            android:layout_marginTop="@dimen/_2"
-                            android:layout_marginBottom="@dimen/_2"
-                            android:paddingEnd="@dimen/_20"
-                            android:paddingStart="@dimen/_20"
-                            android:hint="1500"
-                            android:textColorHint="@color/dark_"
-                            android:drawableEnd="@drawable/ic_attach_money_black_24dp"
-                            android:id="@+id/price"
-                            android:layout_width="0dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="@{tripinfo.price}"
-                            android:textStyle="bold"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_18s"
-                            />
-
-
-
-                        <TextView
-                            android:id="@+id/numberBooked"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:padding="@dimen/_6"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:layout_height="match_parent"
-                            android:textColor="@color/dark_"
-                            android:textSize="@dimen/_14s"
-                            />
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:src="@drawable/ic_complete"
-                        android:layout_centerInParent="true"
-                        android:id="@+id/completed"
-                        android:visibility="gone"/>
-
-
-                </RelativeLayout>
-
-
-
-
-
-
-
-            </RelativeLayout>
-
-        <View
-            android:layout_marginBottom="@dimen/_4"
-            android:layout_marginTop="@dimen/_4"
-            android:layout_below="@+id/card"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_18"
-            android:background="@color/dark_"
-            />
+            android:layout_height="match_parent"
+            >
+
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/image_trip"
+                app:riv_corner_radius="30dip"
+                android:src="@drawable/test"
+                android:scaleType="centerCrop"
+                 />
+
+
+
+
+            <TextView
+                android:textSize="@dimen/_20s"
+                android:textStyle="italic"
+                android:drawableStart="@drawable/ic_attach_money_black_24dp"
+                android:padding="@dimen/_20"
+                android:background="@drawable/bg_btn_book_dark"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{tripinfo.price}"
+                />
+
+
+
+
+            <LinearLayout
+                android:background="@drawable/bg_btn_book_whit_top"
+                android:id="@+id/layout_place"
+                android:layout_marginBottom="@dimen/_8"
+                android:layout_marginStart="@dimen/_8"
+                android:layout_marginEnd="@dimen/_8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60"
+                android:layout_alignParentBottom="true"
+                >
+
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="@{tripinfo.departuer}"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="@string/alexandria"
+                    android:gravity="center"
+                    android:textColorHint="@color/dark_"
+                    android:textColor="@color/dark_"/>
+                  <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:text="@string/to"
+                    android:gravity="center"
+                      android:textStyle="bold"
+                    android:textColor="@color/dark"/>
+                  <TextView
+                      android:textStyle="bold"
+
+                      android:textColorHint="@color/dark_"
+                      android:text="@{tripinfo.arrival}"
+                      android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="@string/alexandria"
+                    android:gravity="center"
+                    android:textColor="@color/dark_"/>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+            <LinearLayout
+                android:background="@drawable/bg_btn_book_whit_bottom"
+                android:layout_marginBottom="@dimen/_12"
+                android:layout_marginStart="@dimen/_8"
+                android:layout_marginEnd="@dimen/_8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60"
+                android:id="@+id/layout_one"
+                android:layout_above="@+id/layout_place">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/layout_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+
+                     <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/date"
+                        android:textColor="@color/dark_"
+                         android:textStyle="bold"
+                         android:hint="01/01/2020"
+                         android:textSize="@dimen/_12s"
+                         android:gravity="center"/>
+
+  <TextView
+      android:background="@drawable/bg_btn_book_dark_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@{tripinfo.dateFrom.toString()}"
+                        android:textColor="@color/white"
+                         android:hint="01/01/2020"
+                         android:textSize="@dimen/_12s"
+                         android:textColorHint="@color/white"
+                         android:gravity="center"/>
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/layout_available"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/available_chair"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_12s"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_"
+                        />
+
+                    <TextView
+
+                        android:id="@+id/availableBooked"
+                        android:paddingStart="@dimen/_18"
+                        android:paddingEnd="@dimen/_18"
+                        android:drawableStart="@drawable/ic_event_seat_black_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@{String.valueOf(tripinfo.available_booked)}"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/dark"
+                        />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/layout_booked"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/booked"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12s"
+
+                        android:gravity="center"
+                        android:textColor="@color/dark_"
+                        />
+
+                    <TextView
+
+                        android:id="@+id/numberBooked"
+                        android:paddingStart="@dimen/_18"
+                        android:paddingEnd="@dimen/_18"
+                        android:drawableStart="@drawable/ic_bookmark_black_24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@{String.valueOf(tripinfo.number_booked)}"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/dark"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/completed"
+                android:src="@drawable/ic_complete"
+                android:visibility="gone"/>
+
+
+
+
+
+
+
+            <ProgressBar
+                android:id="@+id/prog_item_trip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+
 
 
     </RelativeLayout>

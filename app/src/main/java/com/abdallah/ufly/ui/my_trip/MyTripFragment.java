@@ -4,7 +4,9 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,11 +20,16 @@ import android.view.ViewGroup;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.MyTripFragmentBinding;
+import com.abdallah.ufly.helper.GlideApp;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.my_trip.MyTripResponse;
 import com.abdallah.ufly.ui.home.HomeFragment;
 import com.abdallah.ufly.ui.payCash.PayCashQRActivity;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity;
 import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
@@ -84,7 +91,6 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
 
 
         // set on click
-        binding.backMytrip.setOnClickListener(this);
         binding.myTripPayNow.setOnClickListener(this);
         binding.myTripCancel.setOnClickListener(this);
 
@@ -98,6 +104,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
 //        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void response(MyTripResponse response) {
 
@@ -110,9 +117,28 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
             int isPaid = response.getIsPaid();
 
 
+            GlideApp.with(getContext()).load(response.getData().getImage())
+                    .error(R.drawable.test)
+                    .listener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            binding.progDescImage.setVisibility(View.GONE);
+
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            binding.progDescImage.setVisibility(View.GONE);
+
+                            return false;
+                        }
+                    }).into(binding.myTripImage);
+
             PRICE =Double.parseDouble(response.getPrice());
 
             qr = response.getDataCompany().getQr();
+
 
 
             if (isPaid!=0){
@@ -140,13 +166,7 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
             binding.myTrip.setVisibility(View.GONE);
             binding.myTripPayNow.setVisibility(View.GONE);
             binding.textNoTrips.setVisibility(View.VISIBLE);
-            binding.backHome.setVisibility(View.VISIBLE);
-            binding.backHome.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
-                }
-            });
+
 
         }
 
@@ -166,11 +186,6 @@ public class MyTripFragment extends Fragment  implements MyTripResultCallBacks  
 
                 break;
 
-            case R.id.back_mytrip:
-
-                replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
-
-                break;
 
             case R.id.my_trip_pay_now:
 

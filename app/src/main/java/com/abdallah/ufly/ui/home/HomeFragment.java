@@ -2,14 +2,17 @@ package com.abdallah.ufly.ui.home;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
+
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
@@ -28,6 +35,7 @@ import com.abdallah.ufly.model.trips.TripsResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 
@@ -45,6 +53,61 @@ public class HomeFragment extends Fragment {
         binding.setLifecycleOwner(this);
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.progHome.setVisibility(View.VISIBLE);
+
+
+
+
+
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        binding.revTripInfo.setLayoutManager(layoutManager);
+
+
+        final SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(binding.revTripInfo);
+
+
+        try {
+
+
+
+            binding.revTripInfo.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                    super.onScrollStateChanged(recyclerView, newState);
+                    View v = snapHelper.findSnapView(layoutManager);
+
+                    int pos = 0;
+                    if (v != null) {
+                        pos = layoutManager.getPosition(v);
+                    }
+
+                    RecyclerView.ViewHolder viewHolder = binding.revTripInfo.findViewHolderForAdapterPosition(pos);
+
+                    RelativeLayout rl1 = new RelativeLayout(getContext());
+                    if (viewHolder != null) {
+                        rl1 = viewHolder.itemView.findViewById(R.id.item_tip);
+                    }
+
+                    if (newState == RecyclerView.SCROLL_STATE_IDLE){
+                        rl1.animate().setDuration(350).scaleX(1).scaleY(1).setInterpolator(new AccelerateInterpolator()).start();
+                    }else{
+                        rl1.animate().setDuration(350).scaleX(0.75f).scaleY(0.75f).setInterpolator(new AccelerateInterpolator()).start();
+                    }
+                }
+
+                @Override
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                }
+            });
+
+        }catch (Exception e) {
+        }
+
+
+
+
+
 
 
 
@@ -99,7 +162,6 @@ public class HomeFragment extends Fragment {
     private void search(String query) {
 
 
-
         binding.progHome.setVisibility(View.VISIBLE);
         homeViewModel.getdata(binding.progHome,binding.noTrip,query).observe(getViewLifecycleOwner(), new Observer<List<TripsResponse>>() {
             @Override
@@ -107,8 +169,6 @@ public class HomeFragment extends Fragment {
 
                 tripInfoAdapter = new TripInfoAdapter(1);
                 binding.revTripInfo.setAdapter(tripInfoAdapter);
-                binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
-                binding.revTripInfo.setHasFixedSize(true);
 
                 tripInfoAdapter.setTripInfoList((ArrayList<TripsResponse>) tripsResponses);
                 tripInfoAdapter.notifyDataSetChanged();
@@ -121,8 +181,8 @@ public class HomeFragment extends Fragment {
     private void fetchData() {
 
         tripInfoAdapter = new TripInfoAdapter(1);
+
         binding.revTripInfo.setAdapter(tripInfoAdapter);
-        binding.revTripInfo.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.revTripInfo.setHasFixedSize(true);
 
         homeViewModel.getdata(binding.progHome,binding.noTrip,binding.searchTrip.getText().toString()).observe(this, new Observer<List<TripsResponse>>() {

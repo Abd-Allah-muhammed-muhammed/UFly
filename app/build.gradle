@@ -82,11 +82,12 @@ dependencies {
     implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
     implementation project(path: ':paytabs_sdk-v4.0.1')
 
+//Glide dependency
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'androidx.annotation:annotation:1.1.0'
 
-    // glide
-    implementation ("com.github.bumptech.glide:glide:4.11.0") {
-        exclude group: "com.android.support"
-    }
-    implementation "com.android.support:support-fragment:26.1.0"
+    // round image making radios in image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 }
