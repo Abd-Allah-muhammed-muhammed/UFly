@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/dark"
+    android:background="@color/dark_"
 
     android:layout_height="wrap_content">
 
@@ -48,7 +48,7 @@
 
 
         <TextView
-            android:background="@drawable/bg_desc_stock"
+            android:background="@drawable/bg_btn_book_orange"
             android:padding="@dimen/_18"
             android:layout_width="match_parent"
             android:layout_margin="@dimen/_18"
@@ -56,7 +56,7 @@
             android:id="@+id/msg_dialog"
             android:layout_below="@+id/title_dialog"
             android:fontFamily="sans-serif-smallcaps"
-            android:textColor="@color/color3"
+            android:textColor="@color/white"
             android:gravity="center"/>
 
 

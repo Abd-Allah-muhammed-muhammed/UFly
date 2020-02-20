@@ -148,4 +148,12 @@ public class LoginCompanyViewModel extends ViewModel {
 
     }
 
+
+
+
+    public void connectUs (View view){
+
+
+
+    }
 }

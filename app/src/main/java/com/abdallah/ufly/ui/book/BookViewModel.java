@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,6 @@ public class BookViewModel extends ViewModel {
 
 
     public MutableLiveData<Integer> progress = new MutableLiveData<>();
-    public MutableLiveData<String> bookText = new MutableLiveData<>();
 
 
     Bundle bundle ;
@@ -65,7 +65,6 @@ public class BookViewModel extends ViewModel {
 
         progress.setValue(8);
 
-        bookText.setValue("");
 
     }
 
@@ -115,47 +114,12 @@ public class BookViewModel extends ViewModel {
 
 
 
-    public void shapVisa(CheckedTextView bookCash, CheckedTextView bookVisa, Button bookBook) {
-
-        bookVisa.setBackground((bookVisa.getContext().getDrawable(R.drawable.ic_bg_trip_where_1)));
-        bookCash.setBackground((bookCash.getContext().getDrawable(R.drawable.bg_btn_book_whit)));
-        bookCash.setTextColor(Color.parseColor("#12262C"));
-        bookVisa.setTextColor(Color.parseColor("#ffffff"));
-        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
-        bookBook.setTextColor(Color.parseColor("#ffffff"));
-        bookText.setValue(bookBook.getContext().getString(R.string.book));
-        ID_PAYMENT = "Visa";
-    }
-
-    public void shapCash(CheckedTextView bookCash, CheckedTextView bookVisa , Button bookBook) {
-
-        bookCash.setBackground((bookCash.getContext().getDrawable(R.drawable.ic_bg_trip_where_1)));
-        bookVisa.setBackground((bookVisa.getContext().getDrawable(R.drawable.bg_btn_book_whit)));
-        bookCash.setTextColor(Color.parseColor("#ffffff"));
-        bookVisa.setTextColor(Color.parseColor("#12262C"));
-        bookBook.setBackground((bookBook.getContext().getDrawable(R.drawable.bg_btn_book_orange)));
-        bookBook.setTextColor(Color.parseColor("#ffffff"));
-        bookText.setValue(bookBook.getContext().getString(R.string.book));
-
-        ID_PAYMENT = "Cash";
-    }
-
-
-
-
-
-
-
-
-
-
     @SuppressLint("CheckResult")
     public void bookNow (String id_trip
             , String token, String ID_PAYMENT, String price, String number, String id_comp, final Context context
                          ){
 
         progress.setValue(0);
-        bookText.setValue("");
 
         api = ApiClient.getClient().create(Api.class);
 
@@ -172,7 +136,6 @@ public class BookViewModel extends ViewModel {
                     public void onNext(BookModelResponse bookModelResponse) {
                         progress.setValue(8);
 
-                        bookText.setValue(context.getString(R.string.book));
                         callBacks.response(bookModelResponse);
 
                     }
@@ -181,14 +144,12 @@ public class BookViewModel extends ViewModel {
                     public void onError(Throwable e) {
 
                         progress.setValue(8);
-                        bookText.setValue(context.getString(R.string.book));
                         callBacks.onError(context.getString(R.string.try_again));
                     }
 
                     @Override
                     public void onComplete() {
                         progress.setValue(8);
-                        bookText.setValue(context.getString(R.string.book));
                     }
                 });
 
@@ -204,4 +165,30 @@ public class BookViewModel extends ViewModel {
 
     }
 
+    public void shapCash(boolean isChecked, CheckBox bookVisa) {
+
+
+        if (isChecked){
+
+            bookVisa.setChecked(false);
+            ID_PAYMENT = "Cash";
+        }else {
+
+            ID_PAYMENT = "0";
+        }
+    }
+
+    public void shapVisa(boolean isChecked, CheckBox bookCash) {
+
+
+        if (isChecked){
+
+            bookCash.setChecked(false);
+            ID_PAYMENT = "Visa";
+        }else {
+
+            ID_PAYMENT = "0";
+        }
+
+    }
 }

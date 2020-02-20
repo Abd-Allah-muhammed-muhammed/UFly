@@ -15,7 +15,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark">
+        android:background="@color/white">
 
 
 
@@ -76,7 +76,7 @@
                         android:id="@+id/layout_place"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_60"
-                        android:background="@color/white"
+                        android:background="@color/dark_"
                         android:orientation="horizontal">
 
                         <EditText
@@ -90,8 +90,8 @@
                             android:gravity="center"
                             android:background="@android:color/transparent"
                             android:hint="@string/departure"
-                            android:textColor="@color/dark_"
-                            android:textColorHint="@color/dark_trans"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/trans"
                             android:textSize="@dimen/_14s"
                             android:textStyle="bold" />
 
@@ -118,8 +118,8 @@
                             android:background="@android:color/transparent"
                             android:gravity="center"
                             android:hint="@string/arrival"
-                            android:textColor="@color/dark_"
-                            android:textColorHint="@color/dark_trans"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/trans"
                             android:textSize="@dimen/_14s"
                             android:textStyle="bold" />
 
@@ -131,6 +131,7 @@
 
                 <!--                layout small info-->
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/_12"
                     android:id="@+id/layout_small_info"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60"
@@ -245,6 +246,7 @@
 
 
                     <LinearLayout
+                        android:layout_marginTop="@dimen/_12"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_60"
                         android:background="@color/dark_">
@@ -310,7 +312,8 @@
 
 
                 <RelativeLayout
-                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_12"
+                    android:background="@color/dark_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/layout_desc_description"
@@ -318,11 +321,12 @@
 
 
                     <TextView
-                        android:background="@drawable/bg_btn_book_dark_start"
+                        android:background="@drawable/bg_btn_book_dark_top"
 
 
                         android:drawablePadding="@dimen/_4"
                         android:paddingEnd="@dimen/_18"
+                        android:paddingStart="@dimen/_18"
                         android:drawableStart="@drawable/ic_info_outline_orange_24dp"
                         android:layout_marginTop="@dimen/_4"
                         android:fontFamily="sans-serif-smallcaps"
@@ -346,12 +350,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_30"
+                        android:textColorHint="@color/white"
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_back_dark"
                         android:drawableEnd="@drawable/ic_back_right_dark"
                         android:gravity="center"
                         android:hint=".......\n.......\n......."
-                        android:textColor="@color/dark"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_20s"
                         android:textStyle="bold" />
 
@@ -367,6 +372,7 @@
 
 
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/_12"
                     android:id="@+id/layout_includes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -375,15 +381,14 @@
 
 
                     <TextView
-                        android:background="@drawable/bg_btn_book_dark_start"
+                        android:background="@drawable/bg_btn_book_dark_top"
                         android:drawableStart="@drawable/ic_includes_white"
-                        android:layout_marginTop="@dimen/_4"
                         android:fontFamily="sans-serif-smallcaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/_4"
                         android:paddingEnd="@dimen/_18"
-                        android:paddingStart="@dimen/_4"
+                        android:paddingStart="@dimen/_18"
                         android:text="@string/inclouds"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_18s"
@@ -421,6 +426,7 @@
 
                 <!--                layout price and count-->
                 <LinearLayout
+                    android:layout_marginTop="@dimen/_12"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60"
                     android:id="@+id/desc_layout_count"
@@ -525,11 +531,11 @@
                     android:layout_marginTop="@dimen/_18"
                     android:id="@+id/passengers_info"
                     android:textStyle="bold"
-                    android:textColor="@color/dark"
+                    android:textColor="@color/color3"
                     android:text="@string/passenger_info"
                     android:layout_marginStart="@dimen/_24"
                     android:layout_marginEnd="@dimen/_24"
-                    android:background="@drawable/bg_btn_book_green"
+                    android:background="@drawable/bg_btn_book_dark"
                     android:layout_width="match_parent"
                     android:layout_below="@+id/desc_layout_count"
                     android:layout_height="@dimen/_50"/>

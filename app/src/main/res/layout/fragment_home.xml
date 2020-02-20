@@ -16,6 +16,7 @@
 
     <RelativeLayout
 
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -49,10 +50,12 @@
 
 
             <RelativeLayout
+                android:layout_marginStart="@dimen/_30"
+                android:layout_marginEnd="@dimen/_30"
+                android:layout_marginTop="@dimen/_24"
                 android:layout_marginBottom="@dimen/_16"
                 android:id="@+id/layout_search"
                 android:layout_width="match_parent"
-                android:layout_margin="@dimen/_18"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_btn_book_orange"
 
@@ -60,7 +63,6 @@
                 <EditText
 
                     android:drawableEnd="@drawable/ic_search"
-                  android:layout_margin="@dimen/_8"
                     android:gravity="start"
                     android:layout_centerInParent="true"
                     android:imeOptions="actionSearch"
@@ -86,11 +88,11 @@
             <TextView
                 android:textSize="@dimen/_18s"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/chose_your_payment_pay"
+                android:text="@string/chose_your_trip"
                 android:layout_below="@+id/layout_search"
                 android:id="@+id/text_select"/>
 

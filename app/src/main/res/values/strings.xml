@@ -135,7 +135,9 @@
     <string name="chang_your_mail_first">YOU SHOULD CHANGE YOUR EMAIL FIRST  /n  THEN RE SEND YOUR EMAIL </string>
     <string name="no_result">NO RESULT</string>
     <string name="dateh" translatable="false">00/00/0000</string>
-
+    <string name="passengers_booked">PASSENGERS BOOKED</string>
+    <string name="chose_your_trip">CHOOSE YOUR TRIP</string>
+    <string name="have_any_q">HAVE ANY QUESTION ? CLICK HERE !</string>
 
 
 </resources>

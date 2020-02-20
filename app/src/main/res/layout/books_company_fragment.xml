@@ -8,19 +8,17 @@
     <RelativeLayout
 
 
-        android:background="@color/dark"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.company.book_company.BooksCompanyFragment">
 
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PASSENGERS BOOKED"
-            android:textColor="@color/color2"
-            android:textSize="@dimen/_24_sp"
-            android:gravity="center"
+
+            android:src="@drawable/ic_booked_logo"
             android:id="@+id/text_booked"
             android:layout_margin="@dimen/_40"
 
@@ -41,7 +39,7 @@
 
 
         <ProgressBar
-            android:indeterminateTint="@color/white"
+            android:indeterminateTint="@color/dark_"
             android:id="@+id/prog_booked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

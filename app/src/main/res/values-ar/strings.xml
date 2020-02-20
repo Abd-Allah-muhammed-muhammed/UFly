@@ -131,6 +131,9 @@
     <string name="reSend">اعادة ارسال الكود</string>
     <string name="chang_your_mail_first">انت لم تقم بتغير البريد الخاص بك \n يجب عليك تغير البريد الخاص بك اولا /n ثم قم باعاده الارسال</string>
     <string name="no_result">NO RESULT</string>
+    <string name="passengers_booked">حجوزات المسافرين</string>
+    <string name="chose_your_trip">اختر رحلتك</string>
+    <string name="have_any_q">لديك اي سوال ؟ اضغط هنا !</string>
 
 
 </resources>

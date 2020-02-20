@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -12,15 +12,15 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/img_width_height"
-            android:layout_height="@dimen/img_width_height"
-            android:src="@drawable/ic_logo" />
+            android:layout_width="@dimen/_250"
+            android:layout_height="@dimen/_250"
+            android:src="@drawable/ic_logo_one" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/world_travel"
-            android:textColor="@color/color2"
+            android:textColor="@color/color3"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
             android:paddingRight="@dimen/desc_padding"
             android:text="@string/world_travel_desc"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_"
             android:textSize="@dimen/slide_desc" />
 
     </LinearLayout>

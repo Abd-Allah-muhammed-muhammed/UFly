@@ -13,7 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dark"
+        android:background="@color/white"
         tools:context=".ui.my_account.MyAccountFragment">
 
 
@@ -23,7 +23,7 @@
             android:layout_height="@dimen/_50"
             android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"
-            android:background="@drawable/ic_back" />
+            android:background="@drawable/ic_back_dark" />
 
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_margin="@dimen/_8"
             android:gravity="center"
             android:text="@string/email_verification"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_"
             android:textSize="@dimen/_24_sp"
             android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_24"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_logo" />
+            android:src="@drawable/ic_send_imail" />
 
         <RelativeLayout
             android:id="@+id/layout_full_name"
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60"
                 android:layout_marginTop="@dimen/_40"
-                android:background="@drawable/bg_btn_book_whit"
+                android:background="@drawable/bg_btn_book_orange"
                 android:gravity="center"
                 android:hint="@string/enter_your_verification_id"
                 android:onTextChanged="@{emailV::setID}"
@@ -88,7 +88,7 @@
             android:layout_marginTop="@dimen/_18"
             android:layout_marginEnd="@dimen/_40"
             android:layout_marginBottom="@dimen/_20"
-            android:background="@drawable/bg_btn_book_orange"
+            android:background="@drawable/bg_btn_book_dark"
             android:onClick="@{(view)-> emailV.chick(view)}"
             android:text="@string/check"
             android:textColor="@color/white"
@@ -109,7 +109,7 @@
             android:drawableStart="@drawable/ic_email_orange_24dp"
             android:gravity="center"
             android:onTextChanged="@{emailV::setMail}"
-            android:textColor="@color/white" />
+            android:textColor="@color/dark_" />
 
 
         <Button

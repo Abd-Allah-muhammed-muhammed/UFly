@@ -50,7 +50,7 @@
             android:fontFamily="sans-serif-black"
             android:onClick="@{() -> welcome.btnnext()}"
             android:text="@{welcome.btnText}"
-            android:textColor="@color/color3" />
+            android:textColor="@color/dark_" />
 
         <Button
             android:id="@+id/btn_skip"
@@ -60,7 +60,7 @@
             android:background="@null"
             android:onClick="@{() -> welcome.btnskip()}"
             android:text="@string/skip"
-            android:textColor="@color/color2" />
+            android:textColor="@color/color3" />
 
     </RelativeLayout>
 

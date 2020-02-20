@@ -21,7 +21,7 @@
 
         <LinearLayout
 
-            android:background="@drawable/bg_card_trip"
+            android:background="@drawable/bg_btn_book_dark"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200">
@@ -29,7 +29,7 @@
 
             <LinearLayout
                 android:id="@+id/layout_passenger_info"
-                android:layout_margin="@dimen/_18"
+                android:layout_margin="@dimen/_8"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -38,10 +38,10 @@
                 <TextView
                     android:text="@{passBook.passenger.full_name}"
                     android:hint="@string/your_full_name"
-                    android:textColor="@color/dark"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:layout_marginBottom="@dimen/_8"
-                    android:background="@drawable/bg_includse"
+                    android:background="@drawable/bg_btn_book_orange_bottom"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"/>
@@ -52,7 +52,7 @@
                     android:gravity="center"
                     android:hint="@string/your_address"
                     android:layout_marginBottom="@dimen/_8"
-                    android:background="@drawable/bg_includse"
+                    android:background="@drawable/background_white"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"/>
@@ -64,12 +64,12 @@
 
                     android:paddingStart="@dimen/_18"
 
-                    android:drawableStart="@drawable/ic_phone_orange_24dp"
-                    android:textColor="@color/dark"
+                    android:drawableStart="@drawable/ic_phone_white_24dp"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:hint="@string/your_phone"
                     android:layout_marginBottom="@dimen/_8"
-                    android:background="@drawable/bg_includse"
+                    android:background="@drawable/bg_btn_book_orange_top"
 
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -83,7 +83,7 @@
             <LinearLayout
 
                 android:id="@+id/layout_trip_info"
-                android:layout_margin="@dimen/_18"
+                android:layout_margin="@dimen/_8"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -95,23 +95,23 @@
                     android:paddingEnd="@dimen/_18"
                     android:drawableEnd="@drawable/ic_payment_black_24dp"
                     android:id="@+id/payment"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/dark_"
                 android:gravity="center"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_"
                     android:hint="@string/cash"
                     android:text="@{passBook.booked.id_payment}"
                     android:layout_marginBottom="@dimen/_8"
-                    android:background="@drawable/ic_bg_trip_where_1"
+                    android:background="@drawable/bg_btn_book_whit_bottom"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"/>
                 <TextView
 
                     android:text="@{passBook.booked.number.toString()}"
-                    android:drawableStart="@drawable/ic_person_outline_black_24dp"
-                    android:textColorHint="@color/blck"
+                    android:drawableStart="@drawable/ic_person_white"
+                    android:textColorHint="@color/white"
                     android:gravity="center"
-                    android:textColor="@color/dark"
+                    android:textColor="@color/white"
                     android:hint="30"
                     android:layout_marginBottom="@dimen/_8"
                     android:layout_weight="1"
@@ -121,10 +121,10 @@
 
                     android:id="@+id/is_paid"
                     android:textStyle="bold"
-                    android:textColorHint="@color/blck"
+                    android:textColorHint="@color/dark_"
                     android:gravity="center"
                     android:hint="@string/is_paid"
-                    android:background="@drawable/bg_includse"
+                    android:background="@drawable/bg_btn_book_whit_top"
                     android:layout_marginBottom="@dimen/_8"
                     android:layout_weight="1"
                     android:layout_width="match_parent"

@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckedTextView;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.abdallah.ufly.R;
@@ -53,41 +54,37 @@ public class BookFragment extends Fragment  implements BookResultCallBacks{
         getDataIntent();
 
         binding.setBook(mViewModel);
-        binding.bookBook.setText("");
 
 
 
 
-        binding.bookCash.setOnTouchListener(new View.OnTouchListener() {
+        binding.bookCash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-               mViewModel.shapCash(binding.bookCash ,binding.bookVisa ,binding.bookBook);
-                return false;
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mViewModel.shapCash(isChecked,binding.bookVisa);
             }
         });
 
 
-        binding.bookVisa.setOnTouchListener(new View.OnTouchListener() {
+        binding.bookVisa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                mViewModel.shapVisa(binding.bookCash ,binding.bookVisa ,binding.bookBook);
-                return false;
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mViewModel.shapVisa(isChecked,binding.bookCash);
             }
         });
-
 
 
 
        return binding.getRoot();
     }
 
+    @SuppressLint("SetTextI18n")
     private void getDataIntent() {
 
         Bundle arguments = getArguments();
 
         String price = arguments.getString(getString(R.string.price));
-        binding.bookPrice.setText(price);
+        binding.bookPrice.setText(price+" $ ");
 
         mViewModel.setArgments(arguments);
 //

@@ -17,7 +17,7 @@
         android:id="@+id/my_trip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark">
+        android:background="@color/white">
 
 
 
@@ -41,7 +41,7 @@
                 <RelativeLayout
                     android:id="@+id/layout_image"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200">
+                    android:layout_height="@dimen/_250">
 
 
                     <ImageView
@@ -51,6 +51,7 @@
                         android:scaleType="centerCrop" />
 
                     <ProgressBar
+                        android:indeterminateTint="@color/dark_"
                         android:id="@+id/prog_desc_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,7 +73,7 @@
                         android:id="@+id/layout_place"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_60"
-                        android:background="@color/white">
+                        android:background="@color/dark_">
 
 
                         <TextView
@@ -93,7 +94,7 @@
                             android:layout_weight=".5"
                             android:gravity="center"
                             android:text="@string/to"
-                            android:textColor="@color/dark_"
+                            android:textColor="@color/white"
                             android:textStyle="bold" />
 
                         <TextView
@@ -115,7 +116,7 @@
 
                 <!--                layout small info-->
                 <RelativeLayout
-                    android:layout_marginTop="@dimen/_2"
+                    android:layout_marginTop="@dimen/_12"
                     android:id="@+id/layout_small_info"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60"
@@ -144,7 +145,7 @@
                                 android:gravity="center"
                                 android:hint="01/01/2020"
                                 android:text="@string/date"
-                                android:textColor="@color/white"
+                                android:textColor="@color/dark_"
                                 android:textSize="@dimen/_12s"
                                 android:textStyle="bold" />
 
@@ -155,10 +156,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_btn_book_whit_bottom"
+                                android:background="@drawable/bg_btn_book_dark_start"
                                 android:gravity="center"
-                                android:textColor="@color/dark_"
-                                android:textColorHint="@color/dark_"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_12s" />
 
 
@@ -177,7 +177,7 @@
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="@string/until"
-                                android:textColor="@color/dark_"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_12s"
                                 android:textStyle="bold" />
 
@@ -201,7 +201,7 @@
                                 android:gravity="center"
                                 android:hint="01/01/2020"
                                 android:text="@string/to_date"
-                                android:textColor="@color/white"
+                                android:textColor="@color/dark_"
                                 android:textSize="@dimen/_12s"
                                 android:textStyle="bold" />
 
@@ -212,10 +212,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_btn_book_whit_bottom"
+                                android:background="@drawable/bg_btn_book_dark_start"
                                 android:gravity="center"
-                                android:textColor="@color/dark_"
-                                android:textColorHint="@color/dark_"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_12s" />
 
 
@@ -229,6 +228,7 @@
 
                 <!--                layout time 12:00 Am-->
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/_12"
                     android:id="@+id/layout_time"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60"
@@ -285,8 +285,8 @@
 
 
                 <RelativeLayout
-                    android:layout_marginTop="@dimen/_2"
-                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_12"
+                    android:background="@color/dark_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/layout_desc_description"
@@ -317,7 +317,7 @@
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/dark"
+                        android:textColor="@color/white"
                         android:id="@+id/descTvTripInfo"/>
 
 
@@ -333,7 +333,7 @@
 
 
                 <RelativeLayout
-                    android:layout_marginTop="@dimen/_2"
+                    android:layout_marginTop="@dimen/_12"
                     android:id="@+id/layout_includes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -342,7 +342,7 @@
 
 
                     <TextView
-                        android:background="@drawable/bg_btn_book_whit_top"
+                        android:background="@drawable/bg_btn_book_dark_top"
                         android:fontFamily="sans-serif-smallcaps"
                         android:layout_width="@dimen/_200"
                         android:layout_height="wrap_content"
@@ -350,7 +350,7 @@
                         android:paddingEnd="@dimen/_18"
                         android:paddingStart="@dimen/_4"
                         android:text="@string/inclouds"
-                        android:textColor="@color/dark_"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_18s"
                         android:gravity="center"/>
 
@@ -364,7 +364,7 @@
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:textColor="@color/dark_"
                         android:id="@+id/desc_include"/>
 
 
@@ -376,7 +376,7 @@
 
                 <!--                layout price and count-->
                 <LinearLayout
-                    android:layout_marginTop="@dimen/_2"
+                    android:layout_marginTop="@dimen/_12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/desc_layout_count"
@@ -403,7 +403,7 @@
                             android:text="@{my_trip.data.numberBooked.toString()}"
 
                             android:id="@+id/countPassenger"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_"
                             android:gravity="center"
                             android:layout_marginTop="@dimen/_4"
                             android:layout_width="0dp"
@@ -501,8 +501,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/is_paid"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/dark_"
+                        android:textColorHint="@color/dark_"
                         android:textSize="@dimen/_24_sp"
                         android:textStyle="bold" />
 
@@ -528,7 +528,7 @@ android:id="@+id/layout_cancel"
 
                     <TextView
                         android:drawableBottom="@drawable/ic_cancel_black_24dp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/dark_"
                         android:gravity="center"
                         android:text="@string/cancel_the_trip"
                         android:id="@+id/my_trip_cancel"
@@ -542,7 +542,7 @@ android:id="@+id/layout_cancel"
                         android:id="@+id/progCancelMyTrip"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:indeterminateTint="@color/white"  />
+                        android:indeterminateTint="@color/dark_"  />
 
                 </RelativeLayout>
 
@@ -555,7 +555,7 @@ android:id="@+id/layout_cancel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:indeterminateTint="@color/white"  />
+                    android:indeterminateTint="@color/color3"  />
 
 
 
