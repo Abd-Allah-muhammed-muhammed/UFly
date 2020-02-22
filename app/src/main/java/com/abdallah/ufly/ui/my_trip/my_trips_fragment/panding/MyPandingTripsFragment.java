@@ -64,7 +64,14 @@ public class MyPandingTripsFragment extends Fragment {
 
         binding.rcPanding.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rcPanding.setAdapter(adapter);
-        adapter.setMyTrips(myTripsResponse);
+
+
+        if (myTripsResponse.getStatus()!=1){
+
+            adapter.setMyTrips(myTripsResponse);
+
+        }
+
 
 
 

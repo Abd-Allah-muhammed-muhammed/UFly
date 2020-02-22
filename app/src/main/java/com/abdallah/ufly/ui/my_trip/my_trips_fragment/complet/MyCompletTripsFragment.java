@@ -61,7 +61,12 @@ public class MyCompletTripsFragment extends Fragment {
 
         binding.rcComplete.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rcComplete.setAdapter(adapter);
-        adapter.setMyTrips(myTripsResponse);
+
+        if (myTripsResponse.getStatus()!=1){
+
+            adapter.setMyTrips(myTripsResponse);
+
+        }
 
 
 

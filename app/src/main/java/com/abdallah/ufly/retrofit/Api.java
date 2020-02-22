@@ -76,7 +76,10 @@ public interface Api {
     @FormUrlEncoded
     @POST("delete_trip.php")
     Single<DelelteMyTripResponse> cancleMyTrip(@Field("uui_id") String uui_id,
-                                               @Field("trip_id") int trip_id);
+                                               @Field("trip_id") int trip_id
+
+    ,
+                                               @Field("id") String id);
  @FormUrlEncoded
     @POST("setIsPaid.php")
     Single<CashPay> cashPay(@Field("uui_id") String uui_id,

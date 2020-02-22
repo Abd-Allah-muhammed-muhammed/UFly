@@ -1,10 +1,13 @@
 
 package com.abdallah.ufly.model.my_trip;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataTrip {
+public class DataTrip implements Parcelable {
 
     @SerializedName("id_trip")
     @Expose
@@ -54,6 +57,37 @@ public class DataTrip {
     @SerializedName("image")
     @Expose
     private String image;
+
+    protected DataTrip(Parcel in) {
+        idTrip = in.readString();
+        departure = in.readString();
+        arrival = in.readString();
+        dateFrom = in.readString();
+        dateUntil = in.readString();
+        passengers = in.readString();
+        price = in.readString();
+        description = in.readString();
+        companyId = in.readString();
+        includes = in.readString();
+        isComplete = in.readString();
+        availableBooked = in.readString();
+        numberBooked = in.readString();
+        timeIn = in.readString();
+        timeOut = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<DataTrip> CREATOR = new Creator<DataTrip>() {
+        @Override
+        public DataTrip createFromParcel(Parcel in) {
+            return new DataTrip(in);
+        }
+
+        @Override
+        public DataTrip[] newArray(int size) {
+            return new DataTrip[size];
+        }
+    };
 
     public String getIdTrip() {
         return idTrip;
@@ -183,4 +217,28 @@ public class DataTrip {
         this.image = image;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(idTrip);
+        dest.writeString(departure);
+        dest.writeString(arrival);
+        dest.writeString(dateFrom);
+        dest.writeString(dateUntil);
+        dest.writeString(passengers);
+        dest.writeString(price);
+        dest.writeString(description);
+        dest.writeString(companyId);
+        dest.writeString(includes);
+        dest.writeString(isComplete);
+        dest.writeString(availableBooked);
+        dest.writeString(numberBooked);
+        dest.writeString(timeIn);
+        dest.writeString(timeOut);
+        dest.writeString(image);
+    }
 }

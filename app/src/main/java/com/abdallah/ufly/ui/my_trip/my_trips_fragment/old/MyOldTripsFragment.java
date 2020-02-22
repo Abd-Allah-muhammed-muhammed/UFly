@@ -21,6 +21,7 @@ import com.abdallah.ufly.databinding.MyOldTripsFragmentBinding;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.model.my_trip.MyTripsResponse;
 
+import static com.abdallah.ufly.helper.Setting.OLD_TRIPS;
 import static com.abdallah.ufly.helper.Setting.PANDING_TRIPS;
 
 public class MyOldTripsFragment extends Fragment {
@@ -59,13 +60,16 @@ public class MyOldTripsFragment extends Fragment {
 
     private void fetchData(MyTripsResponse myTripsResponse) {
 
-        MyTripsAdapter adapter = new MyTripsAdapter(PANDING_TRIPS,getContext(),getActivity());
+        MyTripsAdapter adapter = new MyTripsAdapter(OLD_TRIPS,getContext(),getActivity());
 
         binding.rcOld.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rcOld.setAdapter(adapter);
-        adapter.setMyTrips(myTripsResponse);
 
+        if (myTripsResponse.getStatus()!=1){
 
+            adapter.setMyTrips(myTripsResponse);
+
+        }
 
     }
 

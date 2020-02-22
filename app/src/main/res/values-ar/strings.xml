@@ -137,6 +137,8 @@
     <string name="my_complet_trips">Complet Trips</string>
     <string name="my_panding_trips">Panding Trips</string>
     <string name="my_old_trips">Old Trips</string>
+    <string name="add_comment">اضف تعليق</string>
+    <string name="delete">حذف</string>
 
 
 </resources>

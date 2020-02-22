@@ -1,10 +1,13 @@
 
 package com.abdallah.ufly.model.my_trip;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataBook {
+public class DataBook implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -33,6 +36,30 @@ public class DataBook {
     @SerializedName("id_company")
     @Expose
     private String idCompany;
+
+    protected DataBook(Parcel in) {
+        id = in.readString();
+        idTrip = in.readString();
+        uuiId = in.readString();
+        uflyId = in.readString();
+        idPayment = in.readString();
+        price = in.readString();
+        isPaid = in.readString();
+        number = in.readString();
+        idCompany = in.readString();
+    }
+
+    public static final Creator<DataBook> CREATOR = new Creator<DataBook>() {
+        @Override
+        public DataBook createFromParcel(Parcel in) {
+            return new DataBook(in);
+        }
+
+        @Override
+        public DataBook[] newArray(int size) {
+            return new DataBook[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -106,4 +133,21 @@ public class DataBook {
         this.idCompany = idCompany;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(idTrip);
+        dest.writeString(uuiId);
+        dest.writeString(uflyId);
+        dest.writeString(idPayment);
+        dest.writeString(price);
+        dest.writeString(isPaid);
+        dest.writeString(number);
+        dest.writeString(idCompany);
+    }
 }

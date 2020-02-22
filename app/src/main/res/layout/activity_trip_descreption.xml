@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
+    <data>
 
+        <variable
+            name="dataTrip"
+            type="com.abdallah.ufly.model.my_trip.DataTrip" /><variable
 
-
+        name="dataBook"
+        type="com.abdallah.ufly.model.my_trip.DataBook" />
+    </data>
 
     <RelativeLayout
         android:visibility="visible"
@@ -13,10 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
-
-
-
-
 
 
         <ScrollView
@@ -46,6 +48,7 @@
                         android:scaleType="centerCrop" />
 
                     <ProgressBar
+                        android:visibility="gone"
                         android:indeterminateTint="@color/dark_"
                         android:id="@+id/prog_desc_image"
                         android:layout_width="wrap_content"
@@ -72,6 +75,7 @@
 
 
                         <TextView
+                            android:text="@{dataTrip.departure}"
                             android:id="@+id/desc_from"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -92,6 +96,8 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:text="@{dataTrip.arrival}"
+
                             android:id="@+id/desc_to"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -143,6 +149,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:text="@{dataTrip.dateFrom}"
 
                                 android:id="@+id/desc_date_in"
                                 android:layout_width="match_parent"
@@ -198,6 +205,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:text="@{dataTrip.dateFrom}"
 
                                 android:id="@+id/desc_date_out"
                                 android:layout_width="match_parent"
@@ -234,6 +242,7 @@
 
 
                         <TextView
+                            android:text="@{dataTrip.timeIn}"
 
                             android:id="@+id/desc_time_in"
                             android:layout_width="0dp"
@@ -254,6 +263,8 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:text="@{dataTrip.timeOut}"
+
                             android:id="@+id/desc_time_out"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -298,6 +309,7 @@
 
                     <TextView
 
+                        android:text="@{dataTrip.description}"
 
                         android:layout_marginTop="@dimen/_18"
 
@@ -346,6 +358,7 @@
 
                     <TextView
                         android:layout_marginTop="@dimen/_18"
+                        android:text="@{dataTrip.includes}"
 
                         android:padding="@dimen/_18"
                         android:gravity="center"
@@ -382,19 +395,18 @@
 
 
                         <TextView
+                            android:text="@{dataBook.number}"
+
                             android:paddingEnd="@dimen/_4"
                             android:paddingStart="@dimen/_4"
                             android:drawablePadding="@dimen/_4"
                             android:drawableStart="@drawable/ic_person_white"
-
-
                             android:id="@+id/countPassenger"
                             android:textColor="@color/dark_"
                             android:gravity="center"
                             android:layout_marginTop="@dimen/_4"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="@dimen/_40"
-                            android:layout_weight="1"
                             android:background="@drawable/bg_btn_book_orange"/>
 
 
@@ -428,6 +440,7 @@
 
                         <TextView
 
+                            android:text="@{dataBook.price}"
 
                             android:id="@+id/countPrice"
                             android:layout_width="0dp"
@@ -499,7 +512,7 @@
 
 
                 <RelativeLayout
-android:id="@+id/layout_cancel"
+                    android:id="@+id/layout_cancel"
                     android:layout_marginTop="@dimen/_18"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_70"
@@ -534,27 +547,47 @@ android:id="@+id/layout_cancel"
 
 
 
-
-                <ProgressBar
-                    android:id="@+id/progMyTrip"
+                <RelativeLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:indeterminateTint="@color/color3"  />
+                    android:id="@+id/old_trip"
+                    android:layout_below="@id/layout_cancel">
+
+
+                    <EditText
+                        android:id="@+id/add_comment"
+                        android:paddingStart="@dimen/_20"
+                        android:paddingEnd="@dimen/_20"
+                        android:textColorHint="@color/trans"
+                        android:hint="@string/add_comment"
+                        android:layout_margin="@dimen/_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50"
+                        android:background="@drawable/bg_btn_book_dark"/>
+
+
+                    <TextView
+
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textColor="@color/dark_"
+                        android:layout_marginBottom="@dimen/_12"
+                        android:layout_below="@+id/add_comment"
+                        android:layout_width="wrap_content"
+                        android:drawablePadding="@dimen/_12"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/delete"
+                        android:drawableEnd="@drawable/ic_cancel_black_24dp"/>
+
+
+                </RelativeLayout>
 
 
 
 
-                <TextView
-                    android:visibility="gone"
-                    android:id="@+id/text_no_trips"
-                    android:gravity="center"
-                    android:textColor="@color/dark_"
-                    android:textSize="@dimen/_18s"
-                    android:text="@string/no_trip_booked"
-                    android:layout_centerInParent="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+
 
 
 
@@ -567,8 +600,6 @@ android:id="@+id/layout_cancel"
 
 
     </RelativeLayout>
-
-
 
 
 

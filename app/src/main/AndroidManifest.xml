@@ -22,11 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".ui.my_trip.myTripsDescreption.TripDescreptionActivity"></activity>
         <activity
             android:name=".ui.my_trip.my_trips_activity.MyTripsActivity"
             android:label="@string/title_activity_my_trips"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.company.hom.HomCompanyActivity">
             <intent-filter>
                 <action android:name="com.scytec.datamobile.vd.gui.android.AppPreferenceActivity" />
