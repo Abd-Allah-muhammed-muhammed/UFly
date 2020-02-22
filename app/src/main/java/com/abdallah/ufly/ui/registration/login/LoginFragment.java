@@ -94,7 +94,6 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
         if (response.getStatus()==0){
 
             prefManager.saveToken(response.getData().getUuid());
-            StyleableToast.makeText(getContext(), response.getMessage(), Toast.LENGTH_LONG, R.style.success).show();
             prefManager.setIsLoged(true);
             prefManager.setIslogedCompany(false);
             prefManager.removeIdCompany();

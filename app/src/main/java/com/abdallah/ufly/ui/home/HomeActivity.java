@@ -3,28 +3,20 @@ package com.abdallah.ufly.ui.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.ActivityHomeBinding;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.ui.book.BookFragment;
-import com.abdallah.ufly.ui.company.book_company.BooksCompanyFragment;
-import com.abdallah.ufly.ui.company.hom.HomCompanyFragment;
-import com.abdallah.ufly.ui.company.settingCompany.SettingCompanyFragment;
-import com.abdallah.ufly.ui.description.TripDescriptionFragment;
-import com.abdallah.ufly.ui.my_account.MyAccountFragment;
-import com.abdallah.ufly.ui.my_trip.MyTripFragment;
+import com.abdallah.ufly.ui.my_trip.my_trips_activity.MyTripsActivity;
 import com.abdallah.ufly.ui.setting.SettingHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.muddzdev.styleabletoast.StyleableToast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 
 import static com.abdallah.ufly.helper.HelperMethod.fullScreen;
@@ -104,7 +96,12 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.nav_mytrips:
 
-                replace(new MyTripFragment(),R.id.frame_main,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
+
+                startActivity(new Intent(this, MyTripsActivity.class));
+
+
+
+//                replace(new MyTripFragment(),R.id.frame_main,getSupportFragmentManager().beginTransaction(),getString(R.string.tag_mytrip));
 
                 break;
         }

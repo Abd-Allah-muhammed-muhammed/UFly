@@ -60,4 +60,6 @@
     <dimen name="_130">130dp</dimen>
     <dimen name="_12s">12sp</dimen>
     <dimen name="_30s">30sp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

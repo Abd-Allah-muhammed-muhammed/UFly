@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-    <data>
 
-        <variable
-            name="my_trip"
-            type="com.abdallah.ufly.model.my_trip.MyTripResponse" />
-    </data>
 
 
     <RelativeLayout
@@ -82,7 +77,6 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="@{my_trip.data.departure}"
                             android:hint="@string/alexandria"
                             android:textColor="@color/color3"
                             android:textColorHint="@color/color3"
@@ -98,7 +92,6 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:text="@{my_trip.data.arrival}"
                             android:id="@+id/desc_to"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -150,7 +143,6 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:text="@{my_trip.data.dateFrom}"
 
                                 android:id="@+id/desc_date_in"
                                 android:layout_width="match_parent"
@@ -206,7 +198,6 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:text="@{my_trip.data.dateUntil}"
 
                                 android:id="@+id/desc_date_out"
                                 android:layout_width="match_parent"
@@ -243,7 +234,6 @@
 
 
                         <TextView
-                            android:text="@{my_trip.data.timeIn}"
 
                             android:id="@+id/desc_time_in"
                             android:layout_width="0dp"
@@ -264,7 +254,6 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:text="@{my_trip.data.timeOut}"
                             android:id="@+id/desc_time_out"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -309,7 +298,6 @@
 
                     <TextView
 
-                        android:text="@{my_trip.data.description}"
 
                         android:layout_marginTop="@dimen/_18"
 
@@ -358,7 +346,6 @@
 
                     <TextView
                         android:layout_marginTop="@dimen/_18"
-                        android:text="@{my_trip.data.includes}"
 
                         android:padding="@dimen/_18"
                         android:gravity="center"
@@ -400,7 +387,6 @@
                             android:drawablePadding="@dimen/_4"
                             android:drawableStart="@drawable/ic_person_white"
 
-                            android:text="@{my_trip.data.numberBooked.toString()}"
 
                             android:id="@+id/countPassenger"
                             android:textColor="@color/dark_"
@@ -442,7 +428,6 @@
 
                         <TextView
 
-                            android:text="@{my_trip.data.price.toString()}"
 
                             android:id="@+id/countPrice"
                             android:layout_width="0dp"
@@ -564,7 +549,7 @@ android:id="@+id/layout_cancel"
                     android:visibility="gone"
                     android:id="@+id/text_no_trips"
                     android:gravity="center"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_"
                     android:textSize="@dimen/_18s"
                     android:text="@string/no_trip_booked"
                     android:layout_centerInParent="true"

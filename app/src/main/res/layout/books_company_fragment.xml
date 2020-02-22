@@ -34,7 +34,7 @@
             android:layout_centerInParent="true"
             android:text="@string/this_trip_has_no_passengers_yet"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_"
             android:textSize="@dimen/_24_sp"/>
 
 

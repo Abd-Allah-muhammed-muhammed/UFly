@@ -9,7 +9,7 @@ import com.abdallah.ufly.model.emailvalidetion.EmailVerificationModel;
 import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.model.login_company.LoginCompany;
 import com.abdallah.ufly.model.my_info.MyInfoResponse;
-import com.abdallah.ufly.model.my_trip.MyTripResponse;
+import com.abdallah.ufly.model.my_trip.MyTripsResponse;
 import com.abdallah.ufly.model.passenger_booked.PassengerBookedResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.model.trips.TripsResponse;
@@ -53,8 +53,15 @@ public interface Api {
     Observable<List<TripsResponse>> getAllTrips(@Nullable @Query("query")String query );
 
 
-    @GET("my_trips.php")
-    Observable<MyTripResponse> getMyTrips(@Query("uui_id") String uui_id);
+    @GET("my_complet_trips.php")
+    Observable<MyTripsResponse> getMyCompleteTrips(@Query("uui_id") String uui_id);
+
+
+    @GET("my_panding_trips.php")
+    Observable<MyTripsResponse> getMyPandingTrips(@Query("uui_id") String uui_id);
+
+ @GET("my_old_trips.php")
+    Observable<MyTripsResponse> getMyoldTrips(@Query("uui_id") String uui_id);
 
 
     @FormUrlEncoded

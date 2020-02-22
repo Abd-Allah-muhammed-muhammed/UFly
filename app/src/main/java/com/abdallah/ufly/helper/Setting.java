@@ -10,4 +10,12 @@ public class Setting {
 
     public final static   int ACCOUNT  = 0;
 
+
+    public final static   int COMPLETE_TRIPS  = 1;
+    public final static   int PANDING_TRIPS  = 2;
+    public final static   int OLD_TRIPS  = 3;
+
+
+
+
 }

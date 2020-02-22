@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.my_trip.my_trips_fragment.panding.MyPandingTripsFragment">
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_my_trips"
+            android:id="@+id/rc_panding"/>
+
+    </RelativeLayout>
+
+</layout>

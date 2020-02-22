@@ -166,7 +166,6 @@ public class SignUpViewModel extends ViewModel {
 
 
                 if (response.body().getStatus() == 0) {
-                    StyleableToast.makeText(view.getContext(), response.body().getMessage(), Toast.LENGTH_LONG, R.style.success).show();
 
                     String uuid = response.body().getData().getUuid();
                     prefManager.saveToken(uuid);

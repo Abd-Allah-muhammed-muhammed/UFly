@@ -134,6 +134,9 @@
     <string name="passengers_booked">حجوزات المسافرين</string>
     <string name="chose_your_trip">اختر رحلتك</string>
     <string name="have_any_q">لديك اي سوال ؟ اضغط هنا !</string>
+    <string name="my_complet_trips">Complet Trips</string>
+    <string name="my_panding_trips">Panding Trips</string>
+    <string name="my_old_trips">Old Trips</string>
 
 
 </resources>

@@ -33,7 +33,7 @@
             <ProgressBar
                 android:indeterminate="true"
                 android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/white"
+                android:indeterminateTint="@color/dark_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -63,16 +63,17 @@
                 <EditText
 
                     android:drawableEnd="@drawable/ic_search"
-                    android:gravity="start"
+                    android:gravity="center_vertical"
                     android:layout_centerInParent="true"
                     android:imeOptions="actionSearch"
                     android:hint="@string/search_by_your_city"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/dark_trans"
                     android:inputType="text"
                     android:lines="1"
                     android:id="@+id/searchTrip"
+                    android:textSize="@dimen/_12s"
                     android:padding="@dimen/_8"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_"
                     android:backgroundTintMode="screen"
                     android:showDividers="beginning"
                     android:background="@android:color/transparent"

@@ -4,83 +4,62 @@ package com.abdallah.ufly.model.my_trip;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Data {
+public class DataTrip {
 
     @SerializedName("id_trip")
     @Expose
-    private Integer idTrip;
+    private String idTrip;
     @SerializedName("departure")
     @Expose
     private String departure;
     @SerializedName("arrival")
     @Expose
     private String arrival;
-    @SerializedName("date_until")
-    @Expose
-    private String dateUntil;
     @SerializedName("date_from")
     @Expose
     private String dateFrom;
+    @SerializedName("date_until")
+    @Expose
+    private String dateUntil;
     @SerializedName("passengers")
     @Expose
     private String passengers;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private String price;
     @SerializedName("description")
     @Expose
     private String description;
     @SerializedName("company_id")
     @Expose
     private String companyId;
+    @SerializedName("includes")
+    @Expose
+    private String includes;
     @SerializedName("is_complete")
     @Expose
-    private Integer isComplete;
+    private String isComplete;
     @SerializedName("available_booked")
     @Expose
-    private Integer availableBooked;
+    private String availableBooked;
     @SerializedName("number_booked")
     @Expose
-    private Integer numberBooked;
+    private String numberBooked;
     @SerializedName("time_in")
     @Expose
     private String timeIn;
     @SerializedName("time_out")
     @Expose
     private String timeOut;
-
-
- @SerializedName("image")
+    @SerializedName("image")
     @Expose
     private String image;
 
-
-
- @SerializedName("includes")
-    @Expose
-    private String includes;
-
-    public String getIncludes() {
-        return includes;
-    }
-
-    public void setIncludes(String includes) {
-        this.includes = includes;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Integer getIdTrip() {
+    public String getIdTrip() {
         return idTrip;
     }
 
-    public void setIdTrip(Integer idTrip) {
+    public void setIdTrip(String idTrip) {
         this.idTrip = idTrip;
     }
 
@@ -100,20 +79,20 @@ public class Data {
         this.arrival = arrival;
     }
 
-    public String getDateUntil() {
-        return dateUntil;
-    }
-
-    public void setDateUntil(String dateUntil) {
-        this.dateUntil = dateUntil;
-    }
-
     public String getDateFrom() {
         return dateFrom;
     }
 
     public void setDateFrom(String dateFrom) {
         this.dateFrom = dateFrom;
+    }
+
+    public String getDateUntil() {
+        return dateUntil;
+    }
+
+    public void setDateUntil(String dateUntil) {
+        this.dateUntil = dateUntil;
     }
 
     public String getPassengers() {
@@ -124,11 +103,11 @@ public class Data {
         this.passengers = passengers;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -148,27 +127,35 @@ public class Data {
         this.companyId = companyId;
     }
 
-    public Integer getIsComplete() {
+    public String getIncludes() {
+        return includes;
+    }
+
+    public void setIncludes(String includes) {
+        this.includes = includes;
+    }
+
+    public String getIsComplete() {
         return isComplete;
     }
 
-    public void setIsComplete(Integer isComplete) {
+    public void setIsComplete(String isComplete) {
         this.isComplete = isComplete;
     }
 
-    public Integer getAvailableBooked() {
+    public String getAvailableBooked() {
         return availableBooked;
     }
 
-    public void setAvailableBooked(Integer availableBooked) {
+    public void setAvailableBooked(String availableBooked) {
         this.availableBooked = availableBooked;
     }
 
-    public Integer getNumberBooked() {
+    public String getNumberBooked() {
         return numberBooked;
     }
 
-    public void setNumberBooked(Integer numberBooked) {
+    public void setNumberBooked(String numberBooked) {
         this.numberBooked = numberBooked;
     }
 
@@ -186,6 +173,14 @@ public class Data {
 
     public void setTimeOut(String timeOut) {
         this.timeOut = timeOut;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }

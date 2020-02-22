@@ -102,7 +102,7 @@
                             android:layout_weight=".5"
                             android:gravity="center"
                             android:text="@string/to"
-                            android:textColor="@color/dark_"
+                            android:textColor="@color/white"
                             android:textStyle="bold" />
 
                         <EditText

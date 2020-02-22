@@ -25,10 +25,10 @@
 
     <style name="error">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#FEAD50</item>
+        <item name="stTextColor">#141531</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">#13272D</item>
+        <item name="stColorBackground">#ffffff</item>
         <!--        <item name="stSolidBackground">true</item>-->
         <!--        <item name="stStrokeWidth">3dp</item>-->
         <!--        <item name="stStrokeColor">#13272D</item>-->
@@ -43,14 +43,14 @@
 
     <style name="error_company">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#71E188</item>
+        <item name="stTextColor">#141531</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">#13272D</item>
+        <item name="stColorBackground">#ffffff</item>
         <!--        <item name="stSolidBackground">true</item>-->
         <!--        <item name="stStrokeWidth">3dp</item>-->
         <!--        <item name="stStrokeColor">#13272D</item>-->
-        <item name="stIconStart">@drawable/ic_info_outline_green_24dp</item>
+        <item name="stIconStart">@drawable/ic_info_outline_orange_24dp</item>
         <!--        <item name="stIconEnd">@drawable/ic_error</item>-->
         <item name="stLength">LONG</item>
         LONG or SHORT
@@ -62,10 +62,10 @@
 
     <style name="success">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#FEAD50</item>
+        <item name="stTextColor">#141531</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">#13272D</item>
+        <item name="stColorBackground">#ffffff</item>
         <!--    <item name="stSolidBackground">true</item>-->
         <item name="stStrokeWidth">3dp</item>
         <!--    <item name="stStrokeColor">#FFFFFF</item>-->
@@ -82,10 +82,10 @@
 
     <style name="success_company">
         <item name="stTextBold">true</item>
-        <item name="stTextColor">#71E188</item>
+        <item name="stTextColor">#141531</item>
         <!--        <item name="stFont">@font/retrofont</item>-->
         <item name="stTextSize">14sp</item>
-        <item name="stColorBackground">#13272D</item>
+        <item name="stColorBackground">#ffffff</item>
         <!--    <item name="stSolidBackground">true</item>-->
         <item name="stStrokeWidth">3dp</item>
         <!--    <item name="stStrokeColor">#FFFFFF</item>-->
@@ -117,6 +117,7 @@
         <item name="android:windowEnterAnimation">@anim/spin_in</item>
         <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
     </style>
+
     <style name="MediumButton" parent="@android:style/Widget.Button">
         <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">sans-serif-smallcaps</item>

@@ -138,6 +138,11 @@
     <string name="passengers_booked">PASSENGERS BOOKED</string>
     <string name="chose_your_trip">CHOOSE YOUR TRIP</string>
     <string name="have_any_q">HAVE ANY QUESTION ? CLICK HERE !</string>
+    <string name="title_activity_my_trips" translatable="false">MyTripsActivity</string>
+
+    <string name="my_complet_trips">Complet Trips</string>
+    <string name="my_panding_trips">Panding Trips</string>
+    <string name="my_old_trips">Old Trips</string>
 
 
 </resources>

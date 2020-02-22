@@ -83,8 +83,7 @@ public class BookViewModel extends ViewModel {
 
         }else {
 
-
-
+            
             if (ID_PAYMENT .equals("0")) {
 
                 String msg = "check your way to pay first";

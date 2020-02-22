@@ -65,7 +65,9 @@ public class BookedInfoAdapter extends RecyclerView.Adapter<BookedInfoAdapter.Bo
 
             case "Cash":
 
-                holder.itemBookedBinding.payment.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(holder.itemBookedBinding.getRoot().getContext(),R.drawable.ic_attach_money_black_24dp), null)
+                holder.itemBookedBinding.payment.setCompoundDrawablesWithIntrinsicBounds
+                        (null, null, ContextCompat.getDrawable(holder.itemBookedBinding.getRoot().getContext()
+                                ,R.drawable.ic_attach_money_black_24dp), null)
                         ;
 
                 break;

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+
+    <data>
+
+        <variable
+            name="trips"
+            type="com.abdallah.ufly.model.my_trip.DataTrip" />
+    </data>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_12"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180">
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                app:riv_border_width="1dp"
+                app:riv_border_color="@color/color3"
+                android:id="@+id/image_my_trips"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/test"
+                android:scaleType="center"
+                app:riv_corner_radius="18dip"/>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/_40"
+            android:layout_marginEnd="@dimen/_40"
+            android:background="@drawable/bg_btn_book_dark_start"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/layout_place"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:fontFamily="sans-serif-smallcaps"
+
+android:text="@{trips.departure}"
+                android:textSize="@dimen/_12s"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+ <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:text="@string/to"
+                android:textColor="@color/color3"
+                android:gravity="center"/>
+ <TextView
+     android:textSize="@dimen/_12s"
+
+     android:text="@{trips.arrival}"
+     android:fontFamily="sans-serif-smallcaps"
+     android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

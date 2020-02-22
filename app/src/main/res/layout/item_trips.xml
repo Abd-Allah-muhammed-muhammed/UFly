@@ -89,7 +89,7 @@
                     android:text="@string/to"
                     android:gravity="center"
                       android:textStyle="bold"
-                    android:textColor="@color/dark"/>
+                    android:textColor="@color/color3"/>
                   <TextView
                       android:textStyle="bold"
 

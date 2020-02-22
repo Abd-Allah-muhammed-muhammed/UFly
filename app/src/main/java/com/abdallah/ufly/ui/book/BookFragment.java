@@ -1,11 +1,9 @@
 package com.abdallah.ufly.ui.book;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,22 +11,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.databinding.BookFragmentBinding;
-import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.book.BookModelResponse;
-import com.abdallah.ufly.model.login.LoginResponse;
 import com.abdallah.ufly.ui.home.HomeFragment;
-import com.abdallah.ufly.ui.my_trip.MyTripFragment;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import static com.abdallah.ufly.helper.HelperMethod.replace;
@@ -117,6 +109,7 @@ try {
         GeneralDialogFragment generalDialogFragment =
                 GeneralDialogFragment.newInstance(getString(R.string.booked),response.getMessage(),R.drawable.ic_done);
         generalDialogFragment.show(getFragmentManager(),"dialog");
+        replace(new HomeFragment(),R.id.frame_main,getFragmentManager().beginTransaction(),getString(R.string.tag_home));
 
 
     }else if (response.getStatus()==4){

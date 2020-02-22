@@ -4,14 +4,14 @@ package com.abdallah.ufly.model.my_trip;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MyTripResponse {
+public class DataBook {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
     @SerializedName("id_trip")
     @Expose
-    private Integer idTrip;
+    private String idTrip;
     @SerializedName("uui_id")
     @Expose
     private String uuiId;
@@ -26,27 +26,27 @@ public class MyTripResponse {
     private String price;
     @SerializedName("is_paid")
     @Expose
-    private Integer isPaid;
-    @SerializedName("dataCompany")
+    private String isPaid;
+    @SerializedName("number")
     @Expose
-    private DataCompany dataCompany;
-    @SerializedName("data")
+    private String number;
+    @SerializedName("id_company")
     @Expose
-    private Data data;
+    private String idCompany;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getIdTrip() {
+    public String getIdTrip() {
         return idTrip;
     }
 
-    public void setIdTrip(Integer idTrip) {
+    public void setIdTrip(String idTrip) {
         this.idTrip = idTrip;
     }
 
@@ -82,28 +82,28 @@ public class MyTripResponse {
         this.price = price;
     }
 
-    public Integer getIsPaid() {
+    public String getIsPaid() {
         return isPaid;
     }
 
-    public void setIsPaid(Integer isPaid) {
+    public void setIsPaid(String isPaid) {
         this.isPaid = isPaid;
     }
 
-    public DataCompany getDataCompany() {
-        return dataCompany;
+    public String getNumber() {
+        return number;
     }
 
-    public void setDataCompany(DataCompany dataCompany) {
-        this.dataCompany = dataCompany;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public Data getData() {
-        return data;
+    public String getIdCompany() {
+        return idCompany;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setIdCompany(String idCompany) {
+        this.idCompany = idCompany;
     }
 
 }
