@@ -60,16 +60,21 @@ public class MyPandingTripsFragment extends Fragment {
     }
     private void fetchData(MyTripsResponse myTripsResponse) {
 
-        MyTripsAdapter adapter = new MyTripsAdapter(PANDING_TRIPS,getContext(),getActivity());
-
-        binding.rcPanding.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rcPanding.setAdapter(adapter);
 
 
-        if (myTripsResponse.getStatus()!=1){
+        if (myTripsResponse.getStatus()==0){
+            MyTripsAdapter adapter = new MyTripsAdapter(PANDING_TRIPS,getContext(),getActivity());
+
+            binding.rcPanding.setLayoutManager(new LinearLayoutManager(getContext()));
+            binding.rcPanding.setAdapter(adapter);
 
             adapter.setMyTrips(myTripsResponse);
 
+
+        }else {
+
+
+            binding.noTrip.setVisibility(View.VISIBLE);
         }
 
 

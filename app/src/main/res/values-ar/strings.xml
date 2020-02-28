@@ -139,6 +139,7 @@
     <string name="my_old_trips">Old Trips</string>
     <string name="add_comment">اضف تعليق</string>
     <string name="delete">حذف</string>
+    <string name="wrong_date">Wrong Date</string>
 
 
 </resources>

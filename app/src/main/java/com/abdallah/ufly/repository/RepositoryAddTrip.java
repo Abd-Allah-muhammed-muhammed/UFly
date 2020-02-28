@@ -68,8 +68,7 @@ public class RepositoryAddTrip {
 
 
 
-        progressBar.setVisibility(View.VISIBLE);
-        view.setText("");
+
 
         RequestBody includse ;
         RequestBody from = convertToRequestBody(modelAddTrip.getFrom());
@@ -94,58 +93,69 @@ public class RepositoryAddTrip {
 
         RequestBody comp_id = convertToRequestBody(companyID);
 
-        MultipartBody.Part image = convertFileToMultipart(imageFile_path, "image");
 
-        api.addTrip(from, to, datFrom, datUntil, passengers, price, description, comp_id, includse,timeIn,timeOut ,image).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
+        if (imageFile_path!=null){
+            progressBar.setVisibility(View.VISIBLE);
+            view.setText("");
+            MultipartBody.Part image = convertFileToMultipart(imageFile_path, "image");
 
-            }
-
-            @Override
-            public void onNext(AddTripResponse addTripResponse) {
-
-
-                progressBar.setVisibility(View.GONE);
-                view.setText(view.getContext().getString(R.string.add_trip));
-
-
-                if (addTripResponse.getStatus() == 0) {
-
-
-                    StyleableToast.makeText(view.getContext(), addTripResponse.getMessage(), Toast.LENGTH_LONG, R.style.success_company).show();
-
-                    replace(new HomCompanyFragment(), R.id.container_home_company, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction(), view.getContext().getString(R.string.tag_hom_company));
-
-                } else {
-
-
-                    StyleableToast.makeText(view.getContext(), addTripResponse.getMessage(), Toast.LENGTH_LONG, R.style.error_company).show();
-
+            api.addTrip(from, to, datFrom, datUntil, passengers, price, description, comp_id, includse,timeIn,timeOut ,image).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<AddTripResponse>() {
+                @Override
+                public void onSubscribe(Disposable d) {
 
                 }
 
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                progressBar.setVisibility(View.GONE);
-                view.setText(view.getContext().getString(R.string.add_trip));
+                @Override
+                public void onNext(AddTripResponse addTripResponse) {
 
 
-                StyleableToast.makeText(view.getContext(),view.getContext().getString(R.string.paytabs_err_unknown), Toast.LENGTH_LONG, R.style.error_company).show();
-
-            }
-
-            @Override
-            public void onComplete() {
-
-                progressBar.setVisibility(View.GONE);
-                view.setText(view.getContext().getString(R.string.add_trip));
+                    progressBar.setVisibility(View.GONE);
+                    view.setText(view.getContext().getString(R.string.add_trip));
 
 
-            }
-        });
+                    if (addTripResponse.getStatus() == 0) {
+
+
+                        StyleableToast.makeText(view.getContext(), addTripResponse.getMessage(), Toast.LENGTH_LONG, R.style.success_company).show();
+
+                        replace(new HomCompanyFragment(), R.id.container_home_company, ((FragmentActivity) view.getContext()).getSupportFragmentManager().beginTransaction(), view.getContext().getString(R.string.tag_hom_company));
+
+                    } else {
+
+
+                        StyleableToast.makeText(view.getContext(), addTripResponse.getMessage(), Toast.LENGTH_LONG, R.style.error_company).show();
+
+
+                    }
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    progressBar.setVisibility(View.GONE);
+                    view.setText(view.getContext().getString(R.string.add_trip));
+
+
+                    StyleableToast.makeText(view.getContext(),view.getContext().getString(R.string.paytabs_err_unknown), Toast.LENGTH_LONG, R.style.error_company).show();
+
+                }
+
+                @Override
+                public void onComplete() {
+
+                    progressBar.setVisibility(View.GONE);
+                    view.setText(view.getContext().getString(R.string.add_trip));
+
+
+                }
+            });
+
+        }else {
+
+            StyleableToast.makeText(view.getContext(), "please add photo ", Toast.LENGTH_LONG, R.style.error_company).show();
+
+        }
+
 
 
     }

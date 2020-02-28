@@ -64,12 +64,11 @@ public class TripInfoAdapter  extends RecyclerView.Adapter<TripInfoAdapter.TripI
         // set number of passenger booked 
 
 
-
-
         GlideApp.with(holder.itemTripsBinding.getRoot().getContext())
                 .load(tripInfo.getImage())
                 .error(R.drawable.test)
                 .listener(new RequestListener<Drawable>() {
+
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
 

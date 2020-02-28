@@ -116,7 +116,6 @@ public class HomeFragment extends Fragment {
 
 
             binding.noTrip.setVisibility(View.VISIBLE);
-            binding.noTrip.setText(getString(R.string.paytabs_err_no_internet));
 
 
             binding.progHome.setVisibility(View.GONE);

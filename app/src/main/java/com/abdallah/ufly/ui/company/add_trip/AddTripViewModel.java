@@ -30,6 +30,7 @@ import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
@@ -270,24 +271,67 @@ public class AddTripViewModel extends ViewModel {
 
     private void updateLabelFrom(TextView view) {
 
+        Context mContext = view.getContext();
         String myFormat = "yyyy/MM/dd";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        view.setText(sdf.format(myCalendar.getTime()));
 
-        modelAddTrip.setDatFrom(sdf.format(myCalendar.getTime()));
+
+        Date time = myCalendar.getTime();
+
+        long prevDay = System.currentTimeMillis();
+        Date prev = new Date(prevDay);
+
+
+        if (time.after(prev)){
+            view.setText(sdf.format(myCalendar.getTime()));
+
+            modelAddTrip.setDatFrom(sdf.format(myCalendar.getTime()));
+
+        }else {
+
+            view.setText("");
+
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(mContext.getString(R.string.paytabs_error),mContext.getString(R.string.wrong_date),R.drawable.ic_sad_24dp);
+            generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
+        }
+
+
     }
 
 
     private void updateLabelUntil(TextView view) {
 
 
+        Context mContext = view.getContext();
         String myFormat = "yyyy/MM/dd";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        view.setText(sdf.format(myCalendar.getTime()));
+        Date time = myCalendar.getTime();
 
-        modelAddTrip.setDatUntil(sdf.format(myCalendar.getTime()));
+        long prevDay = System.currentTimeMillis();
+        Date prev = new Date(prevDay);
+
+
+        if (time.after(prev)){
+            view.setText(sdf.format(myCalendar.getTime()));
+
+            modelAddTrip.setDatUntil(sdf.format(myCalendar.getTime()));
+
+        }else {
+
+            view.setText("");
+
+            GeneralDialogFragment generalDialogFragment =
+                    GeneralDialogFragment.newInstance(mContext.getString(R.string.paytabs_error),mContext.getString(R.string.wrong_date),R.drawable.ic_sad_24dp);
+            generalDialogFragment.show(((FragmentActivity)mContext).getSupportFragmentManager(),"dialog");
+        }
+
+
+
+
+
     }
 
     public void addTrip(View view) {
@@ -342,6 +386,9 @@ public class AddTripViewModel extends ViewModel {
                     repository.addTrip(modelAddTrip, id_company, (Button) view,progressBar , image_trip , image_path_file );
 
                 }
+
+
+
 
             }
 

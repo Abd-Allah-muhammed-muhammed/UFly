@@ -1,6 +1,7 @@
 package com.abdallah.ufly.ui.registration.sign_up;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.text.InputType;
@@ -10,28 +11,38 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
+import com.abdallah.ufly.model.cities.CitiesResponse;
 import com.abdallah.ufly.model.registration.RegistarResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.retrofit.ApiClient;
 import com.abdallah.ufly.ui.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import java.util.List;
+
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
+import static io.reactivex.android.schedulers.AndroidSchedulers.mainThread;
+import static io.reactivex.schedulers.Schedulers.io;
 
 public class SignUpViewModel extends ViewModel {
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private boolean visib;
     private boolean reVisib;
+
+    MutableLiveData<List<CitiesResponse>> dataCities ;
 
 
     EditText pass , rePass;
@@ -44,6 +55,7 @@ public class SignUpViewModel extends ViewModel {
         rePassword = new MutableLiveData<>();
         progress = new MutableLiveData<>();
         signText = new MutableLiveData<>();
+        dataCities = new MutableLiveData<>();
 
     }
 
@@ -91,6 +103,8 @@ public class SignUpViewModel extends ViewModel {
                     StyleableToast.makeText(view.getContext(), "Please enter correct email", Toast.LENGTH_LONG, R.style.error).show();
 
 
+
+
                 } else {
                     callSignUp(view, fullName.getValue(), address.getValue(), email.getValue(), phone.getValue(), password.getValue());
 
@@ -121,9 +135,9 @@ public class SignUpViewModel extends ViewModel {
     }
 
 
-    public void setAddress(CharSequence s, int start, int before, int count) {
+    public void setAddress(String address1) {
 
-        address.setValue(String.valueOf(s));
+        address.setValue(address1);
     }
 
     public void setPhone(CharSequence s, int start, int before, int count) {
@@ -267,6 +281,35 @@ public class SignUpViewModel extends ViewModel {
         this.rePass = etRePassword;
 
 
+    }
+
+
+
+
+    @SuppressLint("CheckResult")
+    public LiveData<List<CitiesResponse>> getListCities(){
+
+
+        api = ApiClient.getClient().create(Api.class);
+        api.getCities().subscribeOn(io()).observeOn(mainThread())
+                .subscribeWith(new SingleObserver<List<CitiesResponse>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(List<CitiesResponse> citiesResponses) {
+
+                        dataCities.setValue(citiesResponses);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+        return dataCities;
     }
 }
 

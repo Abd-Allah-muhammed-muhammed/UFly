@@ -47,7 +47,7 @@ public class MyOldTripsFragment extends Fragment {
         manager = new PrefManager(getContext());
         String token = manager.getToken();
 
-        mViewModel.getMyOldTRips(token ,getContext()).observe(this, new Observer<MyTripsResponse>() {
+        mViewModel.getMyOldTRips(token ,getContext(),binding.noTrip).observe(this, new Observer<MyTripsResponse>() {
             @Override
             public void onChanged(MyTripsResponse myTripsResponse) {
 
@@ -60,15 +60,18 @@ public class MyOldTripsFragment extends Fragment {
 
     private void fetchData(MyTripsResponse myTripsResponse) {
 
-        MyTripsAdapter adapter = new MyTripsAdapter(OLD_TRIPS,getContext(),getActivity());
 
-        binding.rcOld.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rcOld.setAdapter(adapter);
+        if (myTripsResponse.getStatus()==0 &&!myTripsResponse.getDataTrips().isEmpty()){
+            MyTripsAdapter adapter = new MyTripsAdapter(OLD_TRIPS,getContext(),getActivity());
 
-        if (myTripsResponse.getStatus()!=1){
+            binding.rcOld.setLayoutManager(new LinearLayoutManager(getContext()));
+            binding.rcOld.setAdapter(adapter);
 
             adapter.setMyTrips(myTripsResponse);
 
+        }else {
+
+            binding.noTrip.setVisibility(View.VISIBLE);
         }
 
     }

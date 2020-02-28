@@ -3,6 +3,7 @@ package com.abdallah.ufly.ui.company.hom;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.lifecycle.MutableLiveData;
@@ -36,7 +37,7 @@ public class HomCompanyViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getMyTrip(String id_company, final ProgressBar progHome, final TextView noTrip) {
+    public MutableLiveData<List<TripsResponse>> getMyTrip(String id_company, final ProgressBar progHome, final RelativeLayout noTrip) {
 
         api.getMyTripsCompany(id_company).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new Observer<List<TripsResponse>>() {
             @Override

@@ -57,15 +57,21 @@ public class MyCompletTripsFragment extends Fragment {
 
     private void fetchData(MyTripsResponse myTripsResponse) {
 
-        MyTripsAdapter adapter = new MyTripsAdapter(COMPLETE_TRIPS,getContext(),getActivity());
 
-        binding.rcComplete.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rcComplete.setAdapter(adapter);
 
-        if (myTripsResponse.getStatus()!=1){
+        if (myTripsResponse.getStatus()==0){
 
+
+            MyTripsAdapter adapter = new MyTripsAdapter(COMPLETE_TRIPS,getContext(),getActivity());
+
+            binding.rcComplete.setLayoutManager(new LinearLayoutManager(getContext()));
+            binding.rcComplete.setAdapter(adapter);
             adapter.setMyTrips(myTripsResponse);
 
+        }else {
+
+
+            binding.noTrip.setVisibility(View.VISIBLE);
         }
 
 

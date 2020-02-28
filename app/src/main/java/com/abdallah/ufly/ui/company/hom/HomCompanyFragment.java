@@ -74,15 +74,25 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 View v = snapHelper.findSnapView(layoutManager);
-                int pos = layoutManager.getPosition(v);
+                int pos = 0;
+                if (v != null) {
+                    pos = layoutManager.getPosition(v);
+                }
 
                 RecyclerView.ViewHolder viewHolder = binding.revTripInfo.findViewHolderForAdapterPosition(pos);
-                RelativeLayout rl1 = viewHolder.itemView.findViewById(R.id.item_tip);
+                RelativeLayout rl1 = null;
+                if (viewHolder != null) {
+                    rl1 = viewHolder.itemView.findViewById(R.id.item_tip);
+                }
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE){
-                    rl1.animate().setDuration(350).scaleX(1).scaleY(1).setInterpolator(new AccelerateInterpolator()).start();
+                    if (rl1 != null) {
+                        rl1.animate().setDuration(350).scaleX(1).scaleY(1).setInterpolator(new AccelerateInterpolator()).start();
+                    }
                 }else{
-                    rl1.animate().setDuration(350).scaleX(0.75f).scaleY(0.75f).setInterpolator(new AccelerateInterpolator()).start();
+                    if (rl1 != null) {
+                        rl1.animate().setDuration(350).scaleX(0.75f).scaleY(0.75f).setInterpolator(new AccelerateInterpolator()).start();
+                    }
                 }
             }
 
@@ -121,7 +131,7 @@ public class HomCompanyFragment extends Fragment implements  View.OnClickListene
 
 
 
-    private void fetchData(String id_company, final ProgressBar progHome, final TextView noTrip){
+    private void fetchData(String id_company, final ProgressBar progHome, final RelativeLayout noTrip){
 
         mViewModel.getMyTrip(id_company,progHome,noTrip).observeForever(new Observer<List<TripsResponse>>() {
             @Override

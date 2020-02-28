@@ -2,6 +2,8 @@ package com.abdallah.ufly.ui.my_trip.my_trips_fragment.old;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -24,7 +26,7 @@ public class MyOldTripsViewModel extends ViewModel {
     Api api ;
     MutableLiveData<MyTripsResponse> data ;
     @SuppressLint("CheckResult")
-    public LiveData<MyTripsResponse> getMyOldTRips(String token, Context context) {
+    public LiveData<MyTripsResponse> getMyOldTRips(String token, Context context, final RelativeLayout noTrip) {
 
         data = new MutableLiveData<>();
         api = getClient().create(Api.class);
@@ -48,6 +50,7 @@ public class MyOldTripsViewModel extends ViewModel {
                     @Override
                     public void onError(Throwable e) {
 
+                        noTrip.setVisibility(View.VISIBLE);
                     }
 
                     @Override

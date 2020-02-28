@@ -16,6 +16,7 @@ import com.abdallah.ufly.model.cashPay.CashPay;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.retrofit.Api;
 import com.abdallah.ufly.ui.home.HomeActivity;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -78,10 +79,10 @@ public class TripDescreptionViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void pay(final String uui_id, int pay, final Activity activity) {
+    public void pay(final String uui_id, int pay, final Activity activity,String id) {
         api = getClient().create(Api.class);
 
-        api.cashPay(uui_id,pay).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<CashPay>() {
+        api.cashPay(uui_id,pay,id).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<CashPay>() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -91,10 +92,7 @@ public class TripDescreptionViewModel extends ViewModel {
             public void onSuccess(CashPay cashPay) {
 
 
-                GeneralDialogFragment generalDialogFragment =
-                        GeneralDialogFragment.newInstance(cashPay.getMsg(),cashPay.getMsg(), R.drawable.ic_done);
-                generalDialogFragment.show(((FragmentActivity)activity).getSupportFragmentManager(),"dialog");
-
+                StyleableToast.makeText(activity, cashPay.getMsg(), Toast.LENGTH_LONG, R.style.success).show();
 
                 activity.startActivity(new Intent(activity, HomeActivity.class));
 
@@ -103,10 +101,10 @@ public class TripDescreptionViewModel extends ViewModel {
             @Override
             public void onError(Throwable e) {
 
+                StyleableToast.makeText(activity, activity.getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
 
-                GeneralDialogFragment generalDialogFragment =
-                        GeneralDialogFragment.newInstance(activity.getString(R.string.paytabs_err_unknown),activity.getString(R.string.try_again),R.drawable.ic_error);
-                generalDialogFragment.show(((FragmentActivity)activity).getSupportFragmentManager(),"dialog");
+                activity.startActivity(new Intent(activity, HomeActivity.class));
+
 
 
 

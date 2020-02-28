@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModel;
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.model.cashPay.CashPay;
 import com.abdallah.ufly.retrofit.Api;
+import com.abdallah.ufly.ui.home.HomeActivity;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.util.Objects;
@@ -30,10 +32,10 @@ public class PayCashQrViewModel extends ViewModel {
 
 
     @SuppressLint("CheckResult")
-    public void pay(String uui_id, int pay, final Activity  activity) {
+    public void pay(String uui_id, int pay, final Activity  activity ,String id) {
         api = getClient().create(Api.class);
 
-        api.cashPay(uui_id,pay).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<CashPay>() {
+        api.cashPay(uui_id,pay,id).subscribeOn(io()).observeOn(mainThread()).subscribeWith(new SingleObserver<CashPay>() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -43,18 +45,18 @@ public class PayCashQrViewModel extends ViewModel {
             public void onSuccess(CashPay cashPay) {
 
                 StyleableToast.makeText(activity, cashPay.getMsg(), Toast.LENGTH_LONG, R.style.success).show();
+                activity.startActivity(new Intent(activity, HomeActivity.class));
 
 
 
 
-                activity.finish();
             }
             @Override
             public void onError(Throwable e) {
 
                 StyleableToast.makeText(activity, activity.getString(R.string.try_again), Toast.LENGTH_LONG, R.style.error).show();
 
-                activity.finish();
+                activity.startActivity(new Intent(activity, HomeActivity.class));
 
             }
         });

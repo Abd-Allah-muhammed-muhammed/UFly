@@ -3,6 +3,7 @@ package com.abdallah.ufly.retrofit;
 import com.abdallah.ufly.model.addTrip.AddTripResponse;
 import com.abdallah.ufly.model.book.BookModelResponse;
 import com.abdallah.ufly.model.cashPay.CashPay;
+import com.abdallah.ufly.model.cities.CitiesResponse;
 import com.abdallah.ufly.model.company_info.CompanyAccountResponse;
 import com.abdallah.ufly.model.delet_trip.DelelteMyTripResponse;
 import com.abdallah.ufly.model.emailvalidetion.EmailVerificationModel;
@@ -83,7 +84,9 @@ public interface Api {
  @FormUrlEncoded
     @POST("setIsPaid.php")
     Single<CashPay> cashPay(@Field("uui_id") String uui_id,
-                            @Field("is_paid") int is_paid);
+                            @Field("is_paid") int is_paid
+ ,
+                            @Field("id") String id);
 
     @FormUrlEncoded
     @POST("my_info.php")
@@ -124,6 +127,14 @@ public interface Api {
 
     @GET("my_info_company.php")
     Observable<CompanyAccountResponse> getMyinfoCompany(@Query("company_id") String company_id);
+
+
+
+
+
+
+    @GET("get_cities.php")
+    Single<List<CitiesResponse>> getCities();
 
 
 

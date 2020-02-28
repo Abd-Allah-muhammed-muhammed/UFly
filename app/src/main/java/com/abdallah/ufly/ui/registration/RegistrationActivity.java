@@ -23,9 +23,9 @@ public class RegistrationActivity extends AppCompatActivity implements GeneralDi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fullScreen(this);
         setContentView(R.layout.registration_activity);
         if (savedInstanceState == null) {
-            fullScreen(this);
 
 
 

@@ -85,21 +85,16 @@
                 android:background="@drawable/bg_btn_book_orange"
                 android:orientation="vertical">
 
-                <EditText
+                <Spinner
                     android:gravity="center"
-
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_18"
                     android:layout_marginEnd="@dimen/_18"
                     android:background="@android:color/transparent"
-                    android:drawableStart="@drawable/ic_address_orange_24dp"
                     android:drawablePadding="@dimen/_18"
                     android:fontFamily="sans-serif-condensed-medium"
-                    android:hint="@string/your_address"
-                    android:inputType="textPersonName"
-                    android:onTextChanged="@{sign::setAddress}"
                     android:textColor="@color/dark"
                     android:textColorHint="@color/dark_trans"
                     android:textSize="@dimen/_18s" />

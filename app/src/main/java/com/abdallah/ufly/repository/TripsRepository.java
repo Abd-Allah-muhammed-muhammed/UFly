@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +64,7 @@ public class TripsRepository {
 
 
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final TextView noTrip , final String query) {
+    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final RelativeLayout noTrip , final String query) {
 
 
         final Context context = progHome.getContext();
@@ -147,7 +148,7 @@ public class TripsRepository {
                         }
 
 
-//                        noTrip.setVisibility(View.VISIBLE);
+                        noTrip.setVisibility(View.VISIBLE);
 
                         progHome.setVisibility(View.GONE);
 

@@ -52,6 +52,7 @@ public class TripDescreptionActivity extends AppCompatActivity  implements  View
 
         binding.myTripCancel.setOnClickListener(this);
         binding.myTripPayNow.setOnClickListener(this);
+        binding.deleteOldTrip.setOnClickListener(this);
 
             prefManager = new PrefManager(this);
             token = prefManager.getToken();
@@ -149,6 +150,7 @@ public class TripDescreptionActivity extends AppCompatActivity  implements  View
 
                     Intent intent = new Intent(this, PayCashQRActivity.class);
                     intent.putExtra("qr",qr);
+                    intent.putExtra("id",idBook);
                     startActivity(intent);
 
                 }else {
@@ -156,8 +158,15 @@ public class TripDescreptionActivity extends AppCompatActivity  implements  View
 
                 }
 
+                break;
+
+
+            case R.id.delete_old_trip:
+                mViewModel.cancelMyTrip(token ,binding.progdeleteMyTrip ,TRIP_ID,TripDescreptionActivity.this , idBook);
 
                 break;
+
+
 
         }
     }
@@ -211,7 +220,7 @@ public class TripDescreptionActivity extends AppCompatActivity  implements  View
         if (resultCode == RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
 
 
-            mViewModel.pay(token,PAY,this );
+            mViewModel.pay(token,PAY,this,idBook);
 
 
             Log.i("Tag"," successful_"+data.getStringExtra(PaymentParams.RESULT_MESSAGE));

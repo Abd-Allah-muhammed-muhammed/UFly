@@ -19,6 +19,8 @@ import com.abdallah.ufly.model.my_trip.DataBook;
 import com.abdallah.ufly.model.my_trip.DataTrip;
 import com.abdallah.ufly.model.my_trip.MyTripsResponse;
 import com.abdallah.ufly.ui.my_trip.myTripsDescreption.TripDescreptionActivity;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 
@@ -55,7 +57,10 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
         holder.binding.setTrips(dataTrip);
 
         String image = dataTrip.getImage();
-        GlideApp.with(context).load(image).into(holder.binding.imageMyTrips);
+        GlideApp.with(context).
+                load(image)
+
+                .into(holder.binding.imageMyTrips);
 
         holder.binding.itemMyTrip.setOnClickListener(new View.OnClickListener() {
             @Override

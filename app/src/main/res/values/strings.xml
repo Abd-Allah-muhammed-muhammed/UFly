@@ -145,6 +145,7 @@
     <string name="my_old_trips">Old Trips</string>
     <string name="add_comment">Add Comment</string>
     <string name="delete">Delete</string>
+    <string name="wrong_date">Wrong Date</string>
 
 
 </resources>

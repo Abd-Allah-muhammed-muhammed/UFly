@@ -36,6 +36,7 @@ public class PayCashQRActivity extends AppCompatActivity implements ZBarScannerV
     private String qr;
     PrefManager prefManager;
     public static  final int PAY = 1;
+    public  String id ;
 
     public static PayCashQRActivity newInstance() {
         return new PayCashQRActivity();
@@ -47,6 +48,7 @@ public class PayCashQRActivity extends AppCompatActivity implements ZBarScannerV
         setContentView(R.layout.pay_cash_qr_fragment);
 
          qr = getIntent().getStringExtra("qr");
+         id = getIntent().getStringExtra("id");
          mViewModel = ViewModelProviders.of(this).get(PayCashQrViewModel.class);
 
         mScannerView = new ZBarScannerView(this);
@@ -73,7 +75,7 @@ public class PayCashQRActivity extends AppCompatActivity implements ZBarScannerV
 
             String uui_id = prefManager.getToken();
 
-            mViewModel.pay(uui_id,PAY , this);
+            mViewModel.pay(uui_id,PAY , this ,id );
 
         }else {
 
