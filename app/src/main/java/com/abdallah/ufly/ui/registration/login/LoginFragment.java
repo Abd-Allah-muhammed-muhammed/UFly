@@ -113,7 +113,13 @@ public class LoginFragment extends Fragment implements LoginResultCallbacks{
 
             }
 
+
+            prefManager.saveAddress(response.getData().getAddress());
+
+
             startActivity(new Intent(getContext(), HomeActivity.class));
+
+
 
         }else {
 

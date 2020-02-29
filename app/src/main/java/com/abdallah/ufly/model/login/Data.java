@@ -25,6 +25,18 @@ public class Data {
     @Expose
     private int is_mail_valid;
 
+@SerializedName("address")
+    @Expose
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getId_mail_valid() {
         return id_mail_valid;
     }

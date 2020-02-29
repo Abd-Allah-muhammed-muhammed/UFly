@@ -23,6 +23,7 @@ public class PrefManager {
     private static final String IS_VALID_MAIL  = "IS_VALID_MAIL";
     private static final String ID_VALIDATION  = "ID_VALIDATION";
     private static final String EMAIL  = "EMAIL";
+    private static final String ADDRESS  = "address";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -158,5 +159,21 @@ public class PrefManager {
 
         editor.remove(ID_COMPANY);
         editor.commit();
+    }
+
+    public void saveAddress(String address) {
+
+
+        editor.putString(ADDRESS,address);
+        editor.commit();
+
+    }
+
+
+
+    public String getAddress(){
+
+
+        return pref.getString(ADDRESS,"Cairo");
     }
 }

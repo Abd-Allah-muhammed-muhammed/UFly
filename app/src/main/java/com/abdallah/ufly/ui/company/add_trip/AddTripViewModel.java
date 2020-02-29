@@ -153,7 +153,7 @@ public class AddTripViewModel extends ViewModel {
 
     public void setFrom(CharSequence s, int start, int before, int count) {
 
-        modelAddTrip.setFrom(String.valueOf(s));
+        modelAddTrip.setFrom(String.valueOf(s).toUpperCase());
 
 
     }
@@ -161,7 +161,7 @@ public class AddTripViewModel extends ViewModel {
     public void setTo(CharSequence s, int start, int before, int count) {
 
 
-        modelAddTrip.setTo(String.valueOf(s));
+        modelAddTrip.setTo(String.valueOf(s).toUpperCase());
 
 
     }
@@ -487,13 +487,8 @@ public class AddTripViewModel extends ViewModel {
     }
 
 
-    public void selectImage (View view){
 
 
-
-
-
-    }
 
     public void getPath(String path) {
 

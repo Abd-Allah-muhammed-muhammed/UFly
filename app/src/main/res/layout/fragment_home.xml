@@ -99,9 +99,10 @@
 
             <RelativeLayout
 
+                android:id="@+id/rec_layout"
                 android:layout_below="@+id/text_select"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="@dimen/_400">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rev_trip_info"
@@ -120,6 +121,30 @@
                     android:src="@drawable/ic_more_horiz_black"
                     />
             </RelativeLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rec_layout"
+
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+android:id="@+id/tv_sugg"
+                android:text="@string/suggestions"
+                android:textColor="@color/dark_"
+
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_trip_my_country"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/item_trips_sugguetion"
+                android:layout_height="@dimen/_250"
+                android:layout_below="@+id/tv_sugg"
+
+                />
+
 
 
         </RelativeLayout>
@@ -141,6 +166,7 @@
                 android:layout_centerInParent="true"/>
 
             <TextView
+                android:id="@+id/tv_no_trop"
                 android:gravity="center"
                 android:layout_below="@+id/image_empty"
                 android:layout_centerInParent="true"

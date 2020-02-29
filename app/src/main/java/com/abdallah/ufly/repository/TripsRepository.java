@@ -61,10 +61,11 @@ public class TripsRepository {
    private static TripsRepository instance ;
     Api api;
     MutableLiveData<List<TripsResponse>> data;
+    MutableLiveData<List<TripsResponse>> dataSuggetion;
 
 
     @SuppressLint("CheckResult")
-    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final RelativeLayout noTrip , final String query) {
+    public MutableLiveData<List<TripsResponse>> getTrips(final ProgressBar progHome, final RelativeLayout noTrip, final String query, final int i) {
 
 
         final Context context = progHome.getContext();
@@ -86,7 +87,7 @@ public class TripsRepository {
 
 
 
-                        if (query.equals("")){
+                        if (i==0){
 
                             if (tripsResponses.isEmpty()){
 
@@ -101,7 +102,7 @@ public class TripsRepository {
                                 data.setValue(tripsResponses);
 
                             }
-                        }else {
+                        }else if (i==1){
 
 
                             // search case
@@ -115,7 +116,6 @@ public class TripsRepository {
                                 GeneralDialogFragment generalDialogFragment =
                                         GeneralDialogFragment.newInstance(context.getString(R.string.no_result),context.getString(R.string.no_result),R.drawable.ic_error);
                                 generalDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(),"dialog");
-
 
 
 
@@ -139,7 +139,7 @@ public class TripsRepository {
 
 
 
-                        if (!query.equals("")){
+                        if (i!=0){
 
                             GeneralDialogFragment generalDialogFragment =
                                     GeneralDialogFragment.newInstance(context.getString(R.string.no_result),context.getString(R.string.no_result),R.drawable.ic_error);
@@ -161,6 +161,69 @@ public class TripsRepository {
                     }
                 });
 //
+
+
         return data;
+
     }
+
+    @SuppressLint("CheckResult")
+    public MutableLiveData<List<TripsResponse>> getTripsSuggetion(String query, final TextView tvSugg){
+
+
+        dataSuggetion = new MutableLiveData<>();
+
+
+        api.getAllTrips(query).subscribeOn(io())
+                .observeOn(mainThread())
+                .subscribeWith(new Observer<List<TripsResponse>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<TripsResponse> tripsResponses) {
+
+
+                        dataSuggetion.setValue(tripsResponses);
+
+
+                        if (tripsResponses.isEmpty()){
+
+                            tvSugg.setVisibility(View.GONE);
+
+
+                        }else {
+
+                            tvSugg.setVisibility(View.VISIBLE);
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        tvSugg.setVisibility(View.GONE);
+
+
+
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+
+                    }
+                });
+
+
+
+        return dataSuggetion;
+    }
+
+
+
+
 }

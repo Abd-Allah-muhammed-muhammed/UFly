@@ -146,6 +146,7 @@
     <string name="add_comment">Add Comment</string>
     <string name="delete">Delete</string>
     <string name="wrong_date">Wrong Date</string>
+    <string name="suggestions">Suggestions</string>
 
 
 </resources>

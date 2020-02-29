@@ -1,12 +1,16 @@
 package com.abdallah.ufly.ui.company.add_trip;
 
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +34,12 @@ import com.bumptech.glide.request.target.Target;
 
 import java.io.File;
 import static android.app.Activity.RESULT_OK;
+import static androidx.constraintlayout.widget.Constraints.TAG;
+import static androidx.core.content.PermissionChecker.checkSelfPermission;
 
 public class AddTripFragment extends Fragment implements View.OnClickListener {
 
+    private static final int REQUEST_CODE = 11;
     private AddTripViewModel mViewModel;
 
     AddTripFragmentBinding binding;
@@ -47,6 +55,7 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.add_trip_fragment,container,false);
         mViewModel = ViewModelProviders.of(this , new AddTripFactory(binding.progAdd ,binding.photoTrip)).get(AddTripViewModel.class);
+
 
 
         binding.photoTrip.setOnClickListener(this);
@@ -101,6 +110,10 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         }else {
 
             binding.progImageDesc.setVisibility(View.GONE);
+
+
+
+
         }
 
 
@@ -109,6 +122,26 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         binding.setAddTrip(mViewModel);
 
         return binding.getRoot();
+    }
+
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getActivity().checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+
+                return false;
+            }
+        }
+        else {
+
+
+            //permission is automatically granted on sdk<23 upon installation
+            return true;
+        }
     }
 
 
@@ -122,7 +155,15 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
             case R.id.photo_trip:
                 if (id!=2){
 
-                    openGalary();
+                    if (isStoragePermissionGranted()){
+                        openGalary();
+                    }else {
+
+                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+
+
+                    }
+
 
                 }
                 break;
@@ -163,5 +204,18 @@ public class AddTripFragment extends Fragment implements View.OnClickListener {
         cursor.moveToFirst();
         int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
         return cursor.getString(idx);
+    }
+
+
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+
+        }
     }
 }

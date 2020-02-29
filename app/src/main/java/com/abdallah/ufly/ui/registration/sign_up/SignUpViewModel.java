@@ -203,6 +203,8 @@ public class SignUpViewModel extends ViewModel {
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
 
                     view.getContext().startActivity(intent);
+                    prefManager.saveAddress(response.body().getData().getAddress());
+
 
 
                 } else {

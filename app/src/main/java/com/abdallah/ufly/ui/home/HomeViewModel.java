@@ -2,6 +2,7 @@ package com.abdallah.ufly.ui.home;
 
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
@@ -24,10 +25,18 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, RelativeLayout noTrip, String query) {
+    public LiveData<List<TripsResponse>> getdata(ProgressBar progHome, RelativeLayout noTrip, String query, int i) {
 
 
-        return   repository.getTrips(progHome, noTrip,query);
+        return   repository.getTrips(progHome, noTrip,query,i);
+
+
+    }
+
+    public LiveData<List<TripsResponse>> getdataSuggetion(String query, TextView tvSugg) {
+
+
+        return   repository.getTripsSuggetion(query,tvSugg);
 
 
     }

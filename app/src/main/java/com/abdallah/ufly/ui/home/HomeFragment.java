@@ -2,9 +2,6 @@ package com.abdallah.ufly.ui.home;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +11,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -28,14 +24,15 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import com.abdallah.ufly.R;
 import com.abdallah.ufly.adpter.TripInfoAdapter;
+import com.abdallah.ufly.adpter.TripSuggetionAdapter;
 import com.abdallah.ufly.databinding.FragmentHomeBinding;
+import com.abdallah.ufly.helper.PrefManager;
 import com.abdallah.ufly.helper.dialog.GeneralDialogFragment;
 import com.abdallah.ufly.model.trips.TripsResponse;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static com.abdallah.ufly.helper.HelperMethod.isNetworkAvailable;
 
@@ -47,19 +44,20 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding ;
     private TripInfoAdapter tripInfoAdapter;
 
+    PrefManager manager ;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         binding.setLifecycleOwner(this);
+        manager = new PrefManager(getContext());
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.progHome.setVisibility(View.VISIBLE);
 
-
-
-
-
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        final RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         binding.revTripInfo.setLayoutManager(layoutManager);
+        binding.revTripMyCountry.setLayoutManager(layoutManager2);
 
 
         final SnapHelper snapHelper = new LinearSnapHelper();
@@ -126,6 +124,8 @@ public class HomeFragment extends Fragment {
         }else {
             fetchData();
             searchTrip();
+            String address = manager.getAddress();
+            suggetions(address);
         }
 
 
@@ -162,7 +162,7 @@ public class HomeFragment extends Fragment {
 
 
         binding.progHome.setVisibility(View.VISIBLE);
-        homeViewModel.getdata(binding.progHome,binding.noTrip,query).observe(getViewLifecycleOwner(), new Observer<List<TripsResponse>>() {
+        homeViewModel.getdata(binding.progHome,binding.noTrip,query,1).observe(getViewLifecycleOwner(), new Observer<List<TripsResponse>>() {
             @Override
             public void onChanged(List<TripsResponse> tripsResponses) {
 
@@ -184,7 +184,7 @@ public class HomeFragment extends Fragment {
         binding.revTripInfo.setAdapter(tripInfoAdapter);
         binding.revTripInfo.setHasFixedSize(true);
 
-        homeViewModel.getdata(binding.progHome,binding.noTrip,binding.searchTrip.getText().toString()).observe(this, new Observer<List<TripsResponse>>() {
+        homeViewModel.getdata(binding.progHome,binding.noTrip,binding.searchTrip.getText().toString(), 0).observe(this, new Observer<List<TripsResponse>>() {
             @Override
             public void onChanged(List<TripsResponse> tripsResponses) {
 
@@ -211,5 +211,27 @@ public class HomeFragment extends Fragment {
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+
+
+    private void suggetions (String query){
+
+
+
+        homeViewModel.getdataSuggetion(query ,binding.tvSugg).observe(getViewLifecycleOwner(), new Observer<List<TripsResponse>>() {
+            @Override
+            public void onChanged(List<TripsResponse> tripsResponses) {
+
+                TripSuggetionAdapter tripInfoAdapter = new TripSuggetionAdapter();
+                binding.revTripMyCountry.setAdapter(tripInfoAdapter);
+
+                tripInfoAdapter.setTripSuggetionList((ArrayList<TripsResponse>) tripsResponses);
+                tripInfoAdapter.notifyDataSetChanged();
+
+            }
+        });
+
+
+
+    }
 
 }

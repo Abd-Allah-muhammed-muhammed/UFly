@@ -23,6 +23,7 @@ import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsViewHolder> {
 
@@ -31,6 +32,8 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
     int typeTrips ;
     Context context ;
     Activity activity ;
+
+
 
     public MyTripsAdapter(int typeTrips, Context context, Activity activity) {
         this.typeTrips = typeTrips;
@@ -55,6 +58,8 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
         final DataTrip dataTrip = tripsResponseArrayList.getDataTrips().get(position);
         final DataBook dataBook = tripsResponseArrayList.getDataBook().get(position);
         holder.binding.setTrips(dataTrip);
+
+
 
         String image = dataTrip.getImage();
         GlideApp.with(context).

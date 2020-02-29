@@ -37,6 +37,10 @@ public class DataBook implements Parcelable {
     @Expose
     private String idCompany;
 
+    @SerializedName("created_at")
+    @Expose
+    private String created_at;
+
     protected DataBook(Parcel in) {
         id = in.readString();
         idTrip = in.readString();
@@ -47,6 +51,7 @@ public class DataBook implements Parcelable {
         isPaid = in.readString();
         number = in.readString();
         idCompany = in.readString();
+        created_at = in.readString();
     }
 
     public static final Creator<DataBook> CREATOR = new Creator<DataBook>() {
@@ -133,6 +138,15 @@ public class DataBook implements Parcelable {
         this.idCompany = idCompany;
     }
 
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -149,5 +163,6 @@ public class DataBook implements Parcelable {
         dest.writeString(isPaid);
         dest.writeString(number);
         dest.writeString(idCompany);
+        dest.writeString(created_at);
     }
 }
