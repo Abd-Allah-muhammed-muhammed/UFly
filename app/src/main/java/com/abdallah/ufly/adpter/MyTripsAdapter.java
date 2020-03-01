@@ -1,5 +1,6 @@
 package com.abdallah.ufly.adpter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import com.abdallah.ufly.ui.my_trip.myTripsDescreption.TripDescreptionActivity;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.request.target.Target;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -52,6 +54,7 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
         return new  MyTripsViewHolder(binding);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyTripsViewHolder holder, int position) {
 
@@ -59,6 +62,26 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
         final DataBook dataBook = tripsResponseArrayList.getDataBook().get(position);
         holder.binding.setTrips(dataTrip);
 
+        holder.binding.def.setText("You Have "+ 24 +" Hours To Pay  or the trip will be removed");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-dd");
+
+
+//        String created_at = dataBook.getCreated_at();
+//        String[] s = created_at.split(" ");
+//        String s1 = s[0];
+//
+//        try {
+//
+//            Date date1 = simpleDateFormat.parse(s1);
+//            Date date2 = simpleDateFormat.parse(dataTrip.getDateFrom());
+//
+//          long def =   printDifference(date1, date2);
+//
+//          holder.binding.def.setText("Still "+def +"Hours To Pay  or the trip will remove");
+//
+//        }catch (Exception w){
+//            w.getMessage();
+//        }
 
 
         String image = dataTrip.getImage();
@@ -117,5 +140,40 @@ public class MyTripsAdapter extends RecyclerView.Adapter<MyTripsAdapter.MyTripsV
             this.binding = itemView;
 
         }
+    }
+
+
+
+
+    public long printDifference(Date startDate, Date endDate) {
+        //milliseconds
+        long different_ = endDate.getTime() - startDate.getTime();
+
+//        System.out.println("startDate : " + startDate);
+//        System.out.println("endDate : "+ endDate);
+//        System.out.println("different : " + different);
+//
+        long secondsInMilli = 1000;
+        long minutesInMilli = secondsInMilli * 60;
+        long hoursInMilli = minutesInMilli * 60;
+        long daysInMilli = hoursInMilli * 24;
+
+//        long elapsedDays = different / daysInMilli;
+//        different = different % daysInMilli;
+//
+//        long elapsedHours = different / hoursInMilli;
+//        different = different % hoursInMilli;
+//
+//        long elapsedMinutes = different / minutesInMilli;
+//        different = different % minutesInMilli;
+//
+//        long elapsedSeconds = different / secondsInMilli;
+//
+//        System.out.printf(
+//                "%d days, %d hours, %d minutes, %d seconds%n",
+//                elapsedDays/2, elapsedHours/2, elapsedMinutes/2, elapsedSeconds/2);
+
+
+        return  different_/hoursInMilli/2;
     }
 }
